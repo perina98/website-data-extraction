@@ -1,0 +1,13 @@
+{
+    "urlss": [
+        "https://www.flashscore.sk/",
+        "https://www.livescore.com/en/",
+        "https://www.goal.com/en/live-scores",
+        "https://www.365scores.com/",
+        "https://www.livescore.cz/"
+    ],
+    "urls": [
+        "https://www.flashscore.sk/"
+    ],
+    "items": "time team1 score team2"
+}

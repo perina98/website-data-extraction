@@ -1,0 +1,6 @@
+{   
+    "maxFailRatio" : 50,
+    "maxClasses" : 15,
+    "format" : "^\\d+:\\d+$",
+    "dominant" : true
+}
