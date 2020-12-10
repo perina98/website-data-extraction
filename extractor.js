@@ -23,15 +23,18 @@ function getTopClasses(targets) {
     }
   }
   var i = 0;
-  if (dominant){
+  if (dominant) {
     for (const [key, value] of Object.entries(classes).sort(([, a], [, b]) => b - a)) {
-      if (i < maxClasses) {
-        topClasses.push(key);
+      if (i < targets.length) {
+        if(isNaN(key[0]))
+          topClasses.push(key);
+        else
+          topClasses.push('\\\\' + key)
       }
       i++;
     }
-  } else{
-  
+  } else {
+
   }
   return topClasses;
 }
@@ -65,73 +68,72 @@ function getPathTo(element) {
 
 // check results array for null values and its failratio
 // returns true on passed, false on failed.
-function checkArrBySeverity(results){
+function checkArrBySeverity(results) {
   let size = results.length;
   let bonds = 0;
-  
-  for(let i = 0; i < size; i++){
-    if(!(results[i])) bonds++; 
+
+  for (let i = 0; i < size; i++) {
+    if (!(results[i])) bonds++;
   }
   let failR = failRatio(bonds, size);
-  
-  if (failR < severity){
-    console.log("Fail ratio : " + (failR));
-    console.log("Succeeded with " + bonds + " failed results and " + (size-bonds) + " passed results");
+
+  if (failR < severity) {
+    //console.log("Fail ratio : " + (failR));
+    //console.log("Succeeded with " + bonds + " failed results and " + (size - bonds) + " passed results");
     return true;
-  } else{
-    console.log("Fail ratio : " + (failR));
-    console.log("Failed with " + bonds + " failed results and " + (size - bonds) + " passed results");
+  } else {
+    //console.log("Fail ratio : " + (failR));
+   // console.log("Failed with " + bonds + " failed results and " + (size - bonds) + " passed results");
     return false;
-  } 
+  }
 
 }
-
-
 
 //check if results match regex
 //return final array
-function checkResults(results){
-  format1 = "^\\d\\d:\\d\\d[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Zá-žÁ-Ž]*)*$";
-  re = new RegExp(format1);
+function checkResults(results) {
+  format_ac = format;
+  re = new RegExp(format_ac);
   searchfor = searchItem;
-  for(let i = 0; i < results.length; i++){
-    //console.log(results[i].time);
-    if (!(re.test(results[i].time) && results[i].time.length > 2)) {
+  for (let i = 0; i < results.length; i++) {
+    if (!re.test(results[i].time)) {
       results[i] = null;
     }
-  } 
+  }
 
-    return results;
+  return results;
 }
 
-function getParents(select,page){
+function getParents(select, page) {
   var parents = {};
   var subparents = {};
   (async function () {
-  parents = await page.$$eval(select, nodes => {
-    return nodes.map(node => {
-      subparents = [];
-      target = node.parentNode;
-      while (target) {
-        subparents.push(target);
-        target = target.parentNode;
-      }
-      return { subparents };
-    })
-  });
+    parents = await page.$$eval(select, nodes => {
+      return nodes.map(node => {
+        subparents = [];
+        target = node.parentNode;
+        while (target) {
+          subparents.push(target);
+          target = target.parentNode;
+        }
+        return { subparents };
+      })
+    });
     await delay(500);
-})();
+  })();
   return parents;
 }
 
 (async function () {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
+  process.on('unhandledRejection', (reason, p) => {
+    console.error('Unhandled Rejection at: Promise', p, 'reason:', reason);
+  });
   urlIndex = 0;
-  while(urlIndex < urls.length){
+  while (urlIndex < urls.length) {
     url = urls[urlIndex];
     console.log(url);
-
     await page.goto(url, {
       waitUntil: "networkidle2",
       timeout: 60000
@@ -147,58 +149,42 @@ function getParents(select,page){
           class_list
         }
       })
-    }); 
+    });
 
     topClasses = getTopClasses(targets);
-    //topClasses = ['event__match'];
-    for (var i = 0; i < topClasses.length;i++){
-      //if(topClasses[i].includes('match')){
-        console.log(i+". "+topClasses[i]);
-      //}
+    for (var i = 0; i < topClasses.length; i++) {
+      //console.log(i + ". " + topClasses[i]);
     }
     ind = 0;
-    do{
+    do {
       currentSelector = '.' + topClasses[ind];
-      //console.log(getParents(currentSelector,page));
-      results = await page.$$eval(currentSelector, nodes => {
-        return nodes.map(node => {
-          time = node.childNodes;
-          timelen = node.childNodes.length;
-          time = node.textContent;
-          node.style.backgroundColor = 'blue';
-          ttime = tteam1 = tteam2 = score = "";
-          k = 0;
-          if(timelen > 3){
-            ttime = node.childNodes[0].textContent.trim();
-            tteam1 = node.childNodes[1].textContent.trim();
-            score = node.childNodes[2].textContent.trim();
-            tteam2 = node.childNodes[3].textContent.trim();
-            if(ttime == ""){
-              do{
-                ttime = node.childNodes[1+k].textContent.trim();
-                tteam1 = node.childNodes[2+k].textContent.trim();
-                score = node.childNodes[4+k].textContent.trim();
-                tteam2 = node.childNodes[6+k].textContent.trim();
-                k++;
-              } while (ttime == "")
-            }
-          }
-          return { time, ttime, tteam1, tteam2, score};
-        })
-      });
-     
-
-      await delay(500);
-      //console.log(JSON.stringify(results, null, 4));
-      await delay(2200);
+      //console.log(currentSelector);
+      try {
+        results = await page.$$eval(currentSelector, nodes => {
+          return nodes.map(node => {
+            time = node.textContent.trim();
+            time = time.replace(/\s/g, '');
+            return { time };
+          })
+        });
+      } catch (err) {
+        console.error(err);
+      }
+      
+      pro_results = JSON.parse(JSON.stringify(results));;
       results = checkResults(results);
-      console.log(url + " on " + (ind+1) + " try with class " + topClasses[ind]);
+      if (checkArrBySeverity(results)){
+        //console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
+        results = pro_results;
+        break;
+      }
+      //console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
       ind++;
-      if(ind == topClasses.length) break;
-    } while (!checkArrBySeverity(results)) 
-  
-    await delay(500);
+      if (ind == topClasses.length) break;
+    } while (!checkArrBySeverity(results))
 
+    await delay(100);
+    console.log("Target selector : document.querySelectorAll('." + topClasses[ind] +"')");
     fs.writeFile('./targets_' + (new URL(url)).hostname + '.json', JSON.stringify(results, null, 4), err => err ? console.log(err) : null);
     urlIndex++;
     console.log("==============================");

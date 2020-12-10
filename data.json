@@ -1,13 +1,16 @@
 {
-    "urlss": [
-        "https://www.flashscore.sk/",
-        "https://www.livescore.com/en/",
-        "https://www.goal.com/en/live-scores",
-        "https://www.365scores.com/",
-        "https://www.livescore.cz/"
-    ],
     "urls": [
-        "https://www.flashscore.sk/"
+        "https://www.flashscore.sk/",
+        "https://www.365scores.com/",
+        "https://www.livescore.cz/",
+        "https://www.livescore.com/en/",
+        "https://777score.com/",
+        "https://www.skysports.com/football-results",
+        "https://www.soccerstand.com/",
+        "http://livescore.eurosport.com/",
+        "https://www.premierleague.com/results",
+        "https://www.soccer24.com/",
+        "https://www.flashscore.com/"
     ],
     "items": "time team1 score team2"
 }

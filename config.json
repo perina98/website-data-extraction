@@ -1,6 +1,6 @@
-{   
-    "maxFailRatio" : 50,
-    "maxClasses" : 15,
-    "format" : "^\\d+:\\d+$",
-    "dominant" : true
+{
+    "maxFailRatio": 70,
+    "maxClasses": 15,
+    "format": "^(\\d+:\\d+)$|(\\d+-\\d+)$",
+    "dominant": true
 }
