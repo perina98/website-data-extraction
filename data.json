@@ -1,5 +1,5 @@
 {
-    "urls": [
+    "url": [
         "https://www.flashscore.sk/",
         "https://www.365scores.com/",
         "https://www.livescore.cz/",
@@ -12,5 +12,19 @@
         "https://www.soccer24.com/",
         "https://www.flashscore.com/"
     ],
-    "items": "time team1 score team2"
+    "urls": [
+        "https://www.flashscore.sk/"
+    ],
+    "structure":[
+        "time",
+        "string",
+        "score",
+        "string"
+    ] ,
+    "items": [
+        "time",
+        "team1",
+        "score",
+        "team2"
+    ]
 }
