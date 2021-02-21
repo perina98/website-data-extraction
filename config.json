@@ -1,6 +1,9 @@
 {
     "maxFailRatio": 70,
-    "maxClasses": 15,
-    "format": "^(\\d+:\\d+)$|(\\d+-\\d+)$",
-    "dominant": true
+    "format":{
+        "time": "^(\\d+:\\d+)$",
+        "score": "^(\\d+-\\d+)$|^-$",
+        "string": "^[a-žA-Ž].*$"
+    },
+    "primary": "^(\\d+:\\d+)$"
 }
