@@ -254,7 +254,7 @@ function prepareQuerry(url,ind,topclass,reslength){
 
 function output(url,final_results){
   if (offline) {
-    url = url.slice(77);
+    url = url.slice(85); // fix for my file path
     fs.writeFile(output_folder + '/targets_' + url + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
   } else {
     fs.writeFile(output_folder + '/targets_' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
@@ -273,14 +273,14 @@ async function getFinalResults(page,currentSelector){
           subtreeLength = tree[i].children.length;
           for (k = 0; k < subtreeLength; k++) {
             if (tree[i].children[k].textContent.trim() != "") {
-              treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n/g, '');
+              treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n\s+/g, '');
               x++;
             }
           }
           continue;
         }
         if (tree[i].textContent.trim() != "") {
-          treeContent[x] = tree[i].textContent.trim().replace(/\n/g, '');
+          treeContent[x] = tree[i].textContent.trim().replace(/\n\s+/g, '');
           x++;
         }
       }
@@ -391,7 +391,12 @@ async function mainProcess() {
     } catch (err) {
       console.error(err);
     }
-   
+    
+   /*  removeDuplicatesFromArray = (final_results) => [...new Set(
+      final_results.map(el => JSON.stringify(el))
+    )].map(e => JSON.parse(e));
+    final_results = removeDuplicatesFromArray(final_results);
+     */
     pro_final_results = JSON.parse(JSON.stringify(final_results));
     
     final_results = prepareResults(final_results);
