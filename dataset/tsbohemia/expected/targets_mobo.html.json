@@ -1,0 +1,124 @@
+[
+    {
+        "title": "ASUS EX-B250-V7 (MINING)",
+        "price": "1 699,-",
+        "description": "základní deska, MB, ATX, socket 1151, Intel B250, Kabylake, 4x DDR4, 3x PCIe x16, 3x PCIe x1, 6x SATA 6Gb/s, Gb LAN, HDMI, 4x USB 3.1 g1, 4x USB 2.0, 6x audio jack, vhodné pro mining"
+    },
+    {
+        "title": "ASUS ROG MAXIMUS IX APEX",
+        "price": "2 299,-",
+        "description": "základní deska, MB, E-ATX (eATX) 305x272mm, socket 1151, Intel Z270, Kabylake, 2x DDR4, 3x PCIe x16, 2x PCIe x1, 2x M.2, 4x SATA 6Gb/s, Gb LAN, DisplayPort, HDMI, 2x USB 3.1 g2 vč. USB-C, 4x USB 3.1 g1, 5x audio jack, optický S/PDIF",
+        "discount": "Sleva -26 %"
+    },
+    {
+        "title": "ASUS ROG MAXIMUS IX EXTREME",
+        "price": "1 999,-",
+        "description": "základní deska, MB, E-ATX (eATX) 305x272mm, socket 1151, Intel Z270, Kabylake, 4x DDR4, 3x PCIe x16, 1x PCIe x1, 2x M.2, 8x SATA 6Gb/s, Gb LAN, DisplayPort, HDMI, 2x USB 3.1 g2 vč. USB-C, 4x USB 3.1 g1, 5x audio jack, optický S/PDIF"
+    },
+    {
+        "title": "MSI MAG B550 TOMAHAWK",
+        "price": "3 990,-",
+        "description": "Základní deska MSI MAG B550 TOMAHAWK, s.AM4, AMD B550 Ryzen, 4x DDR4 DIMM (max. 128GB), 2x M.2, DisplayPort, HDMI, USB typ C, ATX"
+    },
+    {
+        "title": "MSI H410M-A PRO",
+        "price": "1 990,-",
+        "description": "základní deska, MB, Intel B460, LGA1200, 2x DDR4 DIMM (max. 64GB), M.2, HDMI, DVI-D, mATX",
+        "discount": "Sleva -18 %"
+    },
+    {
+        "title": "ASUS Prime A320M-K",
+        "price": "1 399,-",
+        "description": "základní deska, MB, mATX, AM4, AMD A320, Ryzen, 2x DDR4, 1x PCIe x16, 2x PCIe x1, M.2, 4x SATA 6Gb/s, Gb LAN, HDMI, D-Sub, 4x USB 3.0, 2x USB 2.0, 3x audio Jack"
+    },
+    {
+        "title": "MSI B460M-A PRO",
+        "price": "1 799,-",
+        "description": "základní deska, MB, Intel B460, LGA1200, 2x DDR4 DIMM (max. 64GB), M.2, HDMI, DVI-D, mATX"
+    },
+    {
+        "title": "ASUS EX-B250-V7 (MINING)",
+        "price": "1 699,-",
+        "description": "základní deska, MB, ATX, socket 1151, Intel B250, Kabylake, 4x DDR4, 3x PCIe x16, 3x PCIe x1, 6x SATA 6Gb/s, Gb LAN, HDMI, 4x USB 3.1 g1, 4x USB 2.0, 6x audio jack"
+    },
+    {
+        "title": "MSI B450M-A PRO MAX",
+        "price": "1 492,-",
+        "description": "Základní deska MSI B450M-A PRO MAX, s.AM4, AMD B450 Ryzen, 2xDDR4, 1 x M.2, 6x USB 3.2 Gen1, 6x USB 2.0, mATX"
+    },
+    {
+        "title": "MSI B450 TOMAHAWK MAX",
+        "price": "2 690,-",
+        "description": "Základní deska MSI B450 TOMAHAWK MAX, s.AM4, AMD B450 Ryzen, 4xDDR4, 1 x M.2, 1 x USB 3.2 Gen2 typ C, 1x USB 3.2 Gen2, typ A, 2x USB 3.2 Gen1, 6 x USB 2.0, ATX"
+    },
+    {
+        "title": "ASUS Prime Z490-P",
+        "price": "3 790,-",
+        "description": "základní deska, MB, ATX, socket 1200, Intel Z490, Comet Lake, 4x DDR4, M.2, HDMI, DisplayPort"
+    },
+    {
+        "title": "ASROCK B460M Pro4",
+        "price": "2 484,-",
+        "description": "Základní deska ASROCK B460M Pro4, s.1200, 4x DDR4 DIMM (max. 128GB), 2x M.2, VGA, HDMI, DisplayPort, USB typ C, mATX"
+    },
+    {
+        "title": "ASUS ROG MAXIMUS IX EXTREME",
+        "price": "1 999,-",
+        "description": "základní deska, MB, E-ATX (eATX) 305x272mm, socket 1151, Intel Z270, Kabylake, 4x DDR4, 3x PCIe x16, 1x PCIe x1, 2x M.2, 8x SATA 6Gb/s, Gb LAN, DisplayPort, HDMI, 2x USB 3.1 g2 vč. USB-C, 4x USB 3.1 g1, 5x audio jack, optický S/PDIF"
+    },
+    {
+        "title": "ASUS TUF Gaming B550-PLUS",
+        "price": "3 499,-",
+        "description": "základní deska, MB, ATX, AM4, AMD B550, Ryzen, 4x DDR4"
+    },
+    {
+        "title": "ASUS Prime B365-PLUS (Mining)",
+        "price": "2 799,-",
+        "description": "základní deska, MB, ATX, socket 1151, Intel B365, Coffee Lake, 4x DDR4, 2x M.2, 6x SATA 6Gb/s, DVI-D, HDMI, D-Sub, 4x USB 3.1 g1, 2x USB 2.0, 3x jack audia, vhodná pro mining"
+    },
+    {
+        "title": "MSI B365M PRO-VDH",
+        "price": "1 899,-",
+        "description": "Základní deska, Intel B365, LGA1151, 4x DDR4 DIMM (max. 64GB), VGA, DVI-D, HDMI, USB typ C, Micro ATX"
+    },
+    {
+        "title": "GIGABYTE B450 AORUS Elite",
+        "price": "2 699,-",
+        "description": "základní deska, MB, ATX, AM4, AMD B450, Ryzen, 4x DDR4, 2x M.2, 6x SATA 6Gb/s, Gb LAN, DVI-D, HDMI, 4x USB 3.1 g1, 6x audio jack"
+    },
+    {
+        "title": "MSI MAG B460 TORPEDO",
+        "price": "3 199,-",
+        "description": "základní deska, MB, Intel B460, LGA1200, 4x DDR4 DIMM (max. 128GB), 2x M.2, HDMI, DisplayPort, ATX"
+    },
+    {
+        "price": "2 699,-",
+        "title": "SKLADEM > 4 ks",
+        "description": "základní deska, MB, ATX, AM4, AMD B450, Ryzen, 4x DDR4, 3x PCIe x16, 3x PCIe x1, 2x PCI, 2x M.2, 6x SATA 6Gb/s, Gb LAN, HDMI, DisplayPort, 2x USB 3.1 gen2, 4x USB 3.1 gen1, 2x USB 2.0, S/PDIF, 5x audio Jack, vhodná pro mining"
+    },
+    {
+        "price": "2 999,-",
+        "title": "SKLADEM > 11 ks",
+        "description": "základní deska, MB, ATX, AM4, AMD B450, Ryzen, 4x DDR4, 3x PCIe x16, 3x PCIe x1, 2x PCI, 2x M.2, 6x SATA 6Gb/s, Gb LAN, HDMI, DisplayPort, 2x USB 3.1 gen2, 4x USB 3.1 gen1, 2x USB 2.0, S/PDIF, 5x audio Jack, vhodná pro mining"
+    },
+    {
+        "title": "ASUS ROG Strix B460-H Gaming",
+        "price": "3 799,-",
+        "description": "základní deska, MB, ATX, socket 1200, Intel B460, Comet Lake, 4x DDR4, 2x M.2, 6x SATA, DisplayPort, HDMI"
+    },
+    {
+        "title": "ASUS TUF Gaming B460-PLUS",
+        "price": "3 099,-",
+        "description": "základní deska, MB, ATX, socket 1200, Intel B460, Comet Lake, 4x DDR4"
+    },
+    {
+        "title": "ASUS Prime B460M-A",
+        "price": "2 299,-",
+        "description": "základní deska, MB, mATX, socket 1200, Intel B460, Comet Lake, 4x DDR4, HDMI, DisplayPort, DVI-D"
+    },
+    {
+        "title": "ASUS TUF Gaming B550M-PLUS",
+        "price": "2 999,-",
+        "description": "základní deska, MB, mATX, AM4, AMD B550, Ryzen, 4x DDR4"
+    }
+]

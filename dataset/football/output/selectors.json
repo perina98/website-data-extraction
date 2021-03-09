@@ -1,0 +1,62 @@
+{
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/365scores.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/365scores.com.html",
+        "tested_classes": 29,
+        "first_target": "document.querySelectorAll('.game-card-content-score')[0].parentElement.children",
+        "target_count": 18
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/777score.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/777score.com.html",
+        "tested_classes": 9,
+        "first_target": "document.querySelectorAll('.data')[0].parentElement.children",
+        "target_count": 1162
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.com.html",
+        "tested_classes": 6,
+        "first_target": "document.querySelectorAll('.event__time')[0].parentElement.children",
+        "target_count": 112
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.sk.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.sk.html",
+        "tested_classes": 23,
+        "first_target": "document.querySelectorAll('.event__time')[0].parentElement.children",
+        "target_count": 79
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/scoreboard.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/scoreboard.com.html",
+        "tested_classes": 9,
+        "first_target": "document.querySelectorAll('.event__time')[0].parentElement.children",
+        "target_count": 110
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/SkySports.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/SkySports.com.html",
+        "tested_classes": 11,
+        "first_target": "document.querySelectorAll('.matches__status')[0].parentElement.children",
+        "target_count": 200
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html",
+        "tested_classes": 37,
+        "first_target": "document.querySelectorAll('.event__time')[0].parentElement.children",
+        "target_count": 80
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/Soccerstand.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/Soccerstand.com.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.event__time')[0].parentElement.children",
+        "target_count": 110
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/BBCSport.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/BBCSport.html",
+        "tested_classes": 14,
+        "first_target": "document.querySelectorAll('.sp-c-fixture__block')[0].parentElement.children",
+        "target_count": 47
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/LiveScore.com.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/LiveScore.com.html",
+        "tested_classes": 16,
+        "first_target": "document.querySelectorAll('.MatchRowTime__Root-sc-1a2nnc7-0')[0].parentElement.children",
+        "target_count": 81
+    }
+}

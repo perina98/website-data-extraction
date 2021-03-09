@@ -1,0 +1,2047 @@
+[
+    {
+        "time": "21:00",
+        "team1": "Manchester City",
+        "undefined": "-:-",
+        "team2": "Wolverhampton Wanderers"
+    },
+    {
+        "time": "21:00",
+        "team1": "Manchester City",
+        "undefined": "-:-",
+        "team2": "Wolverhampton Wanderers"
+    },
+    {
+        "time": "18:30",
+        "team1": "Lazio",
+        "undefined": "-:-",
+        "team2": "Torino"
+    },
+    {
+        "time": "18:30",
+        "team1": "Lazio",
+        "undefined": "-:-",
+        "team2": "Torino"
+    },
+    {
+        "time": "20:45",
+        "team1": "Juventus",
+        "undefined": "-:-",
+        "team2": "Spezia"
+    },
+    {
+        "time": "20:45",
+        "team1": "Juventus",
+        "undefined": "-:-",
+        "team2": "Spezia"
+    },
+    {
+        "time": "09:05",
+        "team1": "Western Sydney Wanderers FC",
+        "undefined": "-:-",
+        "team2": "Melbourne City FC"
+    },
+    {
+        "time": "09:05",
+        "team1": "Western Sydney Wanderers FC",
+        "undefined": "-:-",
+        "team2": "Melbourne City FC"
+    },
+    {
+        "time": "11:20",
+        "team1": "Perth Glory",
+        "undefined": "-:-",
+        "team2": "Central Coast Mariners"
+    },
+    {
+        "time": "11:20",
+        "team1": "Perth Glory",
+        "undefined": "-:-",
+        "team2": "Central Coast Mariners"
+    },
+    {
+        "time": "20:00",
+        "team1": "Millwall",
+        "undefined": "-:-",
+        "team2": "Preston North End"
+    },
+    {
+        "time": "20:00",
+        "team1": "Millwall",
+        "undefined": "-:-",
+        "team2": "Preston North End"
+    },
+    {
+        "time": "20:00",
+        "team1": "Huddersfield Town",
+        "undefined": "-:-",
+        "team2": "Birmingham City"
+    },
+    {
+        "time": "20:00",
+        "team1": "Huddersfield Town",
+        "undefined": "-:-",
+        "team2": "Birmingham City"
+    },
+    {
+        "time": "20:00",
+        "team1": "Coventry City",
+        "undefined": "-:-",
+        "team2": "Middlesbrough"
+    },
+    {
+        "time": "20:00",
+        "team1": "Coventry City",
+        "undefined": "-:-",
+        "team2": "Middlesbrough"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cardiff City",
+        "undefined": "-:-",
+        "team2": "Derby County"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cardiff City",
+        "undefined": "-:-",
+        "team2": "Derby County"
+    },
+    {
+        "time": "20:45",
+        "team1": "Nottingham Forest",
+        "undefined": "-:-",
+        "team2": "Luton Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Nottingham Forest",
+        "undefined": "-:-",
+        "team2": "Luton Town"
+    },
+    {
+        "time": "21:00",
+        "team1": "Reading",
+        "undefined": "-:-",
+        "team2": "Blackburn Rovers"
+    },
+    {
+        "time": "21:00",
+        "team1": "Reading",
+        "undefined": "-:-",
+        "team2": "Blackburn Rovers"
+    },
+    {
+        "time": "18:30",
+        "team1": "Jahn Regensburg",
+        "undefined": "-:-",
+        "team2": "Werder Bremen"
+    },
+    {
+        "time": "18:30",
+        "team1": "Jahn Regensburg",
+        "undefined": "-:-",
+        "team2": "Werder Bremen"
+    },
+    {
+        "time": "20:45",
+        "team1": "Borussia Moenchengladbach",
+        "undefined": "-:-",
+        "team2": "Borussia Dortmund"
+    },
+    {
+        "time": "20:45",
+        "team1": "Borussia Moenchengladbach",
+        "undefined": "-:-",
+        "team2": "Borussia Dortmund"
+    },
+    {
+        "time": "15:15",
+        "team1": "Kisvarda",
+        "undefined": "-:-",
+        "team2": "Puskas FC Academy"
+    },
+    {
+        "time": "15:15",
+        "team1": "Kisvarda",
+        "undefined": "-:-",
+        "team2": "Puskas FC Academy"
+    },
+    {
+        "time": "17:30",
+        "team1": "Budapest Honved",
+        "undefined": "-:-",
+        "team2": "MTK Budapest"
+    },
+    {
+        "time": "17:30",
+        "team1": "Budapest Honved",
+        "undefined": "-:-",
+        "team2": "MTK Budapest"
+    },
+    {
+        "time": "20:00",
+        "team1": "Ferencvaros",
+        "undefined": "-:-",
+        "team2": "Diosgyori VTK"
+    },
+    {
+        "time": "20:00",
+        "team1": "Ferencvaros",
+        "undefined": "-:-",
+        "team2": "Diosgyori VTK"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Hadera",
+        "undefined": "-:-",
+        "team2": "Bnei Yehuda Tel Aviv"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Hadera",
+        "undefined": "-:-",
+        "team2": "Bnei Yehuda Tel Aviv"
+    },
+    {
+        "time": "17:00",
+        "team1": "Frosinone",
+        "undefined": "-:-",
+        "team2": "Monza"
+    },
+    {
+        "time": "17:00",
+        "team1": "Frosinone",
+        "undefined": "-:-",
+        "team2": "Monza"
+    },
+    {
+        "time": "19:00",
+        "team1": "Brescia",
+        "undefined": "-:-",
+        "team2": "Cosenza"
+    },
+    {
+        "time": "19:00",
+        "team1": "Brescia",
+        "undefined": "-:-",
+        "team2": "Cosenza"
+    },
+    {
+        "time": "19:00",
+        "team1": "Lecce",
+        "undefined": "-:-",
+        "team2": "Virtus Entella"
+    },
+    {
+        "time": "19:00",
+        "team1": "Lecce",
+        "undefined": "-:-",
+        "team2": "Virtus Entella"
+    },
+    {
+        "time": "19:00",
+        "team1": "Salernitana",
+        "undefined": "-:-",
+        "team2": "SPAL 2013"
+    },
+    {
+        "time": "19:00",
+        "team1": "Salernitana",
+        "undefined": "-:-",
+        "team2": "SPAL 2013"
+    },
+    {
+        "time": "19:00",
+        "team1": "Chievo Verona",
+        "undefined": "-:-",
+        "team2": "Pordenone Calcio"
+    },
+    {
+        "time": "19:00",
+        "team1": "Chievo Verona",
+        "undefined": "-:-",
+        "team2": "Pordenone Calcio"
+    },
+    {
+        "time": "19:00",
+        "team1": "Ascoli Calcio 1898 FC",
+        "undefined": "-:-",
+        "team2": "Pisa"
+    },
+    {
+        "time": "19:00",
+        "team1": "Ascoli Calcio 1898 FC",
+        "undefined": "-:-",
+        "team2": "Pisa"
+    },
+    {
+        "time": "19:00",
+        "team1": "Cittadella",
+        "undefined": "-:-",
+        "team2": "Pescara"
+    },
+    {
+        "time": "19:00",
+        "team1": "Cittadella",
+        "undefined": "-:-",
+        "team2": "Pescara"
+    },
+    {
+        "time": "19:00",
+        "team1": "Reggina",
+        "undefined": "-:-",
+        "team2": "Empoli"
+    },
+    {
+        "time": "19:00",
+        "team1": "Reggina",
+        "undefined": "-:-",
+        "team2": "Empoli"
+    },
+    {
+        "time": "21:00",
+        "team1": "L.R. Vicenza Virtus",
+        "undefined": "-:-",
+        "team2": "Cremonese"
+    },
+    {
+        "time": "21:00",
+        "team1": "L.R. Vicenza Virtus",
+        "undefined": "-:-",
+        "team2": "Cremonese"
+    },
+    {
+        "time": "16:30",
+        "team1": "NEC Nijmegen",
+        "undefined": "-:-",
+        "team2": "FC Den Bosch"
+    },
+    {
+        "time": "16:30",
+        "team1": "NEC Nijmegen",
+        "undefined": "-:-",
+        "team2": "FC Den Bosch"
+    },
+    {
+        "time": "18:45",
+        "team1": "Jong FC Utrecht",
+        "undefined": "-:-",
+        "team2": "FC Dordrecht"
+    },
+    {
+        "time": "18:45",
+        "team1": "Jong FC Utrecht",
+        "undefined": "-:-",
+        "team2": "FC Dordrecht"
+    },
+    {
+        "time": "21:00",
+        "team1": "Vitesse",
+        "undefined": "-:-",
+        "team2": "VVV-Venlo"
+    },
+    {
+        "time": "21:00",
+        "team1": "Vitesse",
+        "undefined": "-:-",
+        "team2": "VVV-Venlo"
+    },
+    {
+        "time": "20:30",
+        "team1": "Glentoran",
+        "undefined": "-:-",
+        "team2": "Linfield"
+    },
+    {
+        "time": "20:30",
+        "team1": "Glentoran",
+        "undefined": "-:-",
+        "team2": "Linfield"
+    },
+    {
+        "time": "20:45",
+        "team1": "Warrenpoint Town",
+        "undefined": "-:-",
+        "team2": "Dungannon Swifts"
+    },
+    {
+        "time": "20:45",
+        "team1": "Warrenpoint Town",
+        "undefined": "-:-",
+        "team2": "Dungannon Swifts"
+    },
+    {
+        "time": "20:45",
+        "team1": "Larne",
+        "undefined": "-:-",
+        "team2": "Crusaders"
+    },
+    {
+        "time": "20:45",
+        "team1": "Larne",
+        "undefined": "-:-",
+        "team2": "Crusaders"
+    },
+    {
+        "time": "20:45",
+        "team1": "Glenavon",
+        "undefined": "-:-",
+        "team2": "Carrick Rangers"
+    },
+    {
+        "time": "20:45",
+        "team1": "Glenavon",
+        "undefined": "-:-",
+        "team2": "Carrick Rangers"
+    },
+    {
+        "time": "20:45",
+        "team1": "Coleraine",
+        "undefined": "-:-",
+        "team2": "Portadown"
+    },
+    {
+        "time": "20:45",
+        "team1": "Coleraine",
+        "undefined": "-:-",
+        "team2": "Portadown"
+    },
+    {
+        "time": "20:45",
+        "team1": "Ballymena United",
+        "undefined": "-:-",
+        "team2": "Cliftonville"
+    },
+    {
+        "time": "20:45",
+        "team1": "Ballymena United",
+        "undefined": "-:-",
+        "team2": "Cliftonville"
+    },
+    {
+        "time": "14:00",
+        "team1": "Gaziantep FK",
+        "undefined": "-:-",
+        "team2": "Genclerbirligi"
+    },
+    {
+        "time": "14:00",
+        "team1": "Gaziantep FK",
+        "undefined": "-:-",
+        "team2": "Genclerbirligi"
+    },
+    {
+        "time": "17:00",
+        "team1": "Yeni Malatyaspor",
+        "undefined": "-:-",
+        "team2": "Besiktas"
+    },
+    {
+        "time": "17:00",
+        "team1": "Yeni Malatyaspor",
+        "undefined": "-:-",
+        "team2": "Besiktas"
+    },
+    {
+        "time": "16:30",
+        "team1": "Etar",
+        "undefined": "-:-",
+        "team2": "Arda Kardzhali"
+    },
+    {
+        "time": "16:30",
+        "team1": "Etar",
+        "undefined": "-:-",
+        "team2": "Arda Kardzhali"
+    },
+    {
+        "time": "16:30",
+        "team1": "PFC CSKA-Sofia",
+        "undefined": "-:-",
+        "team2": "Cherno More Varna"
+    },
+    {
+        "time": "16:30",
+        "team1": "PFC CSKA-Sofia",
+        "undefined": "-:-",
+        "team2": "Cherno More Varna"
+    },
+    {
+        "time": "14:00",
+        "team1": "Viktoria Plzen",
+        "undefined": "-:-",
+        "team2": "Hradec Kralove"
+    },
+    {
+        "time": "14:00",
+        "team1": "Viktoria Plzen",
+        "undefined": "-:-",
+        "team2": "Hradec Kralove"
+    },
+    {
+        "time": "14:00",
+        "team1": "El Gounah",
+        "undefined": "-:-",
+        "team2": "Smouha SC"
+    },
+    {
+        "time": "14:00",
+        "team1": "El Gounah",
+        "undefined": "-:-",
+        "team2": "Smouha SC"
+    },
+    {
+        "time": "16:00",
+        "team1": "Misr El-Maqasa",
+        "undefined": "-:-",
+        "team2": "Al Mokawloon Al Arab"
+    },
+    {
+        "time": "16:00",
+        "team1": "Misr El-Maqasa",
+        "undefined": "-:-",
+        "team2": "Al Mokawloon Al Arab"
+    },
+    {
+        "time": "18:00",
+        "team1": "Al Masry",
+        "undefined": "-:-",
+        "team2": "Pyramids FC"
+    },
+    {
+        "time": "18:00",
+        "team1": "Al Masry",
+        "undefined": "-:-",
+        "team2": "Pyramids FC"
+    },
+    {
+        "time": "19:00",
+        "team1": "Gillingham",
+        "undefined": "-:-",
+        "team2": "Milton Keynes Dons"
+    },
+    {
+        "time": "19:00",
+        "team1": "Gillingham",
+        "undefined": "-:-",
+        "team2": "Milton Keynes Dons"
+    },
+    {
+        "time": "19:00",
+        "team1": "Wigan Athletic",
+        "undefined": "-:-",
+        "team2": "Charlton Athletic"
+    },
+    {
+        "time": "19:00",
+        "team1": "Wigan Athletic",
+        "undefined": "-:-",
+        "team2": "Charlton Athletic"
+    },
+    {
+        "time": "20:00",
+        "team1": "Lincoln City",
+        "undefined": "-:-",
+        "team2": "Fleetwood Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Lincoln City",
+        "undefined": "-:-",
+        "team2": "Fleetwood Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Hull City",
+        "undefined": "-:-",
+        "team2": "Rochdale"
+    },
+    {
+        "time": "20:00",
+        "team1": "Hull City",
+        "undefined": "-:-",
+        "team2": "Rochdale"
+    },
+    {
+        "time": "20:00",
+        "team1": "Burton Albion",
+        "undefined": "-:-",
+        "team2": "Bristol Rovers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Burton Albion",
+        "undefined": "-:-",
+        "team2": "Bristol Rovers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Blackpool",
+        "undefined": "-:-",
+        "team2": "Crewe Alexandra"
+    },
+    {
+        "time": "20:00",
+        "team1": "Blackpool",
+        "undefined": "-:-",
+        "team2": "Crewe Alexandra"
+    },
+    {
+        "time": "20:00",
+        "team1": "Accrington Stanley",
+        "undefined": "-:-",
+        "team2": "Ipswich Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Accrington Stanley",
+        "undefined": "-:-",
+        "team2": "Ipswich Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Northampton Town",
+        "undefined": "-:-",
+        "team2": "Plymouth Argyle"
+    },
+    {
+        "time": "20:00",
+        "team1": "Northampton Town",
+        "undefined": "-:-",
+        "team2": "Plymouth Argyle"
+    },
+    {
+        "time": "20:00",
+        "team1": "Oxford United",
+        "undefined": "-:-",
+        "team2": "Peterborough United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Oxford United",
+        "undefined": "-:-",
+        "team2": "Peterborough United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Doncaster Rovers",
+        "undefined": "-:-",
+        "team2": "Portsmouth"
+    },
+    {
+        "time": "20:00",
+        "team1": "Doncaster Rovers",
+        "undefined": "-:-",
+        "team2": "Portsmouth"
+    },
+    {
+        "time": "20:00",
+        "team1": "Sunderland",
+        "undefined": "-:-",
+        "team2": "Swindon Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Sunderland",
+        "undefined": "-:-",
+        "team2": "Swindon Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Shrewsbury Town",
+        "undefined": "-:-",
+        "team2": "AFC Wimbledon"
+    },
+    {
+        "time": "20:00",
+        "team1": "Shrewsbury Town",
+        "undefined": "-:-",
+        "team2": "AFC Wimbledon"
+    },
+    {
+        "time": "19:30",
+        "team1": "Morecambe",
+        "undefined": "-:-",
+        "team2": "Crawley Town"
+    },
+    {
+        "time": "19:30",
+        "team1": "Morecambe",
+        "undefined": "-:-",
+        "team2": "Crawley Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Colchester United",
+        "undefined": "-:-",
+        "team2": "Carlisle United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Colchester United",
+        "undefined": "-:-",
+        "team2": "Carlisle United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cheltenham Town",
+        "undefined": "-:-",
+        "team2": "Southend United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cheltenham Town",
+        "undefined": "-:-",
+        "team2": "Southend United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cambridge United",
+        "undefined": "-:-",
+        "team2": "Scunthorpe United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Cambridge United",
+        "undefined": "-:-",
+        "team2": "Scunthorpe United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Bradford City",
+        "undefined": "-:-",
+        "team2": "Mansfield Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Bradford City",
+        "undefined": "-:-",
+        "team2": "Mansfield Town"
+    },
+    {
+        "time": "20:00",
+        "team1": "Barrow",
+        "undefined": "-:-",
+        "team2": "Harrogate"
+    },
+    {
+        "time": "20:00",
+        "team1": "Barrow",
+        "undefined": "-:-",
+        "team2": "Harrogate"
+    },
+    {
+        "time": "20:00",
+        "team1": "Exeter City",
+        "undefined": "-:-",
+        "team2": "Walsall"
+    },
+    {
+        "time": "20:00",
+        "team1": "Exeter City",
+        "undefined": "-:-",
+        "team2": "Walsall"
+    },
+    {
+        "time": "20:00",
+        "team1": "Stevenage",
+        "undefined": "-:-",
+        "team2": "Forest Green Rovers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Stevenage",
+        "undefined": "-:-",
+        "team2": "Forest Green Rovers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Salford City",
+        "undefined": "-:-",
+        "team2": "Port Vale"
+    },
+    {
+        "time": "20:00",
+        "team1": "Salford City",
+        "undefined": "-:-",
+        "team2": "Port Vale"
+    },
+    {
+        "time": "20:00",
+        "team1": "Oldham Athletic",
+        "undefined": "-:-",
+        "team2": "Bolton Wanderers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Oldham Athletic",
+        "undefined": "-:-",
+        "team2": "Bolton Wanderers"
+    },
+    {
+        "time": "20:00",
+        "team1": "Tranmere Rovers",
+        "undefined": "-:-",
+        "team2": "Newport County"
+    },
+    {
+        "time": "20:00",
+        "team1": "Tranmere Rovers",
+        "undefined": "-:-",
+        "team2": "Newport County"
+    },
+    {
+        "time": "20:45",
+        "team1": "Grimsby Town",
+        "undefined": "-:-",
+        "team2": "Leyton Orient"
+    },
+    {
+        "time": "20:45",
+        "team1": "Grimsby Town",
+        "undefined": "-:-",
+        "team2": "Leyton Orient"
+    },
+    {
+        "time": "20:00",
+        "team1": "Valenciennes",
+        "undefined": "-:-",
+        "team2": "Toulouse"
+    },
+    {
+        "time": "20:00",
+        "team1": "Valenciennes",
+        "undefined": "-:-",
+        "team2": "Toulouse"
+    },
+    {
+        "time": "20:00",
+        "team1": "Chambly",
+        "undefined": "-:-",
+        "team2": "Troyes"
+    },
+    {
+        "time": "20:00",
+        "team1": "Chambly",
+        "undefined": "-:-",
+        "team2": "Troyes"
+    },
+    {
+        "time": "20:00",
+        "team1": "Amiens",
+        "undefined": "-:-",
+        "team2": "Auxerre"
+    },
+    {
+        "time": "20:00",
+        "team1": "Amiens",
+        "undefined": "-:-",
+        "team2": "Auxerre"
+    },
+    {
+        "time": "20:00",
+        "team1": "Nancy",
+        "undefined": "-:-",
+        "team2": "Caen"
+    },
+    {
+        "time": "20:00",
+        "team1": "Nancy",
+        "undefined": "-:-",
+        "team2": "Caen"
+    },
+    {
+        "time": "20:00",
+        "team1": "Pau",
+        "undefined": "-:-",
+        "team2": "Chateauroux"
+    },
+    {
+        "time": "20:00",
+        "team1": "Pau",
+        "undefined": "-:-",
+        "team2": "Chateauroux"
+    },
+    {
+        "time": "20:00",
+        "team1": "Guingamp",
+        "undefined": "-:-",
+        "team2": "Clermont Foot"
+    },
+    {
+        "time": "20:00",
+        "team1": "Guingamp",
+        "undefined": "-:-",
+        "team2": "Clermont Foot"
+    },
+    {
+        "time": "20:00",
+        "team1": "Paris FC",
+        "undefined": "-:-",
+        "team2": "Dunkerque"
+    },
+    {
+        "time": "20:00",
+        "team1": "Paris FC",
+        "undefined": "-:-",
+        "team2": "Dunkerque"
+    },
+    {
+        "time": "20:00",
+        "team1": "Le Havre",
+        "undefined": "-:-",
+        "team2": "Grenoble"
+    },
+    {
+        "time": "20:00",
+        "team1": "Le Havre",
+        "undefined": "-:-",
+        "team2": "Grenoble"
+    },
+    {
+        "time": "20:00",
+        "team1": "AC Ajaccio",
+        "undefined": "-:-",
+        "team2": "Rodez"
+    },
+    {
+        "time": "20:00",
+        "team1": "AC Ajaccio",
+        "undefined": "-:-",
+        "team2": "Rodez"
+    },
+    {
+        "time": "20:00",
+        "team1": "Niort",
+        "undefined": "-:-",
+        "team2": "Sochaux"
+    },
+    {
+        "time": "20:00",
+        "team1": "Niort",
+        "undefined": "-:-",
+        "team2": "Sochaux"
+    },
+    {
+        "time": "15:00",
+        "team1": "Pro Sesto",
+        "undefined": "-:-",
+        "team2": "Pro Patria"
+    },
+    {
+        "time": "15:00",
+        "team1": "Pro Sesto",
+        "undefined": "-:-",
+        "team2": "Pro Patria"
+    },
+    {
+        "time": "17:30",
+        "team1": "Perugia",
+        "undefined": "-:-",
+        "team2": "Sambenedettese"
+    },
+    {
+        "time": "17:30",
+        "team1": "Perugia",
+        "undefined": "-:-",
+        "team2": "Sambenedettese"
+    },
+    {
+        "time": "15:00",
+        "team1": "Potenza",
+        "undefined": "-:-",
+        "team2": "AP Turris"
+    },
+    {
+        "time": "15:00",
+        "team1": "Potenza",
+        "undefined": "-:-",
+        "team2": "AP Turris"
+    },
+    {
+        "time": "17:30",
+        "team1": "Puszcza Niepolomice",
+        "undefined": "-:-",
+        "team2": "Arka Gdynia"
+    },
+    {
+        "time": "17:30",
+        "team1": "Puszcza Niepolomice",
+        "undefined": "-:-",
+        "team2": "Arka Gdynia"
+    },
+    {
+        "time": "20:30",
+        "team1": "Lech Poznan",
+        "undefined": "-:-",
+        "team2": "Rakow Czestochowa"
+    },
+    {
+        "time": "20:30",
+        "team1": "Lech Poznan",
+        "undefined": "-:-",
+        "team2": "Rakow Czestochowa"
+    },
+    {
+        "time": "19:30",
+        "team1": "Chindia Targoviste",
+        "undefined": "-:-",
+        "team2": "Universitatea Craiova"
+    },
+    {
+        "time": "19:30",
+        "team1": "Chindia Targoviste",
+        "undefined": "-:-",
+        "team2": "Universitatea Craiova"
+    },
+    {
+        "time": "20:00",
+        "team1": "Dundee FC",
+        "undefined": "-:-",
+        "team2": "Inverness CT"
+    },
+    {
+        "time": "20:00",
+        "team1": "Dundee FC",
+        "undefined": "-:-",
+        "team2": "Inverness CT"
+    },
+    {
+        "time": "16:00",
+        "team1": "Partizan Beograd",
+        "undefined": "-:-",
+        "team2": "Vojvodina"
+    },
+    {
+        "time": "16:00",
+        "team1": "Partizan Beograd",
+        "undefined": "-:-",
+        "team2": "Vojvodina"
+    },
+    {
+        "time": "21:00",
+        "team1": "Newtown",
+        "undefined": "-:-",
+        "team2": "Penybont"
+    },
+    {
+        "time": "21:00",
+        "team1": "Newtown",
+        "undefined": "-:-",
+        "team2": "Penybont"
+    },
+    {
+        "time": "01:30",
+        "team1": "San Martin de Tucuman",
+        "undefined": "-:-",
+        "team2": "San Martin San Juan"
+    },
+    {
+        "time": "01:30",
+        "team1": "San Martin de Tucuman",
+        "undefined": "-:-",
+        "team2": "San Martin San Juan"
+    },
+    {
+        "time": "01:30",
+        "team1": "Rosario Central",
+        "undefined": "-:-",
+        "team2": "Godoy Cruz"
+    },
+    {
+        "time": "01:30",
+        "team1": "Rosario Central",
+        "undefined": "-:-",
+        "team2": "Godoy Cruz"
+    },
+    {
+        "time": "01:30",
+        "team1": "Atletico Tucuman",
+        "undefined": "-:-",
+        "team2": "Huracan"
+    },
+    {
+        "time": "01:30",
+        "team1": "Atletico Tucuman",
+        "undefined": "-:-",
+        "team2": "Huracan"
+    },
+    {
+        "time": "11:00",
+        "team1": "Ararat Armenia",
+        "undefined": "-:-",
+        "team2": "Urartu FC"
+    },
+    {
+        "time": "11:00",
+        "team1": "Ararat Armenia",
+        "undefined": "-:-",
+        "team2": "Urartu FC"
+    },
+    {
+        "time": "18:30",
+        "team1": "SV Horn",
+        "undefined": "-:-",
+        "team2": "SK Austria Klagenfurt"
+    },
+    {
+        "time": "18:30",
+        "team1": "SV Horn",
+        "undefined": "-:-",
+        "team2": "SK Austria Klagenfurt"
+    },
+    {
+        "time": "13:00",
+        "team1": "Sabail",
+        "undefined": "-:-",
+        "team2": "Keshla"
+    },
+    {
+        "time": "13:00",
+        "team1": "Sabail",
+        "undefined": "-:-",
+        "team2": "Keshla"
+    },
+    {
+        "time": "15:15",
+        "team1": "Qarabag FK",
+        "undefined": "-:-",
+        "team2": "FK Qabala"
+    },
+    {
+        "time": "15:15",
+        "team1": "Qarabag FK",
+        "undefined": "-:-",
+        "team2": "FK Qabala"
+    },
+    {
+        "time": "17:00",
+        "team1": "BATE Borisov",
+        "undefined": "-:-",
+        "team2": "Shakhtyor Soligorsk"
+    },
+    {
+        "time": "17:00",
+        "team1": "BATE Borisov",
+        "undefined": "-:-",
+        "team2": "Shakhtyor Soligorsk"
+    },
+    {
+        "time": "23:00",
+        "team1": "Mirassol",
+        "undefined": "-:-",
+        "team2": "Novorizontino"
+    },
+    {
+        "time": "23:00",
+        "team1": "Mirassol",
+        "undefined": "-:-",
+        "team2": "Novorizontino"
+    },
+    {
+        "time": "00:00",
+        "team1": "Deportivo Pereira",
+        "undefined": "-:-",
+        "team2": "Once Caldas"
+    },
+    {
+        "time": "00:00",
+        "team1": "Deportivo Pereira",
+        "undefined": "-:-",
+        "team2": "Once Caldas"
+    },
+    {
+        "time": "02:00",
+        "team1": "Millonarios",
+        "undefined": "-:-",
+        "team2": "CD Jaguares"
+    },
+    {
+        "time": "02:00",
+        "team1": "Millonarios",
+        "undefined": "-:-",
+        "team2": "CD Jaguares"
+    },
+    {
+        "time": "15:00",
+        "team1": "NK Zagreb",
+        "undefined": "-:-",
+        "team2": "Hajduk Split"
+    },
+    {
+        "time": "15:00",
+        "team1": "NK Zagreb",
+        "undefined": "-:-",
+        "team2": "Hajduk Split"
+    },
+    {
+        "time": "01:00",
+        "team1": "Delfin",
+        "undefined": "-:-",
+        "team2": "Orense"
+    },
+    {
+        "time": "01:00",
+        "team1": "Delfin",
+        "undefined": "-:-",
+        "team2": "Orense"
+    },
+    {
+        "time": "20:00",
+        "team1": "Altrincham",
+        "undefined": "-:-",
+        "team2": "Woking"
+    },
+    {
+        "time": "20:00",
+        "team1": "Altrincham",
+        "undefined": "-:-",
+        "team2": "Woking"
+    },
+    {
+        "time": "20:00",
+        "team1": "FC Halifax Town",
+        "undefined": "-:-",
+        "team2": "Hartlepool United"
+    },
+    {
+        "time": "20:00",
+        "team1": "FC Halifax Town",
+        "undefined": "-:-",
+        "team2": "Hartlepool United"
+    },
+    {
+        "time": "20:00",
+        "team1": "Sutton United",
+        "undefined": "-:-",
+        "team2": "Bromley"
+    },
+    {
+        "time": "20:00",
+        "team1": "Sutton United",
+        "undefined": "-:-",
+        "team2": "Bromley"
+    },
+    {
+        "time": "20:00",
+        "team1": "Solihull Moors",
+        "undefined": "-:-",
+        "team2": "Dagenham & Redbridge"
+    },
+    {
+        "time": "20:00",
+        "team1": "Solihull Moors",
+        "undefined": "-:-",
+        "team2": "Dagenham & Redbridge"
+    },
+    {
+        "time": "20:45",
+        "team1": "Barnet",
+        "undefined": "-:-",
+        "team2": "Yeovil Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Barnet",
+        "undefined": "-:-",
+        "team2": "Yeovil Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Dover",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Dover",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Notts County",
+        "undefined": "-:-",
+        "team2": "King's Lynn Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Notts County",
+        "undefined": "-:-",
+        "team2": "King's Lynn Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Wealdstone",
+        "undefined": "-:-",
+        "team2": "Boreham Wood"
+    },
+    {
+        "time": "20:45",
+        "team1": "Wealdstone",
+        "undefined": "-:-",
+        "team2": "Boreham Wood"
+    },
+    {
+        "time": "20:45",
+        "team1": "Chesterfield",
+        "undefined": "-:-",
+        "team2": "Eastleigh"
+    },
+    {
+        "time": "20:45",
+        "team1": "Chesterfield",
+        "undefined": "-:-",
+        "team2": "Eastleigh"
+    },
+    {
+        "time": "20:45",
+        "team1": "Spennymoor Town FC",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Spennymoor Town FC",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Brackley Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Brackley Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Hereford",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Hereford",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Darlington",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Darlington",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Curzon",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Curzon",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Gloucester City",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Gloucester City",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Havant and Waterlooville",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Havant and Waterlooville",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Dartford",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Dartford",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Slough Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Slough Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Concord Rangers",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Concord Rangers",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Needham Market",
+        "team2": "Royston Town",
+        "undefined": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Needham Market",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Stourbridge",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Stourbridge",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Banbury United",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Banbury United",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Rushall Olympic",
+        "team2": "Bromsgrove Sporting",
+        "undefined": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Rushall Olympic",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Kings Langley FC",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Kings Langley FC",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Coalville Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Coalville Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Lowestoft Town",
+        "team2": "Peterborough Sports",
+        "undefined": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Lowestoft Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Biggleswade Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Biggleswade Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Tamworth",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Tamworth",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Alvechurch",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Alvechurch",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Taunton Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Taunton Town",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Hayes & Yeading United",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Hayes & Yeading United",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Hartley Wintney",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:30",
+        "team1": "Hartley Wintney",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Walton Casuals",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Walton Casuals",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Beaconsfield Town",
+        "team2": "Harrow Borough",
+        "undefined": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Beaconsfield Town",
+        "team2": "Harrow Borough",
+        "undefined": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Salisbury",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Salisbury",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Truro City",
+        "team2": "-:-"
+    },
+    {
+        "time": "20:45",
+        "team1": "Truro City",
+        "team2": "-:-"
+    },
+    {
+        "time": "17:00",
+        "team1": "Viktoria Koeln 1904",
+        "team2": "Magdeburg"
+    },
+    {
+        "time": "17:00",
+        "team1": "Viktoria Koeln 1904",
+        "undefined": "-:-",
+        "team2": "Magdeburg"
+    },
+    {
+        "time": "17:00",
+        "team1": "Homburg",
+        "team2": "Kickers Offenbach"
+    },
+    {
+        "time": "17:00",
+        "team1": "Homburg",
+        "undefined": "-:-",
+        "team2": "Kickers Offenbach"
+    },
+    {
+        "time": "19:00",
+        "team1": "Pirmasens",
+        "undefined": "-:-",
+        "team2": "Eintracht Stadtallendorf"
+    },
+    {
+        "time": "19:00",
+        "team1": "Pirmasens",
+        "undefined": "-:-",
+        "team2": "Eintracht Stadtallendorf"
+    },
+    {
+        "time": "12:00",
+        "team1": "Rayka Babol",
+        "team2": "Baadraan Tehran"
+    },
+    {
+        "time": "12:00",
+        "team1": "Rayka Babol",
+        "undefined": "-:-",
+        "team2": "Baadraan Tehran"
+    },
+    {
+        "time": "12:00",
+        "team1": "Arman Gahar Sirjan",
+        "team2": "Esteghlal Molasani"
+    },
+    {
+        "time": "12:00",
+        "team1": "Arman Gahar Sirjan",
+        "undefined": "-:-",
+        "team2": "Esteghlal Molasani"
+    },
+    {
+        "time": "12:15",
+        "team1": "Malavan",
+        "team2": "Pars Jonoubi Jam Bushehr"
+    },
+    {
+        "time": "12:15",
+        "team1": "Malavan",
+        "team2": "Pars Jonoubi Jam Bushehr"
+    },
+    {
+        "time": "12:15",
+        "team1": "Kheybar Khorramabad",
+        "undefined": "-:-",
+        "team2": "Khooshe Talaee Sana Saveh"
+    },
+    {
+        "time": "12:15",
+        "team1": "Kheybar Khorramabad",
+        "undefined": "-:-",
+        "team2": "Khooshe Talaee Sana Saveh"
+    },
+    {
+        "time": "12:15",
+        "team1": "Havadar SC",
+        "undefined": "-:-",
+        "team2": "Mes Kerman"
+    },
+    {
+        "time": "12:15",
+        "team1": "Havadar SC",
+        "undefined": "-:-",
+        "team2": "Mes Kerman"
+    },
+    {
+        "time": "12:15",
+        "team1": "Gol Reyhan Alborz",
+        "undefined": "-:-",
+        "team2": "Shahrdari Astara"
+    },
+    {
+        "time": "12:15",
+        "team1": "Gol Reyhan Alborz",
+        "undefined": "-:-",
+        "team2": "Shahrdari Astara"
+    },
+    {
+        "time": "12:15",
+        "team1": "Qashqai",
+        "undefined": "-:-",
+        "team2": "Chooka Talesh"
+    },
+    {
+        "time": "12:15",
+        "team1": "Qashqai",
+        "team2": "Chooka Talesh"
+    },
+    {
+        "time": "12:45",
+        "team1": "Shahin",
+        "undefined": "-:-",
+        "team2": "Fajr Sepasi"
+    },
+    {
+        "time": "12:45",
+        "team1": "Shahin",
+        "undefined": "-:-",
+        "team2": "Fajr Sepasi"
+    },
+    {
+        "time": "12:45",
+        "team1": "Esteghlal Khuzestan",
+        "undefined": "-:-",
+        "team2": "Navad Urmia"
+    },
+    {
+        "time": "12:45",
+        "team1": "Esteghlal Khuzestan",
+        "undefined": "-:-",
+        "team2": "Navad Urmia"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Jerusalem FC",
+        "undefined": "-:-",
+        "team2": "Hapoel Afula"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Jerusalem FC",
+        "undefined": "-:-",
+        "team2": "Hapoel Afula"
+    },
+    {
+        "time": "18:30",
+        "team1": "Maccabi Ahi Nazareth",
+        "team2": "Beitar Tel Aviv Bat Yam"
+    },
+    {
+        "time": "18:30",
+        "team1": "Maccabi Ahi Nazareth",
+        "undefined": "-:-",
+        "team2": "Beitar Tel Aviv Bat Yam"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Ramat Gan",
+        "undefined": "-:-",
+        "team2": "Hapoel Umm al-Fahm"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Ramat Gan",
+        "team2": "Hapoel Umm al-Fahm"
+    },
+    {
+        "time": "18:30",
+        "team1": "Sektzia Nes Tziona",
+        "undefined": "-:-",
+        "team2": "Hapoel Raanana"
+    },
+    {
+        "time": "18:30",
+        "team1": "Sektzia Nes Tziona",
+        "undefined": "-:-",
+        "team2": "Hapoel Raanana"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Iksal",
+        "undefined": "-:-",
+        "team2": "Hapoel Nof HaGalil"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Iksal",
+        "undefined": "-:-",
+        "team2": "Hapoel Nof HaGalil"
+    },
+    {
+        "time": "18:30",
+        "team1": "SC Kfar Kasem",
+        "undefined": "-:-",
+        "team2": "Hapoel Petah Tikva"
+    },
+    {
+        "time": "18:30",
+        "team1": "SC Kfar Kasem",
+        "undefined": "-:-",
+        "team2": "Hapoel Petah Tikva"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Ironi Akko",
+        "undefined": "-:-",
+        "team2": "Hapoel Kfar Shalem"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Ironi Akko",
+        "team2": "Hapoel Kfar Shalem"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Nir Ramat HaSharon",
+        "undefined": "-:-",
+        "team2": "Hapoel Rishon LeZion"
+    },
+    {
+        "time": "18:30",
+        "team1": "Hapoel Nir Ramat HaSharon",
+        "undefined": "-:-",
+        "team2": "Hapoel Rishon LeZion"
+    },
+    {
+        "time": "11:00",
+        "team1": "Oita Trinita",
+        "undefined": "-:-",
+        "team2": "Vissel Kobe"
+    },
+    {
+        "time": "11:00",
+        "team1": "Oita Trinita",
+        "undefined": "-:-",
+        "team2": "Vissel Kobe"
+    },
+    {
+        "time": "10:00",
+        "team1": "Shonan Bellmare",
+        "undefined": "-:-",
+        "team2": "Urawa Red Diamonds"
+    },
+    {
+        "time": "10:00",
+        "team1": "Shonan Bellmare",
+        "undefined": "-:-",
+        "team2": "Urawa Red Diamonds"
+    },
+    {
+        "time": "12:00",
+        "team1": "Shakhter Karagandy",
+        "undefined": "-:-",
+        "team2": "FC Astana"
+    },
+    {
+        "time": "12:00",
+        "team1": "Shakhter Karagandy",
+        "undefined": "-:-",
+        "team2": "FC Astana"
+    },
+    {
+        "time": "19:45",
+        "team1": "Mineros de Zacatecas",
+        "undefined": "-:-",
+        "team2": "Cancun FC"
+    },
+    {
+        "time": "19:45",
+        "team1": "Mineros de Zacatecas",
+        "undefined": "-:-",
+        "team2": "Cancun FC"
+    },
+    {
+        "time": "00:45",
+        "team1": "Libertad",
+        "undefined": "-:-",
+        "team2": "Club River Plate"
+    },
+    {
+        "time": "00:45",
+        "team1": "Libertad",
+        "undefined": "-:-",
+        "team2": "Club River Plate"
+    },
+    {
+        "time": "16:30",
+        "team1": "Concordia Chiajna",
+        "undefined": "-:-",
+        "team2": "U Craiova 1948"
+    },
+    {
+        "time": "16:30",
+        "team1": "Concordia Chiajna",
+        "undefined": "-:-",
+        "team2": "U Craiova 1948"
+    },
+    {
+        "time": "14:00",
+        "team1": "Kaizer Chiefs",
+        "team2": "-:-"
+    },
+    {
+        "time": "14:00",
+        "team1": "Kaizer Chiefs",
+        "team2": "-:-"
+    },
+    {
+        "time": "14:00",
+        "team1": "Mamelodi Sundowns FC",
+        "team2": "Stellenbosch FC",
+        "undefined": "-:-"
+    },
+    {
+        "time": "14:00",
+        "team1": "Mamelodi Sundowns FC",
+        "team2": "Stellenbosch FC",
+        "undefined": "-:-"
+    },
+    {
+        "time": "16:00",
+        "team1": "Orlando Pirates",
+        "undefined": "-:-",
+        "team2": "Bloemfontein Celtic"
+    },
+    {
+        "time": "16:00",
+        "team1": "Orlando Pirates",
+        "team2": "Bloemfontein Celtic"
+    },
+    {
+        "time": "16:00",
+        "team1": "AmaZulu FC",
+        "undefined": "-:-",
+        "team2": "SuperSport United"
+    },
+    {
+        "time": "16:00",
+        "team1": "AmaZulu FC",
+        "undefined": "-:-",
+        "team2": "SuperSport United"
+    },
+    {
+        "time": "16:00",
+        "team1": "TS Galaxy",
+        "undefined": "-:-",
+        "team2": "Swallows FC"
+    },
+    {
+        "time": "16:00",
+        "team1": "TS Galaxy",
+        "undefined": "-:-",
+        "team2": "Swallows FC"
+    },
+    {
+        "time": "16:00",
+        "team1": "Maritzburg United",
+        "undefined": "-:-",
+        "team2": "Black Leopards"
+    },
+    {
+        "time": "16:00",
+        "team1": "Maritzburg United",
+        "undefined": "-:-",
+        "team2": "Black Leopards"
+    },
+    {
+        "time": "19:00",
+        "team1": "Aarau",
+        "undefined": "-:-",
+        "team2": "Thun"
+    },
+    {
+        "time": "19:00",
+        "team1": "Aarau",
+        "undefined": "-:-",
+        "team2": "Thun"
+    },
+    {
+        "time": "19:00",
+        "team1": "Xamax",
+        "undefined": "-:-",
+        "team2": "Chiasso"
+    },
+    {
+        "time": "19:00",
+        "team1": "Xamax",
+        "undefined": "-:-",
+        "team2": "Chiasso"
+    },
+    {
+        "time": "20:00",
+        "team1": "Winterthur",
+        "undefined": "-:-",
+        "team2": "Wil"
+    },
+    {
+        "time": "20:00",
+        "team1": "Winterthur",
+        "undefined": "-:-",
+        "team2": "Wil"
+    },
+    {
+        "time": "20:00",
+        "team1": "FC Stade Lausanne-Ouchy",
+        "team2": "Grasshopper"
+    },
+    {
+        "time": "20:00",
+        "team1": "FC Stade Lausanne-Ouchy",
+        "undefined": "-:-",
+        "team2": "Grasshopper"
+    },
+    {
+        "time": "20:00",
+        "team1": "Schaffhausen",
+        "undefined": "-:-",
+        "team2": "Kriens"
+    },
+    {
+        "time": "20:00",
+        "team1": "Schaffhausen",
+        "undefined": "-:-",
+        "team2": "Kriens"
+    },
+    {
+        "time": "12:30",
+        "team1": "Buriram United",
+        "undefined": "-:-",
+        "team2": "Trat FC"
+    },
+    {
+        "time": "12:30",
+        "team1": "Buriram United",
+        "undefined": "-:-",
+        "team2": "Trat FC"
+    },
+    {
+        "time": "13:00",
+        "team1": "Muang Thong United",
+        "undefined": "-:-",
+        "team2": "Police Tero FC"
+    },
+    {
+        "time": "13:00",
+        "team1": "Muang Thong United",
+        "undefined": "-:-",
+        "team2": "Police Tero FC"
+    },
+    {
+        "time": "14:00",
+        "team1": "AS Slimane",
+        "team2": "Ben Guerdane"
+    },
+    {
+        "time": "14:00",
+        "team1": "AS Slimane",
+        "undefined": "-:-",
+        "team2": "Ben Guerdane"
+    },
+    {
+        "time": "21:00",
+        "team1": "Club Atletico Progreso",
+        "team2": "Deportivo Maldonado"
+    },
+    {
+        "time": "21:00",
+        "team1": "Club Atletico Progreso",
+        "undefined": "-:-",
+        "team2": "Deportivo Maldonado"
+    }
+]

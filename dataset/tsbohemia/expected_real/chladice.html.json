@@ -1,0 +1,123 @@
+[
+    {
+        "title": "SilentiumPC Fera 3 HE1224 v2",
+        "price": "699,-",
+        "description": "chladič procesoru, CPU, socket Intel 775, 1150, 1151, 1200, 2011-3, 2066, AMD AM2(+), AM3(+), AM4, FM1, FM2(+), max. průtok 46.5CFM, rozměry 125x78x155mm, 120mm ventilátor (500 až 1600 ot./min), hlučnost 8 až 15dBA, 4pin PWM, 613g, 4x6mm heatpipes"
+    },
+    {
+        "title": "Yenkee YSN 120",
+        "price": "379,-",
+        "description": "YENKEE YSN 120 Chladící podložka pod notebook,2x port USB (synchronizace a nabíjení), Ventilátor s nízkou hlučností a LED podsvícením, Vhodný pro notebooky až do velikosti 17\""
+    },
+    {
+        "title": "MSI MAG Core Liquid 240R",
+        "price": "2 628,-",
+        "description": "Vodní chladič, pro CPU, pro Intel i AMD, 2x 120mm ventilátor, 14dBa, socket FM1, FM2, FM2, AM2, AM3, AM4, LGA 2066, 2011, 1155, 1151, 1156, 1366"
+    },
+    {
+        "title": "NZXT Kraken G12 Black",
+        "price": "779,-",
+        "description": "Chladič, pro GPU, NVIDIA a AMD, 92 mm ventilátor, 3-pin, černý"
+    },
+    {
+        "title": "Gembird NBS-1F17T-01",
+        "price": "259,-",
+        "description": "chladicí podložka pro notebook, podstavec pod NB, černá, pro NB do velikosti 17\", nastavitelný sklo, 150mm ventilátor modré LED, napájení z USB, 2x USB port"
+    },
+    {
+        "title": "ARCTIC Accelero Xtreme IV",
+        "price": "1 679,-",
+        "description": "chladič grafické karty, aktivní, 5x 6mm heatpipes, 3x 92mm ventilátor, rozměry 288x103x50mm, 900 až 2000 otáček, hmotnost 653g, pro AMD Radeon RX 580, 570, 480, 470 atd., NVIDIA GeForce GTX 1080/10701060 atd."
+    },
+    {
+        "title": "ARCTIC F14 Silent",
+        "price": "155,-",
+        "description": "ventilátor, rozměry 140x140x27mm, 12V, 3pin, hlučnost 0.08 Sone, průtok 78m3/h (46CFM), 800ot./min, kabel 400mm"
+    },
+    {
+        "title": "be quiet! Pure Rock Slim",
+        "price": "619,-",
+        "description": "chladič procesoru, Intel LGA 1200/115x, AMD AM2(+)/AM3(+)/AM4/FM1/FM2(+), TDP 120W, 92mm ventilátor, max. 2000ot./min, 4pin PWM, 81.8x97x124,8mm, 0.36kg"
+    },
+    {
+        "title": "ARCTIC F12 PWM PST",
+        "price": "149,-",
+        "description": "ventilátor, rozměry 120x120x25mm, hlučnost 0.3 Sone, průtok 53 CFM, 600 až 1350 otáček, hmotnost 109g, fluidní ložisko, konektor 4pin PWM, kabel PST"
+    },
+    {
+        "price": "899,-",
+        "title": "1stCOOL Fan KIT AURA Rainbow",
+        "description": "set pro PC skříně, 3x ARGB ventilátor 12cm + řadič + dálkový ovladač + 3-pin kabel do MB",
+        "discount": "Sleva -17 %"
+    },
+    {
+        "title": "Zalman ZM-NS2000",
+        "price": "619,-",
+        "description": "chladicí podložka pod notebook velikosti 12 až 17\", výškově polohovatelná (4 úrovně), 20cm ventilátor, hub USB 2.0, napájení z USB, 1.1kg"
+    },
+    {
+        "price": "399,-",
+        "title": "SHARKOON SHARK Blades RGB Fan, ventilátor 120mm",
+        "description": "Tichý ventilátor s měnitelnými barvami LED podsvícení. Je vybaven jak 3pinovým konektorem pro připojení bez podsvícení tak i kombinovaným 3+4pinovým konektorem pro adresovatelné RGB LED osvětlení. Průměr ventilátoru je 120 mm."
+    },
+    {
+        "title": "SilentiumPC Spartan 4",
+        "price": "499,-",
+        "description": "chladič procesoru, pro CPU, pro Intel i AMD, socket 1200, 115x, AM4, AM3(+), AM2(+), FM2(+), FM1, 125W TDP, 100mm ventilátor, 2 heatpipe, PWM, ultratichý"
+    },
+    {
+        "title": "SilentiumPC Zephyr 40",
+        "price": "79,-",
+        "description": "ventilátor, rozměry 40x40x10mm, hlučnost 18.7dBA, průtok 4.86CFM (8.26m3h), 4000ot./min, ložisko FDB, 3pin"
+    },
+    {
+        "title": "ARCTIC F8",
+        "price": "103,-",
+        "description": "ventilátor, rozměry 80x80x25mm, hlučnost 0.3 Sone, průtok 52.7 m3/h (31 CFM), 2000 otáček, hmotnost 71g, fluidní ložisko"
+    },
+    {
+        "title": "ARCTIC P12",
+        "price": "113,-",
+        "description": "ventilátor, rozměry 120x120x25mm, 1800 otáček, hlučnost 0.3 Sone, průtok vzduchu 56.3CFM, 3pin, hmotnost 139g, fluidní ložisko, barva černá"
+    },
+    {
+        "title": "ARCTIC P12 Silent",
+        "price": "129,-",
+        "description": "ventilátor, rozměry 120x120x25mm, 1050 otáček, hlučnost 0.08 Sone, průtok vzduchu 24.1CFM, 3pin, hmotnost 139g, fluidní ložisko, barva černá"
+    },
+    {
+        "title": "Fractal Design Celsius+ S24 Prisma",
+        "price": "4 384,-",
+        "description": "all-in-one vodní chlazení CPU, obsahuje 2x 120mm Prisma AL-12 PWM ARGB"
+    },
+    {
+        "title": "ARCTIC Freezer 34",
+        "price": "689,-",
+        "description": "chladič procesoru, aktivní, max. TDP 150W, socket Intel 1151, 1150, 1155, 1156, AMD AM4, rozměry 123x95x150mm, 120mm ventilátor PWM 200 až 1800 ot., hlučnost 0.3 Sone, fluidní ložisko, 4x heatpipe, MX-4, hmotnost 605g"
+    },
+    {
+        "title": "Fractal Design Celsius S24",
+        "price": "3 159,-",
+        "description": "all-in-one vodní chlazení CPU, obsahuje 2x X2 GP-12 PWM"
+    },
+    {
+        "price": "499,-",
+        "title": "Na dotaz",
+        "description": "chladicí podložka pro notebook, černá, pro NB do velikosti 17.4\", 4x 140mm ventilátor červené LED, 2x USB, polohovatelná, napájení z USB"
+    },
+    {
+        "title": "ARCTIC Freezer 7 X",
+        "price": "519,-",
+        "description": "chladič procesoru; Intel 115x, 1200, 775, AMD FM1, FM1+, FM2, FM2+, AM3, AM3+, AM4; ventilátor 92 mm, 300 – 2 000 ot./min (řízeno PWM), hlučnost 0.3 sonu, rozměry 74,3 x 110,5 x 132,5mm, hmotnost 425 g"
+    },
+    {
+        "price": "699,-",
+        "title": "Connect IT FrostWind chladicí podložka pod notebook, černá",
+        "description": "chladicí podložka, podstavec pod notebook, do 15.6\", 2 velké a 2 malé ultratiché ventilátory, modré LED podsvícení, výškově stavitelná, napájení z USB"
+    },
+    {
+        "title": "ARCTIC F14 PWM",
+        "price": "169,-",
+        "description": "ventilátor, rozměry 140x140x27mm, 12V, 4pin PWM, hlučnost 0.3 Sone, průtok 126m3/h (74CFM), 200-1350ot./min, kabel 400mm"
+    }
+]

@@ -1,0 +1,91 @@
+[
+    {
+        "team1": "Leicester",
+        "time": "19:00"
+    },
+    {
+        "team2": "Sheffield Utd",
+        "time": "19:00",
+        "team1": "Aston Villa"
+    },
+    {
+        "team2": "Palace",
+        "time": "21:15",
+        "team1": "Man Utd"
+    },
+    {
+        "team2": "Brest",
+        "time": "19:00",
+        "team1": "Dijon"
+    },
+    {
+        "team2": "Lyon",
+        "time": "19:00",
+        "team1": "Rennes"
+    },
+    {
+        "team2": "Metz",
+        "time": "19:00",
+        "team1": "Angers"
+    },
+    {
+        "team2": "OGC Nice",
+        "time": "19:00",
+        "team1": "Nimes"
+    },
+    {
+        "team2": "Saint-Étienne",
+        "time": "19:00",
+        "team1": "Lens"
+    },
+    {
+        "team2": "Bordeaux",
+        "time": "21:00",
+        "team1": "PSG"
+    },
+    {
+        "team2": "Lille",
+        "time": "21:00",
+        "team1": "Marseille"
+    },
+    {
+        "team2": "Montpellier",
+        "time": "21:00",
+        "team1": "Lorient"
+    },
+    {
+        "team2": "Strasbourg",
+        "time": "21:00",
+        "team1": "Monaco"
+    },
+    {
+        "team2": "Nantes",
+        "time": "21:00",
+        "team1": "Reims"
+    },
+    {
+        "team2": "Rot-Weiss Essen",
+        "time": "18:30",
+        "team1": "Holstein Kiel"
+    },
+    {
+        "team2": "RB Leipzig",
+        "time": "20:45",
+        "team1": "Wolfsburg"
+    },
+    {
+        "team2": "Gladbach",
+        "time": "20:45",
+        "team1": "Dortmund"
+    },
+    {
+        "team2": "Juventus",
+        "time": "20:45",
+        "team1": "Spezia"
+    },
+    {
+        "team2": "Liverpool",
+        "time": "21:15",
+        "team1": "Chelsea"
+    }
+]

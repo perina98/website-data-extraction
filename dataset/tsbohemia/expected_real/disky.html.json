@@ -1,0 +1,127 @@
+[
+    {
+        "title": "Samsung 860 EVO 250GB (MZ-76E250B)",
+        "price": "1 099,-",
+        "description": "SSD disk řady 860 EVO, 250GB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s"
+    },
+    {
+        "title": "Samsung 860 EVO 500GB (MZ-76E500B)",
+        "price": "1 999,-",
+        "description": "SSD disk řady 860 EVO, 500GB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s",
+        "discount": "Sleva -15 %"
+    },
+    {
+        "title": "SKLADEM > 19 ks",
+        "description": "pevný disk, SSD 2.5\", SATA 6Gb/s, čtení až 500MB/s, zápis 450MB/s, absence pohyblivých částí zaručuje vysokou odolnost a životnost, výška 7mm, SA400S37/480G",
+        "price": "1 449,-"
+    },
+    {
+        "price": "1 549,-",
+        "title": "WD Blue 3D NAND SSD disk 500GB",
+        "description": "Western Digital SSD disk 500GB, interní, 2,5\", SATA3, basic, sekvenční čtení: až 560MB/s, sekvenční zápis: až 530MB/s"
+    },
+    {
+        "title": "WD Elements Portable 1TB Black",
+        "price": "1 499,-",
+        "description": "externí pevný disk, HDD, 2.5\", 1TB, USB 3.0, napájení přes USB, Western Digital Elements černý"
+    },
+    {
+        "price": "829,-",
+        "title": "KINGSTON A400 240GB (SA400S37/240G)",
+        "description": "pevný disk, SSD 2.5\", SATA 6Gb/s, čtení až 500MB/s, zápis 350MB/s, absence pohyblivých částí zaručuje vysokou odolnost a životnost, výška 7mm, SA400S37/240G"
+    },
+    {
+        "title": "WD Green SSD 3D NAND disk 240GB",
+        "price": "888,-",
+        "description": "Western Digital SSD 3D NAND disk 240GB, interní, 2,5\", SATA3, basic, sekvenční čtení: až 545MB/s, sekvenční zápis: až 465MB/s"
+    },
+    {
+        "title": "KINGSTON SSD A2000 500GB PCIe NVMe",
+        "price": "1 689,-",
+        "description": "Interní pevný disk, SSD M.2 NVMe Gen3x4, čtení až 2200MB/sec, zapisování až 2000 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 500GB, rozhraní PCIe 3.0 x4, NVMe 2280"
+    },
+    {
+        "title": "Samsung SSD 970 EVO 1TB MZ-V7E1T0BW",
+        "price": "3 990,-",
+        "description": "Interní pevný disk, SSD M.2, čtení až 3 400 MB/sec, zapisování až 2 500 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 1TB"
+    },
+    {
+        "price": "2 499,-",
+        "title": "Samsung SSD 970 EVO 500GB MZ-V7E500BW",
+        "description": "Interní pevný disk, SSD M.2, čtení až 3 400 MB/sec, zapisování až 2 300 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 500GB.",
+        "discount": "Sleva -20 %"
+    },
+    {
+        "description": "pevný disk, HDD, 3.5\", SATA 6Gb/s, 2TB,7200ot./min, 256MB cache, technologie NCQ, zápis SMR, AcuTrac",
+        "price": "1 479,-",
+        "title": "Seagate BarraCuda 3.5\" 2TB, 256MB cache"
+    },
+    {
+        "description": "disk SSD, 2.5'' SATA 6Gb/s, Phison S11, čtení až 555MB/s, zápis až 500MB/s (ATTO), 7mm",
+        "price": "859,-",
+        "title": "Patriot Burst 2.5\" SATA SSD 240GB"
+    },
+    {
+        "description": "SSD disk řady 860 EVO, 1TB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s",
+        "price": "3 699,-",
+        "title": "Samsung 860 EVO 1TB (MZ-76E1T0B)",
+        "discount": "Sleva -19 %"
+    },
+    {
+        "title": "WD Elements Portable 2TB černý",
+        "price": "1 999,-",
+        "description": "externí pevný disk, HDD, 2.5\", 2TB, USB 3.0, napájení přes USB, Western Digital Elements černý"
+    },
+    {
+        "title": "WD Blue 3D NAND SSD disk 1TB",
+        "price": "2 699,-",
+        "description": "Western Digital SSD disk 1TB, interní, 2,5\", SATA3, basic, sekvenční čtení: až 560MB/s, sekvenční zápis: až 530MB/s, Spolehlivost MTTF Až 1,75 mil. hodin"
+    },
+    {
+        "title": "Patriot Burst 2.5\" SATA SSD 120GB",
+        "price": "579,-",
+        "description": "disk SSD, 2.5'' SATA 6Gb/s, Phison S11, čtení až 560MB/s, zápis až 540MB/s (ATTO), 7mm"
+    },
+    {
+        "title": "WD Red 4TB WD40EFAX",
+        "price": "2 759,-",
+        "description": "pevný disk, HDD, 3.5\", SATA 6Gb/s, 4TB, 256MB cache, pro použití v NAS zařízeních, snížená spotřeba energie až o 38% oproti běžným diskům, podpora technologie Advanced Format Technology, Western Digital"
+    },
+    {
+        "price": "829,-",
+        "title": "Crucial BX500 240GB (CT240BX500SSD1)",
+        "description": "pevný disk, SSD 2.5\", SATAIII/600, čtení 540MB/s, zápis 500MB/s, výška 7mm, absence pohyblivých částí zaručuje vysokou odolnost a životnost, paměti Micron 3D TLC NAND, CT240BX500SSD1"
+    },
+    {
+        "price": "4 990,-",
+        "title": "Samsung SSD 970 EVO PLUS 1TB MZ-V7S1T0BW",
+        "description": "Interní pevný disk, SSD M.2, čtení až 3 500 MB/sec, zapisování až 3 300 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 1TB.",
+        "discount": "Sleva -20 %"
+    },
+    {
+        "title": "Samsung 870 QVO 1TB (MZ-77Q1T0B)",
+        "price": "3 099,-",
+        "description": "SSD disk řady 870 QVO, 1TB, interní, 2,5\", SATA III, záruka 3 roky, sekvenční čtení až 560MB/s, sekvenční zápis až 530MB/s",
+        "discount": "Sleva -20 %"
+    },
+    {
+        "title": "WD Elements PORTABLE 4TB černý",
+        "price": "2 949,-",
+        "description": "externí pevný disk, HDD, 2.5\", 4TB, USB 3.0, napájení přes USB, Western Digital Elements černý"
+    },
+    {
+        "title": "Verbatim Store 'n' Go 1TB černý",
+        "price": "1 459,-",
+        "description": "pevný disk externí, HDD, 2.5\", 1TB, 5400ot./min., USB 3.0, hmotnost 184g, rozměry 121x15x80mm"
+    },
+    {
+        "price": "1 579,-",
+        "title": "Crucial MX500 500GB (CT500MX500SSD1)",
+        "description": "pevný disk, SSD 2.5\", SATAIII/600, čtení 560MB/s, zápis 510MB/s, výška 7mm, absence pohyblivých částí zaručuje vysokou odolnost a životnost, paměti Micron 3D TLC NAND, CT500MX500SSD1"
+    },
+    {
+        "title": "Seagate IronWolf 4TB",
+        "price": "2 749,-",
+        "description": "pevný disk, HDD, 3.5\", SATA 6Gb/s, 5900ot./min, 64MB cache, CMR, určené do externích boxů a NAS pro domácnost a malé firmy, AgileArray"
+    }
+]

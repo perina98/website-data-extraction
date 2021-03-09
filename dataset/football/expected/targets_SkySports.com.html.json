@@ -1,0 +1,1202 @@
+[
+    {
+        "team1": "Fulham",
+        "undefined": "0            0",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Arsenal",
+        "undefined": "1            3",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Burnley",
+        "undefined": "4            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Manchester United",
+        "undefined": "0            0",
+        "time": "16:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Liverpool",
+        "undefined": "0            2",
+        "time": "19:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Norwich City",
+        "undefined": "0            2",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Arsenal Women",
+        "undefined": "0            4",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Manchester City Women",
+        "undefined": "0            4",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Everton Women",
+        "undefined": "2            3",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hoffenheim",
+        "undefined": "1            1",
+        "time": "12:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "FC Augsburg",
+        "undefined": "0            1",
+        "time": "14:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "SC Freiburg",
+        "undefined": "1            2",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "St. Johnstone",
+        "undefined": "0            1",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Durham Women",
+        "undefined": "0            1",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Charlton Athletic Women",
+        "undefined": "0            2",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Crystal Palace Women",
+        "undefined": "1            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "London Bees",
+        "undefined": "3            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Willem II",
+        "undefined": "0            2",
+        "time": "11:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Fortuna Sittard",
+        "undefined": "1            0",
+        "time": "13:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Ajax",
+        "undefined": "1            1",
+        "time": "13:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Feyenoord",
+        "undefined": "4            2",
+        "time": "15:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Brest",
+        "undefined": "2            0",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "RC Lens",
+        "undefined": "2            2",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "St Etienne",
+        "undefined": "2            1",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Nantes",
+        "undefined": "1            1",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Montpellier",
+        "undefined": "0            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Strasbourg",
+        "undefined": "1            1",
+        "time": "16:05",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lyon",
+        "undefined": "1            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Real Valladolid",
+        "undefined": "1            1",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Real Betis",
+        "undefined": "0            1",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Elche",
+        "undefined": "2            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Atletico Madrid",
+        "undefined": "0            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Atalanta",
+        "undefined": "0            2",
+        "time": "11:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cagliari",
+        "undefined": "0            2",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Genoa",
+        "undefined": "3            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Fiorentina",
+        "undefined": "1            0",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Benevento",
+        "undefined": "2            0",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "AC Milan",
+        "undefined": "1            2",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Anderlecht",
+        "undefined": "1            3",
+        "time": "12:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Mouscron-Peruwelz",
+        "undefined": "2            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "KAS Eupen",
+        "undefined": "0            2",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Maritimo",
+        "undefined": "0            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Gil Vicente",
+        "undefined": "1            0",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Braga",
+        "undefined": "1            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Zaglebie Lubin",
+        "undefined": "2            4",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Pogon Szczecin",
+        "undefined": "2            1",
+        "time": "16:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Aalborg BK",
+        "undefined": "2            2",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Randers FC",
+        "undefined": "2            1",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "AGF Aarhus",
+        "undefined": "3            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Brondby",
+        "undefined": "1            0",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Atromitos Athens",
+        "undefined": "3            0",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Panetolikos",
+        "undefined": "1            0",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "AEK Athens",
+        "undefined": "1            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "West Ham United",
+        "undefined": "2            1",
+        "time": "12:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Brighton and Hove Albion",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Aston Villa",
+        "undefined": "0            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Wolverhampton Wanderers",
+        "undefined": "1            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Watford",
+        "undefined": "1            0",
+        "time": "12:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Millwall",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Queens Park Rangers",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Coventry City",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Stoke City",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Sheffield Wednesday",
+        "undefined": "3            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cardiff City",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Huddersfield Town",
+        "undefined": "3            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Reading",
+        "undefined": "0            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Bristol City",
+        "undefined": "1            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hull City",
+        "undefined": "0            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Shrewsbury Town",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Blackpool",
+        "undefined": "0            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Sunderland",
+        "undefined": "2            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Accrington Stanley",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Doncaster Rovers",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Oxford United",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Wigan Athletic",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lincoln City",
+        "undefined": "4            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Gillingham",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Burton Albion",
+        "undefined": "0            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Northampton Town",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Aberdeen",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Motherwell",
+        "undefined": "0            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Dundee United",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Ross County",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Exeter City",
+        "undefined": "2            0",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Barrow",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Oldham Athletic",
+        "undefined": "1            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Grimsby Town",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Tranmere Rovers",
+        "undefined": "1            3",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Morecambe",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Stevenage",
+        "undefined": "0            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cheltenham Town",
+        "undefined": "0            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Salford City",
+        "undefined": "0            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Bradford City",
+        "undefined": "1            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cambridge United",
+        "undefined": "0            1",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Colchester United",
+        "undefined": "3            0",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cologne",
+        "undefined": "5            1",
+        "time": "14:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Arminia Bielefeld",
+        "undefined": "3            0",
+        "time": "14:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Schalke",
+        "undefined": "5            1",
+        "time": "14:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hertha Berlin",
+        "undefined": "2            0",
+        "time": "14:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "M'gladbach",
+        "undefined": "3            2",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Arbroath",
+        "undefined": "0            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Dundee",
+        "undefined": "2            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Dunfermline Athletic",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Alloa Athletic",
+        "undefined": "3            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Solihull Moors",
+        "undefined": "2            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Altrincham",
+        "undefined": "3            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Weymouth",
+        "undefined": "2            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Chesterfield",
+        "undefined": "2            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Wealdstone",
+        "undefined": "4            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Dagenham & Redbridge",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Barnet",
+        "undefined": "1            0",
+        "time": "17:20",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hereford FC",
+        "undefined": "1            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hornchurch",
+        "undefined": "1            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Oxford City",
+        "undefined": "3            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Torquay United",
+        "undefined": "1            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Emmen",
+        "undefined": "0            1",
+        "time": "15:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "RKC Waalwijk",
+        "undefined": "0            0",
+        "time": "17:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "VVV-Venlo",
+        "undefined": "4            1",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "FC Twente",
+        "undefined": "2            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Metz",
+        "undefined": "1            2",
+        "time": "12:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Paris Saint-Germain",
+        "undefined": "0            4",
+        "time": "16:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "SD Huesca",
+        "undefined": "1            1",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Barcelona",
+        "undefined": "0            2",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Osasuna",
+        "undefined": "0            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Valencia",
+        "undefined": "3            0",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Parma",
+        "undefined": "2            2",
+        "time": "14:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lazio",
+        "undefined": "2            0",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Juventus",
+        "undefined": "1            1",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Piast Gliwice",
+        "undefined": "0            1",
+        "time": "16:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Legia Warsaw",
+        "undefined": "1            2",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Waasland Beveren",
+        "undefined": "2            0",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "Mechelen",
+        "undefined": "2            0",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Zulte-Waregem",
+        "undefined": "1            2",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "SC Farense",
+        "undefined": "0            0",
+        "time": "15:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Pacos Ferreira",
+        "undefined": "3            0",
+        "time": "18:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Sporting Lisbon",
+        "undefined": "0            0",
+        "time": "20:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Chievo",
+        "undefined": "1            0",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Frosinone",
+        "undefined": "4            0",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lecce",
+        "undefined": "1            1",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Vicenza",
+        "undefined": "2            2",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Ascoli",
+        "undefined": "1            1",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Reggina",
+        "undefined": "1            4",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cittadella",
+        "undefined": "0            0",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Brescia",
+        "undefined": "1            1",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "OFI",
+        "undefined": "2            1",
+        "time": "15:15",
+        "team2": "FT"
+    },
+    {
+        "team1": "PAOK Salonika",
+        "undefined": "2            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Budapest Honved",
+        "undefined": "1            2",
+        "time": "16:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Ferencvaros",
+        "undefined": "2            2",
+        "time": "18:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cliftonville",
+        "undefined": "0            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Warrenpoint Town",
+        "undefined": "2            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Glenavon",
+        "undefined": "0            1",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Ballymena United",
+        "undefined": "1            2",
+        "time": "15:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Glentoran",
+        "undefined": "0            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Nottingham Forest",
+        "undefined": "1            1",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Eintracht Frankfurt",
+        "undefined": "2            1",
+        "time": "19:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Hearts",
+        "undefined": "1            1",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Heerenveen",
+        "undefined": "4            1",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Nice",
+        "undefined": "1            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Athletic Bilbao",
+        "undefined": "1            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Genk",
+        "undefined": "1            2",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Boavista",
+        "undefined": "2            1",
+        "time": "20:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Mezokovesd Zsory",
+        "undefined": "2            2",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Salernitana",
+        "undefined": "0            0",
+        "time": "18:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Venezia",
+        "undefined": "1            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Larne",
+        "undefined": "2            1",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lille",
+        "undefined": "2            1",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Benfica",
+        "undefined": "3            2",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Molde",
+        "undefined": "0            2",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Granada",
+        "undefined": "2            1",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Antwerp",
+        "undefined": "5            2",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Maccabi Tel Aviv",
+        "undefined": "1            0",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "Red Bull Salzburg",
+        "undefined": "2            1",
+        "time": "17:55",
+        "team2": "FT"
+    },
+    {
+        "team1": "AC Milan win on away goals rule",
+        "undefined": "1            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team2": "FT",
+        "undefined": "0            2",
+        "time": "20:00",
+        "team1": "BSC Young Boys Bern"
+    },
+    {
+        "team1": "Dynamo Kiev",
+        "undefined": "0            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Krasnodar",
+        "undefined": "1            0",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Slavia Prague",
+        "undefined": "0            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Real Sociedad",
+        "undefined": "0            0",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Olympiakos FC",
+        "undefined": "2            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Braga",
+        "undefined": "3            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Argentina Women",
+        "undefined": "6            0",
+        "time": "00:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Mtsapéré",
+        "undefined": "2            0",
+        "time": "13:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Real Madrid",
+        "undefined": "0            1",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Manchester City",
+        "undefined": "0            2",
+        "time": "20:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Stoke City",
+        "undefined": "2            0",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Sheffield Wednesday",
+        "undefined": "3            0",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Coventry City",
+        "undefined": "1            0",
+        "time": "19:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Watford",
+        "undefined": "2            3",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Cardiff City",
+        "undefined": "1            2",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Queens Park Rangers",
+        "undefined": "0            0",
+        "time": "19:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Newport County AFC",
+        "undefined": "0            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Southend United",
+        "undefined": "1            3",
+        "time": "18:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Motherwell",
+        "undefined": "0            0",
+        "time": "18:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "RZ Pellets WAC",
+        "undefined": "4            0",
+        "time": "17:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Germany Women",
+        "undefined": "2            1",
+        "time": "17:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Brazil Women",
+        "undefined": "0            2",
+        "time": "21:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "ADO Den Haag",
+        "undefined": "1            1",
+        "time": "15:30",
+        "team2": "FT"
+    },
+    {
+        "team1": "Feyenoord",
+        "undefined": "0            0",
+        "time": "17:45",
+        "team2": "FT"
+    },
+    {
+        "team1": "Lorient",
+        "undefined": "1            0",
+        "time": "18:00",
+        "team2": "FT"
+    },
+    {
+        "team1": "Elche",
+        "undefined": "3            0",
+        "time": "18:00",
+        "team2": "FT"
+    }
+]

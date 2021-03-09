@@ -1,0 +1,244 @@
+[
+    {
+        "team1": "LeicesterLeicester City",
+        "time": "18:00"
+    },
+    {
+        "team2": "Sheff UtdSheffield United",
+        "time": "18:00",
+        "team1": "Aston VillaAston Villa"
+    },
+    {
+        "team2": "Crystal PalaceCrystal Palace",
+        "time": "20:15",
+        "team1": "Man UtdManchester United"
+    },
+    {
+        "team2": "HamiltonHamilton Academical",
+        "time": "18:00",
+        "team1": "St JohnstoneSt Johnstone"
+    },
+    {
+        "team2": "LivingstonLivingston",
+        "time": "18:00",
+        "team1": "RangersRangers"
+    },
+    {
+        "team2": "Barcelona FemeninoBarcelona Femenino",
+        "time": "15:45",
+        "team1": "Fortuna Hjørring WomenFortuna Hjørring Women"
+    },
+    {
+        "team2": "Man City WomenManchester City Women",
+        "time": "16:45",
+        "team1": "Fiorentina FemminileFiorentina Femminile"
+    },
+    {
+        "team2": "Rosengård WomenRosengård Women",
+        "time": "17:00",
+        "team1": "St. Pölten WomenSt. Pölten Women"
+    },
+    {
+        "team2": "VfL Wolfsburg LadiesVfL Wolfsburg Ladies",
+        "time": "17:15",
+        "team1": "LSK KvinnerLSK Kvinner"
+    },
+    {
+        "team2": "Chelsea WomenChelsea Women",
+        "time": "19:00",
+        "team1": "Atlético de Madrid FemeninoAtlético de Madrid Femenino"
+    },
+    {
+        "team2": "NorwichNorwich City",
+        "time": "17:30",
+        "team1": "BrentfordBrentford"
+    },
+    {
+        "team2": "QPRQueens Park Rangers",
+        "time": "19:00",
+        "team1": "BarnsleyBarnsley"
+    },
+    {
+        "team2": "WatfordWatford",
+        "time": "19:00",
+        "team1": "WycombeWycombe Wanderers"
+    },
+    {
+        "team2": "Bristol CityBristol City",
+        "time": "19:45",
+        "team1": "BournemouthAFC Bournemouth"
+    },
+    {
+        "team2": "Sheff WedSheffield Wednesday",
+        "time": "19:45",
+        "team1": "RotherhamRotherham United"
+    },
+    {
+        "team2": "StokeStoke City",
+        "time": "20:15",
+        "team1": "SwanseaSwansea City"
+    },
+    {
+        "team2": "BarcelonaBarcelona",
+        "time": "20:00",
+        "team1": "SevillaSevilla"
+    },
+    {
+        "team2": "Agg",
+        "score": "0-2",
+        "undefined": ")"
+    },
+    {
+        "team1": "Holstein KielHolstein Kiel",
+        "time": "17:30"
+    },
+    {
+        "team2": "RB LeipzigRB Leipzig",
+        "time": "19:45",
+        "team1": "WolfsburgVfL Wolfsburg"
+    },
+    {
+        "team2": "SassuoloSassuolo",
+        "time": "17:30",
+        "team1": "NapoliNapoli"
+    },
+    {
+        "team2": "AtalantaAtalanta",
+        "time": "19:45",
+        "team1": "CrotoneCrotone"
+    },
+    {
+        "team2": "BeneventoBenevento",
+        "time": "19:45",
+        "team1": "Hellas VeronaHellas Verona"
+    },
+    {
+        "team2": "CagliariCagliari",
+        "time": "19:45",
+        "team1": "BolognaBologna"
+    },
+    {
+        "team2": "FiorentinaFiorentina",
+        "time": "19:45",
+        "team1": "RomaRoma"
+    },
+    {
+        "team2": "GenoaGenoa",
+        "time": "19:45",
+        "team1": "SampdoriaSampdoria"
+    },
+    {
+        "team2": "AC MilanAC Milan",
+        "time": "19:45",
+        "team1": "UdineseUdinese"
+    },
+    {
+        "team2": "BrestBrest",
+        "time": "18:00",
+        "team1": "DijonDijon"
+    },
+    {
+        "team2": "LyonLyon",
+        "time": "18:00",
+        "team1": "RennesRennes"
+    },
+    {
+        "team2": "MetzMetz",
+        "time": "18:00",
+        "team1": "AngersAngers"
+    },
+    {
+        "team2": "NiceNice",
+        "time": "18:00",
+        "team1": "NîmesNîmes"
+    },
+    {
+        "team2": "Saint-ÉtienneSaint-Étienne",
+        "time": "18:00",
+        "team1": "LensLens"
+    },
+    {
+        "team2": "BordeauxBordeaux",
+        "time": "20:00",
+        "team1": "PSGParis Saint Germain"
+    },
+    {
+        "team2": "LilleLille",
+        "time": "20:00",
+        "team1": "MarseilleMarseille"
+    },
+    {
+        "team2": "MontpellierMontpellier",
+        "time": "20:00",
+        "team1": "LorientLorient"
+    },
+    {
+        "team2": "NantesNantes",
+        "time": "20:00",
+        "team1": "ReimsReims"
+    },
+    {
+        "team2": "StrasbourgStrasbourg",
+        "time": "20:00",
+        "team1": "MonacoMonaco"
+    },
+    {
+        "team2": "AC HorsensAC Horsens",
+        "time": "17:00",
+        "team1": "Aalborg BKAalborg BK"
+    },
+    {
+        "team2": "AGF AarhusAGF Aarhus",
+        "time": "17:00",
+        "team1": "FC NordsjællandFC Nordsjælland"
+    },
+    {
+        "team2": "FC CopenhagenFC Copenhagen",
+        "time": "19:00",
+        "team1": "Vejle BKVejle BK"
+    },
+    {
+        "team2": "St. GallenSt. Gallen",
+        "time": "17:15",
+        "team1": "ServetteServette"
+    },
+    {
+        "team2": "FC BaselFC Basel",
+        "time": "19:30",
+        "team1": "Young BoysYoung Boys"
+    },
+    {
+        "team2": "FC VaduzFC Vaduz",
+        "time": "19:30",
+        "team1": "LausanneLausanne"
+    },
+    {
+        "team2": "BB ErzurumsporBB Erzurumspor",
+        "time": "10:30",
+        "team1": "Fatih KaragümrükFatih Karagümrük"
+    },
+    {
+        "team2": "Istanbul BasaksehirIstanbul Basaksehir",
+        "time": "13:00",
+        "team1": "KonyasporKonyaspor"
+    },
+    {
+        "team2": "SivassporSivasspor",
+        "time": "13:00",
+        "team1": "HataysporHatayspor"
+    },
+    {
+        "team2": "AnkaragücüAnkaragücü",
+        "time": "16:00",
+        "team1": "GalatasarayGalatasaray"
+    },
+    {
+        "team2": "KayserisporKayserispor",
+        "time": "16:00",
+        "team1": "Caykur RizesporCaykur Rizespor"
+    },
+    {
+        "team2": "All times are UK and subject to change. BBC is not responsible for any changes.",
+        "team1": "Choose another date"
+    }
+]

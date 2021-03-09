@@ -1,0 +1,62 @@
+{
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/brusky.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/brusky.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/disky.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/disky.html",
+        "tested_classes": 7,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/chladice.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/chladice.html",
+        "tested_classes": 7,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/chladnicky.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/chladnicky.html",
+        "tested_classes": 8,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/kolobezky.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/kolobezky.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/mobo.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/mobo.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/monitory.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/monitory.html",
+        "tested_classes": 6,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/pamat.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/pamat.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/proc.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/proc.html",
+        "tested_classes": 6,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    },
+    "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/skenery.html": {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/skenery.html",
+        "tested_classes": 5,
+        "first_target": "document.querySelectorAll('.wvat')[0].parentElement.children",
+        "target_count": 24
+    }
+}
