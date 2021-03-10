@@ -133,6 +133,12 @@ function argumentsCheck() {
     } else {
         guesser = false;
     }
+    if (argv.b) { // try to guess item datatype
+        blist = true;
+        blacklist = data.blacklist;
+    } else {
+        blist = false;
+    }
 
     try {
         urls = data.urls;                   // urls to crawl
@@ -214,6 +220,16 @@ function checkArrBySeverity(results) {
   Define type of the current item
 */
 function defineType(input, currentResults, position, max) {
+    if (blist) {
+        for (let k = 0; k < blacklist.length; k++) {
+            if (input == blacklist[k]) {
+                return 'undefined';
+            }
+            if (input.search(blacklist[k]) != -1){
+                return 'undefined';
+            }
+        }
+    }
     let structureSize = searchStructure.length;
     for (let i = 0; i < structureSize; i++) {
         let current = new RegExp(format[searchStructure[i]]);
