@@ -1,0 +1,10 @@
+{
+    "maxFailRatio": 65,
+    "format":{
+        "string_title": "^[a-žA-Ž].{5,42}$",
+        "string_desc": "^[a-žA-Ž].{30,300}$",
+        "price": "\\d+\\s*\\d+,-|\\d+\\s*\\d*\\s*Kč|\\d+\\,*\\d+\\s*Kč",
+        "discount": "^.*%$"
+    },
+    "primary": "^\\d+\\s*\\d+,-$|^\\d+\\s*\\d*\\s*Kč$|^\\d+\\,*\\d+\\s*Kč$"
+}

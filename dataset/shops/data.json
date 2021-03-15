@@ -1,0 +1,43 @@
+{
+    "urls": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/alza.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/czc.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/insportline.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/smarty.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/stavebninystastny.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/zahradnictvi-spomysl.cz.html"
+    ],
+    "urls+": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/zahradnictvi-spomysl.cz.html"
+    ],
+    "structure": [
+        "string_title",
+        "price",
+        "string_desc",
+        "discount"
+    ],
+    "items": [
+        "title",
+        "price",
+        "description",
+        "discount"
+    ],
+    "blacklist":[
+        "Skladem",
+        "Informovat",
+        "Nedostupné",
+        "skladem",
+        "varianty",
+        "Porovnat",
+        "Rozbalené",
+        "Splátky",
+        "Doprava",
+        "Záruka",
+        "Dáreček",
+        "DÁREK",
+        "DÁRKY",
+        "Plať",
+        "Výměna",
+        "Koupit"
+    ]
+}

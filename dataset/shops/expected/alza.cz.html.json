@@ -1,0 +1,104 @@
+[
+    {
+        "description": "AMD RYZEN 5 3600Procesor 6 jádrový, 12 vláken, 3,6GHz (TDP 65W), Boost 4,2 GHz, 32MB L3 cache, socket AMD AM4, Matisse, box chladič, Wraith Stealth",
+        "title": "Objednací kód: BD740h11"
+    },
+    {
+        "description": "Intel Core i7-9700FProcesor 8 jádrový, 8 vláken, 3GHz (TDP 65W), Turboboost 4,7GHz, 12MB L3 cache, socket Intel 1151, Coffee Lake refresh, box chladič, pouze chipset Intel řady 3xx",
+        "title": "Objednací kód: BO533e7c"
+    },
+    {
+        "description": "AMD Ryzen 7 5800XProcesor 8 jádrový, 16 vláken, 3,8GHz (TDP 105W), Boost 4,7 GHz, 32MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Vermeer, bez chladiče",
+        "title": "Objednací kód: BD750j13"
+    },
+    {
+        "description": "AMD RYZEN 5 1600 (12nm)Procesor 6 jádrový, 12 vláken, 3,2GHz (TDP 65W), Boost 3,6 GHz, 16MB L3 cache, socket AMD AM4, Pinnacle Ridge, box chladič, Wraith Stealth",
+        "title": "Objednací kód: BD740g11"
+    },
+    {
+        "description": "Intel Core i5-10400FProcesor 6 jádrový, 12 vláken, 2,9GHz (TDP 65W), Boost 4,3 GHz, 12MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, box chladič",
+        "title": "Objednací kód: BOi510400f"
+    },
+    {
+        "description": "Intel Core i5-8600Procesor 6 jádrový, 6 vláken, 3,1GHz (TDP 65W), Turboboost 4,3GHz, 9MB L3 cache, Intel UHD Graphics 630 350MHz, socket Intel 1151, Coffee Lake, box chladič, pouze chipset Intel řady 3xx",
+        "title": "Objednací kód: BO432c1d"
+    },
+    {
+        "discount": "-15%",
+        "description": "Intel Core i5-10600KFProcesor 6 jádrový, 12 vláken, 4,1GHz (TDP 125W), Boost 4,8 GHz, 12MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, bez chladiče",
+        "title": "Objednací kód: BOi510600kf"
+    },
+    {
+        "description": "AMD RYZEN 5 3500XProcesor 6 jádrový, 6 vláken, 3,6GHz (TDP 65W), Boost 4,1 GHz, 32MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Matisse, box chladič, Wraith Stealth",
+        "title": "Objednací kód: BD740h10"
+    },
+    {
+        "description": "AMD RYZEN 7 3700XProcesor 8 jádrový, 16 vláken, 3,6GHz (TDP 65W), Boost 4,4 GHz, 32MB L3 cache, socket AMD AM4, Matisse, box chladič, Wraith Prism RGB",
+        "title": "Objednací kód: BD750i4"
+    },
+    {
+        "discount": "-16%",
+        "description": "Intel Core i9-10850KProcesor 10 jádrový, 20 vláken, 3,6GHz (TDP 125W), Boost 5,2 GHz, 20MB L3 cache, Intel UHD Graphics 630 1,2GHz, socket Intel 1200, Comet Lake, bez chladiče, pouze chipset Intel řady 4xx",
+        "title": "Objednací kód: BOi910850k"
+    },
+    {
+        "description": "Intel Core i5-9400FProcesor 6 jádrový, 6 vláken, 2,9GHz (TDP 65W), Turboboost 4,1GHz, 9MB L3 cache, socket Intel 1151, Coffee Lake refresh, box chladič, pouze chipset Intel řady 3xx",
+        "title": "Objednací kód: BO431e6d"
+    },
+    {
+        "description": "AMD RYZEN 9 3950XProcesor 16 jádrový, 32 vláken, 3,5GHz (TDP 105W), Boost 4,7 GHz, 64MB L3 cache, socket AMD AM4, Matisse, bez chladiče",
+        "title": "Objednací kód: BD750j3"
+    },
+    {
+        "description": "Intel Core i5-10400Procesor 6 jádrový, 12 vláken, 2,9GHz (TDP 65W), Boost 4,3 GHz, 12MB L3 cache, Intel UHD Graphics 630 1100MHz, socket Intel 1200, Comet Lake, box chladič",
+        "title": "Objednací kód: BOi510400"
+    },
+    {
+        "description": "AMD RYZEN 9 3900XProcesor 12 jádrový, 24 vláken, 3,8GHz (TDP 105W), Boost 4,6 GHz, 64MB L3 cache, socket AMD AM4, Matisse, box chladič, Wraith Prism RGB",
+        "title": "Objednací kód: BD750j2"
+    },
+    {
+        "discount": "-20%",
+        "description": "Intel Core i9-10900KProcesor 10 jádrový, 20 vláken, 3,7GHz (TDP 125W), Boost 5,2 GHz, 20MB L3 cache, Intel UHD Graphics 630 1200MHz, socket Intel 1200, Comet Lake, bez chladiče, pouze chipset Intel řady 4xx",
+        "title": "Objednací kód: BOi910900k"
+    },
+    {
+        "description": "AMD RYZEN 5 2600Procesor 6 jádrový, 12 vláken, 3,4GHz (TDP 65W), Boost 3,9 GHz, 16MB L3 cache, socket AMD AM4, Pinnacle Ridge, box chladič, Wraith Stealth",
+        "title": "Objednací kód: BD740h1"
+    },
+    {
+        "description": "Intel Celeron G5920Procesor 2 jádrový, 2 vlákna, 3,5GHz (TDP 58W), 2MB L3 cache, Intel UHD Graphics 610 350MHz, socket Intel 1200, Comet Lake, box chladič, pouze chipset Intel řady 4xx",
+        "title": "Objednací kód: BOcg5920"
+    },
+    {
+        "discount": "-13%",
+        "description": "Intel Core i7-10700KFProcesor 8 jádrový, 16 vláken, 3,8GHz (TDP 125W), Boost 5,1 GHz, 16MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, bez chladiče",
+        "title": "Objednací kód: BOi710700kf"
+    },
+    {
+        "discount": "-5%",
+        "description": "AMD RYZEN 7 3800XProcesor 8 jádrový, 16 vláken, 3,9GHz (TDP 105W), Boost 4,5 GHz, 32MB L3 cache, socket AMD AM4, Matisse, box chladič, Wraith Prism RGB",
+        "title": "Objednací kód: BD750j1"
+    },
+    {
+        "description": "Intel Core i3-10100FProcesor 4 jádrový, 8 vláken, 3,6GHz (TDP 65W), Boost 4,3 GHz, 6MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, box chladič, pouze chipset Intel řady 4xx",
+        "title": "Objednací kód: BOi310100f"
+    },
+    {
+        "description": "Intel Core i7-10700KProcesor 8 jádrový, 16 vláken, 3,8GHz (TDP 125W), Boost 5,1 GHz, 16MB L3 cache, Intel UHD Graphics 630 1200MHz, socket Intel 1200, Comet Lake, bez chladiče",
+        "title": "Objednací kód: BOi710700k"
+    },
+    {
+        "description": "Intel Core i9-9900KProcesor 8 jádrový, 16 vláken, 3,6GHz (TDP 95W), Turboboost 5GHz, 16MB L3 cache, Intel UHD Graphics 630 1200MHz, socket Intel 1151, Coffee Lake refresh, bez chladiče, pouze chipset Intel řady 3xx",
+        "title": "Objednací kód: BO533f9b"
+    },
+    {
+        "discount": "-14%",
+        "description": "Intel Core i7-10700Procesor 8 jádrový, 16 vláken, 2,9GHz (TDP 65W), Boost 4,8 GHz, 16MB L3 cache, Intel UHD Graphics 630 1200MHz, socket Intel 1200, Comet Lake, box chladič",
+        "title": "Objednací kód: BOi710700"
+    },
+    {
+        "description": "Intel Pentium G6400Procesor 2 jádrový, 4 vlákna, 4GHz (TDP 58W), 4MB L3 cache, Intel UHD Graphics 610 350MHz, socket Intel 1200, Comet Lake, box chladič, pouze chipset Intel řady 4xx",
+        "title": "Objednací kód: BOpg6400"
+    }
+]
