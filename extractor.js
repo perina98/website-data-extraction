@@ -133,18 +133,22 @@ function argumentsCheck() {
     } else {
         guesser = false;
     }
-    if (argv.b) { // try to guess item datatype
+    if (argv.b) { // setup blacklist
         blist = true;
         blacklist = data.blacklist;
     } else {
         blist = false;
+    }
+    if (argv.u) { // only return object if all keys matched
+        unify = true;
+    } else {
+        unify = false;
     }
 
     try {
         urls = data.urls;                   // urls to crawl
         searchItem = data.items;            // item name prefered by user
         searchStructure = data.structure;   // item structure (datatype)
-        searchLen = data.slen;             // regex format // unique defining format on every site
 
         severity = config.maxFailRatio;     // max fail ratio
         format = config.format;             // regex format // unique defining format on every site
@@ -223,9 +227,11 @@ function defineType(input, currentResults, position, max) {
     if (blist) {
         for (let k = 0; k < blacklist.length; k++) {
             if (input == blacklist[k]) {
+                //console.log(input);
                 return 'undefined';
             }
             if (input.search(blacklist[k]) != -1){
+                //console.log(input);
                 return 'undefined';
             }
         }
@@ -235,16 +241,16 @@ function defineType(input, currentResults, position, max) {
         let current = new RegExp(format[searchStructure[i]]);
         if (current.test(input) && last != searchItem[i]) {
             if(def.includes(searchItem[i])) continue;
-            //if (input.length > searchLen[i]) continue;
             last = searchItem[i];
-            //console.log("DEFINING " + input + " TO " + searchItem[i]);
+            console.log("DEFININGS " + input + " TO " + searchItem[i]);
             //console.log(input + " to " + searchItem[i]);
             return searchItem[i];
         }
         if (current.test(input.trim().replace(/\n*\s*/g, '')) && last != searchItem[i]) {
-            //if (input.length > searchLen[i]) continue;
+            if (def.includes(searchItem[i])) continue;
             last = searchItem[i];
-            //console.log("DEFINING " + input + " TOT " + searchItem[i]);
+            console.log(def);
+            console.log("DEFINING " + input + " TOT " + searchItem[i]);
             return searchItem[i];
         }
     }
@@ -255,7 +261,7 @@ function defineType(input, currentResults, position, max) {
         proposed.push(Object.getOwnPropertyNames(currentResults[i])[position]);
     }
     let ppp = Math.floor(Math.random() * max);
-    //console.log("DEFINING " + input + " TO " + proposed[ppp]);
+    console.log("DEFINING " + input + " TO " + proposed[ppp]);
     if(guesser){
         return proposed[ppp];
     } else{
@@ -272,6 +278,7 @@ function prepareResults(final_results) {
     for (let i = 0; i < resultsLength; i++) {
         let content = {};
         def = [];
+        console.log("---");
         for (let j = 0; j < Object.keys(final_results[i]).length; j++) {
             let type = defineType(final_results[i][j], final_results, j, i);
            if(defCheck){ 
@@ -288,6 +295,7 @@ function prepareResults(final_results) {
                     def.push(type);
                     content[type] = final_results[i][j];
                 } else{
+                    console.log(final_results[i][j]);
                     continue;
                 }
             }  // shops, maybe differentiete by taking first / last gathered info ? idk
@@ -318,6 +326,33 @@ function checkResults(results) {
     return results;
 }
 
+function unifyObjects(final_results){
+    let size = {};
+    let tLength = final_results.length;
+    let target;
+
+    for (let i = 0; i < tLength; i++) {
+        let listLength = Object.keys(final_results[i]).length;
+        if (size[listLength]) {
+            size[listLength]++;   
+        } else {
+            size[listLength] = 1;
+        }
+    }
+    
+    for (const [key, value] of Object.entries(size).sort(([, a], [, b]) => b - a)) {
+        if (key > (searchItem.length/2)) {
+            target = key;
+            break;
+        }
+    }
+
+    return final_results = final_results.filter(function (obj) {
+        return Object.keys(obj).length == target;
+    });
+
+}
+
 function prepareQuerry(url, ind, topclass, reslength) {
     currentQuerry = {};
     currentQuerry["url"] = url;
@@ -330,88 +365,49 @@ function prepareQuerry(url, ind, topclass, reslength) {
 function output(url, final_results) {
     if (offline) {
         url = url.split('/')[url.split('/').length - 1];// fix for my file path
-        fs.writeFile(output_folder + '/targets_' + url + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
+        fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
     } else {
-        fs.writeFile(output_folder + '/targets_' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
+        fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
     }
 }
 
 async function getFinalResults(page, currentSelector) {
-    if(parenting == 1){
-        results = await page.$$eval(currentSelector, nodes => {
-            return nodes.map(node => {
-                cnode = node.parentNode;
-                /* for(let i = 0; i < parenting;i++){
-                    cnode = cnode.parentNode;
-                } */
-                /* while (cnode.children.length < 3) {
-                    cnode = cnode.parentNode;
-                    trend++;
-                }  */// shops
-                tree = cnode.children;
-                treeContent = {};
-                /* treeContent[0] = node.textContent.trim().replace(/\n\s+/g, ''); */
-                x = 0; // shops
-                /* x = 0; */
-                treeLength = tree.length;
-    
-                for (i = 0; i < treeLength; i++) {
-                    if (tree[i].children.length > 0) {
-                        subtreeLength = tree[i].children.length;
-                        for (k = 0; k < subtreeLength; k++) {
-                            if (tree[i].children[k].textContent.trim() != "") {
-                                treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n\s+/g, '');
-                                x++;
-                            }
+    results = await page.$$eval(currentSelector, (nodes, parenting) => {
+        return nodes.map(node => {
+            cnode = node;
+            for(let i = 0; i < parenting;i++){
+                cnode = cnode.parentNode;
+            }
+            /* while (cnode.children.length < 3) {
+                cnode = cnode.parentNode;
+                trend++;
+            }  */// shops
+            tree = cnode.children;
+            treeContent = {};
+            /* treeContent[0] = node.textContent.trim().replace(/\n\s+/g, ''); */
+            x = 0;
+            treeLength = tree.length;
+
+            for (i = 0; i < treeLength; i++) {
+                if (tree[i].children.length > 0) {
+                    subtreeLength = tree[i].children.length;
+                    for (k = 0; k < subtreeLength; k++) {
+                        if (tree[i].children[k].textContent.trim() != "") {
+                            treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n\s+/g, '');
+                            x++;
                         }
-                        continue;
                     }
-                    if (tree[i].textContent.trim() != "") {
-                        treeContent[x] = tree[i].textContent.trim().replace(/\n\s+/g, '');
-                        x++;
-                    }
+                    continue;
                 }
-                return treeContent;
-            })
-        });
-    } else{
-        results = await page.$$eval(currentSelector, nodes => {
-            return nodes.map(node => {
-                cnode = node.parentNode.parentNode;
-                /* for(let i = 0; i < parenting;i++){
-                    cnode = cnode.parentNode;
-                } */
-                /* while (cnode.children.length < 3) {
-                    cnode = cnode.parentNode;
-                    trend++;
-                }  */// shops
-                tree = cnode.children;
-                treeContent = {};
-                /* treeContent[0] = node.textContent.trim().replace(/\n\s+/g, ''); */
-                x = 0; // shops
-                /* x = 0; */
-                treeLength = tree.length;
+                if (tree[i].textContent.trim() != "") {
+                    treeContent[x] = tree[i].textContent.trim().replace(/\n\s+/g, '');
+                    x++;
+                }
+            }
+            return treeContent;
+        })
+    },parenting);
     
-                for (i = 0; i < treeLength; i++) {
-                    if (tree[i].children.length > 0) {
-                        subtreeLength = tree[i].children.length;
-                        for (k = 0; k < subtreeLength; k++) {
-                            if (tree[i].children[k].textContent.trim() != "") {
-                                treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n\s+/g, '');
-                                x++;
-                            }
-                        }
-                        continue;
-                    }
-                    if (tree[i].textContent.trim() != "") {
-                        treeContent[x] = tree[i].textContent.trim().replace(/\n\s+/g, '');
-                        x++;
-                    }
-                }
-                return treeContent;
-            })
-        });
-    }
     return results;
 }
 
@@ -473,7 +469,7 @@ async function mainProcess() {
             } catch (err) {
                 console.error(err);
             }
-            pro_results = JSON.parse(JSON.stringify(results));;
+            pro_results = JSON.parse(JSON.stringify(results));
             results = checkResults(results);
 
             if (checkArrBySeverity(results)) {
@@ -526,10 +522,16 @@ async function mainProcess() {
         urlIndex++;
         continue; */
 
+        
         pro_final_results = JSON.parse(JSON.stringify(final_results));
-
+        
         final_results = prepareResults(final_results);
         if (verbose) console.dir(final_results, { 'maxArrayLength': null });
+
+        if(unify){
+            final_results = unifyObjects(final_results);
+            console.log(final_results);
+        }
 
         output(url, final_results);
 
