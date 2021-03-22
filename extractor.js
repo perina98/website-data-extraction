@@ -39,6 +39,17 @@ Usage: node extractor.js --data=data.json  [-v] [-h] [--config=config.json] [-o=
     exit(0);
 }
 
+function failCheck(){
+    if (!urls             ||
+        !searchItem       ||
+        !searchStructure  ||
+        !severity         ||
+        !format           ||
+        !primary         ){
+            return true;
+        }
+}
+
 /* 
   Check for arguments and their correct representation
 */
@@ -145,6 +156,8 @@ function argumentsCheck() {
         unify = false;
     }
 
+    onlyMatch = false;
+
     try {
         urls = data.urls;                   // urls to crawl
         searchItem = data.items;            // item name prefered by user
@@ -153,6 +166,11 @@ function argumentsCheck() {
         severity = config.maxFailRatio;     // max fail ratio
         format = config.format;             // regex format // unique defining format on every site
         primary = config.primary;           // primary item by which the first search decides where to start
+
+        if(failCheck()){
+            console.error("Config or data file error. Run with -h param to learn more.");
+            exit(1);
+        }
     } catch (err) {
         console.error("Error while reading json file.");
         exit(1);
@@ -242,15 +260,14 @@ function defineType(input, currentResults, position, max) {
         if (current.test(input) && last != searchItem[i]) {
             if(def.includes(searchItem[i])) continue;
             last = searchItem[i];
-            console.log("DEFININGS " + input + " TO " + searchItem[i]);
+            if(verbose) console.log("DEFININGS " + input + " TO " + searchItem[i]);
             //console.log(input + " to " + searchItem[i]);
             return searchItem[i];
         }
         if (current.test(input.trim().replace(/\n*\s*/g, '')) && last != searchItem[i]) {
             if (def.includes(searchItem[i])) continue;
             last = searchItem[i];
-            console.log(def);
-            console.log("DEFINING " + input + " TOT " + searchItem[i]);
+            if(verbose) console.log("DEFINING " + input + " TOT " + searchItem[i]);
             return searchItem[i];
         }
     }
@@ -261,12 +278,28 @@ function defineType(input, currentResults, position, max) {
         proposed.push(Object.getOwnPropertyNames(currentResults[i])[position]);
     }
     let ppp = Math.floor(Math.random() * max);
-    console.log("DEFINING " + input + " TO " + proposed[ppp]);
+    if(verbose) console.log("DEFINING " + input + " TO " + proposed[ppp]);
     if(guesser){
         return proposed[ppp];
     } else{
         return 'undefined';
     }
+}
+
+function regMatch(type,input){
+    if(type=='undefined') return input;
+    let searchSize = searchItem.length;
+    for (let i = 0; i < searchSize; i++) {
+        if (type == searchItem[i]){
+            let current = new RegExp(format[searchStructure[i]]);
+            try{
+                return input.match(current)[0];
+            } catch{
+                return input;
+            }
+        }
+    }
+    return input;
 }
 
 /* 
@@ -278,7 +311,6 @@ function prepareResults(final_results) {
     for (let i = 0; i < resultsLength; i++) {
         let content = {};
         def = [];
-        console.log("---");
         for (let j = 0; j < Object.keys(final_results[i]).length; j++) {
             let type = defineType(final_results[i][j], final_results, j, i);
            if(defCheck){ 
@@ -293,14 +325,21 @@ function prepareResults(final_results) {
                } */
                 if (type != 'undefined' && !def.includes(type)){
                     def.push(type);
-                    content[type] = final_results[i][j];
+                    if(onlyMatch){
+                        content[type] = regMatch(type, final_results[i][j]);
+                    } else{
+                        content[type] = final_results[i][j];
+                    }
                 } else{
-                    console.log(final_results[i][j]);
                     continue;
                 }
             }  // shops, maybe differentiete by taking first / last gathered info ? idk
             else{
-                content[type] = final_results[i][j];
+               if (onlyMatch) {
+                   content[type] = regMatch(type, final_results[i][j]);
+               } else {
+                   content[type] = final_results[i][j];
+               }
             }
         }
         //console.log(content);
@@ -365,9 +404,9 @@ function prepareQuerry(url, ind, topclass, reslength) {
 function output(url, final_results) {
     if (offline) {
         url = url.split('/')[url.split('/').length - 1];// fix for my file path
-        fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
+        fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4),'utf8', err => err ? console.log(err) : null);
     } else {
-        fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), err => err ? console.log(err) : null);
+        fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4),'utf8', err => err ? console.log(err) : null);
     }
 }
 
@@ -420,7 +459,7 @@ async function mainProcess() {
 
     urlIndex = 0;
     topSelector = {};
-    querry = {};
+    querry = [];
     urlsLength = urls.length;
 
     // search for top selectors
@@ -428,10 +467,17 @@ async function mainProcess() {
     while (urlIndex < urlsLength) {
         url = urls[urlIndex];
         console.log("Current url: " + url);
-        await page.goto(url, {
-            waitUntil: "networkidle2",
-            timeout: 60000
-        });
+
+        try{
+            await page.goto(url, {
+                waitUntil: "networkidle2",
+                timeout: 60000
+            });
+        } catch (err) {
+            console.error("URL "+ url +" cant be reached");
+            exit(1);
+        }
+        
         targets = {};
         classList = {};
         topClasses = [];
@@ -484,8 +530,7 @@ async function mainProcess() {
 
         if (verbose) console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
 
-        querry[url] = prepareQuerry(url, ind, topClasses[ind], results.length);
-
+        querry.push(prepareQuerry(url, ind, topClasses[ind], results.length));
         topSelector[url] = topClasses[ind];
 
         if (verbose) console.log(JSON.stringify(topSelector, null, 4));
@@ -493,7 +538,7 @@ async function mainProcess() {
         if (verbose) console.log("==============================");
     }
 
-    fs.writeFile(output_folder + '/selectors.json', JSON.stringify(querry, null, 4), err => err ? console.log(err) : null);
+    fs.writeFile(output_folder + '/selectors.json', JSON.stringify(querry, null, 4), 'utf8', err => err ? console.log(err) : null);
     console.log("----------------------");
     console.log("BEGIN DATA DUMP");
     urlIndex = 0;
@@ -530,7 +575,6 @@ async function mainProcess() {
 
         if(unify){
             final_results = unifyObjects(final_results);
-            console.log(final_results);
         }
 
         output(url, final_results);
