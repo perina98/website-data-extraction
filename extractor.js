@@ -1,12 +1,11 @@
 /* 
-  Set constant variables and puppeteer requirements
+  Set constant variables and requirements
 */
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const { exit } = require('process');
-const { count } = require('console');
-const CSS = require('CSS.escape');
-const selector = '[class]'; // primary selector, search by classes
+const css = require('CSS.escape');
+var argv = require('minimist')(process.argv.slice(2));
+const {exit} = require('process');
 const MIN_RESLEN = 5;
 const MAX_PARENTS = 6;
 
@@ -15,32 +14,48 @@ const MAX_PARENTS = 6;
 */
 function help() {
     console.log(`
-Usage: node extractor.js --data=data.json  [-v] [-h] [--config=config.json] [-o=output/folder/] [--offline] [--nowrite]
-    Default config is config.json
-    Default output folder is ./output/
+Smart WwW data extractor
+Brief:
+    Based on simple input variables, extract multiple data from any website provided in the data file.
+
+    Data file must be a proper json file and must contain these objects:
+        urls                    - array of url strings to extract
+        structure               - strucuture of items to extract
+        items                   - how the items should be called in output json
+        blacklist (optional)    - array of blacklisted strings
+
+    Config file must be a proper json file and must contain these objects:
+        maxFailRatio            - max fail ratio when determining result class
+        format{}                - object containing regex format for each datatype defined in structure
+        primary                 - primary object to search for
+
+Usage: node extractor.js --data=data.json [--config=config.json] [-o=output/folder/] [-b] [-d] [-g] [-u] [-m] [-p] [-v] [-h] [--offline] [--noundef]
+
+Default config is ./config.json
+Default output folder is ./output
 
     Available parameters:
-        --data = Specify json data file
-        --config = specify own config file, Default is config.json
-        -v   - verbose output to console
-        -h   - prints help info
-        -o= output location, default ./output
-        --offline   - set if scraped urls are saved offline / represented by file
-        --nowrite  - if set, script will not output any file
-
-  Smart WwW data extractor
-    Brief:
-    Based on simple input variables, extract multiple data from any website provided in the data file.
-    Data file must be proper json file and must contain these objects:
-    * urls
-    * structure
-    * items
+        --data    - specify json data file
+        --config  - specify own config file
+        --offline - set if scraped urls are saved offline / represented by file
+        --noundef - delete undefined parts of object
+        -o        - specify output location for extracted results
+        -v        - verbose output to console
+        -h        - prints help info
+        -d        - check if datatype already defined in current object
+        -g        - try to guess item datatype based on previous results
+        -b        - should blacklist be considered
+        -u        - unify results
+        -m        - strict regex matching check
 
   The number of items in "urls" is unlimited, number of items in "structure" must match number of items in "items"
   `);
     exit(0);
 }
 
+/* 
+    Check if everything from input json files is correct and set
+*/
 function failCheck() {
     if (!urls ||
         !searchItem ||
@@ -50,9 +65,13 @@ function failCheck() {
         !primary) {
         return true;
     }
+    return false;
 }
 
-function programVariables(argv){
+/* 
+    Set program variables
+*/
+function programVariables(){
     offline = false; // is file offline?
     verbose = false; // verbose output
     noUndefined = false; // remove undefined values from results
@@ -76,16 +95,12 @@ function programVariables(argv){
         unify = true;
     if (argv.m)
         onlyMatch = false;
-    if (argv.p)
-        ancestor = argv.p;
 }
 
 /* 
   Check for arguments and their correct representation
 */
 function argumentsCheck() {
-    var argv = require('minimist')(process.argv.slice(2));
-
     if (argv.h) {
         help();
     }
@@ -94,18 +109,19 @@ function argumentsCheck() {
         try {
             data = JSON.parse(fs.readFileSync(argv.data, 'utf8'));
         } catch (err) {
-            console.error("Cant open data file");
+            console.error("Cant open specified data file");
             exit(1);
         }
     } else {
-        data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+        console.error("Data file not specified. Run with -h to learn more.");
+        exit(1);
     }
 
     if (argv.config) {
         try {
             config = JSON.parse(fs.readFileSync(argv.config, 'utf8'));
         } catch (err) {
-            console.error("Cant open config file");
+            console.error("Cant open specified config file");
             exit(1);
         }
     } else {
@@ -122,7 +138,7 @@ function argumentsCheck() {
         try {
             blacklist = data.blacklist;
         } catch (err) {
-            console.error("Data file reading error");
+            console.error("Blacklisting allowed but blacklist not specified.");
             exit(1);
         }
     } else{
@@ -151,7 +167,7 @@ function argumentsCheck() {
         }
     }
 
-    programVariables(argv);
+    programVariables();
 
     try {
         urls = data.urls;                   // urls to crawl
@@ -167,7 +183,7 @@ function argumentsCheck() {
             exit(1);
         }
     } catch (err) {
-        console.error("Error while reading json file.");
+        console.error("Error while reading config and data files.");
         exit(1);
     }
 
@@ -188,17 +204,18 @@ function getTopClasses(targets) {
             if (classes[targets[i].class_list[j]]) {
                 classes[targets[i].class_list[j]]++;   // add 1 to the number of times the class appeared in list
             } else {
-                classes[targets[i].class_list[j]] = 1; // class appeared to list
+                classes[targets[i].class_list[j]] = 1; // class appeared in list
             }
         }
     }
     var i = 0;
     for (const [key, value] of Object.entries(classes).sort(([, a], [, b]) => b - a)) {
         if (i < tLength) {
-            if (isNaN(key[0])) // if classname starts with number, the querryselector needs to have two \\ in front of it to work properly.  
+            if (isNaN(key[0])){ // if classname starts with number, the querryselector needs to have two \\ in front of it to work properly.  
                 topClasses.push(key);
-            else
+            } else {
                 topClasses.push('\\\\' + key)
+            }
         }
         i++;
     }
@@ -234,50 +251,57 @@ function checkArrBySeverity(results) {
 }
 
 /* 
-  Define type of the current item
+    Try to guess datatype based on previous results
 */
-function defineType(input, currentResults, position, max) {
-    if (blist) {
-        for (let k = 0; k < blacklist.length; k++) {
-            if (input == blacklist[k]) {
-                return 'undefined';
-            }
-            if (input.search(blacklist[k]) != -1) {
-                return 'undefined';
-            }
-        }
-    }
-    let structureSize = searchStructure.length;
-    for (let i = 0; i < structureSize; i++) {
-        let current = new RegExp(format[searchStructure[i]]);
-        if (current.test(input)/*  && last != searchItem[i] */) {
-            if (def.includes(searchItem[i])) continue;
-            last = searchItem[i];
-            if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
-            return searchItem[i];
-        }
-        if (current.test(input.trim().replace(/\n*\s*/g, ''))/*  && last != searchItem[i] */) {
-            if (def.includes(searchItem[i])) continue;
-            last = searchItem[i];
-            if (verbose) console.log("MATCHING " + input + " TO " + searchItem[i]);
-            return searchItem[i];
-        }
-    }
-
-    // Try to guess based on past
+function guessDatatype(currentResults, position, max) {
     let proposed = [];
     for (let i = 0; i < max; i++) {
         proposed.push(Object.getOwnPropertyNames(currentResults[i])[position]);
     }
-    let ppp = Math.floor(Math.random() * max);
-    if (verbose) console.log("PROPOSING " + input + " TO " + proposed[ppp]);
+
+    return proposed.sort(function (a, b) { return a - b })[0];
+}
+
+/* 
+    Check if input is blacklisted
+*/
+function blackListed(input){
+    for (let k = 0; k < blacklist.length; k++) {
+        if (input == blacklist[k] || input.search(blacklist[k]) != -1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/* 
+    Define type of the current item
+*/
+function defineType(input, currentResults, position, max) {
+    if (blist) {
+        if (blackListed(input)) return 'undefined';
+    }
+
+    let structureSize = searchStructure.length;
+    for (let i = 0; i < structureSize; i++) {
+        let current = new RegExp(format[searchStructure[i]]);
+        if (current.test(input) || current.test(input.trim().replace(/\n*\s*/g, ''))) {
+            if (def.includes(searchItem[i])) continue;
+            if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
+            return searchItem[i];
+        }
+    }
+    
     if (guesser) {
-        return proposed[ppp];
+        return guessDatatype(currentResults, position, max);
     } else {
         return 'undefined';
     }
 }
 
+/* 
+    Strict regex matching
+*/
 function regMatch(type, input) {
     if (type == 'undefined') return input;
     let searchSize = searchItem.length;
@@ -347,6 +371,9 @@ function checkResults(results) {
     return results;
 }
 
+/* 
+    Unify objects, remove possible unnecessary objects containing less than enough info
+*/
 function unifyObjects(final_results) {
     let size = {};
     let tLength = final_results.length;
@@ -374,6 +401,9 @@ function unifyObjects(final_results) {
 
 }
 
+/* 
+    Prepare querry object for metadata
+*/
 function prepareQuerry(url, ind, topclass, reslength, determining_time, dumping_time, pageload_time) {
     currentQuerry = {};
     currentQuerry["url"] = url;
@@ -386,17 +416,23 @@ function prepareQuerry(url, ind, topclass, reslength, determining_time, dumping_
     return currentQuerry;
 }
 
+/* 
+    Output final results to coresponding file in coresponding output folder
+*/
 function output(url, final_results) {
     if (offline) {
-        url = url.split('/')[url.split('/').length - 1];// fix for my file path
+        url = url.split('/')[url.split('/').length - 1];// fix file path domain detection for filename
         fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
     } else {
         fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
     }
 }
 
+/* 
+    Get final results from current page
+*/
 async function getFinalResults(page, currentSelector) {
-    results = await page.$$eval(currentSelector, (nodes, ancestor) => {
+    return await page.$$eval(currentSelector, (nodes, ancestor) => {
         return nodes.map(node => {
             cnode = node;
             for (let i = 0; i < ancestor; i++) {
@@ -427,10 +463,18 @@ async function getFinalResults(page, currentSelector) {
         })
     }, ancestor);
 
-
-    return results;
 }
 
+/* 
+    Remove duplicates from array
+*/
+function removeDuplicates(final_results) {
+    return [...new Set(final_results.map(el => JSON.stringify(el)))].map(e => JSON.parse(e));
+}
+
+/* 
+    Dump data into final_results and output them using output function
+*/
 async function dataDump(page, currentSelector) {
     try {
         final_results = await getFinalResults(page, '.' + currentSelector).then(results => { return results });
@@ -438,14 +482,7 @@ async function dataDump(page, currentSelector) {
         console.error(err);
     }
 
-    removeDuplicatesFromArray = (final_results) => [...new Set(
-        final_results.map(el => JSON.stringify(el))
-    )].map(e => JSON.parse(e));
-    final_results = removeDuplicatesFromArray(final_results);
-
-
-    pro_final_results = JSON.parse(JSON.stringify(final_results));
-
+    final_results = removeDuplicates(final_results);
     final_results = prepareResults(final_results);
 
     if (unifyObjects(final_results).length < MIN_RESLEN && ancestor < MAX_PARENTS) {
@@ -459,10 +496,11 @@ async function dataDump(page, currentSelector) {
     }
 
     output(url, final_results);
-
 }
 
-// main proces, determine searchclass
+/* 
+    Main process, determine searchclass
+*/
 async function mainProcess() {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
@@ -501,7 +539,7 @@ async function mainProcess() {
 
         let determining_start = new Date().getTime();
 
-        targets = await page.$$eval(selector, nodes => {
+        targets = await page.$$eval('[class]', nodes => {
             return nodes.map(node => {
                 class_list = node.classList;
                 return {
@@ -521,7 +559,7 @@ async function mainProcess() {
         }
         ind = 0;
         do {
-            currentSelector = '.' + CSS(topClasses[ind]);
+            currentSelector = '.' + css(topClasses[ind]);
             if (verbose) console.log(currentSelector);
             try {
                 results = await page.$$eval(currentSelector, nodes => {
@@ -549,22 +587,19 @@ async function mainProcess() {
 
         let determining_time = new Date().getTime() - determining_start;
 
-        if (verbose) console.log("Determining possible target..." + determining_time + "ms");
-
-
-        if (verbose) console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
-
-
         let dumping_start = new Date().getTime();
         await dataDump(page, topClasses[ind]);
         let dumping_time = new Date().getTime() - dumping_start;
-        if (verbose) console.log("Dumping data..." + dumping_time + "ms");
-
 
         querry.push(prepareQuerry(url, ind, topClasses[ind], results.length, determining_time, dumping_time, pageload_time));
-        if (verbose) console.log(JSON.stringify(topClasses[ind], null, 4));
+        if (verbose) {
+            console.log("Determining possible target..." + determining_time + "ms");
+            console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
+            console.log("Dumping data..." + dumping_time + "ms");
+            console.log(JSON.stringify(topClasses[ind], null, 4));
+            console.log("==============================");
+        }
         urlIndex++;
-        if (verbose) console.log("==============================");
     }
 
     fs.writeFile(output_folder + '/../metadata.json', JSON.stringify(querry, null, 4), 'utf8', err => err ? console.log(err) : null);
@@ -572,7 +607,6 @@ async function mainProcess() {
 
     await browser.close();
 }
-
 
 (async function () {
     console.log('Execution started');
