@@ -7,6 +7,8 @@ const { exit } = require('process');
 const { count } = require('console');
 const CSS = require('CSS.escape');
 const selector = '[class]'; // primary selector, search by classes
+const MIN_RESLEN = 5;
+const MAX_PARENTS = 6;
 
 /* 
   Print help info
@@ -50,6 +52,34 @@ function failCheck() {
     }
 }
 
+function programVariables(argv){
+    offline = false; // is file offline?
+    verbose = false; // verbose output
+    noUndefined = false; // remove undefined values from results
+    defCheck = false; // check if result already defined
+    guesser = false; // try to guess resulting datatype
+    unify = false; // unify results
+    onlyMatch = true; // strong regexmatching
+    ancestor = 1;
+
+    if (argv.offline)
+        offline = true;
+    if (argv.v)
+        verbose = true;
+    if (argv.noundef)
+        noUndefined = true;
+    if (argv.d)
+        defCheck = true;
+    if (argv.g)
+        guesser = true;
+    if (argv.u)
+        unify = true;
+    if (argv.m)
+        onlyMatch = false;
+    if (argv.p)
+        ancestor = argv.p;
+}
+
 /* 
   Check for arguments and their correct representation
 */
@@ -58,21 +88,6 @@ function argumentsCheck() {
 
     if (argv.h) {
         help();
-    }
-    if (argv.offline) {
-        offline = true;
-    } else {
-        offline = false;
-    }
-    if (argv.nowrite) {
-        nowrite = true;
-    } else {
-        nowrite = false;
-    }
-    if (argv.v) {
-        verbose = true;
-    } else {
-        verbose = false;
     }
 
     if (argv.data) {
@@ -102,6 +117,18 @@ function argumentsCheck() {
         }
     }
 
+    if (argv.b) {
+        blist = true;
+        try {
+            blacklist = data.blacklist;
+        } catch (err) {
+            console.error("Data file reading error");
+            exit(1);
+        }
+    } else{
+        blist = false; // blacklist
+    }
+
     if (argv.o) {
         try {
             output_folder = argv.o;
@@ -109,7 +136,7 @@ function argumentsCheck() {
                 fs.mkdirSync('./' + output_folder);
             }
         } catch (err) {
-            console.error("Cant create output folder");
+            console.error("Cant create or set folder");
             exit(1);
         }
     } else {
@@ -124,40 +151,7 @@ function argumentsCheck() {
         }
     }
 
-    if (argv.p) { // parenting on nodes
-        parenting = argv.p; // node.parentNode.parentNode.....
-    } else {
-        parenting = 1; // node.parentNode
-    }
-    if (argv.noundef) { // delete undefined from results
-        noUndefined = true;
-    } else {
-        noUndefined = false;
-    }
-    if (argv.d) { // check if type already defined
-        defCheck = true;
-    } else {
-        defCheck = false;
-    }
-    if (argv.g) { // try to guess item datatype
-        guesser = true;
-    } else {
-        guesser = false;
-    }
-    if (argv.b) { // setup blacklist
-        blist = true;
-        blacklist = data.blacklist;
-    } else {
-        blist = false;
-    }
-    if (argv.u) { // only return object if all keys matched
-        unify = true;
-    } else {
-        unify = false;
-    }
-
-    onlyMatch = false;
-    timingInfo = false;
+    programVariables(argv);
 
     try {
         urls = data.urls;                   // urls to crawl
@@ -246,11 +240,9 @@ function defineType(input, currentResults, position, max) {
     if (blist) {
         for (let k = 0; k < blacklist.length; k++) {
             if (input == blacklist[k]) {
-                //console.log(input);
                 return 'undefined';
             }
             if (input.search(blacklist[k]) != -1) {
-                //console.log(input);
                 return 'undefined';
             }
         }
@@ -262,7 +254,6 @@ function defineType(input, currentResults, position, max) {
             if (def.includes(searchItem[i])) continue;
             last = searchItem[i];
             if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
-            //console.log(input + " to " + searchItem[i]);
             return searchItem[i];
         }
         if (current.test(input.trim().replace(/\n*\s*/g, ''))/*  && last != searchItem[i] */) {
@@ -315,15 +306,6 @@ function prepareResults(final_results) {
         for (let j = 0; j < Object.keys(final_results[i]).length; j++) {
             let type = defineType(final_results[i][j], final_results, j, i);
             if (defCheck) {
-                /* if (def.includes(type) && type != 'undefined') {
-                    if (content[type].length < final_results[i][j].length) {
-                        content[type] = final_results[i][j];
-                    }
-                    continue;
-                } */
-                /* if (def.includes(type)){
-                    type = defineType(final_results[i][j], final_results, j, i);
-                } */
                 if (type != 'undefined' && !def.includes(type)) {
                     def.push(type);
                     if (onlyMatch) {
@@ -334,7 +316,7 @@ function prepareResults(final_results) {
                 } else {
                     continue;
                 }
-            }  // shops, maybe differentiete by taking first / last gathered info ? idk
+            } 
             else {
                 if (onlyMatch) {
                     content[type] = regMatch(type, final_results[i][j]);
@@ -343,7 +325,6 @@ function prepareResults(final_results) {
                 }
             }
         }
-        //console.log(content);
         final_results[i] = content;
         if (noUndefined)
             delete final_results[i].undefined;
@@ -388,7 +369,7 @@ function unifyObjects(final_results) {
     }
 
     return final_results = final_results.filter(function (obj) {
-        return Object.keys(obj).length == target;
+        return Object.keys(obj).length >= target;
     });
 
 }
@@ -415,19 +396,14 @@ function output(url, final_results) {
 }
 
 async function getFinalResults(page, currentSelector) {
-    results = await page.$$eval(currentSelector, (nodes, parenting) => {
+    results = await page.$$eval(currentSelector, (nodes, ancestor) => {
         return nodes.map(node => {
             cnode = node;
-            for (let i = 0; i < parenting; i++) {
+            for (let i = 0; i < ancestor; i++) {
                 cnode = cnode.parentNode;
             }
-            /* while (cnode.children.length < 3) {
-                cnode = cnode.parentNode;
-                trend++;
-            }  */// shops
             tree = cnode.children;
             treeContent = {};
-            /* treeContent[0] = node.textContent.trim().replace(/\n\s+/g, ''); */
             x = 0;
             treeLength = tree.length;
 
@@ -449,7 +425,7 @@ async function getFinalResults(page, currentSelector) {
             }
             return treeContent;
         })
-    }, parenting);
+    }, ancestor);
 
 
     return results;
@@ -471,6 +447,11 @@ async function dataDump(page, currentSelector) {
     pro_final_results = JSON.parse(JSON.stringify(final_results));
 
     final_results = prepareResults(final_results);
+
+    if (unifyObjects(final_results).length < MIN_RESLEN && ancestor < MAX_PARENTS) {
+        ancestor += 1;
+        await dataDump(page, topClasses[ind]);
+    }
     if (verbose) console.dir(final_results, { 'maxArrayLength': null });
 
     if (unify) {
@@ -481,6 +462,7 @@ async function dataDump(page, currentSelector) {
 
 }
 
+// main proces, determine searchclass
 async function mainProcess() {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
@@ -497,6 +479,7 @@ async function mainProcess() {
     while (urlIndex < urlsLength) {
         url = urls[urlIndex];
         console.log("Current url: " + url);
+        ancestor = 1;
         let pageload_start = new Date().getTime();
 
         try {
@@ -510,7 +493,7 @@ async function mainProcess() {
         }
         let pageload_time = new Date().getTime() - pageload_start;
 
-        if (timingInfo) console.log("Pageload..." + pageload_time + "ms");
+        if (verbose) console.log("Pageload..." + pageload_time + "ms");
 
         targets = {};
         classList = {};
@@ -566,7 +549,7 @@ async function mainProcess() {
 
         let determining_time = new Date().getTime() - determining_start;
 
-        if (timingInfo) console.log("Determining possible target..." + determining_time + "ms");
+        if (verbose) console.log("Determining possible target..." + determining_time + "ms");
 
 
         if (verbose) console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
@@ -575,7 +558,7 @@ async function mainProcess() {
         let dumping_start = new Date().getTime();
         await dataDump(page, topClasses[ind]);
         let dumping_time = new Date().getTime() - dumping_start;
-        if(timingInfo) console.log("Dumping data..." + dumping_time + "ms");
+        if (verbose) console.log("Dumping data..." + dumping_time + "ms");
 
 
         querry.push(prepareQuerry(url, ind, topClasses[ind], results.length, determining_time, dumping_time, pageload_time));
@@ -599,5 +582,5 @@ async function mainProcess() {
     console.log("==============================");
     let exectime = new Date().getTime() - start_time;
     console.log("Execution ended succesfully. See ./metadata.json for results overview.")
-    if (!timingInfo) console.log('Execution time: ' + exectime + 'ms');
+    console.log('Execution time: ' + exectime + 'ms');
 })();

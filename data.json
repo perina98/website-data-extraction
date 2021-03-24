@@ -1,30 +1,21 @@
 {
-    "url": [
-        "https://www.flashscore.sk/",
-        "https://www.365scores.com/",
-        "https://www.livescore.cz/",
-        "https://www.livescore.com/en/",
-        "https://777score.com/",
-        "https://www.skysports.com/football-results",
-        "https://www.soccerstand.com/",
-        "http://livescore.eurosport.com/",
-        "https://www.premierleague.com/results",
-        "https://www.soccer24.com/",
-        "https://www.flashscore.com/"
-    ],
     "urls": [
-        "https://www.flashscore.sk/"
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/dataset/tsbohemia/domains/777score.com.html"
     ],
-    "structure":[
+    "structure": [
         "time",
         "string",
         "score",
         "string"
-    ] ,
+    ],
     "items": [
         "time",
         "team1",
         "score",
         "team2"
+    ],
+    "blacklist": [
+        "Finished",
+        "FRO"
     ]
 }
