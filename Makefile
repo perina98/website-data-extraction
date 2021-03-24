@@ -7,14 +7,13 @@ OVERALL = overall.py
 all:
 	node $(BIN) --data=$(DATA) -v
 
-test: football tsbohemia shops news news3 testall
+test: football tsbohemia shops news news3
 
 fix:
 	node $(BIN) --data=dataset/shops/$(DATA) --config=dataset/shops/$(CONFIG) -o=dataset/shops/output/ --offline -bvdu -p=4 --noundef
 	python $(TEST) shops
 
 testall:
-	python $(OVERALL)
 	python $(TEST) football
 	python $(TEST) tsbohemia
 	python $(TEST) shops
