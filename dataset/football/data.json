@@ -1,0 +1,34 @@
+{
+    "urls": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/365scores.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/777score.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/BBCSport.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.sk.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/LiveScore.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/scoreboard.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/SkySports.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/Soccerstand.com.html"
+    ],
+    "urlss": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html"
+    ],
+    "structure":[
+        "time",
+        "string",
+        "score",
+        "string"
+    ],
+    "items": [
+        "time",
+        "team1",
+        "score",
+        "team2"
+    ],
+    "blacklist":[
+        "Canc.",
+        "Finished",
+        "FRO"
+    ]
+}
