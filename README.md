@@ -1,19 +1,20 @@
 Smart WwW data extractor
 Brief:
-Based on simple input variables, extract multiple data from any website provided in the data file.
+    Based on simple input variables, extract multiple data from any website provided in the data file.
 
-Data file must be a proper json file and must contain these objects:
-* urls                    - array of url strings to extract
-* structure               - strucuture of items to extract
-* items                   - how the items should be called in output json
-* blacklist (optional)    - array of blacklisted strings
+    Data file must be a proper json file and must contain these objects:
+        urls                    - array of url strings to extract
+        structure               - strucuture of items to extract
+        items                   - how the items should be called in output json
+        blacklist (optional)    - array of blacklisted strings
 
-Config file must be a proper json file and must contain these objects:
-* maxFailRatio            - max fail ratio when determining result class
-* format{}                - object containing regex format for each datatype defined in structure
-* primary                 - primary object to search for
+    Config file must be a proper json file and must contain these objects:
+        maxFailRatio            - max fail ratio when determining result class
+        format{}                - object containing regex format for each datatype defined in structure
+        primary                 - primary object to search for
 
 Usage: node extractor.js --data=data.json [--config=config.json] [-o=output/folder/] [-b] [-d] [-g] [-u] [-m] [-p] [-v] [-h] [--offline] [--noundef]
+    
     Default config is ./config.json
     Default output folder is ./output
 
