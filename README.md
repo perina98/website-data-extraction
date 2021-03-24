@@ -15,8 +15,8 @@ Brief:
 
 Usage: node extractor.js --data=data.json [--config=config.json] [-o=output/folder/] [-b] [-d] [-g] [-u] [-m] [-p] [-v] [-h] [--offline] [--noundef]
     
-    Default config is ./config.json
-    Default output folder is ./output
+Default config is ./config.json
+Default output folder is ./output
 
     Available parameters:
         --data    - specify json data file
