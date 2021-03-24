@@ -1,0 +1,32 @@
+{
+    "urls": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/artnews.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/ceskymac.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/cyclingnews.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/pcgamer.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/podnikatel.cz.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/rockpapershotgun.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/smartmania.cz.html"
+    ],
+    "urls2":[
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/rockpapershotgun.com.html"
+    ],
+    "structure":[
+        "string_author",
+        "string_title",
+        "timestamp",
+        "string_synopsis"
+    ],
+    "items": [
+        "author",
+        "title",
+        "timestamp",
+        "synopsis"
+    ],
+    "blacklist":[
+        "Subscribe",
+        "Follow",
+        "News",
+        "Bleskovky"
+    ]
+}

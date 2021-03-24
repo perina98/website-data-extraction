@@ -1,0 +1,23 @@
+node extractor.js --data=dataset/news3/data.json --config=dataset/news3/config.json -o=dataset/news3/output/ --offline -dgm --noundef
+Execution started
+BEGIN PRIMARY EXTRACTION
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/google.com.html
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/mndaily.com.html
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/techcrunch.com.html
+maybeee
+maybeee
+maybeee
+==============================
+Execution ended succesfully. See ./metadata.json for results overview.
+Execution time: 3997ms
+python ftest.py news3
+Status Precision Recall File
+[31mFail[0m	66.67%	50.0%	google.com.html.json	[31m[0m
+[33mFail[0m	69.09%	95.0%	mndaily.com.html.json	[31m(No match in number of objects)[0m
+[31mFail[0m	44.44%	25.0%	techcrunch.com.html.json	[31m[0m
+Overall results
+Precision:  60.07%
+Recall:  56.67%

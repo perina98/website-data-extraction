@@ -1,0 +1,29 @@
+[
+    {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/google.com.html",
+        "tested_classes": 20,
+        "first_target": "document.querySelectorAll('.wxp1Sb')[0].parentElement.children",
+        "target_count": 10,
+        "determining_time": "220ms",
+        "dumping_time": "23ms",
+        "pageload_time": "1014ms"
+    },
+    {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/mndaily.com.html",
+        "tested_classes": 3,
+        "first_target": "document.querySelectorAll('.time-wrapper')[0].parentElement.children",
+        "target_count": 18,
+        "determining_time": "61ms",
+        "dumping_time": "24ms",
+        "pageload_time": "845ms"
+    },
+    {
+        "url": "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/techcrunch.com.html",
+        "tested_classes": 10,
+        "first_target": "document.querySelectorAll('.river-byline__full-date-time__wrapper')[0].parentElement.children",
+        "target_count": 24,
+        "determining_time": "100ms",
+        "dumping_time": "12ms",
+        "pageload_time": "1132ms"
+    }
+]
