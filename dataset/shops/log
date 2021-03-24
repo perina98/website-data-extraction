@@ -1,0 +1,54 @@
+node extractor.js --data=dataset/shops/data.json --config=dataset/shops/config.json -o=dataset/shops/output/ --offline -bdu --noundef
+Execution started
+BEGIN PRIMARY EXTRACTION
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/alza.cz.html
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/czc.cz.html
+maybeee
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/insportline.cz.html
+maybeee
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/smarty.cz.html
+maybeee
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/stavebninystastny.cz.html
+maybeee
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/zahradnictvi-spomysl.cz.html
+maybeee
+maybeee
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/sparkys.cz.html
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/tsbohemia.cz.html
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/zahradkarske-potreby.cz.html
+maybeee
+Current url: file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/papirnictvieshop.cz.html
+maybeee
+maybeee
+maybeee
+maybeee
+maybeee
+==============================
+Execution ended succesfully. See ./metadata.json for results overview.
+Execution time: 11595ms
+python ftest.py shops
+Status Precision Recall File
+[31mFail[0m	5.56%	1.16%	alza.cz.html.json	[31m(No match in number of objects)[0m
+[32mOK[0m	100.0%	95.29%	czc.cz.html.json	[31m[0m
+[33mFail[0m	100.0%	79.02%	insportline.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	papirnictvieshop.cz.html.json	[31m[0m
+[31mFail[0m	52.78%	43.18%	smarty.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	sparkys.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	stavebninystastny.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	tsbohemia.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	zahradkarske-potreby.cz.html.json	[31m[0m
+[32mOK[0m	100.0%	100.0%	zahradnictvi-spomysl.cz.html.json	[31m[0m
+Overall results
+Precision:  85.83%
+Recall:  81.87%
