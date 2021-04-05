@@ -3,35 +3,40 @@ DATA = data.json
 CONFIG = config.json
 TEST = ftest.py
 OVERALL = overall.py
+FOOTBALL = dataset/football
+TSBOHEMIA = dataset/tsbohemia
+SHOPS = dataset/shops
+NEWS = dataset/news
+NEWS3 = dataset/news3
 
 all:
-	node $(BIN) --data=$(DATA) -v
-
-test: football tsbohemia shops news news3
-
-fix:
-	node $(BIN) --data=dataset/shops/$(DATA) --config=dataset/shops/$(CONFIG) -o=dataset/shops/output/ --offline -bvdu -p=4 --noundef
-	python $(TEST) shops
-
+	node $(BIN) --data=$(DATA) --offline -bdg --noundef
+test: datatest testall
+datatest:
+	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdg --noundef
+	node $(BIN) --data=$(TSBOHEMIA)/$(DATA) --config=$(TSBOHEMIA)/$(CONFIG) -o=$(TSBOHEMIA)/output/ --offline --noundef -bd
+	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdu --noundef
+	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdum
+	node $(BIN) --data=$(NEWS3)/$(DATA) --config=$(NEWS3)/$(CONFIG) -o=$(NEWS3)/output/ --offline -dgm --noundef
 testall:
-	python $(TEST) football
-	python $(TEST) tsbohemia
-	python $(TEST) shops
-	python $(TEST) news
-	python $(TEST) news3
+	python $(TEST) football -o
+	python $(TEST) tsbohemia -o
+	python $(TEST) shops -o
+	python $(TEST) news -o
+	python $(TEST) news3 -o
 	python $(OVERALL)
 football:
-	node $(BIN) --data=dataset/football/$(DATA) --config=dataset/football/$(CONFIG) -o=dataset/football/output/ --offline -bdg --noundef
+	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdg --noundef
 	python $(TEST) football
 tsbohemia:
-	node $(BIN) --data=dataset/tsbohemia/$(DATA) --config=dataset/tsbohemia/$(CONFIG) -o=dataset/tsbohemia/output/ --offline --noundef -bd
+	node $(BIN) --data=$(TSBOHEMIA)/$(DATA) --config=$(TSBOHEMIA)/$(CONFIG) -o=$(TSBOHEMIA)/output/ --offline --noundef -bd
 	python $(TEST) tsbohemia
 shops:
-	node $(BIN) --data=dataset/shops/$(DATA) --config=dataset/shops/$(CONFIG) -o=dataset/shops/output/ --offline -bdu --noundef
+	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdu --noundef
 	python $(TEST) shops
 news:
-	node $(BIN) --data=dataset/news/$(DATA) --config=dataset/news/$(CONFIG) -o=dataset/news/output/ --offline -bdum
+	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdum
 	python $(TEST) news
 news3:
-	node $(BIN) --data=dataset/news3/$(DATA) --config=dataset/news3/$(CONFIG) -o=dataset/news3/output/ --offline -dgm --noundef
+	node $(BIN) --data=$(NEWS3)/$(DATA) --config=$(NEWS3)/$(CONFIG) -o=$(NEWS3)/output/ --offline -dgm --noundef
 	python $(TEST) news3

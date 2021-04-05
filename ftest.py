@@ -123,9 +123,10 @@ def averageResults(average_precision,average_recall,length):
     print("Overall results")
     print("Precision: ",str(average_precision)+"%")
     print("Recall: ",str(average_recall)+"%")
-    overall = open("overall","a")
-    overall.write(str(average_precision)+'\n')
-    overall.write(str(average_recall)+'\n')
+    if '-o' in sys.argv:
+        overall = open("overall","a")
+        overall.write(str(average_precision)+'\n')
+        overall.write(str(average_recall)+'\n')
 
 
 # main function, print header, init arrays and loop test

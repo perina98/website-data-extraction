@@ -3,7 +3,7 @@ try:
     file = open('overall','r+')
 except:
     print("Run tests first by using ftest.py")
-    exit(1)
+    exit(0)
 
 arr = file.readlines()
 
@@ -16,9 +16,11 @@ for i in range(0,len(arr)):
     else:
         recall += float(arr[i].strip())
 
-print("Overall results:")
-print("Precision: ", precision/(len(arr)/2),"%")
-print("Recall: ", recall/(len(arr)/2),"%")
+print("============================================================")
+print("Overall average result:")
+print("Datasets: 5")
+print("Precision: ",  round(precision/(len(arr)/2),2),"%")
+print("Recall: ",  round(recall/(len(arr)/2),2),"%")
 
 file.close()
 os.remove('overall')
