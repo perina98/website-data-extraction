@@ -11,21 +11,12 @@
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html",
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/Soccerstand.com.html"
     ],
-    "urlss": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/soccer24.com.html"
-    ],
-    "structure":[
-        "time",
-        "string",
-        "score",
-        "string"
-    ],
-    "items": [
-        "time",
-        "team1",
-        "score",
-        "team2"
-    ],
+    "structure":{
+        "time": "time",
+        "team1": "string",
+        "score": "score",
+        "team2": "string"
+    },
     "blacklist":[
         "Canc.",
         "Finished",
