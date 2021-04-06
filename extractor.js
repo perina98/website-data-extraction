@@ -170,13 +170,13 @@ function argumentsCheck() {
     programVariables();
 
     try {
-        urls = data.urls;                   // urls to crawl
-        searchItem = data.items;            // item name prefered by user
-        searchStructure = data.structure;   // item structure (datatype)
+        urls = data.urls;                                   // urls to crawl
+        searchItem = Object.keys(data.structure);           // item name prefered by user
+        searchStructure = Object.values(data.structure);    // item structure (datatype)
 
-        severity = config.maxFailRatio;     // max fail ratio
-        format = config.format;             // regex format // unique defining format on every site
-        primary = config.primary;           // primary item by which the first search decides where to start
+        severity = config.maxFailRatio;                     // max fail ratio
+        format = config.format;                             // regex format // unique defining format on every site
+        primary = config.primary;                           // primary item by which the first search decides where to start
 
         if (failCheck()) {
             console.error("Config or data file error. Run with -h param to learn more.");

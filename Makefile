@@ -1,8 +1,10 @@
 BIN = extractor.js
 DATA = data.json
 CONFIG = config.json
+
 TEST = ftest.py
 OVERALL = overall.py
+
 FOOTBALL = dataset/football
 TSBOHEMIA = dataset/tsbohemia
 SHOPS = dataset/shops
