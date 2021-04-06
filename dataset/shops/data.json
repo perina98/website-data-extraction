@@ -11,18 +11,12 @@
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/zahradkarske-potreby.cz.html",
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/shops/domains/papirnictvieshop.cz.html"
     ],
-    "structure": [
-        "string_title",
-        "price",
-        "string_desc",
-        "discount"
-    ],
-    "items": [
-        "name",
-        "price",
-        "description",
-        "sale"
-    ],
+    "structure": {
+        "name": "string_title",
+        "price": "price",
+        "description": "string_desc",
+        "sale": "discount"
+    },
     "blacklist":[
         "Skladem",
         "Informovat",
