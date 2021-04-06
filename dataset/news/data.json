@@ -8,21 +8,12 @@
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/rockpapershotgun.com.html",
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/smartmania.cz.html"
     ],
-    "urls2":[
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news/domains/rockpapershotgun.com.html"
-    ],
-    "structure":[
-        "string_author",
-        "string_title",
-        "timestamp",
-        "string_synopsis"
-    ],
-    "items": [
-        "author",
-        "title",
-        "timestamp",
-        "synopsis"
-    ],
+    "structure":{
+        "author": "string_author",
+        "title": "string_title",
+        "timestamp": "timestamp",
+        "synopsis": "string_synopsis"
+    },
     "blacklist":[
         "Subscribe",
         "Follow",
