@@ -7,16 +7,10 @@
     "urls1":[
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/techcrunch.com.html"
     ],
-    "structure":[
-        "string_author",
-        "string_title",
-        "string_synopsis",
-        "timestamp"
-    ],
-    "items": [
-        "author",
-        "title",
-        "synopsis",
-        "timestamp"
-    ]
+    "structure":{
+        "author": "string_author",
+        "title": "string_title",
+        "synopsis": "string_synopsis",
+        "timestamp": "timestamp"
+    }
 }
