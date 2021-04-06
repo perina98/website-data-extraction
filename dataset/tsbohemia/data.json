@@ -11,18 +11,12 @@
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/servery.html",
         "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/tsbohemia/domains/skenery.html"
     ],
-    "structure":[
-        "string_title",
-        "price",
-        "string_desc",
-        "discount"
-    ],
-    "items": [
-        "title",
-        "price",
-        "description",
-        "discount"
-    ],
+    "structure":{
+        "title": "string_title",
+        "price": "price",
+        "description": "string_desc",
+        "discount": "discount"
+    },
     "blacklist":[
         "SKLADEM",
         "Skladem",
