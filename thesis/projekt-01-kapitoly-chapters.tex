@@ -406,3 +406,57 @@ Jeho reprezentácia je znova v podobe regulárneho výrazu, avšak on samotný s
 
 \newpage
 \section{Výstupný formát}
+
+Čo sa výstupného formátu týka, mal by byť znovu pokiaľ možno v univerzálnom formáte. Keďže sa dá predpokladať že extrahované dáta budú v prípade potreby použité, je vhodné zvoliť formát ktorý je podporovaný rôznymi aplikáciami a programovacími jazykmi.
+
+Z toho dôvodu tu bol znovu zvolený formát JSON. Návrh počíta s jedným výstupným súborom pre jednu doménu tak, aby výstupný súbor niesol názov domény z ktorej extrahované údaje pochádzajú. Umiestnenie týchto výsledných súborov je už však na užívateľovi, avšak pri nešpecifikovaní parametra určujúceho cestu k výstupným súborom bude použitá základná zložka s názvom \textit{output}.
+
+\bigskip
+
+Štruktúra v akej budú jednotlivé extrahované objekty reprezentované je zhodná so štruktúrou definovanou v užívateľskom vstupnom súbore. Táto štruktúra je potom zachovaná pre všetky objekty. Ak však nejaký kľúč z daného objektu nieje dostupný alebo nebol extrahovaný, je tento kľúč vynechaný. V niektorých prípadoch ak sa dátový typ daného prvku nepodarí overiť, a konfigurácia aplikácie je spustená bez parametru ktorý zaručuje odstránenie nedefinovaných prvkov z objektu, sa v objekte môžu nachádzať kľúče so špeciálnym názvom \textit{undefined}. Tento názov značí prvok, ktorého dátový typ nebolo možné na základe špecifikovaných vstupných požiadavkov definovať, avšak patrí do vyhľadávanej podskupiny.
+
+Formát JSON ako výstupný formát je striktne dodržaný a riadne formátovaný tak, aby bol jednoducho čitateľný aj pre človeka. Bezproblémové využitie dát z takto štruktúrovaného výstupu je preto garantované.
+
+\bigskip
+
+Sekundárnym výstupným súborom sú takzvané metadáta. Sú to dáta ktoré predstavujú rôzne vlastnosti popisujúce priebeh extrakcie ktorá prebehla pri danom spustení aplikácie. Metadáta sú znova pre jednoduchú prenositeľnosť vo formáte JSON, a jeho objekty obsahujú tieto údaje:
+
+\begin{itemize}
+    \item {Url adresa webového dokumentu}
+    \item {Počet testovaných okruhov}
+    \item {Odkaz na prvý nájdený objekt v podobe \textit{document.querySelectorAll}}
+    \item {Počet výsledných objektov}
+    \item {Čas potrebný na otestovanie okruhov}
+    \item {Čas potrebný na uloženie výsledkov}
+    \item {Čas potrebný na načítanie webového dokumentu}
+\end{itemize}
+
+\bigskip
+
+Tieto metadáta môžu poslúžiť ako kontrola výsledných súborov a porovnanie časov potrebných na vykonanie určitých akcií. Metadáta sú generované pri každom spustení aplikácie, a ich obsah je prepisovaný tak, aby obsahoval vždy údaje o poslednom spustení.
+
+\newpage
+
+\subsubsection{Konzolový výstup aplikácie}
+
+Aplikácia zároveň pri každom spustení a jej behu informuje užívateľa o aktuálne prevádzanej akcii. V režime bez vypisovania explicitných informácií aplikácia informuje o začatí exekúcie formou vypísania \textit{Execution stared}. Následne po skontrolovaní vstupných údajov informuje o začatí extrakcie vypísaním \textit{BEGIN PRIMARY EXTRACTION}. Následne sa vypisujú aktuálne URL, na ktorých extrakcii sa v danom momente pracuje. 
+
+Na záver aplikácia informuje o úspešnosti extrakcie, o lokácii vygenerovaného súboru s metadátami a o finálnej dĺžke trvania celého procesu v milisekundách.
+
+V prípade spustenia programu s prepínačom \textit{-v} je na výstup vypísaný podrobnejší obsah. V tomto prípade sa na konzolovom výstupe objavia časy jednotlivých akcií, informácie o počte výsledných objektov a zoznam testovaných okruhov.
+
+\section{Architektúra aplikácie}
+
+V tejto časti práce bude popísaná architektúra aplikácie tak, ako bola aplikácia navrhnutá, a odôvodnenie týchto krokov. 
+
+\subsection{Jadro programu}
+
+Hlavný zdrojový kód sa bude nachádzať v jednom súbore ktorý pre jednoznačnosť v rámci tejto práce nazvem \textit{extractor.js}. Koncovka js napovedá že sa bude jednať o Javascriptový súbor. Pri spúšťaní aplikácie sa preto bude tento súbor volať pomocou príkazu \textit{node} ktorý značí Node.js.
+
+Aplikácia bude naväzovať na dva prídavné súbory vo formáte JSON, ktoré budú predstavovať vstupné informácie vo formáte popísanom v predošlej časti tejto kapitoly. 
+
+Hlavný komunikačný kanál aplikácie a webového prehliadača bude zabezpečený pomocou technológie Puppeteer a protokolu Chrome DevTools. Toto spojenie bude nadviazané automaticky po spustení aplikácie. Pred naviazaním tohto spojenia však dôjde ku kontrole vstupných dát zadaných používateľom. V prípade že je formát vstupných dát poškodený alebo nedodržaný, alebo vo vstupných súboroch chýbajú niektoré dôležité položky, je o tom používateľ informovaný a vykonávanie je ukončené.
+
+\subsection{Hlavný proces}
+
+Úlohou hlavného procesu bude vymedzenie finálneho okruhu výsledkov. Čo sa týchto okruhov týka, ich výber prešiel rôznymi iteráciami, avšak nakoniec bol zvolený spôsob určovania týchto okruhov na základe atribútu \textit{class}. Aplikácia teda najskôr analyzuje stránku tak, aby 
