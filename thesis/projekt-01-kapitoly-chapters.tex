@@ -3,19 +3,25 @@
 % Autoři: Michal Bidlo, Bohuslav Křena, Jaroslav Dytrych, Petr Veigend a Adam Herout 2019
 \chapter{Úvod}
 
-Cieľom tejto bakalárskej práce je návrh architektúry a následná implementácia aplikácie určenej na extrakciu dát z webových stránok. V dnešnej dobe je pojem extrakcia dát používaný stále častejšie v spojitosti práve s webovými technológiami a webom samotným. Je to tak práve preto, že sa internet ako taký, a hlavne jeho obsah v podobe webových stránok, neustále rozširuje. Objem dát ktoré sa na webe nachádza sa zväčšuje neúprosnou rýchlosťou, a preto je zber údajov z rôznych webstránok stále zložitejší. A to nielen čo sa zložitosti štruktúry webu týka, ale vzhľadom na veľký počet webov sa zvyšuje aj časová náročnosť analýzy a následnej extrakcie dát.
+Cieľom tejto bakalárskej práce je návrh architektúry a následná implementácia aplikácie určenej na extrakciu dát z webových stránok. V dnešnej dobe je pojem extrakcia dát používaný stále častejšie v spojitosti práve s webovými technológiami a webom samotným. Je to tak práve preto, že sa internet ako taký, a hlavne jeho obsah v podobe webových stránok, neustále rozširuje. Objem dát ktoré sa na webe nachádza sa zväčšuje neúprosnou rýchlosťou, a preto je zber údajov z rôznych webstránok stále zložitejší. A to nielen čo sa zložitosti štruktúry webu týka, ale vzhľadom na veľký počet webov sa zvyšuje aj časová náročnosť analýzy a následnej extrakcie dát. Takejto extrakcii sa hovorí web scraping. Web scraping môže prebiehať aj manuálne, kde ho vykonáva určená osoba, avšak v dnešnej dobe je už táto procedúra automatizovaná.
 
-Práve pre spomínanú expanziu internetu sa tejto téme venuje čoraz viac spoločností so snahou uľahčiť prístup k web scrapingu pre každodenných užívateľov. Pre neustáli vývoj webu je avšak nutné vyvíjať aj aplikácie, ktoré sú na extrakciu určené. 
+Práve pre spomínanú expanziu internetu sa tejto téme venuje čoraz viac spoločností so snahou uľahčiť prístup k web scrapingu pre každodenných užívateľov. Pre neustály vývoj webu je avšak nutné vyvíjať aj aplikácie, ktoré sú na extrakciu určené. 
 
 Pri rozlišovaní takýchto aplikácií sa berie na vedomie hlavne požadovaný vstupný formát a jeho zložitosť, požadovaný výstupný formát a jeho využiteľnosť v praxi, a v neposlednom rade rýchlosť aplikácie z pohľadu extrakcie dát. 
 
-Táto práca je zameraná hlavne na časť týkajúcu sa požadovaného vstupu aplikácie, kde je za cieľ požadovaný jednotný vstup vo formáte JSON. Tento vstup pozostáva z adries webových stránok, dátových typov, rozloženia objektov na webstránke, a požadovaných názvov extrahovaných informácií. Aplikácia sa následne pozerá na každú stránku zvlášť a určí výsledné údaje na základe poskytnutých relevantných informácií o štruktúre. Týmto spôsobom je možné definovať jeden vstup raz, a použiť ho na viaceré webové dokumenty bez nutnosti ďalšieho zásahu.
+Táto práca je zameraná hlavne na časť týkajúcu sa požadovaného vstupu aplikácie. Hlavným cieľom aplikácie je umožniť vyjadrenie požadovaných vstupných parametrov tak, aby neboli závislé na štruktúre webovej stránky, ale jej obsahu. Na dosiahnutie tohto cieľa je potrebné vstupné údaje správne definovať, pretože práve na týchto vstupných údajoch bude závislá následná extrakcia dát. Tento vstup pozostáva z adries webových stránok, dátových typov, rozloženia objektov na webstránke, a požadovaných názvov extrahovaných informácií. Aplikácia sa následne pozerá na každú stránku zvlášť a určí výsledné údaje na základe poskytnutých relevantných informácií o štruktúre. Týmto spôsobom je možné definovať jeden vstup raz, a použiť ho na viaceré webové dokumenty bez nutnosti ďalšieho zásahu. Zároveň by malo byť umožnené extrahovať akékoľvek údaje z akejkoľvek stránky, bez nutnosti analýzy danej webovej stránky, alebo poznania jej vnútornej štruktúry. Vstupné a výstupné údaje budú taktiež užívateľský prívetivé tak, aby nebol kladený dôraz na skúsenosti s programovaním a programovacími jazykmi.
+
+\newpage
+
+Práca je rozdelená do 7 kapitol z ktorých každá predstavuje časť vývoja finálnej aplikácie, od predstavenia aktuálnej problematiky a technológií ktoré sú v súčastnosti dostupné až po finálne testovanie aplikácie a zhodnotenie výsledkov.
+
+\bigskip
 
 Prvá časť práce sa v kapitole \ref{aktualny_pristup} zaoberá aktuálnym prístupom k problematike, ako sa web scraping využíva v súčasnosti, aké sú štandardy a dostupné technológie, a porovnanie týchto prístupov z hľadiska využiteľnosti.
 
 V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie ktoré je treba brať v úvahu pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o technológie ktoré sa stali základným kameňom navrhnutej aplikácie, a o technológie na ktorých aplikácia stavia.
 
-Kapitola 4 sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie a požiadavkov aplikácie, a popisuje postup návrhu aplikácie.
+Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie a požiadavkov aplikácie, a popisuje postup návrhu aplikácie.
 
 V 5. kapitole sú popísané jednotlivé detaily implementácie riešenia, a hlavná logika aplikácie.
 
@@ -35,7 +41,7 @@ Zároveň sa rozširuje pole pôsobnosti, a možnosti využitia takto extrahovan
 
 Web scraping je jednou z foriem získavania údajov z webových stránok. Takéto získavanie údajov je možné buď priamo - \textit{World Wide Web} za pomoci \textit{Hypertext Transfer Protokolu}, alebo pomocou webového prehliadača (napr. Google Chrome). Za web scraping sa dá považovať aj manuálny zber dát za využitia ľudskej sily, ale všeobecne sa tým myslí využitie dedikovaného počítača ktorý túto prácu automatizuje. Tu sa môže jednať napríklad o jednoduché kopírovanie dát, alebo zložitejšie generovanie výstupných štruktúr napríklad vo formáte JSON.
 
-Automatizované získavanie informácií z webu sa dostalo do vývoja krátko po zavedení World Wide Web. Kvôli neustálemu vývoju technológií je však vo vývoji doteraz, a jeho možnosti sa neustále rozširujú. Prvé formy automatizovaných web scraperov boli určené primárne pre tvorbu databázy vyhľadávacieho indexu pre vývoj World Wide Web Vyhľadávače. Za jeden z prvých takýchto scraperov je preto považovaný World Wide Web Wanderer, ktorý bol vyvinutý v roku 1993 za účelom zmerania veľkosti celého internetu, a neskôr na jeho priamu indexáciu. \cite{wiki:Web_scraping}
+Automatizované získavanie informácií z webu sa dostalo do vývoja krátko po zavedení World Wide Web. Kvôli neustálemu vývoju technológií je však vo vývoji doteraz, a jeho možnosti sa neustále rozširujú. Prvé formy automatizovaných web scraperov boli určené primárne pre tvorbu databázy vyhľadávacieho indexu pre vývoj World Wide Web Vyhľadávače. Za jeden z prvých takýchto scraperov je preto považovaný World Wide Web Wanderer, ktorý bol vyvinutý v roku 1993 za účelom zmerania veľkosti celého internetu, a neskôr na jeho priamu indexáciu. \cite{online:how_does_scraping_work}
 
 \section{Súčasné postupy}
 
@@ -118,7 +124,23 @@ Zároveň treba spomenúť fakt, že dynamické stránky môžu meniť svoju št
 
 \section{Metódy využívané v súčasnosti}
 
-V prípade že nás zaujíma len priama extrakcia dát, v dnešnej dobe je na výber z mnohých aplikácií ktoré sú pripravené na použitie, a tak nieje treba programovať aplikácie znova. Každá má však svoje vlastné postupy pri extrakcii, a z toho plynie fakt že nie každá takáto aplikácia dokáže splniť požadované zadanie. Medzi najznámejšie aplikácie v tomto odvetví však patria hlavne:
+Aktuálne používané metódy sa vo všeobecnosti dajú rozdeliť do dvoch kategórií:
+\begin{itemize}
+    \item {Pripravené aplikácie}
+    \item {Platformy a knižnice}
+\end{itemize}
+
+\bigskip
+
+Pripravené aplikácie budú obľúbenejšie najmä pri širokej verejnosti, ktorá má čoraz častejšie o web scraping záujem. Tieto aplikácie predstavujú rýchlu a často jednoduchú cestu k splneniu toho čo často požadujeme najviac - výsledky rýchlo a kvalitne.
+
+V mnohých prípadoch však chceme priniesť aj svoje nápady na vylepšenia. Nastavenie takýchto aplikácií býva často limitované, a ich kód nemusí vždy byť verejne dostupný. V takom prípade je lepšie využiť jednu z dostupných knižníc, na ktorých väčšina týchto aplikácií stavia. 
+
+\subsection{Hotové riešenia}
+V prípade že nás zaujíma len priama extrakcia dát, v dnešnej dobe je na výber z mnohých aplikácií ktoré sú pripravené na použitie, a tak nieje treba programovať aplikácie znova. Každá má však svoje vlastné postupy pri extrakcii, a z toho plynie fakt že nie každá takáto aplikácia dokáže splniť požadované zadanie. 
+
+\newpage
+Medzi najznámejšie aplikácie v tomto odvetví však patria hlavne\cite{WebScrap}:
 
 \begin{itemize}
     \item {Scrapping-bot}
@@ -128,9 +150,11 @@ V prípade že nás zaujíma len priama extrakcia dát, v dnešnej dobe je na v�
     \item {Outwit}
 \end{itemize}
 
-V niektorých prípadoch nám stačí jednoduché rozšírenie do prehliadača (napr. Web Scraper\footnote{\url{https://webscraper.io/}}) ktoré sú samozrejme efektívne hlavne pri menšom počte webstránok a dát určených na scraping. \cite{WebScrap}
+V niektorých prípadoch nám stačí jednoduché rozšírenie do prehliadača (napr. Web Scraper\footnote{\url{https://webscraper.io/}}) ktoré sú samozrejme efektívne hlavne pri menšom počte webstránok a dát určených na scraping. 
 
-\bigskip
+Spomenuté aplikácie sú vo svojom odvetví veľmi populárne, avšak každá z nich má svoje limity. Pre skúsenejších používateľov ktorý majú záujem web scraping prispôsobiť svojim potrebám preto žiadna z nich nemusí byť ideálna cesta.
+
+\subsection{Platformy a knižnice}
 
 Pokiaľ však chceme vytvoriť vlastný program alebo aplikáciu typu web scraper, je potrebné rozlišovať na úrovni technológií dostupných pri programovaní. V prvom rade je treba vziať do úvahy programovací jazyk. V takom prípade je na výber rovno z niekoľko volne dostupných programovacích jazykov. Medzi dva najpopulárnejšie však patria hlavne Python, a Node.js. Každý má však znova svoje výhody a nevýhody, a preto je treba zvážiť na aké účely bude web scraper používaný. Vo všeobecnosti je populárnejší práve prvý spomínaný Python, vďaka jeho popularite z pohľadu jednoduchosti písania čistého kódu, komunity, a podpory ktorá je mu venovaná. Python ponúka veľké množstvo frameworkov, z ktorých tie najpopulárnejšie zahŕňajú hlavne Selenium\footnote{\url{https://www.selenium.dev/}} a Scrapy\footnote{\url{https://scrapy.org/}}, ktoré som samozrejme zohľadnil pri výbere vhodného frameworku na vytvorenie web scrapera.
 
@@ -176,7 +200,34 @@ Cheerio a Puppeteer sú technológie založené na Node.js, a patria medzi najpo
 
 Puppeteer je technológia ktorá je vyvíjaná za účelom automatizácie webového prehliadača, zatiaľčo hlavným určením Cheeria je web scraping samotný. Tým že je Cheerio určené priamo na požadovanú úlohu je v tomto ohľade rýchlejšie a výhodnejšie čo sa nášho požiadavku týka. Cheerio je zároveň multiplatformné, a dokáže pracovať ako s prehliadačom Firefox, tak s prehliadačom Google Chrome. Na druhú stranu Puppeteer je viazaný iba na prehliadač Google Chrome vo forme Chromium. Puppeteer má priamo kontrolu nad prehliadačom, takže je možné ovládať prehliadač ako celok. Tento fakt sa dá brať aj ako výhoda aj ako nevýhoda, keďže je to pravdepodobne jeden z dôvodov prečo je Puppeteer pomalší vo vykonávaní funkcie Web Scrapera. Puppeteer však prináša schopnosť plynulej práce s Javascriptom na webovej stránke, dokáže parsovať aj webové stránky postavené na moderných technológiách ako React alebo Angular, ktoré sú v dnešnej dobe na vzostupe pre ich moderné prvky. Z priamej integrácie s prehliadačom vyplýva aj fakt že Puppeteer dokáže vytvárať snímky obrazovky počas načítavania a pracovania s webovou stránkou. Zároveň podporuje technológiu XML, a nerobí mu problém ako čítanie, tak ani parsovanie a priame spúšťanie Javascriptových funkcií. \cite{Differences}
 
-Práve podpora dodatočných funkcií a možnosť parsovania dynamických stránok s Javascriptom ma presvedčili o rozširovaní poznatkov technológie Puppeteer, a jej následné využitie pri návrhu architektúry a implementácie výslednej aplikácie.
+Práve podpora dodatočných funkcií a možnosť parsovania dynamických stránok s Javascriptom ma presvedčili o rozširovaní poznatkov technológie Puppeteer, a jej následné využitie pri návrhu architektúry a implementácie výslednej aplikácie. 
+
+\bigskip
+
+Z uvedených informácií je pomerne jasné aké výhody a nevýhody dané riešenia majú, a čo ponúkajú. Ako už bolo spomenuté v úvode tejto práce, jej cieľom je zjednotiť hlavne vstupné požiadavky tak, aby sa jednotlivé časti týchto požiadavkov neviazali na jednotlivé webstránky. Popis návrhu je predstavený v nasledujúcej časti tejto kapitoly.
+
+\newpage
+
+\section{Navrhované riešenie}
+
+Cieľom tejto práce je vytvorenie aplikácie určenej na web scraping s unikátnymi vlastnosťami. Kľúčové vlastnosti aplikácie budú tvorené hlavne vstupným a výstupným formátom, postupom ktorý aplikácia bude na extrakciu dát využívať, a dôrazom na dodržaní univerzálnosti vstupných pravidiel. 
+
+Univerzálnosť vstupných pravidiel je v tomto prípade myslená v zmysle využiteľnosti raz definovaných požiadaviek na viaceré webové dokumenty a datasety. Definícia vstupných pravidiel bude rozdelená na hlavné a vedľajšie pravidlá tak, aby bolo možné odlíšiť vnútornú konfiguráciu programu a užívateľské pravidlá za účelom jednoznačne určiť ich prioritu a typ využitia.
+
+Finálna aplikácia bude vyvíjaná pomocou technológie Puppeteer najmä vďaka jeho jednoznačnej integrácií s webovým prehliadačom. To sa na prvý pohľad nemusí zdať dôležité. Jedná sa predsa o aplikáciu na extrakciu dát, nie aplikáciu ktorá slúži na automatizáciu prehliadača ako takého. Údaje z webovej stránky sa predsa dajú získať jednoduchšie, bez využitia webového prehliadača, ktorý celý proces len spomaľuje. 
+
+To je síce pravda, avšak spomínaná podpora dynamických stránok, a stránok postavených na moderných technológiách ako napríklad React a Angular je značne limitovaná. Načítanie týchto stránok tak aby ich zobrazenie zodpovedalo realite je prehliadačom Chrome zvládnuté na výbornú, a protokol Chrome DevTools dokáže zabezpečiť komunikáciu na vysokej úrovni, ktorá dané dáta prenesie tak ako bolo zamýšľané. Po naviazaní spojenia má Puppeteer plnú kontrolu nad prehliadačom, a extrakcia dát môže začať. 
+
+Postup ktorý bude aplikácia na analyzovanie a detekciu obsahu používať bude popísaný v nasledovných kapitolách. Mal by byť ale efektívny, s dôrazom na presnosť a rýchlosť akou dokáže rozpoznať že sa jedná o falošné alebo pravé výsledky. To bude jednoznačne určené porovnaním s definovanými vstupnými pravidlami.
+
+\bigskip
+
+Už samotný protokol DevTools používa technológiu JSON kvôli jeho jednoznačným výhodám v oblasti prenostiteľnosti medzi nielen aplikáciami ale aj programovacími jazykmi. Komunikácia výslednej aplikácie z pohľadu vstupných a výstupných dát by preto mala tiež využívať práve túto technológiu. Definovanie pravidiel bude v tomto formáte pre človeka jednoduché na zápis a pre stroj jednoduché na čítanie. 
+
+Formát JSON bude zároveň použitý aj na spätnú komunikáciu kde sa v tomto formáte budú po úspešnom dokončení procesu nachádzať vygenerované výsledky. Tieto výsledky budú tak pripravené na ďalšie využitie v praxi.
+
+Pri návrhu riešenia boli brané v úvahu aktuálne dostupné aplikácie a frameworky. 
+
 
 \chapter{Technológie}
 \label{Technologie}
@@ -189,7 +240,7 @@ K výberu týchto technológií boli využité poznatky z Kapitoly \ref{aktualny
 
 Základným stavebným blokom každej webovej stránky je nepochybne HTML. HTML je skratka pre \textit{Hypertext Markup Language}, a už svojím názvom napovedá akú úlohu vo webových technológiách zohráva. 
 
-HTML dokument sa skladá z elementov, ktoré sú predstavené v podobe takzvaných \textit{tagov}. Tieto tagy sú reprezentované pomocou znakov \textit{<>} a dovoľujú určovať typ a rozsah uvedeného obsahu. Tieto elementy môžu obsahovať zároveň rôzne ďalšie atribúty, ako napríklad trieda elementu, alebo identifikátor. Takéto atribúty sú potom využívané v technológiách ktoré s HTML dokumentami spolupracujú, ako napríklad CSS a Javascript.
+HTML dokument sa skladá z elementov, ktoré sú predstavené v podobe takzvaných \textit{značiek}. Tieto značky sú reprezentované pomocou znakov \textit{<>} a dovoľujú určovať typ a rozsah uvedeného obsahu. Tieto elementy môžu obsahovať zároveň rôzne ďalšie atribúty, ako napríklad trieda elementu, alebo identifikátor. Takéto atribúty sú potom využívané v technológiách ktoré s HTML dokumentami spolupracujú, ako napríklad CSS a Javascript.
 
 Takéto dokumenty sú následne reprezentované vo webovom prehliadači, ktorý HTML dokumenty zobrazí zároveň s doplnkovými dokumentami ktoré určujú štylizáciu a správanie sa danej webstránky. HTML dokumenty samotné neobsahujú žiadnu štylizáciu, avšak typ elementu ktorý použijeme pre realizovaní určitého prvku je kritický, pretože udáva základné rozloženie obsahu ktorý element predstavuje.\cite{WhatisHTML}
 
@@ -331,7 +382,7 @@ Online verzia Puppeteeru je zároveň dostupná v sandbox prostredí\footnote{\u
 Vo výslednej aplikácii je Puppeteer využívaný v rámci hlavného procesu, kde sa ako prvé vytvorí inštancia puppeteeru za pomoci príkazu \textit{await puppeteer.launch();} a následnom vytvorení inštancie stránky v podobe \textit{about:blank} za pomoci príkazu \textit{await browser.newPage();} ktorá následne slúži ako prostredie pre načítanie a následnú extrakciu dát z danej webovej stránky. Práca s knižnicou Puppeteer je napriek širokej škále funkcií jednoduchá.
 
 \chapter{Návrh architektúry aplikácie}
-
+\label{Navrh}
 Úlohou tejto kapitoly je oboznámenie s návrhom architektúry finálnej aplikácie. Architektúra sa skladá z definovaní požiadavkov na vstupné dáta, výstupné dáta a vnútorné chovanie aplikácie. V úvahu je samozrejme braná aj aktuálna situácia na trhu, a s tým spojená analýza ktorá určovala smer vývoja pri dôležitých otázkach ohľadne vnútornej štruktúry.
 
 \section{Špecifikácia požiadaviek}
@@ -459,4 +510,29 @@ Hlavný komunikačný kanál aplikácie a webového prehliadača bude zabezpeče
 
 \subsection{Hlavný proces}
 
-Úlohou hlavného procesu bude vymedzenie finálneho okruhu výsledkov. Čo sa týchto okruhov týka, ich výber prešiel rôznymi iteráciami, avšak nakoniec bol zvolený spôsob určovania týchto okruhov na základe atribútu \textit{class}. Aplikácia teda najskôr analyzuje stránku tak, aby 
+Úlohou hlavného procesu bude vymedzenie finálneho okruhu výsledkov. Čo sa týchto okruhov týka, ich výber prešiel rôznymi iteráciami, avšak nakoniec bol zvolený spôsob určovania týchto okruhov na základe atribútu \textit{class}. Aplikácia teda najskôr analyzuje stránku tak, aby bolo možné vygenerovať zoznam používaných atribútov. Na základe tohto zoznamu následne aplikácia generuje výsledné okruhy ktoré sú naplnené údajmi z daného okruhu definovaného \textit{class} atribútom. 
+
+Aby bolo možné určiť správnosť údajov, je každý údaj porovnávaný zvlášť. Údaje sú porovnávané s reprezentujúcim pravidlom regulárneho výrazu, v tomto prípade primárnym prvkom zo vstupných pravidiel.
+
+\newpage
+\subsubsection{Analýza výsledkov}
+
+Po určení správneho okruhu, bude následne aplikácia pracovať s daným \textit{class} atribútom ktorý daný okruh dát definuje. Program berie daný údaje daného okruhu ako potencionálnu súčasť výsledkov, nemusí to byť ale tak vždy. Preto aplikácia kontroluje susedné prvky z pohľadu DOM, a snaží sa získať čo najviac informácií nielen o susedných, ale aj rodičovských uzloch a detských potomkoch daného prvku.
+
+Po zoskupení týchto informácií a uložení textových reprezentácií týchto prvkov aplikácia prechádza k ďalšiemu kroku, ktorý predstavuje finálnu definíciu \uv{pseudo} dátového typu určeného užívateľom.
+
+\bigskip
+
+Určenie tohto typu nieje vždy jednoduché, a preto v prípade že špecifikácia regulárneho výrazu nieje dostatočne presná, alebo je z iného dôvodu časť dát nedefinovateľná, je takýto prvok označený výrazom \textit{undefined}. Nedefinované položky však vo výsledku užívateľovi ani inému programu ktorý by dáta využíval nemôžu byť užitočné. Práve z toho dôvodu má užívateľ týmto prípadom predchádzať, a to dvoma spôsobmi. 
+
+Keďže program analyzuje výsledky ako celok, vie presne určiť aký dátový typ bol na danom mieste definovaný v predošlých prípadoch objektov, ktorých dáta testom na regulárny výraz prešli. Týmto sa dá jednoducho predísť strate dát pri anomáliách. V niektorých prípadoch avšak ani toto nieje riešenie, v tom prípade má aplikácia možnosť jednoducho takéto nedefinované výsledky vynechať a užívateľovi vôbec nezobrazovať.
+
+\subsubsection{Generovanie výsledných údajov}
+
+Po analýze výsledkov a ich zaradení k dátovým typom prichádza na rad generovanie výsledných údajov. Aplikácia v tomto prípade generuje výsledky pre každý webový dokument zvlášť, a to tak, že výsledný súbor nesie názov v podobe URL stránky, z ktorej údaje pochádzajú.
+
+Po vytvorení výsledného súboru sú analyzované údaje transformované do podoby JSON, ktorý je zároveň riadne formátovaný pre jednoduchú čitateľnosť ako človekom, tak aj počítačom. Po vygenerovaní všetkých potrebných dát je súbor uzavretý a výsledky sú pripravené na použitie. Pred samotným ukončením aplikácie však prichádza na rad ešte záverečné generovanie metadát, ktorých úlohou je informovať o celkových výsledkoch extrakcie.
+
+Metadáta predstavujú akési dáta o dátach. Ich generovaním dávame používateľovi informácie ktoré môže pokladať za užitočné, jasný a jednoduchý prehľad o extrakcii z pohľadu počtu extrahovaných elementov a dĺžky trvania tejto akcie.
+
+\chapter{Implementácia riešenia} 
