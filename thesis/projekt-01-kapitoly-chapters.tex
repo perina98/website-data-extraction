@@ -535,4 +535,35 @@ Po vytvorení výsledného súboru sú analyzované údaje transformované do po
 
 Metadáta predstavujú akési dáta o dátach. Ich generovaním dávame používateľovi informácie ktoré môže pokladať za užitočné, jasný a jednoduchý prehľad o extrakcii z pohľadu počtu extrahovaných elementov a dĺžky trvania tejto akcie.
 
-\chapter{Implementácia riešenia} 
+\chapter{Implementácia riešenia}
+
+V nasledujúcej kapitole bude popísaný postup implementácie výsledného riešenia. Aplikácia typu web scraper bude implementovaná na operačnom systéme Windows. Jej využiteľnosť je samozrejme multiplatformná a žiadna z jej súčastí nieje na operačný systém Windows viazaná. Aplikácia bola vo finálnej fáze otestovaná aj na operačnom systéme Manjaro, pod ktorým bežala tak ako bola navrhnutá.
+
+Implementácia bola z pohľadu web scrapingu rozdelená do viacerých častí:
+
+\begin{itemize}
+    \item {Konfigurácia}
+    \item {Vstupné dáta}
+    \item {Jadro programu}
+\end{itemize}
+
+\bigskip
+
+\section{Konfiguračný súbor}
+
+Externá konfigurácia dostupná pre užívateľa je uložená v konfiguračnom súbore, ktorý môže užívateľ volne upravovať a dokonca súbor úplne vymeniť. Základný konfiguračný súbor je k výslednej implementácií pripojený, a aplikácia ho očakáva implicitne ako súbor \textit{config.json}.
+
+Jeho úlohou je definícia základných pravidiel ktoré budú pri extrakcii dát z webových stránok používané. Formát a obsah tohto súboru je preto jednoznačne daný, a musí byť dodržaný. V opačnom prípade hrozí že aplikácia takýto súbor odmietne a nebude možné v extrakcii dát pokračovať. Aplikácia v takomto prípade užívateľa zároveň informuje o danej situácii chybovým hlásením zobrazeným v príslušnom termináli. 
+
+Štruktúra konfiguračného súboru je daná nasledovne:
+
+\begin{itemize}
+  \item \textbf{maxFailRatio} ako hodnota v rozsahu 0-100 ktorá definuje maximálny pomer prvkov ktoré pri určovaní výsledného okruhu neboli úspešné. Tieto prvky sú vo výslednom okruhu dát predstavené hodnotou \textit{NULL}. Ak je výsledný pomer týchto prvkov väčší ako hodnota udaná v \textit{maxFailRatio} je takýto okruh vyradený, a neberie sa pri ďalšom určovaní v úvahu. Táto hodnota je úzko viazaná s hodnotou \textit{primary} ktorá bude popísaná neskôr. Zmenu hodnoty na číslo blížiace sa 0 sa zväčší výsledná presnosť definície, avšak v mnohých prípadoch môže výsledný okruh so správnymi hodnotami obsahovať takzvané \textit{anomálie}, a preto je vhodné túto hodnotu udávať v rozsahu 40-60. Pri číslach blížiacich sa 100 je znova možné že výsledný okruh bude \textit{false positive}, a nebude možné takýto okruh dát brať ako relevantný.
+  \item \textbf{format} predstavuje súbor formátov na základe ktorých aplikácia definuje dátové typy výsledných prvkov. Tento súbor formátov je definovaný nasledovne:
+  
+  \textbf{názov\_dátového\_typu : reprezentácia\_regulárneho\_výrazu}
+  
+  Formáty sú reprezentované ako pravidlá určené regulárnymi výrazmi. Jeden \uv{pseudo} dátový typ je preto definovaný jedným jednoznačným regulárnym výrazom. Tieto výrazy sú užívateľovi prístupné a môže ich definíciu kedykoľvek meniť, a pridávať vlastné dátové typy definované vlastnými výrazmi. Ich formát je po takomto definovaní v konfiguračnom súbore dostupný v dátovom súbore na následnú špecifikáciu požadovaných vstupných údajov. Z určenia tohto formátu je možné jednoznačne povedať, že správna definícia týchto formátov bude viesť k úspešnejšej extrakcii. 
+  
+  \item \textbf{primary} je hodnota regulárneho výrazu ktorá sa viaže s hodnotou \textit{maxFailRatio}, a to takým spôsobom, že práve táto hodnota je používaná na prvotnú detekciu výsledných dátových okruhov. Tieto okruhy sú definované pomocou atribútu \textit{class}. Jedná sa o hodnotu definovanú užívateľom ako primárnu v danom vyhľadávanom prípade. Môže sa jednať napríklad o reprezentáciu skóre pri vyhľadávaní športových výsledkov, alebo nejaký formát času. 
+\end{itemize}
