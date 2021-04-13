@@ -1,15 +1,15 @@
-BIN = extractor.js
+BIN = src/extractor.js
 DATA = data.json
 CONFIG = config.json
 
-TEST = ftest.py
-OVERALL = overall.py
+TEST = tests/ftest.py
+OVERALL = tests/overall.py
 
-FOOTBALL = dataset/football
-TSBOHEMIA = dataset/tsbohemia
-SHOPS = dataset/shops
-NEWS = dataset/news
-NEWS3 = dataset/news3
+FOOTBALL = tests/dataset/football
+TSBOHEMIA = tests/dataset/tsbohemia
+SHOPS = tests/dataset/shops
+NEWS = tests/dataset/news
+NEWS3 = tests/dataset/news3
 
 all:
 	node $(BIN) --data=$(DATA) --offline -bdg --noundef

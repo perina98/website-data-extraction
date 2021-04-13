@@ -1,5 +1,35 @@
 overall 5 datasets 
-Precision:  83.584 %
-Recall:  78.754 %
+Precision:  83.06 %
+Recall:  78.15 %
 
 napisat readme
+node_modules ?
+
+
+
+Kapitoly
+
+1 - Úvod
+2 - Aktuálny prístup k problematike
+3 - Technológie
+4 - Návrh aplikácie
+5 - Implementácia riešenia
+6 - Testovanie a vyhodnotenie výsledkov
+7 - Záver
+
+
+technologie:
+HTML
+DOM
+CSS
+
+Javascript
+JSON
+Node.js
+npm
+puppeteer
+
+Google chrome
+chromium
+
+python
