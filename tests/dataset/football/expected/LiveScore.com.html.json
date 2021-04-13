@@ -1,0 +1,485 @@
+[
+    {
+        "time": "01:30",
+        "team1": "Chile",
+        "score": "? - ?",
+        "team2": "Paraguay"
+    },
+    {
+        "time": "23:00",
+        "team1": "Colombia",
+        "score": "? - ?",
+        "team2": "Brazil"
+    },
+    {
+        "time": "20:45",
+        "team1": "Oxford United",
+        "score": "? - ?",
+        "team2": "Lincoln City"
+    },
+    {
+        "time": "18:45",
+        "team1": "MVV Maastricht",
+        "score": "? - ?",
+        "team2": "Almere City FC"
+    },
+    {
+        "time": "21:00",
+        "team1": "FC Eindhoven",
+        "score": "? - ?",
+        "team2": "TOP Oss"
+    },
+    {
+        "time": "14:30",
+        "team1": "Mlada Boleslav",
+        "score": "? - ?",
+        "team2": "Slovacko"
+    },
+    {
+        "time": "12:00",
+        "team1": "Vaalerenga",
+        "score": "? - ?",
+        "team2": "IFK Gothenburg"
+    },
+    {
+        "time": "09:05",
+        "team1": "Melbourne City FC",
+        "score": "? - ?",
+        "team2": "Western Sydney Wanderers FC"
+    },
+    {
+        "time": "11:00",
+        "team1": "Gold Coast United FC",
+        "score": "? - ?",
+        "team2": "Eastern Suburbs"
+    },
+    {
+        "time": "10:30",
+        "team1": "Oakleigh Cannons",
+        "score": "? - ?",
+        "team2": "Green Gully Cavaliers"
+    },
+    {
+        "time": "11:30",
+        "team1": "The Gap",
+        "score": "? - ?",
+        "team2": "Brisbane Knights"
+    },
+    {
+        "time": "11:30",
+        "team1": "University of Queensland",
+        "score": "? - ?",
+        "team2": "Mount Gravatt"
+    },
+    {
+        "time": "11:30",
+        "team1": "Western Spirit",
+        "score": "? - ?",
+        "team2": "Centenary Stormers"
+    },
+    {
+        "time": "11:30",
+        "team1": "AC Carina",
+        "score": "? - ?",
+        "team2": "New Farm United"
+    },
+    {
+        "time": "10:30",
+        "team1": "Ipswich Knights",
+        "score": "? - ?",
+        "team2": "Souths United"
+    },
+    {
+        "time": "07:35",
+        "team1": "Canberra United FC",
+        "score": "? - ?",
+        "team2": "Sydney FC"
+    },
+    {
+        "time": "11:30",
+        "team1": "Annerley",
+        "score": "? - ?",
+        "team2": "AC Carina"
+    },
+    {
+        "time": "19:00",
+        "team1": "ASK-BSC Bruck/Leitha",
+        "score": "? - ?",
+        "team2": "Wiener SK"
+    },
+    {
+        "team1": "SC Neusiedl am See 1919",
+        "score": "? - ?",
+        "team2": "SK Rapid Wien II"
+    },
+    {
+        "team1": "ASV Drassburg",
+        "score": "? - ?",
+        "team2": "Mattersburg (A)"
+    },
+    {
+        "time": "19:30",
+        "team1": "ASV Drassburg",
+        "score": "? - ?",
+        "team2": "SC Neusiedl am See 1919"
+    },
+    {
+        "time": "19:30",
+        "team1": "FC Marchfeld Mannsdorf",
+        "score": "? - ?",
+        "team2": "SV Stripfing"
+    },
+    {
+        "time": "19:30",
+        "team1": "Wiener Neustadt",
+        "score": "? - ?",
+        "team2": "SC Wiener Viktoria"
+    },
+    {
+        "time": "19:00",
+        "team1": "Bad Gleichenberg",
+        "score": "? - ?",
+        "team2": "Deutschlandsberger SC"
+    },
+    {
+        "time": "19:00",
+        "team1": "SC Weiz",
+        "score": "? - ?",
+        "team2": "Ried (A)"
+    },
+    {
+        "time": "01:00",
+        "team1": "Sport Recife",
+        "score": "? - ?",
+        "team2": "Central SC"
+    },
+    {
+        "time": "19:00",
+        "team1": "HIK",
+        "score": "? - ?",
+        "team2": "Slagelse"
+    },
+    {
+        "time": "18:30",
+        "team1": "Greve",
+        "score": "? - ?",
+        "team2": "Vordingborg"
+    },
+    {
+        "time": "15:30",
+        "team1": "TP Mazembe",
+        "score": "? - ?",
+        "team2": "Renaissance"
+    },
+    {
+        "time": "14:00",
+        "team1": "Fulham U23",
+        "score": "? - ?",
+        "team2": "Newcastle United U23"
+    },
+    {
+        "time": "14:00",
+        "team1": "Sheffield Wednesday U23",
+        "score": "? - ?",
+        "team2": "Sheffield United U23"
+    },
+    {
+        "time": "14:00",
+        "team1": "Watford FC U23",
+        "score": "? - ?",
+        "team2": "Queens Park Rangers U23"
+    },
+    {
+        "time": "18:00",
+        "team1": "Sete",
+        "score": "? - ?",
+        "team2": "Villefranche Beaujolais"
+    },
+    {
+        "time": "20:00",
+        "team1": "FC Bastia-Borgo",
+        "score": "? - ?",
+        "team2": "Cholet"
+    },
+    {
+        "time": "19:15",
+        "team1": "Bayer Leverkusen",
+        "score": "? - ?",
+        "team2": "Frankfurt"
+    },
+    {
+        "time": "20:30",
+        "team1": "Bruno's Magpies",
+        "score": "? - ?",
+        "team2": "College 1975"
+    },
+    {
+        "time": "20:30",
+        "team1": "Europa FC",
+        "score": "? - ?",
+        "team2": "St Joseph's"
+    },
+    {
+        "team1": "FC Boca Juniors",
+        "score": "? - ?",
+        "team2": "Manchester 62 FC"
+    },
+    {
+        "time": "20:30",
+        "team1": "Lincoln Red Imps FC",
+        "score": "? - ?",
+        "team2": "Glacis United"
+    },
+    {
+        "time": "20:30",
+        "team1": "Lions Gibraltar",
+        "score": "? - ?",
+        "team2": "Europa Point"
+    },
+    {
+        "time": "20:30",
+        "team1": "Mons Calpe SC",
+        "score": "? - ?",
+        "team2": "Lynx"
+    },
+    {
+        "time": "20:00",
+        "team1": "UMF Selfoss",
+        "score": "? - ?",
+        "team2": "Valur"
+    },
+    {
+        "time": "20:00",
+        "team1": "FH Hafnarfjordur",
+        "score": "? - ?",
+        "team2": "Breidablik"
+    },
+    {
+        "time": "20:45",
+        "team1": "Bohemian FC",
+        "score": "? - ?",
+        "team2": "Longford Town"
+    },
+    {
+        "time": "20:45",
+        "team1": "Derry City",
+        "score": "? - ?",
+        "team2": "Shamrock Rovers"
+    },
+    {
+        "time": "20:45",
+        "team1": "Dundalk",
+        "score": "? - ?",
+        "team2": "Finn Harps"
+    },
+    {
+        "time": "20:45",
+        "team1": "St. Patrick's Athletic",
+        "score": "? - ?",
+        "team2": "Drogheda United"
+    },
+    {
+        "time": "20:45",
+        "team1": "Waterford FC",
+        "score": "? - ?",
+        "team2": "Sligo Rovers"
+    },
+    {
+        "time": "20:30",
+        "team1": "Bray Wanderers",
+        "score": "? - ?",
+        "team2": "Treaty United"
+    },
+    {
+        "time": "20:45",
+        "team1": "Cork City",
+        "score": "? - ?",
+        "team2": "Cobh Ramblers"
+    },
+    {
+        "time": "20:45",
+        "team1": "Galway United FC",
+        "score": "? - ?",
+        "team2": "Shelbourne"
+    },
+    {
+        "time": "20:45",
+        "team1": "UCD",
+        "score": "? - ?",
+        "team2": "Athlone Town"
+    },
+    {
+        "time": "21:00",
+        "team1": "Wexford FC",
+        "score": "? - ?",
+        "team2": "Cabinteely"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Iksal",
+        "score": "? - ?",
+        "team2": "Hapoel Afula"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Ironi Akko",
+        "score": "? - ?",
+        "team2": "Hapoel Nof HaGalil"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Kfar Shalem",
+        "score": "? - ?",
+        "team2": "Hapoel Umm al-Fahm"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Petah Tikva",
+        "score": "? - ?",
+        "team2": "Hapoel Raanana"
+    },
+    {
+        "time": "18:00",
+        "team1": "Hapoel Ramat Gan",
+        "score": "? - ?",
+        "team2": "Hapoel Nir Ramat HaSharon"
+    },
+    {
+        "time": "18:00",
+        "team1": "Maccabi Ahi Nazareth",
+        "score": "? - ?",
+        "team2": "Hapoel Jerusalem"
+    },
+    {
+        "time": "18:00",
+        "team1": "SC Kfar Kasem",
+        "score": "? - ?",
+        "team2": "Beitar Tel Aviv Bat Yam"
+    },
+    {
+        "time": "18:00",
+        "team1": "Sektzia Nes Tziona",
+        "score": "? - ?",
+        "team2": "Hapoel Rishon LeZion"
+    },
+    {
+        "time": "02:00",
+        "team1": "Jaibos Tampico Madero",
+        "score": "? - ?",
+        "team2": "Cimarrones de Sonora"
+    },
+    {
+        "time": "04:05",
+        "team1": "Atlético Morelia",
+        "score": "? - ?",
+        "team2": "Leones Negros"
+    },
+    {
+        "time": "23:00",
+        "team1": "Necaxa",
+        "score": "? - ?",
+        "team2": "Atletico de San Luis"
+    },
+    {
+        "time": "23:00",
+        "team1": "FC Cahul 2005",
+        "score": "? - ?",
+        "team2": "Real Succes"
+    },
+    {
+        "time": "23:00",
+        "team1": "FC Sireti",
+        "score": "? - ?",
+        "team2": "FC Victoria"
+    },
+    {
+        "time": "23:00",
+        "team1": "FC Tighina",
+        "score": "? - ?",
+        "team2": "FC Granicerul"
+    },
+    {
+        "time": "20:30",
+        "team1": "Korona Kielce",
+        "score": "? - ?",
+        "team2": "Miedz Legnica"
+    },
+    {
+        "time": "16:30",
+        "team1": "Ahrobiznes Volochysk",
+        "score": "? - ?",
+        "team2": "Metalist 1925"
+    },
+    {
+        "time": "16:30",
+        "team1": "Chornomorets Odessa",
+        "score": "? - ?",
+        "team2": "FC Obolon Kiev"
+    },
+    {
+        "time": "16:30",
+        "team1": "FC Kremin Kremenchuk",
+        "score": "? - ?",
+        "team2": "FC Hirnyk-Sport"
+    },
+    {
+        "time": "16:30",
+        "team1": "FC Prykarpattia 1981",
+        "score": "? - ?",
+        "team2": "Veres Rivne"
+    },
+    {
+        "time": "16:30",
+        "team1": "MFK Mykolaiv",
+        "score": "? - ?",
+        "team2": "Alians"
+    },
+    {
+        "time": "16:30",
+        "team1": "Nyva Ternopil",
+        "score": "? - ?",
+        "team2": "Volyn"
+    },
+    {
+        "time": "16:30",
+        "team1": "Polissya Zhytomyr",
+        "score": "? - ?",
+        "team2": "Krystal Kherson"
+    },
+    {
+        "time": "16:30",
+        "team1": "VPK-Ahro Shevchenkivka",
+        "score": "? - ?",
+        "team2": "FC Avanhard Kramatorsk"
+    },
+    {
+        "time": "11:00",
+        "team1": "Olimpik Donetsk U21",
+        "score": "? - ?",
+        "team2": "SC Dnipro-1 U21"
+    },
+    {
+        "time": "11:00",
+        "team1": "FC Olimpik Donetsk  U19",
+        "score": "? - ?",
+        "team2": "SC Dnipro-1 U19"
+    },
+    {
+        "time": "14:40",
+        "team1": "AL Tawon SC",
+        "score": "? - ?",
+        "team2": "AL Oruba"
+    },
+    {
+        "time": "14:40",
+        "team1": "Masfoot Sports Club",
+        "score": "? - ?",
+        "team2": "Dibba"
+    },
+    {
+        "time": "14:45",
+        "team1": "Al-Thaid",
+        "score": "? - ?",
+        "team2": "Al Bataeh"
+    }
+]
