@@ -3,7 +3,7 @@
 */
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const css = require('CSS.escape');
+const css = require('css.escape');
 var argv = require('minimist')(process.argv.slice(2));
 const {exit} = require('process');
 const MIN_RESLEN = 5;
