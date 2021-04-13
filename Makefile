@@ -56,3 +56,5 @@ linux-install:
 	npm i css.escape
 	npm i minimist
 	pip install termcolor
+pack:
+	zip -r xperin11.zip ./src/* ./tests/* ./INSTALLATION ./Makefile ./PREREQUISITES ./README.md
