@@ -10,8 +10,8 @@ except:
     print("Usage: python ftest.py [dataset_dir]")
     exit()
 try:
-    _, _, filenames_o = next(walk('dataset/'+testType+'/output/'))
-    _, _, filenames_e = next(walk('dataset/'+testType+'/expected/'))
+    _, _, filenames_o = next(walk('tests/dataset/'+testType+'/output/'))
+    _, _, filenames_e = next(walk('tests/dataset/'+testType+'/expected/'))
 except:
     print("Dataset_dir has to contain two folders: output and expected")
     exit(1)
@@ -23,10 +23,10 @@ def init():
     expected = []
     try:
         for filename in filenames_o:
-            with open('dataset/'+testType+'/output/'+filename,encoding="Latin-1") as json_file:
+            with open('tests/dataset/'+testType+'/output/'+filename,encoding="Latin-1") as json_file:
                 output.append(json.load(json_file))
         for filename in filenames_e:
-            with open('dataset/'+testType+'/expected/'+filename,encoding="Latin-1") as json_file:
+            with open('tests/dataset/'+testType+'/expected/'+filename,encoding="Latin-1") as json_file:
                 expected.append(json.load(json_file))
     except:
         print("Exception occured while initializing json arrays")
@@ -125,14 +125,13 @@ def averageResults(average_precision,average_recall,length):
     print("Recall: ",str(average_recall)+"%")
     if '-o' in sys.argv:
         overall = open("overall","a")
-        overall.write(str(average_precision)+'\n')
-        overall.write(str(average_recall)+'\n')
+        overall.write(str(average_precision)+' '+str(average_recall)+' '+str(length)+'\n')
 
 
 # main function, print header, init arrays and loop test
 # Average results printed after all tests completed
 def main():
-    print('Status','Precision','Recall','File')
+    print('Status','Precision','Recall','Domain')
     output,expected = init()
 
     length = len(output)

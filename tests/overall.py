@@ -9,18 +9,25 @@ arr = file.readlines()
 
 precision = 0.0
 recall = 0.0
+length = 0
 
 for i in range(0,len(arr)):
-    if i%2 == 0:
-        precision += float(arr[i].strip())
-    else:
-        recall += float(arr[i].strip())
+    current = arr[i].strip().split(' ')
+    length += int(current[2])
+
+for i in range(0,len(arr)):
+    current = arr[i].strip().split(' ')
+    precision += float(current[0]) * (int(current[2])/length)
+    recall += float(current[1]) * (int(current[2])/length)
+    
 
 print("============================================================")
 print("Overall average result:")
 print("Datasets: 5")
-print("Precision: ",  round(precision/(len(arr)/2),2),"%")
-print("Recall: ",  round(recall/(len(arr)/2),2),"%")
+print("Webpages: ",  length)
+print("Weighted results: ")
+print("Precision: ",  round(precision,2),"%")
+print("Recall: ",  round(recall,2),"%")
 
 file.close()
 os.remove('overall')
