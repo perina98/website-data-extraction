@@ -12,6 +12,8 @@ except:
 try:
     _, _, filenames_o = next(walk('tests/dataset/'+testType+'/output/'))
     _, _, filenames_e = next(walk('tests/dataset/'+testType+'/expected/'))
+    filenames_o.sort()
+    filenames_e.sort()
 except:
     print("Dataset_dir has to contain two folders: output and expected")
     exit(1)
