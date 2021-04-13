@@ -279,13 +279,15 @@ Rozlišovanie medzi týmito typmi je dôležité, pretože z názvu \textit{Casc
 
 \section{Javascript}
 
-Programovací jazyk Javascript bol vyvinutý za účelom vytvárania dojmu interakcie pri webových stránkach. Javascript je jednou z hlavných súčastí webových stránok, a je používaný na viac ako 95\% stránkach celosvetovo.\cite{HowPopular} Dá sa preto predpokladať že bude jeho integrácia s webovými prehliadačmi a webovými stránkami na vysokej úrovni.
-\newpage
-Práve kombinácia HTML, CSS a Javascriptu totiž dokáže docieliť výsledky ktoré sa pri moderných štandardoch vyžadujú. Či už sa jedná o dynamickú zmenu obsahu alebo animovanie niektorých elementov, je to práve Javascript ktorý túto interakciu docieľuje. \cite{Javascript}
+Programovací jazyk Javascript bol vyvinutý za účelom vytvárania dojmu interakcie pri webových stránkach. Javascript je jednou z hlavných súčastí webových stránok, a je používaný na viac ako 95\% stránkach celosvetovo.\cite{HowPopular} Dá sa preto predpokladať že bude jeho integrácia s webovými prehliadačmi a webovými stránkami na vysokej úrovni. 
 
+\bigskip
+
+Práve kombinácia HTML, CSS a Javascriptu totiž dokáže docieliť výsledky ktoré sa pri moderných štandardoch vyžadujú. Či už sa jedná o dynamickú zmenu obsahu alebo animovanie niektorých elementov, je to práve Javascript ktorý túto interakciu docieľuje. \cite{Javascript}
+\newpage
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\textwidth]{obrazky-figures/jsexecution.png}
+	\includegraphics[width=0.8\textwidth]{obrazky-figures/jsexecution.png}
 	\caption{HTML, CSS a JavaScript sú 3 hlavné zložky ktoré spolu vytvárajú web ako ho poznáme dnes. Zdroj \cite{Javascript}}
 	\label{Jsexecution_img}
 \end{figure}
@@ -409,6 +411,16 @@ Pojmom vstupné pravidlá rozumieme pravidlá ktoré sú definované ako základ
 
 Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jednoduchej zrozumiteľnosti ako z pohľadu človeka, tak aj z pohľadu počítača. Súbory vo formáte JSON sú zároveň veľmi jednoducho prenositelné aj medzi viacerými programovacími jazykmi, čo je samozrejme ďalšia výhoda. S týmto formátom mám zároveň osobné skúsenosti, takže to bola pomerne jasná voľba.
 
+\bigskip
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky-figures/rules.png}
+	\caption{Spôsob určenia finálneho dátového typu a príslušnosti objektu}
+\end{figure}
+
+\bigskip
+
 \subsection{Hlavné pravidlá}
 
 V prvom rade treba začať prvotným upresnením, a teda z čoho sa vlastne tieto pravidlá budú skladať. S ohľadom na užívateľskú jednoduchosť, boli hlavné a vedľajšie pravidla rozdelené do dvoch konfiguračných súborov, pre ich jednoduchšiu správu. 
@@ -424,15 +436,15 @@ Medzi hlavné pravidlá na extrakciu boli vybraté:
 
 Kde \textbf{zoznam webových stránok} určuje všetky webové stránky ktoré sú určené na extrakciu. Budú to webové stránky ktoré budú ako atribút posielané aplikácii a výsledná aplikácia ich bude prechádzať v takom poradí, v akom boli zadané. V prípade že je niektorá zo stránok nedostupná, aplikácia o tom užívateľa informuje, a bude pokračovať nasledovnou webovou stránkou. Pokračovanie namiesto ukončenia aplikácie je zvolené z dôvodu neustáleho vývoja webu. V prípade že jedna z preddefinovaných stránok zmení adresu, a táto adresa už nebude dostupná, by toto nemalo ovplyvniť vygenerovanie výsledkov ostatných adries.
 
-\bigskip
+\newpage
 
-\textbf{Štruktúra hľadaných prvkov} by mala byť definovaná ako objekt určujúci požadovaný výsledný názov elementu, teda jeho jednoznačný identifikátor, a jeho \uv{pseudo} dátový typ. Kde jeho identifikátor bude použitý zároveň pri finálnom výpise výsledných údajov, a dátový typ použitý podľa pravidiel ktoré budú popísané neskôr v tejto kapitole. Štruktúra je vo formáte objektu, a teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak aby aj pre človeka bolo na prvý pohľad jasné v akom vzťahu tieto údaje sú.
+\textbf{Štruktúra hľadaných prvkov} je definovaná ako objekt určujúci požadovaný výsledný názov elementu, teda jeho jednoznačný identifikátor, a jeho \uv{pseudo} dátový typ. Kde jeho identifikátor bude použitý zároveň pri finálnom výpise výsledných údajov, a dátový typ použitý podľa pravidiel ktoré budú popísané neskôr v tejto kapitole. Štruktúra je vo formáte objektu, a teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak aby aj pre človeka bolo na prvý pohľad jasné v akom vzťahu tieto údaje sú.
 
 \bigskip
 
 \textbf{Blacklist} je voliteľný atribút (nemusí byť vo finálnom vstupnom súbore reprezentovaný). Predstavuje pole prvkov vo formáte reťazcov, ktoré užívateľ definuje ako také, ktoré by sa vo výslednom súbore nemali nachádzať. Definovanie takýchto reťazcov pomocou Blacklistu bude samozrejme mať za následok ovplyvnenie aplikácie pri rozhodovaní o pozícii a formáte výsledných údajov. 
 
-\newpage
+
 \subsection{Vedľajšie pravidlá}
 
 Ako vedľajšie pravidlá boli zvolené také pravidlá, ktorých prenositeľnosť aj medzi rôznymi typmi definovaných domén je pravdepodobnejšia, a preto by nemuselo byť vždy nutné tieto pravidlá meniť. Zmena týchto pravidiel sa teda berie ako menej častá udalosť, a vo väčšine prípadov môže stačiť definovať hlavné pravidlá. 
@@ -456,13 +468,13 @@ V prípade že je aktuálny pomer zlyhania menší ako maximálny pomer zlyhania
 
 Dá sa predpokladať že správne definovaný regulárny výraz bude mať dramatický vplyv na výsledné dáta. V prípade že test daného prvku na predpokladaný regulárny výraz neprejde, nieje možné určiť jeho dátový typ a teda výsledný jednoznačný identifikátor. V takom prípade nieje možné garantovať zaradenie takéhoto prvku do výsledného súboru dát.
 
-\bigskip
+\newpage
 
 \textbf{Primárny prvok} je taký prvok, ktorý je určený ako prvok ktorý sa v objekte určenom na extrakciu opakuje, a je teda možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt, a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
 
 Jeho reprezentácia je znova v podobe regulárneho výrazu, avšak on samotný sa nemusí nachádzať v definovanej štruktúre ani formáte vstupných údajov. Aplikácia tento prvok využíva na prvotnú analýzu stránky ako takej, a na základe jeho prezencie v danom testovacom okruhu je posúdené či daný testovaný okruh je kandidátom na definíciu správnych výsledných objektov.
 
-\newpage
+
 \section{Výstupný formát}
 
 Čo sa výstupného formátu týka, mal by byť znovu pokiaľ možno v univerzálnom formáte. Keďže sa dá predpokladať že extrahované dáta budú v prípade potreby použité, je vhodné zvoliť formát ktorý je podporovaný rôznymi aplikáciami a programovacími jazykmi.
@@ -493,7 +505,6 @@ Sekundárnym výstupným súborom sú takzvané metadáta. Sú to dáta ktoré p
 
 Tieto metadáta môžu poslúžiť ako kontrola výsledných súborov a porovnanie časov potrebných na vykonanie určitých akcií. Metadáta sú generované pri každom spustení aplikácie, a ich obsah je prepisovaný tak, aby obsahoval vždy údaje o poslednom spustení.
 
-\newpage
 
 \subsubsection{Konzolový výstup aplikácie}
 
@@ -505,11 +516,22 @@ V prípade spustenia aplikácie s prepínačom \textit{-v} je na výstup vypísa
 
 \section{Architektúra aplikácie}
 
-V tejto časti práce bude popísaná architektúra aplikácie tak, ako bola aplikácia navrhnutá, a odôvodnenie týchto krokov. 
+V tejto časti práce bude popísaná architektúra aplikácie tak, ako bola aplikácia navrhnutá, a odôvodnenie týchto krokov. Nasledujúci diagram reprezentuje finálny návrh architektúry aplikácie a vzťah jednotlivých prvkov.
+
+\bigskip
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/architecture.png}
+	\caption{Diagram navrhnutej architektúry}
+	\label{architecture}
+\end{figure}
+
+\bigskip
 
 \subsection{Jadro programu}
 
-Hlavný zdrojový kód sa bude nachádzať v jednom súbore ktorý pre jednoznačnosť v rámci tejto práce nazvem \textit{extractor.js}. Koncovka js napovedá že sa bude jednať o Javascriptový súbor. Pri spúšťaní aplikácie sa preto bude tento súbor volať pomocou príkazu \textit{node} ktorý značí Node.js.
+Hlavný zdrojový kód sa bude nachádzať v jednom súbore ktorý pre jednoznačnosť v rámci tejto práce nazvem \textit{extractor.js}. Koncovka js napovedá že sa bude jednať o Javascriptový súbor. Pri spúšťaní aplikácie sa preto bude tento súbor volať pomocou príkazu \textit{node} ktorý značí prostredie Node.js.
 
 Aplikácia bude naväzovať na dva prídavné súbory vo formáte JSON, ktoré budú predstavovať vstupné informácie vo formáte popísanom v predošlej časti tejto kapitoly. 
 
@@ -517,11 +539,11 @@ Hlavný komunikačný kanál aplikácie a webového prehliadača bude zabezpeče
 
 \subsection{Hlavný proces}
 
-Úlohou hlavného procesu bude vymedzenie finálneho okruhu výsledkov. Čo sa týchto okruhov týka, ich výber prešiel rôznymi iteráciami, avšak nakoniec bol zvolený spôsob určovania týchto okruhov na základe atribútu \textit{class}. Aplikácia teda najskôr analyzuje stránku tak, aby bolo možné vygenerovať zoznam používaných atribútov. Na základe tohto zoznamu následne aplikácia generuje výsledné okruhy ktoré sú naplnené údajmi z daného okruhu definovaného \textit{class} atribútom. 
+Úlohou hlavného procesu bude vymedzenie finálneho okruhu výsledkov. Čo sa týchto okruhov týka, ich proces výber prešiel rôznymi iteráciami, avšak nakoniec bol zvolený spôsob určovania týchto okruhov na základe atribútu \textit{class}. Aplikácia teda najskôr analyzuje stránku tak, aby bolo možné vygenerovať zoznam používaných atribútov. Na základe tohto zoznamu následne aplikácia generuje výsledné okruhy ktoré sú naplnené údajmi z daného okruhu definovaného \textit{class} atribútom. 
 
 Aby bolo možné určiť správnosť údajov, je každý údaj porovnávaný zvlášť. Údaje sú porovnávané s reprezentujúcim pravidlom regulárneho výrazu, v tomto prípade primárnym prvkom zo vstupných pravidiel.
 
-\newpage
+
 \subsubsection{Analýza výsledkov}
 
 Po určení správneho okruhu, bude následne aplikácia pracovať s daným \textit{class} atribútom ktorý daný okruh dát definuje. Aplikácia berie daný údaje daného okruhu ako potencionálnu súčasť výsledkov, nemusí to byť ale tak vždy. Preto aplikácia kontroluje susedné prvky z pohľadu DOM, a snaží sa získať čo najviac informácií nielen o susedných, ale aj rodičovských uzloch a detských potomkoch daného prvku.
@@ -534,6 +556,7 @@ Určenie tohto typu nieje vždy jednoduché, a preto v prípade že špecifikác
 
 Keďže aplikácia analyzuje výsledky ako celok, vie presne určiť aký dátový typ bol na danom mieste definovaný v predošlých prípadoch objektov, ktorých dáta testom na regulárny výraz prešli. Týmto sa dá jednoducho predísť strate dát pri anomáliách. V niektorých prípadoch avšak ani toto nieje riešenie, v tom prípade má aplikácia možnosť jednoducho takéto nedefinované výsledky vynechať a užívateľovi vôbec nezobrazovať.
 
+\newpage
 \subsubsection{Generovanie výsledných údajov}
 
 Po analýze výsledkov a ich zaradení k dátovým typom prichádza na rad generovanie výsledných údajov. Aplikácia v tomto prípade generuje výsledky pre každý webový dokument zvlášť, a to tak, že výsledný súbor nesie názov v podobe URL stránky, z ktorej údaje pochádzajú.
@@ -600,7 +623,7 @@ Vstupné dáta sú preto formované nasledovne:
   
   Vo výslednom súbore sa môžu objaviť len prvky ktoré tu boli zadefinované. Avšak v niektorých prípadoch výsledný súbor môže obsahovať prvok \uv{undefined}. Takýto prvok značí, že sa pri extrakcii dát z daného objektu objavil prvok, ktorý aplikácia nedokázala podľa definovaných pravidiel zaradiť. Tento jav sa avšak dá vypnúť spustením aplikácie s parametrom \textit{\texttt{-{}-}noundef}. Pri takomto spustení je každý výsledný objekt kontrolovaný na prítomnosť nedefinovaných prvkov, a takéto sú následne z objektu vyradené. Na druhej strane prítomnosť všetkých definovaných prvkov nieje podmienená. Ak niektorý z prvkov pri danom objekte chýba, je jednoducho vynechaný, a jeho reprezentácia nieje vo výslednom súbore uvedená ani vo formáte prázdneho reťazca znakov. Takáto situácia môže nastať napríklad pri extrakcii dát z obchodných reťazcov a použitia dátového typu reprezentujúceho \uv{zľavu}. Zľava nemusí byť pri každom produkte určená, a preto aplikácia pri produktoch bez zľavy daný prvok vynechá.
   
-  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré užívateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade užívateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec vyradený, a aplikácia ho určí ako prvok určený na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí užívateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale že ho užívateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe pola reťazcov. Pole nieje obmedzené, a môže obsahovať nekonečne veľa výrazov. 
+  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré užívateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade užívateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec vyradený, a aplikácia ho určí ako prvok určený na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí užívateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale, že ho užívateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe poľa reťazcov. Veľkosť poľa nieje obmedzená a môže obsahovať nekonečne veľa výrazov. 
  \end{itemize}
  
  \section{Štruktúra aplikácie}
@@ -611,18 +634,21 @@ Vstupné dáta sú preto formované nasledovne:
  
  Ako prvé aplikácia zabezpečí vytvorenie inštancie API Puppeteer. To znamená že sa vytvorí inštancia prehliadača Chromium s parametrom \textit{headless} ktorý prehliadač spustí v špeciálnom móde, kde je užívateľské prostredie skryté. Táto forma bola vybraná hlavne kvôli urýchleniu procesu a zachovania jednoty pri vykonávaní danej extrakčnej úlohy. 
  
- Po vytvorení spojenia je vytvorená inštancia pre webovú stránku, ktorá bude v danom bode úlohy analyzovaná. Stránka je následne načítaná a prebehne zber dát v podobe všetkých dostupných triednych atribútov jednotlivých prvkov. Tieto triedne atribúty sú následne zoradené podľa početnosti. Algoritmus následne rozdelí obsah webovej stránky do okruhov, ktoré sú definované práve spomínanými triednymi atribútami. Tieto triedne atribúty sú viazané na štylizáciu webovej stránky, a preto sa dá určiť že ich výskyt bude rovnaký práve pre jednu skupinu dát. Zároveň sa dá predpokladať, že ak sa jedná o dáta ktoré sa na webovej stránke opakujú, tak bude výskyt týchto triednych atribútov väčší ako výskyt iných atribútov. Preto je zoradenie zároveň kritické pre rýchlosť analýzy dát. To ako analýza prebieha bude ďalej popísané v tejto kapitole.
+ Po vytvorení spojenia je vytvorená inštancia pre webovú stránku, ktorá bude v danom bode úlohy analyzovaná. Stránka je následne načítaná a prebehne zber dát v podobe všetkých dostupných triednych atribútov jednotlivých prvkov. Tieto triedne atribúty sú následne zoradené podľa početnosti. Algoritmus následne rozdelí obsah webovej stránky do okruhov, ktoré sú definované práve spomínanými triednymi atribútami. Tieto triedne atribúty sú viazané na štylizáciu webovej stránky, a preto sa dá určiť že ich výskyt bude rovnaký práve pre práve jednu skupinu dát. Zároveň sa dá predpokladať, že ak sa jedná o dáta ktoré sa na webovej stránke opakujú, tak bude výskyt týchto triednych atribútov väčší ako výskyt iných atribútov. Preto je zoradenie kritické pre rýchlosť analýzy dát. To ako analýza prebieha bude ďalej popísané v tejto kapitole.
  
  Po analýze prebehne extrakcia dát. Tá prebieha v troch krokoch:
  
  \begin{enumerate}
      \item Evaluácia
-     \item Analýza
+     \item Klasifikácia
      \item Príprava výsledkov
  \end{enumerate}
  
  \bigskip
  
- Po vykonaní prípravy výsledkov sú výsledky zapísané vo formátovanej podobe do výsledného súboru. Ten následne nesie názov domény alebo súboru, z ktorého boli dané dáta extrahované.
+ Výsledky sú následne pripravené na zápis. Zapísané sú vo formátovanej podobe do výsledného súboru, ktorý nesie názov domény alebo dokumentu, z ktorého boli dané dáta extrahované. Všetky takéto súbory sú následne uložené v predom definovanej zložke. Ak táto zložka nieje definovaná užívateľom, aplikácia zvolí základnú zložku \textit{output} v koreňovom adresári aplikácie. Súbor obsahujúci metadáta je taktiež uložený v koreňovom adresári, avšak mimo zložky s výslednými súbormi. Tým môžeme predísť nesprávnemu zaradeniu metadát a výsledných dát. Užívateľ je zároveň o aktuálnej lokácií súboru s metadátami informovaný po skončení vykonávania danej extrakčnej úlohy.
+ 
+ \newpage
+ \subsection{Analýza webovej stránky}
  
  
