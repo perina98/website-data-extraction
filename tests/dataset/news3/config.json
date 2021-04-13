@@ -1,0 +1,10 @@
+{
+    "maxFailRatio": 70,
+    "format":{
+        "string_author":"^By[a-žA-Ž|\\s]+$|^[a-žA-Ž|\\s|\\,]{5,40}$",
+        "string_title": "^[a-žA-Ž].{14,150}$",
+        "string_synopsis": "^[a-žA-Ž].{16,300}$",
+        "timestamp": "\\d{4}|^.{0,10}ago$|^před.{0,15}$"
+    },
+    "primary": "^.{0,25}\\d{4}.{0,10}$|^.{0,10}ago$|^před.{0,15}$"
+}

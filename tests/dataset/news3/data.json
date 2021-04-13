@@ -1,0 +1,16 @@
+{
+    "urls": [
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news3/domains/google.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news3/domains/mndaily.com.html",
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news3/domains/techcrunch.com.html"
+    ],
+    "urls1":[
+        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/news3/domains/techcrunch.com.html"
+    ],
+    "structure":{
+        "author": "string_author",
+        "title": "string_title",
+        "synopsis": "string_synopsis",
+        "timestamp": "timestamp"
+    }
+}
