@@ -1,0 +1,10 @@
+artnews 1x parent
+ceskymac 2x parent
+cycling 2x parent
+google 3x parent without timestamp | 2x parent without author
+mndaily 3x parent
+pcgamer 2x no description
+pondikatel 2x author+timestamp
+rockpaper 2x parent
+tech 4x parent + different order
+smartmania 2x parent
