@@ -279,7 +279,7 @@ function blackListed(input){
 */
 function defineType(input, currentResults, position, max) {
     if (blist) {
-        if (blackListed(input)) return 'undefined';
+        if (blackListed(input)) return 'blacklisted';
     }
 
     let structureSize = searchStructure.length;
@@ -287,7 +287,7 @@ function defineType(input, currentResults, position, max) {
         let current = new RegExp(format[searchStructure[i]]);
         if (current.test(input) || current.test(input.trim().replace(/\n*\s*/g, ''))) {
             if (def.includes(searchItem[i])) continue;
-            if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
+            //if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
             return searchItem[i];
         }
     }
@@ -329,6 +329,9 @@ function prepareResults(final_results) {
         def = [];
         for (let j = 0; j < Object.keys(final_results[i]).length; j++) {
             let type = defineType(final_results[i][j], final_results, j, i);
+            if (type == 'blacklisted' && blist){
+                continue;
+            }
             if (defCheck) {
                 if (type != 'undefined' && !def.includes(type)) {
                     def.push(type);
@@ -489,7 +492,6 @@ async function dataDump(page, currentSelector) {
         ancestor += 1;
         await dataDump(page, topClasses[ind]);
     }
-    if (verbose) console.dir(final_results, { 'maxArrayLength': null });
 
     if (unify) {
         final_results = unifyObjects(final_results);
@@ -527,7 +529,8 @@ async function mainProcess() {
             });
         } catch (err) {
             console.error("URL " + url + " cant be reached");
-            exit(1);
+            urlIndex++;
+            continue;
         }
         let pageload_time = new Date().getTime() - pageload_start;
 
@@ -551,16 +554,15 @@ async function mainProcess() {
         topClasses = getTopClasses(targets);
         topClassesLength = topClasses.length;
         if (verbose) {
-            console.log("Topclasses:");
+           /*  console.log("Topclasses:");
             for (var i = 0; i < topClassesLength; i++) {
                 console.log(i + ". " + topClasses[i]);
             }
-            console.log("==================");
+            console.log("=================="); */
         }
         ind = 0;
         do {
             currentSelector = '.' + css(topClasses[ind]);
-            if (verbose) console.log(currentSelector);
             try {
                 results = await page.$$eval(currentSelector, nodes => {
                     return nodes.map(node => {
@@ -593,10 +595,11 @@ async function mainProcess() {
 
         querry.push(prepareQuerry(url, ind, topClasses[ind], results.length, determining_time, dumping_time, pageload_time));
         if (verbose) {
+            console.log("Final objects count: " + results.length);
             console.log("Determining possible target..." + determining_time + "ms");
             console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
             console.log("Dumping data..." + dumping_time + "ms");
-            console.log(JSON.stringify(topClasses[ind], null, 4));
+            console.log("Resulting class : " + topClasses[ind]);
             console.log("==============================");
         }
         urlIndex++;
@@ -615,6 +618,6 @@ async function mainProcess() {
     await mainProcess();
     console.log("==============================");
     let exectime = new Date().getTime() - start_time;
-    console.log("Execution ended succesfully. See ./metadata.json for results overview.")
+    console.log("Execution ended succesfully. See " + output_folder + '../metadata.json for results overview.');
     console.log('Execution time: ' + exectime + 'ms');
 })();
