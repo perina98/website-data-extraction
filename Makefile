@@ -42,3 +42,17 @@ news:
 news3:
 	node $(BIN) --data=$(NEWS3)/$(DATA) --config=$(NEWS3)/$(CONFIG) -o=$(NEWS3)/output/ --offline -dgm --noundef
 	python $(TEST) news3
+
+windows-install:
+	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+	cinst nodejs.install
+	npm i puppeteer
+	npm i css.escape
+	npm i minimist
+	pip install termcolor
+linux-install:
+	sudo apt install nodejs | sudo snap install node --classic
+	npm i puppeteer
+	npm i css.escape
+	npm i minimist
+	pip install termcolor
