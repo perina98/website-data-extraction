@@ -245,6 +245,7 @@ HTML dokument sa skladá z elementov, ktoré sú predstavené v podobe takzvaný
 Takéto dokumenty sú následne reprezentované vo webovom prehliadači, ktorý HTML dokumenty zobrazí zároveň s doplnkovými dokumentami ktoré určujú štylizáciu a správanie sa danej webstránky. HTML dokumenty samotné neobsahujú žiadnu štylizáciu, avšak typ elementu ktorý použijeme pre realizovaní určitého prvku je kritický, pretože udáva základné rozloženie obsahu ktorý element predstavuje.\cite{WhatisHTML}
 
 \section{DOM}
+\label{DOM}
 
 Jazyk HTML nieje určený na programovacie účely, a preto je potrebné pri práci s webovými stránkami zvážiť aj technológiu DOM. DOM je skratka ktorá reprezentuje \textit{Document Object Model}. Predstavuje akési prepojenie medzi HTML a programovacím jazykom ktorý chce s webovou stránkou komunikovať. \cite{DOM}
 
@@ -252,7 +253,7 @@ Pri komunikácií s programovacím jazykom DOM reprezentuje stránku v dvoch hla
 
 \begin{itemize}
     \item {Uzly}
-    \item {Objekty}
+    \item {Elementy}
 \end{itemize}
 
 Práve tento fakt nám ďalej dovoľuje s webovou stránkou interagovať a meniť jej obsah. Príkladom takéhoto využitia jazyk Javascript, ktorý bol vyvinutý za účelom vytvorenia dojmu interakcie užívateľa s webovou stránkou. 
@@ -415,8 +416,9 @@ Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jed
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.8\textwidth]{obrazky-figures/rules.png}
+	\includegraphics[width=0.8\textwidth]{obrazky-figures/rules.pdf}
 	\caption{Spôsob určenia finálneho dátového typu a príslušnosti objektu}
+	\label{rules}
 \end{figure}
 
 \bigskip
@@ -522,7 +524,7 @@ V tejto časti práce bude popísaná architektúra aplikácie tak, ako bola apl
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.9\textwidth]{obrazky-figures/architecture.png}
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/architecture.pdf}
 	\caption{Diagram navrhnutej architektúry}
 	\label{architecture}
 \end{figure}
@@ -568,7 +570,7 @@ Metadáta predstavujú akési dáta o dátach. Ich generovaním dávame použív
 \chapter{Implementácia riešenia}
 \label{implementacia}
 
-V nasledujúcej kapitole bude popísaný postup implementácie výsledného riešenia. Aplikácia typu web scraper bude implementovaná na operačnom systéme Windows. Jej využiteľnosť je samozrejme multiplatformná a žiadna z jej súčastí nieje na operačný systém Windows viazaná. Aplikácia bola vo finálnej fáze otestovaná aj na operačnom systéme Manjaro, pod ktorým bežala tak ako bola navrhnutá.
+V rámci tejto kapitoly bude popísaný postup implementácie výsledného riešenia. Aplikácia typu web scraper bude implementovaná na operačnom systéme Windows. Jej využiteľnosť je samozrejme multiplatformná a žiadna z jej súčastí nieje na operačný systém Windows viazaná. Aplikácia bola vo finálnej fáze otestovaná aj na operačnom systéme Manjaro, pod ktorým bežala tak ako bola navrhnutá.
 
 Implementácia bola z pohľadu web scrapingu rozdelená do viacerých častí:
 
@@ -634,7 +636,7 @@ Vstupné dáta sú preto formované nasledovne:
  
  Ako prvé aplikácia zabezpečí vytvorenie inštancie API Puppeteer. To znamená že sa vytvorí inštancia prehliadača Chromium s parametrom \textit{headless} ktorý prehliadač spustí v špeciálnom móde, kde je užívateľské prostredie skryté. Táto forma bola vybraná hlavne kvôli urýchleniu procesu a zachovania jednoty pri vykonávaní danej extrakčnej úlohy. 
  
- Po vytvorení spojenia je vytvorená inštancia pre webovú stránku, ktorá bude v danom bode úlohy analyzovaná. Stránka je následne načítaná a prebehne zber dát v podobe všetkých dostupných triednych atribútov jednotlivých prvkov. Tieto triedne atribúty sú následne zoradené podľa početnosti. Algoritmus následne rozdelí obsah webovej stránky do okruhov, ktoré sú definované práve spomínanými triednymi atribútami. Tieto triedne atribúty sú viazané na štylizáciu webovej stránky, a preto sa dá určiť že ich výskyt bude rovnaký práve pre práve jednu skupinu dát. Zároveň sa dá predpokladať, že ak sa jedná o dáta ktoré sa na webovej stránke opakujú, tak bude výskyt týchto triednych atribútov väčší ako výskyt iných atribútov. Preto je zoradenie kritické pre rýchlosť analýzy dát. To ako analýza prebieha bude ďalej popísané v tejto kapitole.
+ Po vytvorení spojenia je vytvorená inštancia pre webovú stránku, ktorá bude v danom bode úlohy analyzovaná. Stránka je následne načítaná a prebehne zber dát v podobe všetkých dostupných triednych atribútov jednotlivých prvkov. Tieto triedne atribúty sú následne zoradené podľa početnosti. Algoritmus následne rozdelí obsah webovej stránky do okruhov, ktoré sú definované práve spomínanými triednymi atribútmi. Tieto triedne atribúty sú viazané na štylizáciu webovej stránky, a preto sa dá určiť že ich výskyt bude rovnaký práve pre práve jednu skupinu dát. Zároveň sa dá predpokladať, že ak sa jedná o dáta ktoré sa na webovej stránke opakujú, tak bude výskyt týchto triednych atribútov väčší ako výskyt iných atribútov. Preto je zoradenie kritické pre rýchlosť analýzy dát. To ako analýza prebieha bude ďalej popísané v tejto kapitole.
  
  Po analýze prebehne extrakcia dát. Tá prebieha v troch krokoch:
  
@@ -649,6 +651,144 @@ Vstupné dáta sú preto formované nasledovne:
  Výsledky sú následne pripravené na zápis. Zapísané sú vo formátovanej podobe do výsledného súboru, ktorý nesie názov domény alebo dokumentu, z ktorého boli dané dáta extrahované. Všetky takéto súbory sú následne uložené v predom definovanej zložke. Ak táto zložka nieje definovaná užívateľom, aplikácia zvolí základnú zložku \textit{output} v koreňovom adresári aplikácie. Súbor obsahujúci metadáta je taktiež uložený v koreňovom adresári, avšak mimo zložky s výslednými súbormi. Tým môžeme predísť nesprávnemu zaradeniu metadát a výsledných dát. Užívateľ je zároveň o aktuálnej lokácií súboru s metadátami informovaný po skončení vykonávania danej extrakčnej úlohy.
  
  \newpage
- \subsection{Analýza webovej stránky}
+ \section{Analýza webovej stránky}
  
+ Pre získanie relevantných dát a obsahu z webového dokumentu je potrebné daný dokument analyzovať. Analýza prebieha bezprostredne po načítaní webového dokumentu, a je rozdelená do niekoľkých krokov:
  
+ \begin{enumerate}
+     \item Analýza triednych atribútov
+     \item Zoradenie zoznamu tried na základe výskytu
+     \item Kontrola daného okruhu dát z pohľadu primárneho prvku
+     \item Overenie pomeru nevyhovujúcich prvkov
+ \end{enumerate}
+ 
+ \begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.3\textwidth]{obrazky-figures/analysis.pdf}
+	\caption{Postup pri analýze webového dokumentu}
+	\label{architecture}
+\end{figure}
+
+\newpage
+
+\subsubsection{Analýza triednych atribútov}
+
+Ako prvý krok pri získavaní relevantných údajov o architektúre webovej stránky prebehne analýza triednych atribútov. Aplikácia analyzuje každý prvok reprezentovaný HTML značkou, a uloží zoznam všetkých použitých tried ktoré daný prvok obsahuje. Týmto spôsobom prejde aplikácia všetky značky, a získa tak prehľad o všetkých triednych atribútoch na celej webovej stránke.
+
+Keďže sa dá predpokladať že pri extrakčnej úlohe sa bude zväčša jednať o údaje ktoré sa na webovej stránke opakujú, sú všetky triedy zoradené do poľa na základe početnosti. Najpočetnejšie triedy budú na vrchole zoznamu, a tie ktoré sa na webovej stránke vyskytujú najmenej budú na konci zoznamu. Z toho ako fungujú triedne atribúty pri HTML značkách vieme určiť, že pre jednu skupinu prvkov, ktorá je definovaná jednou spoločnou charakteristikou, budú triedne atribúty spoločné. 
+
+
+\subsubsection{Zber údajov}
+
+Po zoradení triednych atribútov aplikácia začína so zberom údajov. Postupne od najpočetnejšieho atribútu (toho s najčastejším výskytom) sú dáta v danom okruhu určenom práve triednym atribútom uložené a následne kontrolované z pohľadu výskytu primárneho prvku. V prípade že niektorý z prvkov danej skupiny nepredstavuje primárny prvok, je hodnota daného prvku zmenená na špeciálnu hodnotu \textit{null}. Táto kontrola prebieha porovnaním daného prvku s regulárnym výrazom pre primárny prvok. Hodnota null pri určitom prvku ďalej aplikácií slúži ako záznam o nesplnení testu na regulárny výraz. Počet takýchto nesplnených testov je následne využitý v ďalšej časti analýzy.
+
+Akonáhle aplikácia analyzuje všetky prvky z daného okruhu a určí ktoré prvky nevyhovujú, postupuje na vyhodnotenie výsledného pomeru. Ten je následne porovnaný s maximálnym povoleným pomerom, a v prípade že spadá pod hranicu tohto maxima, je daný okruh prvkov určený ako výsledný.
+
+\bigskip
+
+Pri analýze sú teda kontrolované jednotlivé okruhy určené triednymi atribútmi. V prípade že aplikácia zachytí okruh ktorý spĺňa podmienky primárneho prvku na dostatočne dobrú hodnotu, kde krajná hodnota je určená užívateľom, je daný okruh označený za výsledný, a aplikácia pristúpi k extrakcii dát. Ostatné okruhy dát sú zahodené, a niesu kontrolované na prítomnosť žiadnych prvkov. Ak žiadny z okruhov dát nesplní určené požiadavky, je o tom užívateľ informovaný a daný webový dokument nebude generovať výsledné údaje. Výsledný súbor ani súbor s metadátami nieje pre daný dokument generovaný. V prípade že sa jedná len o jeden dokument z kolekcie dokumentov, je generovanie výsledných údajov vynechané len pre daný dokument.
+
+\newpage
+
+\section{Generovanie výsledkov}
+
+Analýza webovej stránky určí výsledný okruh dát v ktorom sa nachádza primárny prvok. Z jeho definície vyplýva, že je súčasťou alebo je v relatívnej blízkosti potencionálnych výsledkov. Primárny prvok je teda počiatočný bod, z ktorého bude primárne vyhľadávanie výsledných prvkov prebiehať. 
+
+Aplikácia najskôr určí počiatočný bod reprezentovaný uzlom. Pri tomto určovaní je veľmi dôležitá štruktúra webovej stránky reprezentovaná pomocou DOM\ref{DOM}. Dá sa preto predpokladať, že nekvalitný alebo zložito štrukturovaný kód webovej stránky môže ovplyvniť úspešnosť extrakcie pri danom webovom dokumente. 
+
+Následne prechádzame ku generovaní potencionálnych výsledkov. Tie sú generované nasledovným spôsobom:
+
+\bigskip
+
+\begin{enumerate}
+    \item Určenie otcovského elementu na základnú výšku 1
+    \item Ak je cieľový otcovský element vyššie v DOM strome, určenie otcovského elementu na danú výšku
+    \item Vytvorenie stromovej štruktúry obsahujúcej všetky detské prvky daného elementu
+    \item Odstránenie duplikátov
+    \item Príprava výsledkov
+    \item Kontrola počtu prvku vo výsledných objektoch, ak je tento počet menší ako cielený počet, zvýšenie indexu cieľového otcovského elementu a vrátenie sa na bod 2.
+    \item Zápis výsledných objektov do odpovedajúcich súborov
+\end{enumerate}
+
+\bigskip
+
+Z daného postupu je jasné, že pre správne určenie všetkých elementov je potrebné v rámci DOM stromu vystúpať do správnej výšky tak, aby bolo možné určiť všetky prvky a zároveň aby vystúpanie nebolo príliš vysoké. Preto aplikácia po prvom zaručení minimálneho množstva výsledných prvkov v objekte stúpanie preruší. Následne prebieha odstránenie prípadných duplikátov ktoré pri práci s triednymi atribútmi môžu vzniknúť.
+
+V rámci prípravy výsledkov prebieha hlavne formátovanie výsledkov a určenie ich dátového typu a reprezentácie. Detailnejší postup toho ako to prebieha bude popísaný v rámci tejto kapitoly. 
+
+Po príprave výsledkov je na rade ich zápis. Ten prebieha ihneď po určení správneho setu výsledkov, a výsledný súbor je uložený v preddefinovanom priečinku. Pre správne určenie názvu výsledného súboru je dôležité dbať aj na type extrakcie. Ak sa jedná o extrakciu z offline uložených súborov, nieje možné získať názov domény tradičným spôsobom. Názov je preto definovaný ako názov súboru z ktorého bola extrakcia vykonávaná. 
+
+\newpage
+
+Následná vizuálna reprezentácia predstavuje typický prípad pri extrakcii, a algoritmus, ktorý aplikácia pri extrakcii využíva. Jedná sa o typický príklad DOM stromu, kde sa vyskytujú aj rodičovské a detské elementy. Elementy vo fialovom rámci predstavujú elementy, ktoré sú predmetom záujmu extrakcie. 
+
+Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri extrakcii teda aplikácia začína červeno označeným elementom \uv{SPAN} a označí otcovský element ako element \uv{P}, ktorý je označený oranžovou farbou. Z daného otcovského elementu prebehne kontrola počtu detských elementov. Ich počet je však menší ako cielený počet prvkov zadaných pri extrakčnej úlohe. Algoritmus teda zvýši index cieľového otcovského prvku, a tým nastaví na cielený otcovský prvok element \uv{DIV} označený zelenou farbou. V tomto prípade je počet priamych a nepriamych detských elementov rovný počtu zadaných prvkov pri extrakčnej úlohe. Aplikácia teda našla cielený otcovský element a elementy záujmu.
+
+\bigskip
+
+ \begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/dom.pdf}
+	\caption{Vizuálna reprezentácia algoritmu používaného pri extrakcii}
+	\label{domvisual}
+\end{figure}
+
+\newpage
+
+\subsection{Príprava výsledkov}
+
+V rámci generovania výsledkov prebieha aj ich finálna príprava pred zápisom. Vygenerované výsledky sú v rámci programu najskôr reprezentované len ako všeobecné prvky, ktorých dátový typ nieje určený a ich zaradenie je ekvivalentné. Následne prebehne odstránenie prípadných vzniknutých duplikátov na úrovni objektov. 
+
+Príprava výsledkov pozostáva z určenia dátového typu a príslušnosti daného prvku. V prípade že takéto určenie nieje možné, je prvok označený ako \textit{undefined}. Algoritmus analyzuje objekt na úrovni kľúčov, a využíva špecifické pravidlá na zaradenie kľúča k jeho príslušnej očakávanej reprezentácií. Ako prvé prebehne kontrola na výskyt kľúča v zozname \textit{blacklist}. Ak sa kľúč v tomto zozname nachádza, nieje ďalej určovaný jeho dátový typ a je z objektu vyradený. 
+
+V opačnom prípade prebehne kontrola na základe pravidiel definovaných vo vstupných súboroch. Tie sú reprezentované pomocou regulárnych výrazov, a tak sa kľúče porovnávajú s regulárnymi výrazmi. V prípade že prebehne zaradenie kľúča splnením testu na regulárny výraz, je určený jeho dátový typ na základe príslušnosti regulárneho výrazu k definovanému dátovému typu. Následne je vytvorený nový objekt s prvkami ktoré bolo možné zaradiť a tak im určiť príslušnosť. Zoznam všetkých takýchto objektov je potom naformátovaný do podoby JSON, a s \textit{UTF8} kódovaním uložený v rámci výstupnej lokácie. 
+
+\bigskip
+
+Po vygenerovaní výsledkov pre každý webový dokument v danej extrakčnej úlohe sú vygenerované metadáta, a extrakcia je ukončená. Ak extrakcia skončí úspešne, je o tejto udalosti užívateľ informovaný. Zároveň je zobrazený čas v milisekundách určujúci dĺžku exekúcie extrakčného programu.
+
+\chapter{Testovanie a vyhodnotenie výsledkov}
+
+Aplikačné testovanie a vyhodnotenie dosiahnutých výsledkov je veľmi dôležitou súčasťou tvorby každého projektu. Preto sa táto kapitola zameriava práve na zhodnotenie výsledkov ktoré vyvinutá aplikácia dosiahla. 
+
+Testovanie prebiehalo do určitej časti zároveň s vývojom aplikácie, avšak rozsiahlejšie testy bolo schopné uskutočniť až s vytvorením rôznych diverzifikovaných datasetov.
+
+Testovanie pomocou datasetov zároveň prebehlo na dvoch operačných systémoch, a to Windows 10 a Linux Manjaro. Pri testovaní a porovnávaní výsledkov medzi danými operačnými systémami nebola pozorovaná žiadna odchýlka alebo anomália. 
+
+\section{Testovanie počas vývoja}
+
+K testovaniu bolo pristupované od samotného začiatku vývoja, a priebežné výsledky boli konzultované s vedúcim práce. Hlavnou úlohou tohto typu testovania bolo detegovanie chýb, anomálií a neočakávaných výstupov. Zároveň slúžilo na usmernenie vývoja a tvorbu nových funkcií. To sa z väčšej časti podarilo, a k prvotnému návrhu pribudli nové funkcie a vylepšenia. Niektoré z nich sa stali základnou zložkou programu a jeho neoddeliteľnou súčasťou, zatiaľ čo iné ostali zapracované ako voliteľné. V prípade voliteľných sa jednalo zväčša o funkcie a vlastnosti upresňujúce danú extrakčnú úlohu.
+
+\section{Testovacie prostredie}
+
+Ako už bolo spomenuté v úvode tejto kapitoly, testovacie prostredie z pohľadu operačného systému pozostávalo z nasledovných systémov:
+
+\begin{itemize}
+    \item Windows 10
+    \item Linux Manjaro
+\end{itemize}
+
+\newpage
+
+Čo sa webového prehliadača týka, použitá technológia Puppeteer nedokáže komunikovať s iným prehliadačom ako je Google Chrome. V jej základnej verzii dokonca prináša v rámci inštalácie vlastný webový prehliadač ktorým je práve prehliadač Chrome konkrétne vo verzii Chromium 86.0.4240.0. Pri každej inštalácii Puppeteer nainštaluje najnovšiu verziu prehliadača, a preto sa mnou používaná verzia v budúcnosti nemusí s inštalovanou zhodovať. Zachovanie kompatibility by ale malo byť zabezpečené, keďže o vývoj obidvoch technológií sa stará spločnosť Google.
+
+Obmedzenie na prehliadač Chromium sa môže zdať ako limitujúci faktor, avšak level integrácie ktorý vďaka tomu dokáže technológia Puppeteer dosiahnuť prevyšuje všetky nedostatky.
+
+\section{Spôsob testovania}
+
+Prvotné testovanie bolo uskutočňované manuálne. Po extrakcii údajov z danej webovej stránky boli tieto údaje manuálne skontrolované a overená integrita dát. 
+
+V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo treba nutné rozdeľovať medzi dvoma hlavnými praktikami\cite{precrecall}:
+
+\begin{itemize}
+    \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
+   
+    Precision  =   Počet extrahovaných objektov ktoré sú relevantné / Počet všetkých extrahovaných objektov
+    
+    \item \textbf{Recall}, ktorá odpovedá na otázku aká časť relevantných extrahovaných dát predstavuje očakávané dáta. Výsledná hodnota recall je preto daná vzťahom:
+    
+    Recall = Počet extrahovaných objektov ktoré sú relevantné / Počet relevantných dokumentov ktoré sú očakávané
+\end{itemize}
+
+
+Pri testovaní taktiež nastala nutnosť zachovania stavu webovej stránky. Keďže webové stránky sa neustále menia, nebolo možné vytvoriť ucelený spôsob testovania až do vytvorenia testovacej sady. Vytvorenie spoľahlivej a jednotnej sady nieje jednoduchá úloha
