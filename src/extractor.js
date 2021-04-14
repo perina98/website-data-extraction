@@ -6,8 +6,7 @@ const fs = require('fs');
 const css = require('css.escape');
 var argv = require('minimist')(process.argv.slice(2));
 const {exit} = require('process');
-const MIN_RESLEN = 5;
-const MAX_PARENTS = 6;
+const MAX_ANCESTOR = 6;
 
 /* 
   Print help info
@@ -173,6 +172,7 @@ function argumentsCheck() {
         urls = data.urls;                                   // urls to crawl
         searchItem = Object.keys(data.structure);           // item name prefered by user
         searchStructure = Object.values(data.structure);    // item structure (datatype)
+        min_reslen = searchItem.length;                     // minimal resource size
 
         severity = config.maxFailRatio;                     // max fail ratio
         format = config.format;                             // regex format // unique defining format on every site
@@ -235,11 +235,13 @@ function failRatio(bonds, size) {
 */
 function checkArrBySeverity(results) {
     let size = results.length;
-    let bonds = 0;
+    let bonds = results.filter(function (obj) {
+        return obj == null;
+    }).length;
 
-    for (let i = 0; i < size; i++) {
+   /*  for (let i = 0; i < size; i++) {
         if (!(results[i])) bonds++;
-    }
+    } */
     let failR = failRatio(bonds, size);
 
     if (failR < severity) {
@@ -287,7 +289,6 @@ function defineType(input, currentResults, position, max) {
         let current = new RegExp(format[searchStructure[i]]);
         if (current.test(input) || current.test(input.trim().replace(/\n*\s*/g, ''))) {
             if (def.includes(searchItem[i])) continue;
-            //if (verbose) console.log("DEFINING " + input + " TO " + searchItem[i]);
             return searchItem[i];
         }
     }
@@ -323,7 +324,6 @@ function regMatch(type, input) {
 */
 function prepareResults(final_results) {
     let resultsLength = final_results.length;
-    last = '';
     for (let i = 0; i < resultsLength; i++) {
         let content = {};
         def = [];
@@ -480,7 +480,7 @@ function removeDuplicates(final_results) {
 */
 async function dataDump(page, currentSelector) {
     try {
-        final_results = await getFinalResults(page, '.' + currentSelector).then(results => { return results });
+        final_results = await getFinalResults(page, '.' + currentSelector);
     } catch (err) {
         console.error(err);
     }
@@ -488,7 +488,7 @@ async function dataDump(page, currentSelector) {
     final_results = removeDuplicates(final_results);
     final_results = prepareResults(final_results);
 
-    if (unifyObjects(final_results).length < MIN_RESLEN && ancestor < MAX_PARENTS) {
+    if (unifyObjects(final_results).length <= min_reslen && ancestor < MAX_ANCESTOR) {
         ancestor += 1;
         await dataDump(page, topClasses[ind]);
     }
@@ -498,6 +498,17 @@ async function dataDump(page, currentSelector) {
     }
 
     output(url, final_results);
+}
+
+async function getClassList(page) {
+    return await page.$$eval('[class]', nodes => {
+        return nodes.map(node => {
+            class_list = node.classList;
+            return {
+                class_list
+            }
+        })
+    });
 }
 
 /* 
@@ -542,24 +553,10 @@ async function mainProcess() {
 
         let determining_start = new Date().getTime();
 
-        targets = await page.$$eval('[class]', nodes => {
-            return nodes.map(node => {
-                class_list = node.classList;
-                return {
-                    class_list
-                }
-            })
-        });
-
+        targets = await getClassList(page);
         topClasses = getTopClasses(targets);
         topClassesLength = topClasses.length;
-        if (verbose) {
-           /*  console.log("Topclasses:");
-            for (var i = 0; i < topClassesLength; i++) {
-                console.log(i + ". " + topClasses[i]);
-            }
-            console.log("=================="); */
-        }
+      
         ind = 0;
         do {
             currentSelector = '.' + css(topClasses[ind]);
@@ -574,18 +571,16 @@ async function mainProcess() {
             } catch (err) {
                 console.error(err);
             }
-            pro_results = JSON.parse(JSON.stringify(results));
+            /* pro_results = JSON.parse(JSON.stringify(results)); */
             results = checkResults(results);
 
+            if (verbose) console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
             if (checkArrBySeverity(results)) {
-                if (verbose) console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
-                results = pro_results;
+                /* results = pro_results; */
                 break;
             }
-            if (verbose) console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
             ind++;
-            if (ind == topClassesLength) break;
-        } while (!checkArrBySeverity(results))
+        } while (ind < topClassesLength)
 
         let determining_time = new Date().getTime() - determining_start;
 
