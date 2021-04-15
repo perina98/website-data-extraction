@@ -5,7 +5,6 @@ cinst nodejs.install
 npm i puppeteer
 npm i css.escape
 npm i minimist
-pip install termcolor
 
 
 
@@ -15,4 +14,3 @@ sudo apt install nodejs | sudo snap install node --classic
 npm i puppeteer
 npm i css.escape
 npm i minimist
-pip install termcolor

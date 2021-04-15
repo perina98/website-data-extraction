@@ -1,0 +1,7 @@
+1 - cant open file
+2 - arg not specified
+3 - default not reached
+4 - option allowed but conditions not met
+5 - cant create folder or file
+6 - bad structure
+7 - internal err

@@ -4,4 +4,3 @@ puppeteer 8.0.0
 css.escape 1.5.1
 minimist 1.2.5
 python3
-termcolor
