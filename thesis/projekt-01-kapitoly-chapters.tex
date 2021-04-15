@@ -385,7 +385,7 @@ Online verzia Puppeteeru je zároveň dostupná v sandbox prostredí\footnote{\u
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=1\textwidth]{obrazky-figures/diagram.png}
-	\caption{Diagram knižnice Puppeteer. Zdroj: \url{https://github.com/puppeteer/puppeteer/blob/main/docs/api.md}}
+	\caption{Diagram knižnice Puppeteer zobrazujúci vzťah jednotlivých prvkov API. \mbox{Zdroj: \url{https://github.com/puppeteer/puppeteer/blob/main/docs/api.md}}}
 	\label{diagram}
 \end{figure}
 
@@ -666,7 +666,7 @@ Vstupné dáta sú preto formované nasledovne:
 	\centering
 	\includegraphics[width=0.3\textwidth]{obrazky-figures/analysis.pdf}
 	\caption{Postup pri analýze webového dokumentu}
-	\label{architecture}
+	\label{analysispdf}
 \end{figure}
 
 \newpage
@@ -770,15 +770,16 @@ Ako už bolo spomenuté v úvode tejto kapitoly, testovacie prostredie z pohľad
 
 \newpage
 
-Čo sa webového prehliadača týka, použitá technológia Puppeteer nedokáže komunikovať s iným prehliadačom ako je Google Chrome. V jej základnej verzii dokonca prináša v rámci inštalácie vlastný webový prehliadač ktorým je práve prehliadač Chrome konkrétne vo verzii Chromium 86.0.4240.0. Pri každej inštalácii Puppeteer nainštaluje najnovšiu verziu prehliadača, a preto sa mnou používaná verzia v budúcnosti nemusí s inštalovanou zhodovať. Zachovanie kompatibility by ale malo byť zabezpečené, keďže o vývoj obidvoch technológií sa stará spločnosť Google.
+Čo sa webového prehliadača týka, použitá technológia Puppeteer nedokáže komunikovať s iným prehliadačom ako je Google Chrome\footnote{V čase vývoja a testovania aplikácie. Avšak podpora iných prehliadačov nieje v budúcnosti vylúčená.}. V jej základnej verzii dokonca prináša v~rámci inštalácie vlastný webový prehliadač ktorým je práve prehliadač Chrome konkrétne vo~verzii Chromium 86.0.4240.0. Pri každej inštalácii Puppeteer nainštaluje najnovšiu verziu prehliadača, a preto sa mnou používaná verzia v budúcnosti nemusí s inštalovanou zhodovať. Zachovanie kompatibility by ale malo byť zabezpečené, keďže o vývoj obidvoch technológií sa stará spoločnosť Google.
 
 Obmedzenie na prehliadač Chromium sa môže zdať ako limitujúci faktor, avšak level integrácie ktorý vďaka tomu dokáže technológia Puppeteer dosiahnuť prevyšuje všetky nedostatky.
 
 \section{Spôsob testovania}
+\label{sposobytestu}
 
-Prvotné testovanie bolo uskutočňované manuálne. Po extrakcii údajov z danej webovej stránky boli tieto údaje manuálne skontrolované a overená integrita dát. 
+Prvotné testovanie bolo uskutočňované manuálne. Po extrakcii údajov z webovej stránky boli tieto údaje manuálne skontrolované a overená integrita dát. 
 
-V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo treba nutné rozdeľovať medzi dvoma hlavnými praktikami\cite{precrecall}:
+V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo treba nutné zaviesť dve hlavné praktiky\cite{precrecall}:
 
 \begin{itemize}
     \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
@@ -790,5 +791,91 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
     Recall = Počet extrahovaných objektov ktoré sú relevantné / Počet relevantných dokumentov ktoré sú očakávané
 \end{itemize}
 
+\bigskip
 
-Pri testovaní taktiež nastala nutnosť zachovania stavu webovej stránky. Keďže webové stránky sa neustále menia, nebolo možné vytvoriť ucelený spôsob testovania až do vytvorenia testovacej sady. Vytvorenie spoľahlivej a jednotnej sady nieje jednoduchá úloha
+Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodnoty určili mieru presnosti extrakcie. Webové stránky sa môžu kedykoľvek zmeniť, a preto pre nutnosť zachovania integrity dát webovej stránky bolo nutné webovú stránku stiahnuť na lokálny disk a následne ju z neho načítavať. Webovú stránku je ale nutné stiahnuť aj so všetkými závislosťami a tak zachovať jej vzhľad a štruktúru. Stiahnutie webovej stránky konvenčnými nástrojmi alebo stiahnutie pomocou webového prehliadača nedokázalo dosiahnuť požadované výsledky. Za týmto účelom bol využitý nástroj Save Page WE\footnote{\url{https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof}}. Tento nástroj umožnil stiahnutie webovej stránky so všetkými závislosťami tak, že vzhľad a štruktúra zostali vo väčšine prípadoch zachované. Zároveň neboli pozorované žiadne výrazné anomálie a zmeny. Extrahovanie z live verzie stránky a z offline verzie bolo v konečnej fáze ekvivalentné. 
+
+Testovanie si taktiež vyžiadalo vytvorenie spoľahlivej testovacej sady, ktorá by bola schopná úspešnosť aplikácie overiť vo viacerých prípadoch použitia. 
+
+\newpage
+\section{Testovacia sada}
+
+Vytvorenie spoľahlivej a dostatočne diverzifikovanej testovacej sady nieje jednoduchá úloha, a preto jej vytvorenie prebiehalo v spolupráci s kolegom, ktorý rieši prácu na podobné tému. Táto skutočnosť bola riadne prebraná aj s vedúcim práce.
+
+Finálna testovacia sada pozostávala zo 4 oblastí:
+
+\begin{itemize}
+    \item Futbalové výsledky a program zápasov
+    \item Eshop www.tsbohemia.cz
+    \item Eshopy
+    \item Správy a novinky
+\end{itemize}
+
+Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené kolegom.
+
+\subsection{Štruktúra testovacej sady}
+
+Základom každej testovacej sady je zložka s HTML súbormi ktoré predstavujú jednotlivé webové dokumenty, a ich očakávané extrahované hodnoty v druhej zložke. Očakávané hodnoty sú reprezentované JSON súbormi, kde každý nesie názov webového dokumentu, ktorého dáta predstavuje. 
+
+Zároveň sú súčasťou jednej testovacej sady súbory \textit{config.json} a \textit{data.json}, ktoré sú neoddeliteľnou súčasťou aplikácie a bližšie špecifikujú extrakčnú úlohu pri danej testovacej sade. Extrahované dáta sú následne uložené do zložky \textit{output}
+
+Jedna testovacia sada reprezentovaná práve jednou oblasťou má teda nasledovnú štruktúru, ktorá je zároveň kľúčová pre testovací skript a musí byť dodržaná:
+
+\begin{itemize}
+    \item 
+    {
+    \textbf{Názov\_oblasti}
+        \begin{itemize}
+            \item \textbf{domains/}: Obsahuje HTML súbory s webovými dokumentami
+            \item \textbf{expected/}: Obsahuje JSON súbory s očakávanými dátami
+            \item \textbf{output/}: Obsahuje JSON súbory s vygenerovanými dátami
+            \item \textbf{config.json}: Predstavuje konfiguračný súbor aplikácie
+            \item \textbf{data.json}: Predstavuje vstupný súbor s užívateľskými dátami
+        \end{itemize}
+    }
+\end{itemize}
+
+\bigskip
+
+Pri kontrole výsledkov využíva testovací skript zložky expected a output, kde počet súborov ktoré obsahujú musí byť rovnaký.
+
+Po spustení aplikácie za účelom testu takejto sady, sú zároveň vygenerované metadáta do koreňového adresára tejto sady, teda vo výsledku sa budú nachádzať v rovnakom adresári ako config.json a data.json.
+
+\newpage
+
+\section{Testovací skript}
+
+Za účelom rýchlejšej a spoľahlivejšej kontroly bol vyvinutý testovací skript v programovacom jazyku Python. Nesie názov \textit{ftest.py} a porovnáva vzájomne dva JSON súbory z jednej testovacej oblasti: Jeden zo zložky expected, druhý zo zložky output. Pri porovnávaní berie v úvahu metriky spomenuté v kapitole \ref{sposobytestu}.
+
+Skript berie ako parameter názov testovacej oblasti, čo je zároveň názov koreňového adresáru jednej testovacej sady. Po kontrole štruktúry adresára sú načítané jednotlivé JSON súbory a skript začína s porovnávaním.
+
+V prípade že dva porovnávané súbory obsahujú rovnaký počet objektov, prebieha porovnávanie na úrovni kľúčov. pretože sa dá postupovať jednoznačným spôsobom a porovnávať jednotlivé kľúče objektov, čo vedie k presnejšiemu vyhodnoteniu. 
+
+Ak ale dva súbory neobsahujú rovnaký počet objektov, je veľmi zložité priradiť jednotlivé kľúče k jednotlivým objektom. V takom prípade skript prechádza k menej presnému porovnávaniu na úrovni objektov. Vtedy je pre úspešnosť porovnania potrebná reprezentácia objektu 1:1, teda extrahovaný objekt sa musí nachádzať v očakávanom súbore.
+
+Pri každom kľúči alebo objekte je pripočítaná hodnota k počtu irelevantných prvkov. Na záver, potom ako sú obidva súbory skontrolované, skript vygeneruje výsledné hodnoty precision a recall. Zároveň si skript drží internú pamäť týchto čiastkových výsledkov, a po skončení testovaní jednej testovacej sady vygeneruje priemernú hodnotu precision a recall.
+
+Pri spustení skriptu s parametrom \textit{-o} sú zároveň tieto priemerné hodnoty zapísané do dočasného súboru overall. Po otestovaní viacerých testovacích sád je následne možné spustiť skript \textit{overall.py} ktorý vypočíta priemernú váženú hodnotu precision a priemernú váženú hodnotu recall.
+
+\bigskip
+
+Skript po spustení otestuje určenú testovaciu sadu, a vygeneruje výsledky. Tie sa skladajú z nasledovných údajov:
+
+\begin{itemize}
+    \item \textbf{Status}: Určuje status kontroly daného webového dokumentu
+    \item \textbf{Precision}: Hodnota precision pre daný webový dokument
+    \item \textbf{Recall}: Hodnota recall pre daný webový dokument
+    \item \textbf{Domain}: Názov súboru s očakávanými výsledkami (nesie názov webového dokumentu)
+\end{itemize}
+
+\bigskip
+
+Na záver sú zároveň vypísané priemerné výsledky pre testovanú sadu.
+
+\bigskip
+
+Vytvorenie tohto testovacie skriptu bolo zároveň kľúčové pre celkové zhodnotenie výsledkov, aké aplikácia bola schopná dosiahnuť. Pri takom množstve súborov, aké sa v testovacej sade nachádza, by manuálna kontrola a vyhodnotenie prebiehala len veľmi ťažko.
+
+\newpage
+
+\section{Vyhodnotenie výsledkov}
