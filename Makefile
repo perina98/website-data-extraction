@@ -11,6 +11,8 @@ SHOPS = tests/dataset/shops
 NEWS = tests/dataset/news
 NEWS3 = tests/dataset/news3
 
+ZIP = xperin11.zip
+
 all:
 	node $(BIN) --data=$(DATA) --offline -bdg --noundef
 test: datatest testall
@@ -49,12 +51,17 @@ windows-install:
 	npm i puppeteer
 	npm i css.escape
 	npm i minimist
-	pip install termcolor
 linux-install:
 	sudo apt install nodejs | sudo snap install node --classic
 	npm i puppeteer
 	npm i css.escape
 	npm i minimist
-	pip install termcolor
-pack:
-	zip -r xperin11.zip ./src/* ./tests/* ./INSTALLATION ./Makefile ./PREREQUISITES ./README.md
+clean:
+	rm -rf $(ZIP)
+	rm -rf ./$(FOOTBALL)/output ./$(FOOTBALL)/metadata.json
+	rm -rf ./$(TSBOHEMIA)/output ./$(TSBOHEMIA)/metadata.json
+	rm -rf ./$(SHOPS)/output ./$(SHOPS)/metadata.json
+	rm -rf ./$(NEWS)/output ./$(NEWS)/metadata.json
+	rm -rf ./$(NEWS3)/output ./$(NEWS3)/metadata.json
+pack: clean
+	zip -r $(ZIP) ./src/* ./tests/* ./INSTALLATION ./Makefile ./PREREQUISITES ./README.md
