@@ -1,12 +1,22 @@
+/*
+ * File: extractor.js
+ * Brief: Application used to extract data from any website. Print help for more info
+ * Author: Lukáš Perina
+ * Year: 2021
+*/
+
+
 /* 
   Set constant variables and requirements
 */
-const puppeteer = require('puppeteer');
 const fs = require('fs');
+const puppeteer = require('puppeteer');
 const css = require('css.escape');
-var argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2));
 const {exit} = require('process');
 const MAX_ANCESTOR = 6;
+const MIN_RESLEN = 4;
+
 
 /* 
   Print help info
@@ -19,14 +29,13 @@ Brief:
 
     Data file must be a proper json file and must contain these objects:
         urls                    - array of url strings to extract
-        structure               - strucuture of items to extract
-        items                   - how the items should be called in output json
+        structure{}             - strucuture of items to extract
         blacklist (optional)    - array of blacklisted strings
 
     Config file must be a proper json file and must contain these objects:
         maxFailRatio            - max fail ratio when determining result class
         format{}                - object containing regex format for each datatype defined in structure
-        primary                 - primary object to search for
+        primary                 - primary object to search for, represented by regex
 
 Usage: node extractor.js --data=data.json [--config=config.json] [-o=output/folder/] [-b] [-d] [-g] [-u] [-m] [-p] [-v] [-h] [--offline] [--noundef]
 
@@ -71,14 +80,14 @@ function failCheck() {
     Set program variables
 */
 function programVariables(){
-    offline = false; // is file offline?
-    verbose = false; // verbose output
-    noUndefined = false; // remove undefined values from results
-    defCheck = false; // check if result already defined
-    guesser = false; // try to guess resulting datatype
-    unify = false; // unify results
-    onlyMatch = true; // strong regexmatching
-    ancestor = 1;
+    offline = false;        // is file offline?
+    verbose = false;        // verbose output
+    noUndefined = false;    // remove undefined values from results
+    defCheck = false;       // check if result already defined
+    guesser = false;        // try to guess resulting datatype
+    unify = false;          // unify results
+    onlyMatch = true;       // strong regexmatching
+    ancestor = 1;           // default ancestor index
 
     if (argv.offline)
         offline = true;
@@ -100,9 +109,8 @@ function programVariables(){
   Check for arguments and their correct representation
 */
 function argumentsCheck() {
-    if (argv.h) {
+    if (argv.h)
         help();
-    }
 
     if (argv.data) {
         try {
@@ -113,22 +121,22 @@ function argumentsCheck() {
         }
     } else {
         console.error("Data file not specified. Run with -h to learn more.");
-        exit(1);
+        exit(2);
     }
 
     if (argv.config) {
         try {
             config = JSON.parse(fs.readFileSync(argv.config, 'utf8'));
         } catch (err) {
-            console.error("Cant open specified config file");
+            console.error("Cant open specified config file.");
             exit(1);
         }
     } else {
         try {
             config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
         } catch (err) {
-            console.error("Cant open default config file");
-            exit(1);
+            console.error("Cant open default config file.");
+            exit(3);
         }
     }
 
@@ -138,10 +146,10 @@ function argumentsCheck() {
             blacklist = data.blacklist;
         } catch (err) {
             console.error("Blacklisting allowed but blacklist not specified.");
-            exit(1);
+            exit(4);
         }
     } else{
-        blist = false; // blacklist
+        blist = false; 
     }
 
     if (argv.o) {
@@ -152,7 +160,7 @@ function argumentsCheck() {
             }
         } catch (err) {
             console.error("Cant create or set folder");
-            exit(1);
+            exit(5);
         }
     } else {
         try {
@@ -162,7 +170,7 @@ function argumentsCheck() {
             }
         } catch (err) {
             console.error("Cant create default output folder");
-            exit(1);
+            exit(3);
         }
     }
 
@@ -172,7 +180,6 @@ function argumentsCheck() {
         urls = data.urls;                                   // urls to crawl
         searchItem = Object.keys(data.structure);           // item name prefered by user
         searchStructure = Object.values(data.structure);    // item structure (datatype)
-        min_reslen = searchItem.length;                     // minimal resource size
 
         severity = config.maxFailRatio;                     // max fail ratio
         format = config.format;                             // regex format // unique defining format on every site
@@ -180,15 +187,13 @@ function argumentsCheck() {
 
         if (failCheck()) {
             console.error("Config or data file error. Run with -h param to learn more.");
-            exit(1);
+            exit(6);
         }
     } catch (err) {
         console.error("Error while reading config and data files.");
-        exit(1);
+        exit(6);
     }
-
 }
-
 
 /* 
   Expect array of all classes on website, sort them by most used class
@@ -198,6 +203,9 @@ function getTopClasses(targets) {
     let classes = {};
     let topClasses = [];
     let tLength = targets.length;
+    if (tLength == 0){
+        return [];
+    }
     for (let i = 0; i < tLength; i++) {
         let listLength = Object.keys(targets[i].class_list).length;
         for (let j = 0; j < listLength; j++) {
@@ -208,25 +216,15 @@ function getTopClasses(targets) {
             }
         }
     }
-    var i = 0;
+    // sort classes by number of times they appeared on website
+    let i = 0;
     for (const [key, value] of Object.entries(classes).sort(([, a], [, b]) => b - a)) {
         if (i < tLength) {
-            if (isNaN(key[0])){ // if classname starts with number, the querryselector needs to have two \\ in front of it to work properly.  
-                topClasses.push(key);
-            } else {
-                topClasses.push('\\\\' + key)
-            }
+            topClasses.push(key);
         }
         i++;
     }
     return topClasses;
-}
-
-/* 
-  Calculate failRatio of current data
-*/
-function failRatio(bonds, size) {
-    return (bonds / size) * 100;
 }
 
 /* 
@@ -235,21 +233,22 @@ function failRatio(bonds, size) {
 */
 function checkArrBySeverity(results) {
     let size = results.length;
-    let bonds = results.filter(function (obj) {
+
+    if(size == 0){
+        return false;
+    }
+
+    let bonds = results.filter((obj) => {
         return obj == null;
     }).length;
 
-   /*  for (let i = 0; i < size; i++) {
-        if (!(results[i])) bonds++;
-    } */
-    let failR = failRatio(bonds, size);
+    let failR = (bonds / size) * 100;
 
     if (failR < severity) {
         return true;
     } else {
         return false;
     }
-
 }
 
 /* 
@@ -261,7 +260,7 @@ function guessDatatype(currentResults, position, max) {
         proposed.push(Object.getOwnPropertyNames(currentResults[i])[position]);
     }
 
-    return proposed.sort(function (a, b) { return a - b })[0];
+    return proposed.sort(function (a, b) {return a - b})[0];
 }
 
 /* 
@@ -269,8 +268,14 @@ function guessDatatype(currentResults, position, max) {
 */
 function blackListed(input){
     for (let k = 0; k < blacklist.length; k++) {
-        if (input == blacklist[k] || input.search(blacklist[k]) != -1) {
-            return true;
+        try{
+            if (input.search(blacklist[k]) != -1) {
+                return true;
+            }
+        } catch{
+            console.error("Blacklist format error.");
+            console.error("Exiting...");
+            exit(6);
         }
     }
     return false;
@@ -279,7 +284,7 @@ function blackListed(input){
 /* 
     Define type of the current item
 */
-function defineType(input, currentResults, position, max) {
+function defineType(input, currentResults, position, max, def) {
     if (blist) {
         if (blackListed(input)) return 'blacklisted';
     }
@@ -326,29 +331,28 @@ function prepareResults(final_results) {
     let resultsLength = final_results.length;
     for (let i = 0; i < resultsLength; i++) {
         let content = {};
-        def = [];
-        for (let j = 0; j < Object.keys(final_results[i]).length; j++) {
-            let type = defineType(final_results[i][j], final_results, j, i);
+        let def = [];
+        let keysLength = Object.keys(final_results[i]).length;
+        for (let j = 0; j < keysLength; j++) {
+            let type = defineType(final_results[i][j], final_results, j, i, def);
             if (type == 'blacklisted' && blist){
                 continue;
             }
             if (defCheck) {
                 if (type != 'undefined' && !def.includes(type)) {
                     def.push(type);
+                    content[type] = final_results[i][j];
                     if (onlyMatch) {
                         content[type] = regMatch(type, final_results[i][j]);
-                    } else {
-                        content[type] = final_results[i][j];
                     }
                 } else {
                     continue;
                 }
             } 
             else {
+                content[type] = final_results[i][j];
                 if (onlyMatch) {
                     content[type] = regMatch(type, final_results[i][j]);
-                } else {
-                    content[type] = final_results[i][j];
                 }
             }
         }
@@ -381,6 +385,7 @@ function unifyObjects(final_results) {
     let size = {};
     let tLength = final_results.length;
     let target;
+    let limit = searchItem.length / 2;
 
     for (let i = 0; i < tLength; i++) {
         let listLength = Object.keys(final_results[i]).length;
@@ -392,16 +397,15 @@ function unifyObjects(final_results) {
     }
 
     for (const [key, value] of Object.entries(size).sort(([, a], [, b]) => b - a)) {
-        if (key > (searchItem.length / 2)) {
+        if (key > limit) {
             target = key;
             break;
         }
     }
 
-    return final_results = final_results.filter(function (obj) {
+    return final_results = final_results.filter((obj) => {
         return Object.keys(obj).length >= target;
     });
-
 }
 
 /* 
@@ -423,11 +427,16 @@ function prepareQuerry(url, ind, topclass, reslength, determining_time, dumping_
     Output final results to coresponding file in coresponding output folder
 */
 function output(url, final_results) {
-    if (offline) {
-        url = url.split('/')[url.split('/').length - 1];// fix file path domain detection for filename
-        fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
-    } else {
-        fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
+    try{
+        if (offline) {
+            url = url.split('/')[url.split('/').length - 1];// fix file path domain detection for filename
+            fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
+        } else {
+            fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
+        }
+    } catch{
+        console.error("Unable to write output file");
+        exit(5);
     }
 }
 
@@ -465,7 +474,6 @@ async function getFinalResults(page, currentSelector) {
             return treeContent;
         })
     }, ancestor);
-
 }
 
 /* 
@@ -481,14 +489,15 @@ function removeDuplicates(final_results) {
 async function dataDump(page, currentSelector) {
     try {
         final_results = await getFinalResults(page, '.' + currentSelector);
+        final_results = removeDuplicates(final_results);
+        final_results = prepareResults(final_results);
     } catch (err) {
         console.error(err);
+        console.error("Exiting...");
+        exit(7);
     }
 
-    final_results = removeDuplicates(final_results);
-    final_results = prepareResults(final_results);
-
-    if (unifyObjects(final_results).length <= min_reslen && ancestor < MAX_ANCESTOR) {
+    if (unifyObjects(final_results).length <= MIN_RESLEN && ancestor < MAX_ANCESTOR) {
         ancestor += 1;
         await dataDump(page, topClasses[ind]);
     }
@@ -500,6 +509,9 @@ async function dataDump(page, currentSelector) {
     output(url, final_results);
 }
 
+/*
+    Get all classlists from all nodes on website
+*/
 async function getClassList(page) {
     return await page.$$eval('[class]', nodes => {
         return nodes.map(node => {
@@ -507,6 +519,19 @@ async function getClassList(page) {
             return {
                 class_list
             }
+        })
+    });
+}
+
+/*
+    Get content of primary selector
+*/
+async function getPrimaryContent(page){
+    return await page.$$eval(currentSelector, nodes => {
+        return nodes.map(node => {
+            content = node.textContent.trim();
+            content = content.replace(/\s/g, '');
+            return { content };
         })
     });
 }
@@ -519,11 +544,13 @@ async function mainProcess() {
     const page = await browser.newPage();
     process.on('unhandledRejection', (reason, p) => {
         console.error('Unhandled Rejection at: Promise', p, 'reason:', reason);
+        console.error("Exiting...");
+        exit(7);
     });
 
-    urlIndex = 0;
-    querry = [];
-    urlsLength = urls.length;
+    let querry = [];
+    let urlIndex = 0;
+    let urlsLength = urls.length;
 
     // search for top selectors
     console.log("BEGIN PRIMARY EXTRACTION");
@@ -547,13 +574,9 @@ async function mainProcess() {
 
         if (verbose) console.log("Pageload..." + pageload_time + "ms");
 
-        targets = {};
-        classList = {};
-        topClasses = [];
-
         let determining_start = new Date().getTime();
 
-        targets = await getClassList(page);
+        let targets = await getClassList(page);
         topClasses = getTopClasses(targets);
         topClassesLength = topClasses.length;
       
@@ -561,22 +584,14 @@ async function mainProcess() {
         do {
             currentSelector = '.' + css(topClasses[ind]);
             try {
-                results = await page.$$eval(currentSelector, nodes => {
-                    return nodes.map(node => {
-                        content = node.textContent.trim();
-                        content = content.replace(/\s/g, '');
-                        return { content };
-                    })
-                });
+                results = await getPrimaryContent(page);
             } catch (err) {
                 console.error(err);
             }
-            /* pro_results = JSON.parse(JSON.stringify(results)); */
             results = checkResults(results);
 
             if (verbose) console.log(url + " on " + (ind + 1) + " try with class " + topClasses[ind]);
             if (checkArrBySeverity(results)) {
-                /* results = pro_results; */
                 break;
             }
             ind++;
@@ -600,19 +615,26 @@ async function mainProcess() {
         urlIndex++;
     }
 
-    fs.writeFile(output_folder + '/../metadata.json', JSON.stringify(querry, null, 4), 'utf8', err => err ? console.log(err) : null);
+    try{
+        fs.writeFile(output_folder + '/../metadata.json', JSON.stringify(querry, null, 4), 'utf8', err => err ? console.log(err) : null);
+    } catch{
+        console.error("Unable to write metadata file");
+        exit(5);
+    }
     // end
-
+    
     await browser.close();
 }
 
 (async function () {
     console.log('Execution started');
+
     let start_time = new Date().getTime()
     argumentsCheck();
     await mainProcess();
-    console.log("==============================");
     let exectime = new Date().getTime() - start_time;
+
+    console.log("==============================");
     console.log("Execution ended succesfully. See " + output_folder + '../metadata.json for results overview.');
     console.log('Execution time: ' + exectime + 'ms');
 })();
