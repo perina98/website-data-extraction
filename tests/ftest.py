@@ -1,9 +1,16 @@
+#
+# File: ftest.py
+# Brief: Calculate precision and recall of given dataset
+# Author: Lukáš Perina
+# Year: 2021
+#
+
 import json
 import sys
-from termcolor import colored
 from os import walk
 from types import SimpleNamespace
 
+# set testType as dataset_dir name and get filenames of output and expected
 try:
     testType = sys.argv[1]
 except:
@@ -19,8 +26,9 @@ except:
     exit(1)
 
 
+# Initialize json arrays of outputed and expected data
+# Returns initialized output and expected arrays
 def init():
-    # append json files to arrays
     output = []
     expected = []
     try:
@@ -44,18 +52,20 @@ def init():
 # Print result of test
 def printResult(precision,recall,file,ttype):
     typeinfo = ''
+    if ttype == 3:
+        typeinfo = '(Failed)'
+        print('Fail',str(precision)+"%",str(recall)+"%",filenames_o[file],typeinfo, sep='\t')
+        return
     if ttype == 2:
         typeinfo = '(No match in number of objects)'
-    if precision > 90 and recall > 90:
-        print(colored('OK','green'),str(precision)+"%",str(recall)+"%",filenames_o[file],colored(typeinfo,'red'), sep='\t')
-    elif precision > 50 and recall > 50:
-        print(colored('Fail','yellow'),str(precision)+"%",str(recall)+"%",filenames_o[file],colored(typeinfo,'red'), sep='\t')
+    if precision > 10 and recall > 10:
+        print('OK',str(precision)+"%",str(recall)+"%",filenames_o[file],typeinfo, sep='\t')
     else:
-        print(colored('Fail','red'),str(precision)+"%",str(recall)+"%",filenames_o[file],colored(typeinfo,'red'), sep='\t')
+        print('Fail',str(precision)+"%",str(recall)+"%",filenames_o[file],typeinfo, sep='\t')
     return
 
 
-# Check json key-by-key, calculate precision and recall and print the result
+# Check json key-by-key, calculate precision and recall
 # Returns precision and recall values
 def keyCheck(js1,js2,length,file):
     relevant_size = 0
@@ -66,14 +76,16 @@ def keyCheck(js1,js2,length,file):
         retrieved_size += len(js2[i].keys())
         for key in js2[i]:
             if key not in js1[i]:
-                if file == 7:
-                    print(key)
-                    print(js1[i])
                 irrelevant += 1
                 continue
             if js1[i][key] != js2[i][key]:
                 irrelevant += 1
     
+    if retrieved_size == 0 or relevant_size == 0:
+        precision = recall = 0
+        printResult(precision,recall,file,3)
+        return {'precision':precision,'recall':recall}
+
     relevant = retrieved_size - irrelevant
     precision = round(((relevant / retrieved_size) * 100),2)
     recall = round(((relevant / relevant_size) * 100),2)
@@ -82,7 +94,7 @@ def keyCheck(js1,js2,length,file):
     return {'precision':precision,'recall':recall}
 
 
-# Check json object-by-object, calculate precision and recall and print the result
+# Check json object-by-object, calculate precision and recall
 # Less accurate than key-by-key but only viable option
 # Returns precision and recall values
 def objCheck(js1,js2,file):
@@ -110,6 +122,11 @@ def objCheck(js1,js2,file):
                     irrelevant += 1
         pos += 1
 
+    if retrieved_size == 0 or relevant_size == 0:
+        precision = recall = 0
+        printResult(precision,recall,file,3)
+        return {'precision':precision,'recall':recall}
+
     relevant = retrieved_size - irrelevant
     precision = round(((relevant / retrieved_size) * 100),2)
     recall = round(((relevant / relevant_size) * 100),2)
@@ -130,11 +147,10 @@ def averageResults(average_precision,average_recall,length):
         overall.write(str(average_precision)+' '+str(average_recall)+' '+str(length)+'\n')
 
 
-# main function, print header, init arrays and loop test
-# Average results printed after all tests completed
+# main function, print header and loop test
 def main():
-    print('Status','Precision','Recall','Domain')
     output,expected = init()
+    print('Status','Precision','Recall','Domain')
 
     length = len(output)
     average_precision = 0
