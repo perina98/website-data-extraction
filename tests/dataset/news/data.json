@@ -1,12 +1,12 @@
 {
     "urls": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/artnews.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/ceskymac.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/cyclingnews.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/pcgamer.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/podnikatel.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/rockpapershotgun.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/news/domains/smartmania.cz.html"
+        "tests/dataset/news/domains/artnews.com.html",
+        "tests/dataset/news/domains/ceskymac.cz.html",
+        "tests/dataset/news/domains/cyclingnews.com.html",
+        "tests/dataset/news/domains/pcgamer.com.html",
+        "tests/dataset/news/domains/podnikatel.cz.html",
+        "tests/dataset/news/domains/rockpapershotgun.com.html",
+        "tests/dataset/news/domains/smartmania.cz.html"
     ],
     "structure":{
         "author": "string_author",
