@@ -1,4 +1,9 @@
 {
+  "name": "extractor",
+  "description": "Data extracting from any website by providng simple input rules",
+  "version": "1.0.0",
+  "keywords": ["Extracting, websites, webscraping"],
+  "author": "Lukáš Perina",
   "dependencies": {
     "css.escape": "^1.5.1",
     "minimist": "^1.2.5",
