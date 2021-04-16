@@ -86,6 +86,7 @@ function programVariables(){
     defCheck = false;       // check if result already defined
     guesser = false;        // try to guess resulting datatype
     unify = false;          // unify results
+    datasetURLfix = false;       // fix dataset urls
     onlyMatch = true;       // strong regexmatching
     ancestor = 1;           // default ancestor index
 
@@ -103,7 +104,18 @@ function programVariables(){
         unify = true;
     if (argv.m)
         onlyMatch = false;
+    if (argv.dataset)
+        datasetURLfix = true;
 }
+
+/*
+  If running datasets, absolute path is needed. This can cause problems when changing pc/folder/user/system
+*/
+function fixDatasetUrls(urls) {
+    let base = __dirname + '\\..\\';
+    return urls.map(element => base + element);
+}
+
 
 /* 
   Check for arguments and their correct representation
@@ -180,11 +192,14 @@ function argumentsCheck() {
         urls = data.urls;                                   // urls to crawl
         searchItem = Object.keys(data.structure);           // item name prefered by user
         searchStructure = Object.values(data.structure);    // item structure (datatype)
-
+        
         severity = config.maxFailRatio;                     // max fail ratio
         format = config.format;                             // regex format // unique defining format on every site
         primary = config.primary;                           // primary item by which the first search decides where to start
-
+        
+        if(datasetURLfix){
+            urls = fixDatasetUrls(urls);
+        }
         if (failCheck()) {
             console.error("Config or data file error. Run with -h param to learn more.");
             exit(6);
@@ -218,7 +233,7 @@ function getTopClasses(targets) {
     }
     // sort classes by number of times they appeared on website
     let i = 0;
-    for (const [key, value] of Object.entries(classes).sort(([, a], [, b]) => b - a)) {
+    for (let [key, value] of Object.entries(classes).sort(([, a], [, b]) => b - a)) {
         if (i < tLength) {
             topClasses.push(key);
         }
@@ -396,7 +411,7 @@ function unifyObjects(final_results) {
         }
     }
 
-    for (const [key, value] of Object.entries(size).sort(([, a], [, b]) => b - a)) {
+    for (let [key, value] of Object.entries(size).sort(([, a], [, b]) => b - a)) {
         if (key > limit) {
             target = key;
             break;
@@ -429,7 +444,7 @@ function prepareQuerry(url, ind, topclass, reslength, determining_time, dumping_
 function output(url, final_results) {
     try{
         if (offline) {
-            url = url.split('/')[url.split('/').length - 1];// fix file path domain detection for filename
+            url = url.split('/')[url.split('/').length - 1]; // fix file path domain detection for filename
             fs.writeFile(output_folder + '/' + url + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
         } else {
             fs.writeFile(output_folder + '/' + (new URL(url)).hostname + '.json', JSON.stringify(final_results, null, 4), 'utf8', err => err ? console.log(err) : null);
@@ -455,10 +470,10 @@ async function getFinalResults(page, currentSelector) {
             x = 0;
             treeLength = tree.length;
 
-            for (i = 0; i < treeLength; i++) {
+            for (let i = 0; i < treeLength; i++) {
                 if (tree[i].children.length > 0) {
                     subtreeLength = tree[i].children.length;
-                    for (k = 0; k < subtreeLength; k++) {
+                    for (let k = 0; k < subtreeLength; k++) {
                         if (tree[i].children[k].textContent.trim() != "") {
                             treeContent[x] = tree[i].children[k].textContent.trim().replace(/\n\s+/g, '');
                             x++;
