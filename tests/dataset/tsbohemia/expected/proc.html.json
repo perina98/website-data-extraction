@@ -31,7 +31,7 @@
     },
     {
         "title": "Intel Core i5-10400",
-        "price": "5 099,-",
+        "price": "4 440,-",
         "description": "procesor, socket 1200, 2.9GHz, max. Turbo 4.3GHz, cache 12MB, 6 jader/ 12 vláken, Comet Lake, 14nm, grafické jádro UHD Graphics 630, TDP 65W, chladič, BOX"
     },
     {
@@ -66,7 +66,7 @@
     },
     {
         "title": "Intel Core i5-10600KF",
-        "price": "6 249,-",
+        "price": "5 190,-",
         "description": "procesor, socket 1200, 4.1GHz, max. Turbo 4.8GHz, cache 12MB, 6 jader/ 12 vláken, Comet Lake, 14nm, Hyper-Threading, bez grafického jádra, TDP 125W, BOX bez chladiče",
         "discount": "Sleva -17 %"
     },
@@ -82,19 +82,19 @@
     },
     {
         "title": "Intel Core i7-10700F",
-        "price": "8 690,-",
+        "price": "6 850,-",
         "description": "procesor, socket 1200, 2.9GHz, max. Turbo 4.8GHz, cache 16MB, 8 jader/ 16 vláken, Comet Lake, 14nm, Hyper-Threading, bez grafického jádra, TDP 65W, BOX",
         "discount": "Sleva -21 %"
     },
     {
         "title": "Intel Core i7-10700KF",
-        "price": "9 590,-",
+        "price": "8 140,-",
         "description": "procesor, socket 1200, 3.8GHz, max. Turbo 5.0GHz, cache 16MB, 8 jader/ 16 vláken, Comet Lake, 14nm, Hyper-Threading, bez grafického jádra, TDP 125W, BOX",
         "discount": "Sleva -15 %"
     },
     {
         "title": "Intel Core i9-10900K",
-        "price": "13 290,-",
+        "price": "11 890,-",
         "description": "procesor, socket 1200, 3.7GHz, max. Turbo 5.3GHz, cache 20MB, 10 jader/ 20 vláken, Comet Lake, 14nm, Hyper-Threading, grafické jádro UHD Graphics 630, TDP 125W, BOX bez chladiče"
     },
     {
@@ -104,19 +104,19 @@
     },
     {
         "title": "Intel Core i7-9700",
-        "price": "7 849,-",
+        "price": "6 090,-",
         "description": "procesor, socket 1151, 3.0GHz, max. Turbo 4.7GHz, cache 12MB, 8 jader/ 8 vláken, Coffee Lake Refresh, 14nm, grafické jádro UHD Graphics 630, TDP 65W, chladič, BOX, vyžaduje desku řady 3XX",
         "discount": "Sleva -22 %"
     },
     {
         "title": "Intel Core i9-9900",
-        "price": "10 190,-",
+        "price": "8 254,-",
         "description": "procesor, socket 1151, 3.1GHz, max. Turbo 5.0GHz, cache 16MB, 8 jader/ 16 vláken, Coffee Lake Refresh, 14nm, Hyper-Threading, grafické jádro UHD Graphics 630, TDP 65W, chladič, BOX, vyžaduje desku řady 300",
         "discount": "Sleva -19 %"
     },
     {
         "title": "Intel Core i7-9700K",
-        "price": "9 190,-",
+        "price": "6 999,-",
         "description": "procesor, socket 1151, 3.6GHz, max. Turbo 4.9GHz, cache 12MB, 8 jader/ 8 vláken, Coffee Lake Refresh, 14nm, grafické jádro UHD Graphics 630, TDP 95W, bez chladiče, BOX, vyžaduje desku řady 3XX",
         "discount": "Sleva -24 %"
     },

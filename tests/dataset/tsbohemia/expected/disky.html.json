@@ -1,14 +1,14 @@
 [
     {
         "title": "Samsung 860 EVO 250GB (MZ-76E250B)",
-        "price": "1 099,-",
+        "price": "990,-",
         "description": "SSD disk řady 860 EVO, 250GB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s"
     },
     {
         "title": "Samsung 860 EVO 500GB (MZ-76E500B)",
-        "price": "1 999,-",
-        "discount": "Sleva -15 %",
-        "description": "SSD disk řady 860 EVO, 500GB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s"
+        "price": "1 699,-",
+        "description": "SSD disk řady 860 EVO, 500GB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s",
+        "discount": "Sleva -15 %"
     },
     {
         "title": "KINGSTON A400 480GB (SA400S37/480G)",
@@ -22,7 +22,7 @@
     },
     {
         "title": "WD Elements Portable 1TB Black",
-        "price": "1 499,-",
+        "price": "1 399,-",
         "description": "externí pevný disk, HDD, 2.5\", 1TB, USB 3.0, napájení přes USB, Western Digital Elements černý"
     },
     {
@@ -42,12 +42,12 @@
     },
     {
         "title": "Samsung SSD 970 EVO 1TB MZ-V7E1T0BW",
-        "price": "3 990,-",
+        "price": "3 590,-",
         "description": "Interní pevný disk, SSD M.2, čtení až 3 400 MB/sec, zapisování až 2 500 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 1TB"
     },
     {
         "title": "Samsung SSD 970 EVO 500GB MZ-V7E500BW",
-        "price": "2 499,-",
+        "price": "1 990,-",
         "description": "Interní pevný disk, SSD M.2, čtení až 3 400 MB/sec, zapisování až 2 300 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 500GB.",
         "discount": "Sleva -20 %"
     },
@@ -63,9 +63,9 @@
     },
     {
         "title": "Samsung 860 EVO 1TB (MZ-76E1T0B)",
-        "price": "3 699,-",
-        "discount": "Sleva -19 %",
-        "description": "SSD disk řady 860 EVO, 1TB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s"
+        "price": "2 999,-",
+        "description": "SSD disk řady 860 EVO, 1TB, interní, 2,5\", SATA III, záruka 5let, sekvenční čtení až 550MB/s, sekvenční zápis až 520MB/s",
+        "discount": "Sleva -19 %"
     },
     {
         "title": "WD Elements Portable 2TB černý",
@@ -94,15 +94,15 @@
     },
     {
         "title": "Samsung SSD 970 EVO PLUS 1TB MZ-V7S1T0BW",
-        "price": "4 990,-",
+        "price": "3 999,-",
         "description": "Interní pevný disk, SSD M.2, čtení až 3 500 MB/sec, zapisování až 3 300 MB/sec, absence pohyblivých částí zaručuje vysokou odolnost a životnost, kapacita 1TB.",
         "discount": "Sleva -20 %"
     },
     {
         "title": "Samsung 870 QVO 1TB (MZ-77Q1T0B)",
-        "price": "3 099,-",
-        "discount": "Sleva -20 %",
-        "description":"SSD disk řady 870 QVO, 1TB, interní, 2,5\", SATA III, záruka 3 roky, sekvenční čtení až 560MB/s, sekvenční zápis až 530MB/s"
+        "price": "2 490,-",
+        "description": "SSD disk řady 870 QVO, 1TB, interní, 2,5\", SATA III, záruka 3 roky, sekvenční čtení až 560MB/s, sekvenční zápis až 530MB/s",
+        "discount": "Sleva -20 %"
     },
     {
         "title": "WD Elements PORTABLE 4TB černý",
@@ -111,7 +111,7 @@
     },
     {
         "title": "Verbatim Store 'n' Go 1TB černý",
-        "price": "1 459,-",
+        "price": "1 319,-",
         "description": "pevný disk externí, HDD, 2.5\", 1TB, 5400ot./min., USB 3.0, hmotnost 184g, rozměry 121x15x80mm"
     },
     {
