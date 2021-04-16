@@ -108,11 +108,13 @@
         "team2": "Wiener SK"
     },
     {
+        "time": "Canc.",
         "team1": "SC Neusiedl am See 1919",
         "score": "? - ?",
         "team2": "SK Rapid Wien II"
     },
     {
+        "time": "Canc.",
         "team1": "ASV Drassburg",
         "score": "? - ?",
         "team2": "Mattersburg (A)"
@@ -220,6 +222,7 @@
         "team2": "St Joseph's"
     },
     {
+        "time": "Canc.",
         "team1": "FC Boca Juniors",
         "score": "? - ?",
         "team2": "Manchester 62 FC"
