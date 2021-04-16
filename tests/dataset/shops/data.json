@@ -1,15 +1,15 @@
 {
     "urls": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/alza.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/czc.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/insportline.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/smarty.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/stavebninystastny.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/zahradnictvi-spomysl.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/sparkys.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/tsbohemia.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/zahradkarske-potreby.cz.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/shops/domains/papirnictvieshop.cz.html"
+        "tests/dataset/shops/domains/alza.cz.html",
+        "tests/dataset/shops/domains/czc.cz.html",
+        "tests/dataset/shops/domains/insportline.cz.html",
+        "tests/dataset/shops/domains/smarty.cz.html",
+        "tests/dataset/shops/domains/stavebninystastny.cz.html",
+        "tests/dataset/shops/domains/zahradnictvi-spomysl.cz.html",
+        "tests/dataset/shops/domains/sparkys.cz.html",
+        "tests/dataset/shops/domains/tsbohemia.cz.html",
+        "tests/dataset/shops/domains/zahradkarske-potreby.cz.html",
+        "tests/dataset/shops/domains/papirnictvieshop.cz.html"
     ],
     "structure": {
         "name": "string_title",
