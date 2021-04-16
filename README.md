@@ -63,12 +63,12 @@ If application encounters crash, it exits with one of the following error codes:
 
 Prerequisities:
 
-            nodejs 15.12.0
-            npm 7.7.0   
-            puppeteer 8.0.0
-            css.escape 1.5.1
-            minimist 1.2.5
-            python3 (for testing purposes)
+    nodejs 15.12.0
+    npm 7.7.0   
+    puppeteer 8.0.0
+    css.escape 1.5.1
+    minimist 1.2.5
+    python3 (for testing purposes)
 
 Instalation:
 
