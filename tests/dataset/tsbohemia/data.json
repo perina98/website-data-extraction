@@ -1,15 +1,15 @@
 {
     "urls": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/brusky.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/disky.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/chladice.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/chladnicky.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/kolobezky.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/mobo.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/monitory.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/proc.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/servery.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/tsbohemia/domains/skenery.html"
+        "tests/dataset/tsbohemia/domains/brusky.html",
+        "tests/dataset/tsbohemia/domains/disky.html",
+        "tests/dataset/tsbohemia/domains/chladice.html",
+        "tests/dataset/tsbohemia/domains/chladnicky.html",
+        "tests/dataset/tsbohemia/domains/kolobezky.html",
+        "tests/dataset/tsbohemia/domains/mobo.html",
+        "tests/dataset/tsbohemia/domains/monitory.html",
+        "tests/dataset/tsbohemia/domains/proc.html",
+        "tests/dataset/tsbohemia/domains/servery.html",
+        "tests/dataset/tsbohemia/domains/skenery.html"
     ],
     "structure":{
         "title": "string_title",
