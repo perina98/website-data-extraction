@@ -472,7 +472,7 @@ Dá sa predpokladať že správne definovaný regulárny výraz bude mať dramat
 
 \newpage
 
-\textbf{Primárny prvok} je taký prvok, ktorý je určený ako prvok ktorý sa v objekte určenom na extrakciu opakuje, a je teda možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt, a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
+\textbf{Primárny prvok} je prvok, ktorý sa v objektoch určených na extrakciu opakuje, a je teda možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt, a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
 
 Jeho reprezentácia je znova v podobe regulárneho výrazu, avšak on samotný sa nemusí nachádzať v definovanej štruktúre ani formáte vstupných údajov. Aplikácia tento prvok využíva na prvotnú analýzu stránky ako takej, a na základe jeho prezencie v danom testovacom okruhu je posúdené či daný testovaný okruh je kandidátom na definíciu správnych výsledných objektov.
 
@@ -783,12 +783,20 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
 
 \begin{itemize}
     \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
+    
+    \begin{eqnarray}
+    Precision \quad = & {\displaystyle\frac{ROR}{ROR + ROI}}
+    \end{eqnarray}
    
-    Precision  =   Počet extrahovaných objektov ktoré sú relevantné / Počet všetkých extrahovaných objektov
+    Kde \textit{ROR} predstavuje počet všetkých extrahovaných objektov, ktoré sú pre nás relevantné a \textit{ROI} predstavuje počet irelevantných objektov. Týmto vzťahom vieme získať výslednú presnosť akú aplikácia dosiahla.
     
     \item \textbf{Recall}, ktorá odpovedá na otázku aká časť relevantných extrahovaných dát predstavuje očakávané dáta. Výsledná hodnota recall je preto daná vzťahom:
     
-    Recall = Počet extrahovaných objektov ktoré sú relevantné / Počet relevantných dokumentov ktoré sú očakávané
+    \begin{eqnarray}
+    Recall \quad = & {\displaystyle\frac{ROR}{EOR}}
+    \end{eqnarray}
+    
+    Kde \textit{ROR} znova reprezentuje počet všetkých extrahovaných objektov, ktoré sú pre extrakciu relevantné a \textit{EOR} reprezentuje počet všetkých relevantných očakávaných objektov.
 \end{itemize}
 
 \bigskip
@@ -797,10 +805,9 @@ Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodno
 
 Testovanie si taktiež vyžiadalo vytvorenie spoľahlivej testovacej sady, ktorá by bola schopná úspešnosť aplikácie overiť vo viacerých prípadoch použitia. 
 
-\newpage
 \section{Testovacia sada}
 
-Vytvorenie spoľahlivej a dostatočne diverzifikovanej testovacej sady nieje jednoduchá úloha, a preto jej vytvorenie prebiehalo v spolupráci s kolegom, ktorý rieši prácu na podobné tému. Táto skutočnosť bola riadne prebraná aj s vedúcim práce.
+Vytvorenie spoľahlivej a dostatočne diverzifikovanej testovacej sady nieje jednoduchá úloha, a preto jej vytvorenie prebiehalo v spolupráci s autorom, ktorý rieši prácu na podobnú tému\cite{mastera}. Táto skutočnosť bola riadne prebraná aj s vedúcim práce.
 
 Finálna testovacia sada pozostávala zo 4 oblastí:
 
@@ -841,7 +848,6 @@ Pri kontrole výsledkov využíva testovací skript zložky expected a output, k
 
 Po spustení aplikácie za účelom testu takejto sady, sú zároveň vygenerované metadáta do koreňového adresára tejto sady, teda vo výsledku sa budú nachádzať v rovnakom adresári ako config.json a data.json.
 
-\newpage
 
 \section{Testovací skript}
 
