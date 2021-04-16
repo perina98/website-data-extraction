@@ -88,9 +88,9 @@ Datasets:
 Application contains following datasets:
 
     Football
-    Shops
-    
     Tsbohemia
+    
+    Shops
     News
     News3
 
