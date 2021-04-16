@@ -14,7 +14,7 @@ NEWS3 = tests/dataset/news3
 ZIP = xperin11.zip
 
 all:
-	node $(BIN) --data=$(DATA)
+	node $(BIN) --data=src/$(DATA)
 tests: datatest testall
 datatest:
 	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdg --noundef --dataset
