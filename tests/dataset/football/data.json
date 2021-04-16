@@ -1,15 +1,15 @@
 {
     "urls": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/365scores.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/777score.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/bbc.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/flashscore.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/flashscore.sk.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/LiveScore.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/scoreboard.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/SkySports.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/soccer24.com.html",
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/tests/dataset/football/domains/Soccerstand.com.html"
+        "tests/dataset/football/domains/365scores.com.html",
+        "tests/dataset/football/domains/777score.com.html",
+        "tests/dataset/football/domains/bbc.com.html",
+        "tests/dataset/football/domains/flashscore.com.html",
+        "tests/dataset/football/domains/flashscore.sk.html",
+        "tests/dataset/football/domains/LiveScore.com.html",
+        "tests/dataset/football/domains/scoreboard.com.html",
+        "tests/dataset/football/domains/SkySports.com.html",
+        "tests/dataset/football/domains/soccer24.com.html",
+        "tests/dataset/football/domains/Soccerstand.com.html"
     ],
     "structure":{
         "time": "time",
