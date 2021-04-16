@@ -63,4 +63,4 @@ clean:
 	rm -rf ./$(NEWS)/output ./$(NEWS)/metadata.json
 	rm -rf ./$(NEWS3)/output ./$(NEWS3)/metadata.json
 pack: clean
-	zip -r $(ZIP) ./src/* ./tests/* ./INSTALLATION ./Makefile ./PREREQUISITES ./README.md
+	zip -r $(ZIP) ./src/* ./tests/* ./Makefile ./README.md
