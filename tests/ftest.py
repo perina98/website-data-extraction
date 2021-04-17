@@ -109,11 +109,11 @@ def objCheck(js1,js2,file):
         retrieved_size += len(js2[i].keys())
     pos = 0
     for obj in js2:
-        if pos >= expsize:
-            irrelevant += len(obj.keys())
-            pos += 1
-            continue
         if obj not in js1:
+            if pos >= expsize:
+                irrelevant += len(obj.keys())
+                pos += 1
+                continue 
             for key in obj:
                 if key not in js1[pos]:
                     irrelevant += 1
@@ -121,7 +121,7 @@ def objCheck(js1,js2,file):
                 if js1[pos][key] != js2[pos][key]:
                     irrelevant += 1
         pos += 1
-
+    
     if retrieved_size == 0 or relevant_size == 0:
         precision = recall = 0
         printResult(precision,recall,file,3)
