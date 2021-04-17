@@ -806,6 +806,7 @@ Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodno
 Testovanie si taktiež vyžiadalo vytvorenie spoľahlivej testovacej sady, ktorá by bola schopná úspešnosť aplikácie overiť vo viacerých prípadoch použitia. 
 
 \section{Testovacia sada}
+\label{dataset}
 
 Vytvorenie spoľahlivej a dostatočne diverzifikovanej testovacej sady nieje jednoduchá úloha, a preto jej vytvorenie prebiehalo v spolupráci s autorom, ktorý rieši prácu na podobnú tému\cite{mastera}. Táto skutočnosť bola riadne prebraná aj s vedúcim práce.
 
@@ -828,19 +829,16 @@ Zároveň sú súčasťou jednej testovacej sady súbory \textit{config.json} a 
 
 Jedna testovacia sada reprezentovaná práve jednou oblasťou má teda nasledovnú štruktúru, ktorá je zároveň kľúčová pre testovací skript a musí byť dodržaná:
 
-\begin{itemize}
-    \item 
-    {
-    \textbf{Názov\_oblasti}
-        \begin{itemize}
-            \item \textbf{domains/}: Obsahuje HTML súbory s webovými dokumentami
-            \item \textbf{expected/}: Obsahuje JSON súbory s očakávanými dátami
-            \item \textbf{output/}: Obsahuje JSON súbory s vygenerovanými dátami
-            \item \textbf{config.json}: Predstavuje konfiguračný súbor aplikácie
-            \item \textbf{data.json}: Predstavuje vstupný súbor s užívateľskými dátami
-        \end{itemize}
-    }
-\end{itemize}
+\bigskip
+
+\dirtree{%
+.1 Názov\_oblasti.
+.2 domains/\DTcomment{Obsahuje HTML súbory s webovými dokumentami}.
+.2 expected/\DTcomment{Obsahuje JSON súbory s očakávanými dátami}.
+.2 output/\DTcomment{Obsahuje JSON súbory s vygenerovanými dátami}.
+.2 config.json\DTcomment{Predstavuje konfiguračný súbor aplikácie}.
+.2 data.json\DTcomment{Predstavuje vstupný súbor s užívateľskými dátami}.
+}
 
 \bigskip
 
@@ -885,3 +883,74 @@ Vytvorenie tohto testovacie skriptu bolo zároveň kľúčové pre celkové zhod
 \newpage
 
 \section{Vyhodnotenie výsledkov}
+
+Pri vyhodnocovaní výsledkov boli využité metriky spomínané v sekcii \ref{sposobytestu} a testovacie sady zo sekcie \ref{dataset}. Testovacia sada \uv{Správy a novinky} bola pri testovaní z dôvodu lepšieho určenia požiadavkov a regulárnych výrazov rozdelená na dve. Celkové vyhodnotenie výsledkov prináša možnosť overiť kvalitu výslednej aplikácie, a preto je správne vyhodnotenie výsledkov veľmi dôležité. 
+
+Nejedná sa totiž len o jednoduché vyobrazenie výsledných dát a porovnanie dát s dátami očakávanými. Táto metrika nám síce napovie kde aplikácia dominuje a kde zlyháva, avšak je treba zvážiť aj koreláciu a kauzalitu týchto výsledkov. 
+
+V úvode tejto kapitoly bola uvedená skutočnosť že na výsledné hodnoty nemá zmena operačného systému významný zmysel. Pri vyhodnocovaní bol teda použitý operačný systém Windows 10 vo verzii 20H2.
+
+Webové prehliadače vyžadujú pre načítanie webového dokumentu jeho absolútnu cestu. Pre zaručenie prenositeľnosti testovacích sád boli však v  týchto sadách uvádzané cesty relatívne. Pre správne spustenie testov, a zaručenie nahradenia relatívnych ciest, je preto vyžadované spustenie aplikácie s parametrom \texttt{-{}-dataset}. Použitie relatívnej cesty predpokladá umiestnenie testovacích sád v zložke \texttt{/tests/dataset/} z pohľadu koreňového adresára aplikácie.
+
+Všetky testy sú zároveň spustiteľné pomocou priloženého súboru \textit{Makefile}. Jeho možnosti a dostupné parametre sú popísané v \textit{README.md} súbore priloženom v koreňovom adresári aplikácie.
+
+\subsubsection{Futbalové výsledky a program zápasov}
+
+Testovacia sada zameraná na futbalové výsledky je zameraná na webové stránky zobrazujúce informácie o futbalových zápasoch. Táto sada bola zvolená pre fakt, že takéto stránky sa síce na prvý pohľad zdajú podobné, avšak nie vždy je to pravda. 
+
+Niektoré obsahujú informácií viac, niektoré menej. Niektoré obsahujú irelevantné dáta ktoré treba odfiltrovať, iné obsahujú len dáta ktoré sú očakávané.
+
+\bigskip
+
+Ako cielené dáta boli určené čas, názov domáceho týmu, skóre a názov hosťujúceho týmu. Štruktúra vstupných dát preto vyzerá nasledovne:
+
+\bigskip
+
+\begin{lstlisting}
+"structure":{
+        "time": "time",
+        "team1": "string",
+        "score": "score",
+        "team2": "string"
+}
+\end{lstlisting}
+
+\bigskip
+
+Pri vyhodnocovaní výsledkov boli taktiež zohľadnené údaje, ktoré sú generované v rámci extrakcie. Tieto údaje neboli generované výsledným testovacím skriptom, a sú viazané na aktivitu aplikácie.
+
+\newpage
+
+
+
+Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Doména          & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+365scores.com   & 100,0\%   & 100,0\% & 18       & 111ms & 4ms   & 978ms  \\ \hline
+777score.com    & 100,0\%   & 100,0\% & 154      & 91ms  & 14ms  & 1153ms \\ \hline
+LiveScore.com   & 100,0\%   & 99,07\% & 47       & 90ms  & 3ms   & 751ms  \\ \hline
+SkySports.com   & 100,0\%   & 100,0\% & 112      & 79ms  & 11ms  & 1400ms \\ \hline
+Soccerstand.com & 100,0\%   & 98,64\% & 79       & 172ms & 14ms  & 1486ms \\ \hline
+bbc.com         & 100,0\%   & 100,0\% & 81       & 85ms  & 5ms   & 888ms  \\ \hline
+flashscore.com  & 100,0\%   & 98,66\% & 110      & 109ms & 6ms   & 1393ms \\ \hline
+flashscore.sk   & 100,0\%   & 66,95\% & 200      & 139ms & 31ms  & 844ms  \\ \hline
+scoreboard.com  & 92,84\%   & 47,73\% & 80       & 462ms & 18ms  & 1655ms \\ \hline
+soccer24.com    & 86,14\%   & 53,93\% & 110      & 132ms & 35ms  & 1652ms \\ \hline
+\end{tabular}
+\end{table}
+
+Kde všetky časové údaje predstavujú priemernú hodnotu z 5 pokusov a ďaľej:
+
+\begin{itemize}
+    \item \textbf{OC}: Počet extrahovaných objektov
+    \item \textbf{aTime}: Čas potrebný na analýzu a detekciu primárneho prvku
+    \item \textbf{eTime}: Čas potrebný na určenie príslušnosti a finálnu extrakciu údajov
+    \item \textbf{lTime}: Čas potrebný na načítanie webového dokumentu
+\end{itemize}
+
+Vykonanie extrakcie na týchto 10 webových dokumentov spolu trvalo 14000ms. Priemerná úspešnosť predstavovala hodnotu 97,9\% a priemerná hodnota recall hodnotu 86,5\%. 
