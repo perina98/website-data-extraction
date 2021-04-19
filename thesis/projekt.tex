@@ -1,21 +1,8 @@
 %==============================================================================
-% tento soubor pouzijte jako zaklad
-% this file should be used as a base for the thesis
-% Autoři / Authors: 2008 Michal Bidlo, 2019 Jaroslav Dytrych
-% Kontakt pro dotazy a připomínky: sablona@fit.vutbr.cz
-% Contact for questions and comments: sablona@fit.vutbr.cz
+% Autor: Lukáš Perina
 %==============================================================================
 % kodovani: UTF-8 (zmena prikazem iconv, recode nebo cstocs)
 % encoding: UTF-8 (you can change it by command iconv, recode or cstocs)
-%------------------------------------------------------------------------------
-% zpracování / processing: make, make pdf, make clean
-%==============================================================================
-% Soubory, které je nutné upravit nebo smazat: / Files which have to be edited or deleted:
-%   projekt-20-literatura-bibliography.bib - literatura / bibliography
-%   projekt-01-kapitoly-chapters.tex - obsah práce / the thesis content
-%   projekt-01-kapitoly-chapters-en.tex - obsah práce v angličtině / the thesis content in English
-%   projekt-30-prilohy-appendices.tex - přílohy / appendices
-%   projekt-30-prilohy-appendices-en.tex - přílohy v angličtině / appendices in English
 %==============================================================================
 \documentclass[slovak,zadani]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
 %\documentclass[english]{fitthesis} % without assignment - for the work start to avoid compilation problem
@@ -144,7 +131,7 @@
   keywords.en={Web scraping, Javascript, Node.js, Google Chrome, Chromium, Json, data extraction, scraping, web, DOM, CSS, HTML, Puppeteer}, % klíčová slova v anglickém jazyce / keywords in english
   %keywords.en={Here, individual keywords separated by commas will be written in English.},
   % Abstrakt / Abstract
-  abstract.cs={Cieľom tejto bakalárskej práce je návrh architektúry a následná implementácia aplikácie, ktorá je určená na extrakciu dát (web scraping) z webových dokumentov. Na rozdiel od \mbox{konvenčných} metód sa jedná o extrakciu založenú na definovaní dátových typov a regulárnych výrazov hľadaných prvkov. Extrakcia prebieha tak, aby nebolo potrebné poznať detailnú štruktúru daného \mbox{webového} dokumentu, a aby bolo umožnené použitie jednej definície na detekciu hľadaných prvkov na \mbox{rôznych} webových stránkach. Algoritmus dosahuje priemernú presnosť 81,97\% a recall 76,77\%. Týmto prístupom sa umožní zredukovať čas, ktorý je potrebný na analýzu jednotlivých stránok na minimum a nebrať štruktúru kódu, ako určujúci faktor pri vytváraní požiadavkov na webscraping.  }, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
+  abstract.cs={Cieľom tejto bakalárskej práce je návrh architektúry a následná implementácia aplikácie, ktorá je určená na extrakciu dát (web scraping) z webových dokumentov. Na rozdiel od \mbox{konvenčných} metód sa jedná o extrakciu založenú na definovaní dátových typov a regulárnych výrazov hľadaných prvkov. Extrakcia prebieha tak, aby nebolo potrebné poznať detailnú štruktúru daného \mbox{webového} dokumentu, a aby bolo umožnené použitie jednej definície na detekciu hľadaných prvkov na \mbox{rôznych} webových stránkach. Algoritmus dosahuje priemernú presnosť 81,97\% a recall 76,77\%. Týmto prístupom sa umožní zredukovať čas, ktorý je potrebný na analýzu jednotlivých stránok na minimum, a nebrať štruktúru kódu ako určujúci faktor pri vytváraní požiadavkov na webscraping.  }, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
   abstract.en={The purpose of this bachelor thesis is to design an architecture and subsequent implementation of an application designed for data extraction (web scraping) from web documents. Unlike conventional methods, it is an extraction based on defining data types and regular expressions of requested elements. Extraction is executed in such a manner, where it is not necessary to know the detailed structure of given web document, and the possibility of using just one definition to detect requested elements on different web pages. Algorithm is able to achieve overall accuracy of 81,97\% and recall 76,77\%. This approach can reduce the time required for analysis significantly, and not to take the structure of the code as a determining factor in creating webscraping requests. }, % abstrakt v anglickém jazyce / abstract in english
   %abstract.en={An abstract of the work in English will be written in this paragraph.},
   % Prohlášení (u anglicky psané práce anglicky, u slovensky psané práce slovensky) / Declaration (for thesis in english should be in english)
