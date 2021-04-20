@@ -1,16 +1,13 @@
 {
     "urls": [
-        "file:///C:/Users/Perina/Documents/materialy_fit/IBT/pupetir/dataset/football/domains/flashscore.com.html"
+        "https://mobil.bazos.sk/apple/"
     ],
     "structure": {
-        "time": "time",
-        "team1": "string",
-        "score": "score",
-        "team2": "string"
-    },
-    "blacklist": [
-        "Canc.",
-        "Finished",
-        "FRO"
-    ]
+        "price": "price",
+        "title": "string_title",
+        "date": "date",
+        "description": "string_description",
+        "location": "location",
+        "views": "views"
+    }
 }
