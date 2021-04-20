@@ -1,12 +1,157 @@
-% Tento soubor nahraďte vlastním souborem s přílohami (nadpisy níže jsou pouze pro příklad)
+\chapter{Obsah priloženého CD}
 
-% Umístění obsahu paměťového média do příloh je vhodné konzultovat s vedoucím
-%\chapter{Obsah přiloženého paměťového média}
+\dirtree{%
+.1 /.
+.2 src/\DTcomment{Obsahuje konfiguračné súbory a finálnu verziu aplikácie}.
+.3 config.json\DTcomment{Základný konfiguračný súbor}.
+.3 data.json\DTcomment{Základný súbor so vstupnými dátami}.
+.3 extractor.js\DTcomment{Finálna verzia aplikácie}.
+.2 tests/\DTcomment{Obsahuje testovacie skripty a datasety}.
+.3 dataset/\DTcomment{Zložka obsahuje jednotlivé datasety}.
+.3 ftest.py\DTcomment{Hlavný testovací skript}.
+.3 overall.py\DTcomment{Skript na vyhodnotenie celkových vážených výsledkov}.
+.2 thesis/\DTcomment{Adresár obsahuje technickú správu a jej zdrojové kódy}.
+.2 Makefile.
+.2 package.json\DTcomment{Obsahuje zoznam závislostí nutný pre inštaláciu}.
+.2 README.md.
+}
 
-%\chapter{Manuál}
+\chapter{Manuál}
 
-%\chapter{Konfigurační soubor}
+Tento manuál obsahuje návod na inštaláciu, popis jednotlivých cieľov súboru Makefile a dostupných parametrov pri spúšťaní aplikácie.
 
-%\chapter{RelaxNG Schéma konfiguračního souboru}
+\section{Návod na inštaláciu}
 
-%\chapter{Plakát}
+Aplikácia po stiahnutí obsahuje len základné zdrojové kódy a preto je potrebné nainštalovať závislosti. Tie budú v prípade Node.js nainštalované do zložky \texttt{node\_modules} v koreňovom adresári aplikácie.
+
+Medzi hlavné prerekvizity patria:
+
+\begin{itemize}
+    \item Node.js 15.12.0
+    \item npm 7.7.0
+    \item puppeteer 8.0.0
+    \item css.escape 1.5.1
+    \item minimist 1.2.5
+    \item python3 ( Voliteľné - Iba pre účely spustenia a vyhodnotenia testov)
+\end{itemize}
+
+Inštalácia sa medzi operačnými systémami líši iba pri inštalácii Node.js. To sa v prípade operačného systému Windows 10 môže nainštalovať klasicky pomocou \texttt{.exe} súboru dostupného z oficiálneho webu Node.js\footnote{\url{https://nodejs.org/en/download/}}. Node.js sa dá inštalovať aj priamo v termináli, avšak v mnohých prípadoch táto inštalácia prebieha pomocou takzvaných \uv{Správcov balíkov}. Jedným z takýchto správcov pre systém Windows 10 je aj Chocolatey\footnote{\url{https://chocolatey.org/}}. Arch verzia Linuxu ponúka napríklad snapd\footnote{\url{https://snapcraft.io/}}. 
+
+Pri inštalácií Node.js sa automaticky inštaluje aj \texttt{npm}, pretože \texttt{npm} je správca modulov pre Node.js. Nasleduje teda inštalácia modulov potrebných pre spustenie aplikácie.
+
+Pri tejto inštalácii je možné využiť priložený súbor \texttt{package.json}, ktorý obsahuje všetky závislosti dostupné v \texttt{npm}. Príkazom \texttt{npm install} sa tieto závislosti nainštalujú a aplikácia je pripravená na spustenie.
+
+\newpage
+
+\subsubsection{Makefile}
+
+Súbor \texttt{Makefile} zároveň podporuje príkazy na zjednodušenie tohto postupu. Príkazom \texttt{make windows-install} prebehne inštalácia Node.js a závislostí npm pre operačný systém Windows 10 za pomoci správcu Chocolatey. Príkazom \texttt{make linux-install} prebehne inštalácia pre operačný systém Linux.
+
+Súbor Makefile podporuje nasledovné príkazy:
+
+\begin{itemize}
+    \item \textbf{tests} - otestuje všetky testovacie sady a vypíše vyhodnotenie výsledkov.
+    \item \textbf{dataset} - otestuje všetky testovacie sady bez vyhodnotenia výsledkov
+    \item \textbf{testall} - vyhodnotí výsledky testovacích sád
+    \item \textbf{football} - spustí test testovacej sady \uv{Futbalové výsledky a program zápasov}
+    \item \textbf{tsbohemia} - spustí test testovacej sady \uv{Eshop www.tsbohemia.cz}
+    \item \textbf{shops} - spustí test testovacej sady \uv{Eshopy}
+    \item \textbf{news} - spustí test testovacej sady \uv{Správy a novinky} (prvá časť)
+    \item \textbf{news3} - spustí test testovacej sady \uv{Správy a novinky} (druhá časť)
+    \item \textbf{windows-install} - inštalácia závislostí a prerekvizít pre systém Windows
+    \item \textbf{linux-install} - inštalácia závislostí a prerekvizít pre systém Linux
+    \item \textbf{clean} - vymaže súbory vytvorené po vyhodnotení výsledkov
+    \item \textbf{pack} - zbalí potrebné súbory do odovzdávaného archívu
+\end{itemize}
+
+\section{Štruktúra konfiguračných súborov}
+
+Dôležitým faktorom je zachovanie štruktúry konfiguračných súborov. Nasledujúce príklady predstavujú konfiguračné súbory priložené v zložke s výslednou aplikáciou. Sú plne funkčné a ako ukážku extrahujú údaje z preddefinovanej webovej stránky.
+
+Príklad konfiguračného súboru \texttt{config.json}:
+\bigskip
+\begin{lstlisting}
+{
+    "maxFailRatio": 70,
+    "format": {
+        "price": "^\\d+\\s*€$",
+        "string_title": "^[a-zA-Z].{8,60}$",
+        "string_description": "^[a-zA-Z].{70,300}$",
+        "location": "^[a-zA-Z].{5,15}$",
+        "views": "\\d+\\s*x",
+        "date": "\\d+\\.\\d+\\. \\d*"
+    },
+    "primary": "^\\d+\\s*€$"
+}
+\end{lstlisting}
+
+\newpage
+
+Príklad dátového súboru \texttt{data.json}:
+\bigskip
+
+\begin{lstlisting}
+{
+    "urls": [
+        "https://mobil.bazos.sk/apple/"
+    ],
+    "structure": {
+        "price": "price",
+        "title": "string_title",
+        "date": "date",
+        "description": "string_description",
+        "location": "location",
+        "views": "views"
+    }
+}
+\end{lstlisting}
+
+\bigskip
+
+\section{Dostupné parametre}
+
+Aplikácia podporuje viacero parametrov pri jej spúšťaní. Úlohou týchto parametrov je bližšie špecifikovať danú extrakčnú úlohu. Pre úspešné spustenie aplikácie je však požadovaný len jeden parameter, a to \texttt{-{}-data}. Ten špecifikuje vstupný dátový súbor.
+
+Zoznam dostupných parametrov:
+
+\begin{itemize}
+    \item \textbf{-{}-data} : špecifikácia dátového súboru
+    \item \textbf{-{}-config} : špecifikácia konfiguračného súboru
+    \item \textbf{-{}-offline} : extrakcia z offline súborov
+    \item \textbf{-{}-noundef} : vymazanie nedefinovaných prvkov z výsledného súboru
+    \item \textbf{-{}-dataset} : transformuje relatívne cesty datasetov na absolútne
+    \item \textbf{-o} : špecifikácia výstupného adresáru
+    \item \textbf{-v} : vypisovanie podrobných informácií do konzoly
+    \item \textbf{-h} : zobrazí pomocné info
+    \item \textbf{-d} : pred definovaním prvku skontroluje, či nebol v minulosti definovaný
+    \item \textbf{-g} : určí príslušnosť nedefinovaných prvkov na základe predchádzajúcich výsledkov
+    \item \textbf{-b} : kontrola prvkov na prezenciu v blackliste
+    \item \textbf{-u} : zjednotenie objektov (všetky objekty majú rovnaký počet prvkov)
+    \item \textbf{-m} : striktné kontrolovanie na základe regulárnych výrazov
+\end{itemize}
+
+Použitie parametrov pri spúšťaní aplikácie:
+
+\bigskip
+\texttt{node extractor.js -{}-data=data.json  [-{}-dataset] [-{}-config=config.json]}\\
+\texttt{[-o=output/folder/] [-bdgu] [-m] [-p] [-v] [-h] [-{}-offline] [-{}-noundef] }
+
+\newpage
+
+\section{Návratové kódy}
+
+Aplikácia pri každom zlyhaní používateľa informuje o vzniknutej chybe. Každý návratový kód definuje typ chyby ktorá nastala.
+
+Zoznam návratových kódov a ich popis:
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Error 1} : nebolo možné otvoriť jeden z konfiguračných súborov
+    \item \textbf{Error 2} : vyžadovaný parameter nebol zadaný
+    \item \textbf{Error 3} : nebolo možné nastaviť základné parametre programu
+    \item \textbf{Error 4} : parameter bol povolený ale neboli splnené požiadavky
+    \item \textbf{Error 5} : nemožno vytvoriť výstupný súbor alebo zložku
+    \item \textbf{Error 6} : nesprávna štruktúra konfiguračných súborov
+    \item \textbf{Error 7} : interná chyba
+\end{itemize}
