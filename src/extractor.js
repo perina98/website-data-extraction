@@ -87,7 +87,7 @@ function programVariables(){
     guesser = false;        // try to guess resulting datatype
     unify = false;          // unify results
     datasetURLfix = false;       // fix dataset urls
-    onlyMatch = true;       // strong regexmatching
+    onlyMatch = false;       // strong regexmatching
     ancestor = 1;           // default ancestor index
 
     if (argv.offline)
@@ -103,7 +103,7 @@ function programVariables(){
     if (argv.u)
         unify = true;
     if (argv.m)
-        onlyMatch = false;
+        onlyMatch = true;
     if (argv.dataset)
         datasetURLfix = true;
 }
@@ -156,6 +156,7 @@ function argumentsCheck() {
         blist = true;
         try {
             blacklist = data.blacklist;
+            blacklist.length;
         } catch (err) {
             console.error("Blacklisting allowed but blacklist not specified.");
             exit(4);
