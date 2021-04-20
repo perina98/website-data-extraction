@@ -1,9 +1,12 @@
 {
     "maxFailRatio": 70,
     "format": {
-        "time": "^(\\d\\d:\\d\\d)$",
-        "score": "^(\\d+(\\-|\\:)\\d+)$|^-$|^\\? - \\?$|^\\d\\d$",
-        "string": "^[a-žA-Ž].*$"
+        "price": "^\\d+\\s*€$",
+        "string_title": "^[a-zA-Z].{8,60}$",
+        "string_description": "^[a-zA-Z].{70,300}$",
+        "location": "^[a-zA-Z].{5,15}$",
+        "views": "\\d+\\s*x",
+        "date": "\\d+\\.\\d+\\. \\d*"
     },
-    "primary": "^(\\d+:\\d+)$"
+    "primary": "^\\d+\\s*€$"
 }
