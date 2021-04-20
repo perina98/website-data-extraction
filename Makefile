@@ -30,7 +30,7 @@ testall:
 	python $(TEST) news3 -o
 	python $(OVERALL)
 football:
-	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdg --noundef --dataset
+	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdgv --noundef --dataset
 	python $(TEST) football
 tsbohemia:
 	node $(BIN) --data=$(TSBOHEMIA)/$(DATA) --config=$(TSBOHEMIA)/$(CONFIG) -o=$(TSBOHEMIA)/output/ --offline --noundef -bd --dataset
@@ -47,14 +47,10 @@ news3:
 
 windows-install:
 	cinst nodejs.install
-	npm i puppeteer
-	npm i css.escape
-	npm i minimist
+	npm install
 linux-install:
 	sudo apt install nodejs | sudo snap install node --classic
-	npm i puppeteer
-	npm i css.escape
-	npm i minimist
+	npm install
 clean:
 	rm -rf $(ZIP)
 	rm -rf ./$(FOOTBALL)/output ./$(FOOTBALL)/metadata.json
@@ -63,4 +59,4 @@ clean:
 	rm -rf ./$(NEWS)/output ./$(NEWS)/metadata.json
 	rm -rf ./$(NEWS3)/output ./$(NEWS3)/metadata.json
 pack: clean
-	zip -r $(ZIP) ./src/* ./tests/* ./Makefile ./README.md
+	zip -r $(ZIP) ./src/* ./tests/* ./Makefile ./README.md ./package.json
