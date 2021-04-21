@@ -112,7 +112,7 @@ function programVariables(){
   If running datasets, absolute path is needed. This can cause problems when changing pc/folder/user/system
 */
 function fixDatasetUrls(urls) {
-    let base = __dirname + '\\..\\';
+    let base = 'file:///' + __dirname + '/../';
     return urls.map(element => base + element);
 }
 
