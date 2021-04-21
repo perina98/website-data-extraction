@@ -533,6 +533,7 @@ async function dataDump(page, currentSelector) {
     }
 
     output(url, final_results);
+    return final_results;
 }
 
 /*
@@ -626,12 +627,12 @@ async function mainProcess() {
         let determining_time = new Date().getTime() - determining_start;
 
         let dumping_start = new Date().getTime();
-        await dataDump(page, topClasses[ind]);
+        let final_results = await dataDump(page, topClasses[ind]);
         let dumping_time = new Date().getTime() - dumping_start;
 
-        querry.push(prepareQuerry(url, ind, topClasses[ind], results.length, determining_time, dumping_time, pageload_time));
+        querry.push(prepareQuerry(url, ind, topClasses[ind], final_results.length, determining_time, dumping_time, pageload_time));
         if (verbose) {
-            console.log("Final objects count: " + results.length);
+            console.log("Final objects count: " + final_results.length);
             console.log("Determining possible target..." + determining_time + "ms");
             console.log("Target selector : document.querySelectorAll('." + topClasses[ind] + "')");
             console.log("Dumping data..." + dumping_time + "ms");
