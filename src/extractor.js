@@ -86,8 +86,9 @@ function programVariables(){
     defCheck = false;       // check if result already defined
     guesser = false;        // try to guess resulting datatype
     unify = false;          // unify results
-    datasetURLfix = false;       // fix dataset urls
-    onlyMatch = false;       // strong regexmatching
+    datasetURLfix = false;  // fix dataset urls
+    onlyMatch = false;      // strong regexmatching
+    prioritizing = false;
     ancestor = 1;           // default ancestor index
 
     if (argv.offline)
@@ -104,6 +105,8 @@ function programVariables(){
         unify = true;
     if (argv.m)
         onlyMatch = true;
+    if (argv.p)
+        prioritizing = true;
     if (argv.dataset)
         datasetURLfix = true;
 }
@@ -460,7 +463,7 @@ function output(url, final_results) {
     Get final results from current page
 */
 async function getFinalResults(page, currentSelector) {
-    return await page.$$eval(currentSelector, (nodes, ancestor) => {
+    return await page.$$eval(currentSelector, (nodes, ancestor, format, primary, prioritizing) => {
         return nodes.map(node => {
             cnode = node;
             for (let i = 0; i < ancestor; i++) {
@@ -470,6 +473,13 @@ async function getFinalResults(page, currentSelector) {
             treeContent = {};
             x = 0;
             treeLength = tree.length;
+
+            if(prioritizing){
+                if (Object.values(format).includes(primary)){
+                    treeContent[x] = node.textContent.trim().replace(/\n\s+/g, '');
+                    x++;
+                }
+            }
 
             for (let i = 0; i < treeLength; i++) {
                 if (tree[i].children.length > 0) {
@@ -489,7 +499,7 @@ async function getFinalResults(page, currentSelector) {
             }
             return treeContent;
         })
-    }, ancestor);
+    }, ancestor, format, primary, prioritizing);
 }
 
 /* 
