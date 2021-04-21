@@ -39,7 +39,7 @@ shops:
 	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdum --noundef --dataset
 	python $(TEST) shops
 news:
-	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdu --dataset
+	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdmu --dataset
 	python $(TEST) news
 news3:
 	node $(BIN) --data=$(NEWS3)/$(DATA) --config=$(NEWS3)/$(CONFIG) -o=$(NEWS3)/output/ --offline -dgpm --noundef --dataset
