@@ -33,6 +33,7 @@ Default output folder is ./output
         -b        - should blacklist be considered
         -u        - unify results
         -m        - strict regex matching check
+        -p        - prioritizing primary element while analyzing results
 
 Makefile contains following targets:
 
@@ -88,9 +89,9 @@ Datasets:
 Application contains following datasets:
 
     Football
-    Tsbohemia
-    
     Shops
+    
+    Tsbohemia
     News
     News3
 
