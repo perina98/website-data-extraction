@@ -22,7 +22,7 @@ Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie.
 
 V \ref{implementacia}. kapitole sú popísané jednotlivé detaily implementácie riešenia a hlavná logika aplikácie.
 
-\ref{testing}. kapitola sa následne venuje testovaniu aplikácie za pomoci niekoľkých datasetov, následnej analýze a vyhodnotení výsledkov ktoré aplikácia dosiahla.
+\ref{testing}. kapitola sa následne venuje testovaniu aplikácie za pomoci niekoľkých testovacích sád, následnej analýze a vyhodnotení výsledkov ktoré aplikácia dosiahla.
 
 
 \chapter{Aktuálny prístup k problematike Web Scrapingu}
@@ -163,7 +163,7 @@ Na druhej strane je tu však Javascript, ktorý je vyvíjaný priamo pre prácu 
 
 Rozhodnutie používať Javascript som učinil zároveň s predpokladom využitia jedného z jeho voľne dostupných frameworkov a zároveň som zohľadnil svoje predošlé skúsenosti práve so spomínaným jazykom. K tomuto rozhodnutiu prispel aj fakt, že v dnešnej dobe je dynamika stránok považovaná za štandard a tu hrá úloha Javascriptu veľkú rolu. V procese výberu frameworku som zohľadňoval hlavne integráciu daného frameworku s prehliadačom, výbornú podporu dynamických stránok a podporu asynchrónnosti, ktorá je pri takejto aplikácii kľúčová.
 
-Ako prvý framewrok spomeniem určite Apify SDK, za ktorým stojí Česká firma Apify Technologies\footnote{{\url{https://apify.com/}}} \cite{JanCurna:online}. Medzi najznámejšie technológie ktoré používajú Javascript patria najmä:
+Ako prvý framewrok spomeniem určite Apify SDK, za ktorým stojí Česká firma Apify Technologies\footnote{{\url{https://apify.com/}}} \cite{JanCurna:online}. Medzi najznámejšie technológie používajúce Javascript patria najmä:
 
 \begin{itemize}
     \item {Apify SDK}
@@ -215,7 +215,7 @@ Z uvedených informácií je pomerne jasné aké výhody a nevýhody dané rieš
 
 Cieľom tejto práce je vytvorenie aplikácie určenej na web scraping s unikátnymi vlastnosťami. Kľúčové vlastnosti aplikácie budú tvorené hlavne vstupným a výstupným formátom, postupom ktorý aplikácia bude na extrakciu dát využívať a dôrazom na dodržanie univerzálnosti vstupných pravidiel. 
 
-Univerzálnosť vstupných pravidiel je v tomto prípade myslená v zmysle využiteľnosti raz definovaných požiadaviek na viaceré webové dokumenty a datasety. Definícia vstupných pravidiel bude rozdelená na hlavné a vedľajšie pravidlá tak, aby bolo možné odlíšiť vnútornú konfiguráciu aplikácie a používateľské pravidlá za účelom jednoznačne určiť ich prioritu a typ využitia. Vstupné pravidlá nemôžu byť závislé na štruktúre webového dokumentu, ale na jeho obsahu.
+Univerzálnosť vstupných pravidiel je v tomto prípade myslená v zmysle využiteľnosti raz definovaných požiadaviek na viaceré webové dokumenty a dátové sety. Definícia vstupných pravidiel bude rozdelená na hlavné a vedľajšie pravidlá tak, aby bolo možné odlíšiť vnútornú konfiguráciu aplikácie a používateľské pravidlá za účelom jednoznačne určiť ich prioritu a typ využitia. Vstupné pravidlá nemôžu byť závislé na štruktúre webového dokumentu, ale na jeho obsahu.
 
 Finálna aplikácia bude vyvíjaná pomocou technológie Puppeteer najmä vďaka jeho jednoznačnej integrácií s webovým prehliadačom. To sa na prvý pohľad nemusí zdať dôležité. Jedná sa predsa o aplikáciu na extrakciu dát, nie aplikáciu, ktorá slúži na automatizáciu prehliadača. Údaje z webovej stránky sa dajú získať jednoduchšie, bez využitia webového prehliadača, ktorý celý proces len spomaľuje. 
 
@@ -583,6 +583,21 @@ Externá konfigurácia dostupná pre používateľa je uložená v konfiguračno
 
 Jeho úlohou je definícia základných pravidiel používaných pri extrakcii dát z webových stránok. Formát a obsah tohto súboru je preto jednoznačne daný a musí byť dodržaný. V opačnom prípade hrozí, že aplikácia takýto súbor odmietne a nebude možné v extrakcii dát pokračovať. Aplikácia v takomto prípade používateľa zároveň informuje o danej situácii chybovým hlásením zobrazeným v príslušnom termináli. 
 \newpage
+
+\begin{lstlisting}[caption={Príklad konfiguračného súboru},captionpos=b,label={config_ex}]
+{
+    "maxFailRatio": 70,
+    "format": {
+        "time": "^(\\d\\d:\\d\\d)$",
+        "score": "^(\\d+(\\-|\\:)\\d+)$|^-$|^\\? - \\?$|^\\d\\d$",
+        "string": "^[a-zA-Z].*$"
+    },
+    "primary": "^(\\d+:\\d+)$"
+}
+\end{lstlisting}
+
+\bigskip
+
 Štruktúra konfiguračného súboru je daná nasledovne:
 
 \begin{itemize}
@@ -606,10 +621,38 @@ Keďže sa jedná o jeden z primárnych súborov aplikácie, je jeho výskyt pod
 
 Formát výstupného súboru je preto so súborom obsahujúcim vstupné dáta úzko viazaný, keďže práve vstupné dáta určujú jeho následnú reprezentáciu. Výstupný súbor dát je založený na formáte JSON, a jeho štruktúra odpovedá štruktúre definovanej na vstupe.
 
+\bigskip
+
+\begin{lstlisting}[caption={Príklad dátového súboru},captionpos=b,label={data_ex}]
+{
+    "urls": [
+        "tests/dataset/football/domains/365scores.com.html",
+        "tests/dataset/football/domains/777score.com.html",
+        ...
+        ...
+        ...
+    ],
+    "structure":{
+        "time": "time",
+        "team1": "string",
+        "score": "score",
+        "team2": "string"
+    },
+    "blacklist":[
+        "Canc.",
+        "Finished",
+        "FRO"
+    ]
+}
+\end{lstlisting}
+
+\bigskip
+
 Vstupné dáta sú formované nasledovne:
 
 \begin{itemize}
-  \item \textbf{urls} predstavuje zoznam URL adries webových dokumentov. Tento zoznam je zložený z adries konkrétnych webových dokumentov, o ktoré má v danom momente používateľ záujem. Jeho poradie je kľúčové a pri spustení aplikácie striktne dodržané. Nemalo by však v žiadnom prípade ovplyvniť žiadnu z vlastností aplikácie, pretože aplikácia sa na každý webový dokument pozerá samostatne. V prípade, že sa jedná o webovú stránku stiahnutú do offline podoby, je potrebné určiť absolútnu cestu k danému dokumentu. V takom prípade je zároveň odporúčané aplikáciu spúšťať s parametrom \textit{\texttt{-{}-}offline}. Aplikácia zároveň kontroluje dostupnosť daného webového dokumentu, a ak daný webový dokument nieje dostupný, je o tom používateľ riadne informovaný. Zároveň však nieje ukončené vykonávanie programu a aplikácia pokračuje nasledovnými URL adresami zo zoznamu. Toto rozhodnutie bolo učinené hlavne z dynamickej povahy internetu, kde URL adresy sa v mnohých prípadoch môžu často meniť a zastavenie vykonávania programu by bolo príliš obmedzujúce. Z toho dôvodu je o danej situácií používateľ iba informovaný. Počet adries nieje limitovaný, avšak z dôvodu častej diverzifikácií webových dokumentov je pre používateľa výhodnejšie zoznam rozdeliť do viacerých súborov, čo následne môže značne ovplyvniť kvalitu výsledkov.
+  \item \textbf{urls} predstavuje zoznam URL adries webových dokumentov. Tento zoznam je zložený z adries konkrétnych webových dokumentov, o ktorých extrakciu má používateľ záujem. Jeho poradie je pri spustení aplikácie striktne dodržané. Nemalo by však v žiadnom prípade ovplyvniť žiadnu z vlastností aplikácie, pretože aplikácia sa na každý webový dokument pozerá samostatne. V prípade, že sa jedná o webovú stránku stiahnutú do offline podoby, je potrebné určiť absolútnu cestu k danému dokumentu. V takom prípade je zároveň odporúčané aplikáciu spúšťať s parametrom \textit{\texttt{-{}-}offline}. Aplikácia zároveň kontroluje dostupnosť daného webového dokumentu, a ak daný webový dokument nieje dostupný, je o tom používateľ riadne informovaný. Zároveň však nieje ukončené vykonávanie programu a aplikácia pokračuje nasledovnými URL adresami zo zoznamu. Toto rozhodnutie bolo učinené hlavne z dynamickej povahy internetu, kde URL adresy sa v mnohých prípadoch môžu často meniť a zastavenie vykonávania programu by bolo príliš obmedzujúce. 
+  
   \item \textbf{structure} slúži na definíciu štruktúry extrakčnej úlohy a jej objektov záujmu. Štruktúru definuje používateľ tak, aby odpovedala jeho požadovanému výstupu. Jej formát je definovaný nasledovne:
   
   \textbf{výsledný\_názov : názov\_dátového\_typu}
@@ -773,12 +816,13 @@ Obmedzenie na prehliadač Chromium sa môže zdať ako limitujúci faktor, avša
 
 Prvotné testovanie bolo uskutočňované manuálne. Po extrakcii údajov z webovej stránky boli tieto údaje manuálne skontrolované a overená integrita dát. 
 
-V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje, ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo nutné zaviesť dve hlavné praktiky\cite{precrecall}:
+V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje, ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo nutné zaviesť dve hlavné metriky \cite{precrecall}:
 
 \begin{itemize}
     \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
     
     \begin{eqnarray}
+    \label{preeq}
     Precision \quad = & {\displaystyle\frac{ROR}{ROR + ROI}}
     \end{eqnarray}
    
@@ -787,6 +831,7 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
     \item \textbf{Recall}, ktorá odpovedá na otázku aká časť relevantných extrahovaných dát predstavuje očakávané dáta. Výsledná hodnota recall je preto daná vzťahom:
     
     \begin{eqnarray}
+    \label{receq}
     Recall \quad = & {\displaystyle\frac{ROR}{EOR}}
     \end{eqnarray}
     
@@ -795,7 +840,7 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
 
 \bigskip
 
-Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodnoty určili mieru presnosti extrakcie. Webové stránky sa môžu kedykoľvek zmeniť, a preto pre nutnosť zachovania integrity dát webovej stránky bolo dôležité webovú stránku stiahnuť na lokálny disk a následne ju z neho načítavať. Webovú stránku je ale nutné stiahnuť aj so všetkými závislosťami a tak zachovať jej vzhľad a štruktúru. Stiahnutie webovej stránky konvenčnými nástrojmi alebo stiahnutie pomocou webového prehliadača nedokázalo dosiahnuť požadované výsledky. Za týmto účelom bol využitý nástroj Save Page WE\footnote{\url{https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof}}. Tento nástroj umožnil stiahnutie webovej stránky so všetkými závislosťami tak, že vzhľad a štruktúra zostali vo väčšine prípadoch zachované. Zároveň neboli pozorované žiadne výrazné anomálie a zmeny. Extrahovanie z live verzie stránky a z offline verzie bolo v konečnej fáze ekvivalentné. 
+Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodnoty určili mieru presnosti extrakcie. Webové stránky sa môžu kedykoľvek zmeniť, a preto pre nutnosť zachovania integrity dát webovej stránky bolo dôležité webovú stránku stiahnuť na lokálny disk a následne ju z neho načítavať. Webovú stránku je ale nutné stiahnuť aj so všetkými závislosťami, a tak zachovať jej vzhľad a štruktúru. Stiahnutie webovej stránky konvenčnými nástrojmi alebo stiahnutie pomocou webového prehliadača nedokázalo dosiahnuť požadované výsledky. Za týmto účelom bol využitý nástroj Save Page WE\footnote{\url{https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof}}. Tento nástroj umožnil stiahnutie webovej stránky so všetkými závislosťami tak, že vzhľad a štruktúra zostali vo väčšine prípadoch zachované. Zároveň neboli pozorované žiadne výrazné anomálie a zmeny. Extrahovanie z live verzie stránky a z offline verzie bolo v konečnej fáze ekvivalentné. 
 
 Testovanie si taktiež vyžiadalo vytvorenie spoľahlivej testovacej sady, ktorá by bola schopná úspešnosť aplikácie overiť vo viacerých prípadoch použitia. 
 
@@ -813,7 +858,7 @@ Finálna testovacia sada pozostávala zo 4 oblastí:
     \item Správy a novinky
 \end{itemize}
 
-Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené kolegom. Každá z týchto sád obsahuje 10 webových dokumentov.
+Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené autorom druhej práce. Každá z týchto sád obsahuje 10 webových dokumentov.
 
 \subsection{Štruktúra testovacej sady}
 
@@ -836,7 +881,7 @@ Jedna testovacia sada reprezentovaná práve jednou oblasťou má teda nasledovn
 
 \bigskip
 
-Pri kontrole výsledkov využíva testovací skript zložky expected a output, kde počet súborov ktoré obsahujú musí byť rovnaký.
+Pri kontrole výsledkov využíva testovací skript zložky expected a output, kde počet súborov v týchto zložkách obsahujú musí byť zhodný.
 
 Po spustení aplikácie za účelom testu takejto sady, sú zároveň vygenerované metadáta do koreňového adresára tejto sady, teda vo výsledku sa budú nachádzať v rovnakom adresári ako config.json a data.json.
 
@@ -876,11 +921,11 @@ Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové zh
 
 \newpage
 
-\section{Vyhodnotenie výsledkov}
+\section{Vyhodnotenie testovacích sád}
 
 Pri vyhodnocovaní výsledkov boli využité metriky spomínané v sekcii \ref{sposobytestu} a testovacie sady zo sekcie \ref{dataset}. Testovacia sada \uv{Správy a novinky} bola pri testovaní z dôvodu lepšieho určenia požiadaviek a regulárnych výrazov rozdelená na dve. Celkové vyhodnotenie výsledkov prináša možnosť overiť kvalitu výslednej aplikácie, a preto je správne vyhodnotenie výsledkov veľmi dôležité. 
 
-Nejedná sa totiž len o jednoduché vyobrazenie výsledných dát a porovnanie dát s dátami očakávanými. Táto metrika nám síce napovie kde aplikácia dominuje a kde zlyháva, avšak je treba zvážiť aj koreláciu a kauzalitu týchto výsledkov. 
+Nejedná sa totiž len o jednoduché vyobrazenie výsledných dát a porovnanie dát s dátami očakávanými. Táto metrika nám napovie, kde aplikácia dominuje a kde zlyháva. Stále je však potrebné zvážiť aj koreláciu a kauzalitu týchto výsledkov. 
 
 V úvode tejto kapitoly bola uvedená skutočnosť, že na výsledné hodnoty nemá zmena operačného systému významný zmysel. Pri vyhodnocovaní bol teda použitý operačný systém Windows 10 vo verzii 20H2.
 
@@ -888,11 +933,32 @@ Webové prehliadače vyžadujú pre načítanie webového dokumentu jeho absolú
 
 Všetky testy sú zároveň spustiteľné pomocou priloženého súboru \textit{Makefile}. Jeho možnosti a dostupné parametre sú popísané v \textit{README.md} súbore priloženom v koreňovom adresári aplikácie.
 
+\bigskip
+
+Pri vyhodnocovaní výsledkov boli taktiež zohľadnené údaje, ktoré sú generované v rámci extrakcie. Tieto údaje neboli generované výsledným testovacím skriptom a sú viazané na aktivitu aplikácie.
+
+Všetky nasledovné časové údaje predstavujú priemernú hodnotu z 5 pokusov, ich hodnota je zaokrúhlená na celé milisekundy a ďalej:
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{OC}: Počet extrahovaných objektov
+    \item \textbf{aTime}: Čas potrebný na detekciu a analýzu primárneho prvku
+    \item \textbf{eTime}: Čas potrebný na určenie príslušnosti a finálnu extrakciu údajov
+    \item \textbf{lTime}: Čas potrebný na načítanie webového dokumentu
+\end{itemize}
+
+\bigskip
+
+Tieto údaje budú používané v rámci tabuliek zobrazujúcich výsledky pre jednotlivé domény v testovacích sadách. Je treba samozrejme brať v úvahu povahu offline dokumentu z pohľadu doby načítavania. Pri offline dokumentoch bude táto doba jednoznačne nižšia ako pri extrakcii z online dokumentov. 
+
+\newpage
+
 \subsubsection{Futbalové výsledky a program zápasov}
 
 Testovacia sada zameraná na futbalové výsledky je zameraná na webové stránky zobrazujúce informácie o futbalových zápasoch. Táto sada bola zvolená pre fakt, že takéto stránky sa síce na prvý pohľad zdajú podobné, avšak nie vždy je to pravda. 
 
-Niektoré obsahujú informácií viac, niektoré menej. Niektoré obsahujú irelevantné dáta ktoré treba odfiltrovať, iné obsahujú len dáta ktoré sú očakávané.
+Niektoré obsahujú informácií viac, niektoré menej. Niektoré obsahujú irelevantné dáta. Tie je však nutné odfiltrovať. Iné naopak obsahujú len očakávané dáta.
 
 \bigskip
 
@@ -911,16 +977,10 @@ Ako cielené dáta boli určené čas, názov domáceho týmu, skóre a názov h
 
 \bigskip
 
-Pri vyhodnocovaní výsledkov boli taktiež zohľadnené údaje, ktoré sú generované v rámci extrakcie. Tieto údaje neboli generované výsledným testovacím skriptom, a sú viazané na aktivitu aplikácie.
-
-\newpage
-
-
-
 Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
 
 \begin{table}[hbt]
-\caption{Výsledné hodnoty testovacej sady}
+\caption{Výsledné hodnoty testovacej sady futbalové výsledky}
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
@@ -938,21 +998,236 @@ soccer24.com    & 86,14\%   & 53,93\% & 80  & 292ms & 10ms  & 1516ms \\ \hline
 \end{tabular}
 \end{table}
 
-Kde všetky časové údaje predstavujú priemernú hodnotu z 5 pokusov, ich hodnota je zaokrúhlená na celé milisekundy a ďaľej:
-
-\begin{itemize}
-    \item \textbf{OC}: Počet extrahovaných objektov
-    \item \textbf{aTime}: Čas potrebný na detekciu a analýzu primárneho prvku
-    \item \textbf{eTime}: Čas potrebný na určenie príslušnosti a finálnu extrakciu údajov
-    \item \textbf{lTime}: Čas potrebný na načítanie webového dokumentu
-\end{itemize}
-
 Vykonanie extrakcie na týchto 10 webových dokumentov priemerne trvalo 13627ms, čo nám dáva hodnotu 1362,7ms na jeden dokument. 
 
-Z tejto hodnoty je priemerne 116,8ms aTime (8,6\%), 9,6ms eTime (0,7\%) a 1149,9ms lTime (84,39\%). Zostávajúci čas (6,31\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 97,9\% a priemerná hodnota recall hodnotu 86,5\%. 
+Z tejto hodnoty pripadá priemerne 116,8ms na aTime (8,6\%), 9,6ms na eTime (0,7\%) a 1149,9ms na lTime (84,39\%). Zostávajúci čas (6,31\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 97,9\% a priemerná hodnota recall hodnotu 86,5\%. 
 
 \bigskip
 
 Z následnej analýzy výsledkov a detailnej analýzy webových dokumentov sa podarilo zistiť, že strata na hodnotách recall je daná princípom fungovania aplikácie.
 
-Aplikácia združuje elementy na základe ich atribútu triedy. Avšak v niektorých prípadoch, ak sa časový údaj športového záznamu zmenil na \uv{Finished} alebo \uv{Canceled}, sa atribút triedy zmenil tiež. Aplikácia tak tieto záznamy nezaradila do výsledkov a preto boli stratené.
+Aplikácia združuje elementy na základe ich atribútu triedy. Avšak v niektorých prípadoch, ak sa časový údaj športového záznamu zmenil na \uv{Finished} alebo \uv{Canceled},  nastala zároveň zmena atribútu triedy. Aplikácia tak tieto záznamy nezaradila do výsledkov, a preto boli stratené.
+
+\newpage
+
+\subsubsection{Eshop www.tsbohemia.cz}
+
+Testovacia sada bola zameraná na extrahovanie údajov z rôznych kategórií produktov eshopu tsbohemia\footnote{\url{www.tsbohemia.cz}}. Sada predstavuje webové dokumenty z jednej domény, avšak aj v rámci jednej domény môžu vzniknúť anomálie medzi jednotlivými dokumentami.
+
+Anomálie môžu predstavovať odlišné zaradenie produktov, rôzne reprezentácie ceny a absenciu niektorých vyhľadávaných prvkov(napríklad absencia zľavy niektorých objektov).
+
+\bigskip
+
+Ako cielené dáta boli určené nadpis produktu, cena, popis produktu a zľava. Za primárny prvok bol zvolený údaj o cene. Štruktúra vstupných dát preto vyzerá nasledovne:
+
+\bigskip
+
+\begin{lstlisting}
+"structure":{
+        "title": "string_title",
+        "price": "price",
+        "description": "string_desc",
+        "discount": "discount"
+}
+\end{lstlisting}
+
+\bigskip
+
+Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady tsbohemia}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Dokument        & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+brusky.html     & 100,0\%   & 100,0\% & 24 & 52ms  & 13ms  & 1014ms \\ \hline
+chladice.html   & 100,0\%   & 100,0\% & 24 & 60ms  & 10ms  & 1045ms \\ \hline
+chladnicky.html & 100,0\%   & 100,0\% & 24 & 57ms  & 9ms   & 895ms  \\ \hline
+disky.html      & 100,0\%   & 100,0\% & 24 & 48ms  & 9ms   & 905ms  \\ \hline
+kolobezky.html  & 100,0\%   & 100,0\% & 24 & 51ms  & 9ms   & 834ms  \\ \hline
+mobo.html       & 100,0\%   & 100,0\% & 24 & 53ms  & 7ms   & 1010ms \\ \hline
+monitory.html   & 100,0\%   & 100,0\% & 24 & 68ms  & 8ms   & 924ms  \\ \hline
+proc.html       & 100,0\%   & 100,0\% & 24 & 54ms  & 10ms  & 980ms  \\ \hline
+servery.html    & 100,0\%   & 100,0\% & 24 & 61ms  & 9ms   & 959ms  \\ \hline
+skenery.html    & 100,0\%   & 100,0\% & 24 & 43ms  & 10ms  & 797ms  \\ \hline
+\end{tabular}
+\end{table}
+
+Vykonanie extrakcie na týchto 10 webových dokumentov priemerne trvalo 10876ms, čo nám dáva hodnotu 1087,6ms na jeden dokument. 
+
+Z tejto hodnoty pripadá priemerne 54,7ms na aTime (5,02\%), 9,4ms na eTime (0,86\%) a 936,3ms na lTime (86,08\%). Zostávajúci čas (8,04\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 100,0\% a priemerná hodnota recall hodnotu 100,0\%. 
+
+\bigskip
+
+Celková úspešnosť 100\% je daná faktom, že pri extrahovaní dát z rovnakej domény je zadefinovanie jednoznačných vstupných pravidiel jednoduchšie. Pri rôznych doménach sa mení nielen štruktúra kódu, ale aj štruktúra dát. Ak však extrakcia prebieha v rámci jednej domény, dá sa predpokladať, že medzi jednotlivými dokumentami budú existovať vzťahy a podobnosti.
+
+\newpage
+
+\subsubsection{Eshopy}
+
+Testovacia sada v tomto prípade obsahovala eshopy v podobe rôznych domén. V testovacej sade sa nachádzajú najznámejšie eshopy z Českej republiky, ale aj menej známe a menšie eshopy na vytvorenie diverzity.
+
+Eshopy zobrazujú odlišné produkty, kategórie a odlišný počet objektov. Každý eshop má zároveň vlastnú reprezentáciu zľavy, zobrazenia ceny a v neposlednom rade popisu produktov. V tomto zmysle sa jedná o veľmi diverzifikovanú testovaciu sadu.
+
+\bigskip
+
+Ako cielené dáta boli určené názov produktu, cena, popis produktu a zľava. Za primárny prvok bol zvolený údaj o cene. Štruktúra vstupných dát preto vyzerá nasledovne:
+
+\bigskip
+
+\begin{lstlisting}
+"structure": {
+        "name": "string_title",
+        "price": "price",
+        "description": "string_desc",
+        "sale": "discount"
+}
+\end{lstlisting}
+
+\bigskip
+
+Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady eshopy}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+alza.cz                 & 5,56\%    & 1,16\%  & 6  & 186ms & 7ms   & 1014ms \\ \hline
+czc.cz                  & 66,67\%   & 63,53\% & 27 & 93ms  & 20ms  & 809ms  \\ \hline
+insportline.cz          & 72,88\%   & 57,59\% & 59 & 86ms  & 25ms  & 1211ms \\ \hline
+papirnictvieshop.cz     & 100,0\%   & 100,0\% & 20 & 123ms & 23ms  & 741ms  \\ \hline
+smarty.cz               & 40,28\%   & 32,95\% & 24 & 86ms  & 30ms  & 875ms  \\ \hline
+sparkys.cz              & 75,0\%    & 75,0\%  & 12 & 78ms  & 7ms   & 1061ms \\ \hline
+stavebninystastny.cz    & 100,0\%   & 100,0\% & 10 & 67ms  & 21ms  & 758ms  \\ \hline
+tsbohemia.cz.html       & 87,18\%   & 87,18\% & 24 & 64ms  & 13ms  & 849ms  \\ \hline
+zahradkarske-potreby.cz & 66,67\%   & 66,67\% & 15 & 73ms  & 9ms   & 971ms  \\ \hline
+zahradnictvi-spomysl.cz & 100,0\%   & 100,0\% & 38 & 149ms & 23ms  & 905ms  \\ \hline
+\end{tabular}
+\end{table}
+
+Vykonanie extrakcie na týchto 10 webových dokumentov priemerne trvalo 11228ms, čo nám dáva hodnotu 1122,8ms na jeden dokument. 
+
+Z tejto hodnoty pripadá priemerne 100,5ms na aTime (8,95\%), 17,8ms na eTime (1,59\%) a 919,4ms na lTime (81,88\%). Zostávajúci čas (7,58\%) pripadal na réžiu aplikácie. Výsledná priemerná úspešnosť predstavovala hodnotu 71,42\% a priemerná hodnota recall hodnotu 68,41\%. 
+
+\bigskip
+
+Po analyzovaní webových dokumentov bolo možné vyvodiť záver a príčiny výsledkov. Znížená úspešnosť bola zapríčinená viacerými faktormi. Dva hlavné faktory boli opakovaný výskyt cenovej hodnoty v jednom objekte a zložitá štruktúra webového dokumentu. Ak jedna cena v rámci objektu predstavovala cenu bez DPH alebo pred zľavou a v rámci DOM sa nachádzala na bližšom indexe, bola určená za výslednú. V prípade zložitosti dokumentu, ak bol objekt rozdelený na vyššom indexe rodičovského prvku z pohľadu DOM, prichádzalo k nesprávnemu zaradeniu detských elementov.
+
+\newpage
+
+\subsubsection{Správy a novinky}
+
+V tomto prípade sa jedná o sadu zameranú na správy a novinky. Narozdiel od iných sád je v tejto väčšie množstvo textových elementov, medzi ktorými treba rozlišovať. Zároveň sa líšia v reprezentácií časového údaju. Niektoré reprezentujú čas ako dátum, iné v podobe uplynulého času od zverejnenia. 
+
+Testovacia sada bola zároveň z dôvodu lepšieho špecifikovania vstupných údajov rozdelená na dve.
+
+\bigskip
+
+Za cielené dáta boli určené autor, nadpis článku, časový údaj a popis článku. Za primárny prvok bol zvolený časový údaj. Štruktúra vstupných dát preto vyzerá nasledovne:
+
+\bigskip
+
+\begin{lstlisting}
+"structure":{
+        "author": "string_author",
+        "title": "string_title",
+        "timestamp": "timestamp",
+        "synopsis": "string_synopsis"
+}
+\end{lstlisting}
+
+\bigskip
+
+Z prvej časti testovacej sady vieme vytvoriť nasledovnú tabuľku:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady Správy a novinky (prvá časť)}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+artnews.com             & 72,5\%    & 72,5\%  & 10 & 127ms & 7ms   & 1993ms \\ \hline
+ceskymac.cz             & 100,0\%   & 100,0\% & 20 & 47ms  & 13ms  & 1013ms \\ \hline
+cyclingnews.com         & 96,67\%   & 72,5\%  & 20 & 88ms  & 7ms   & 781ms  \\ \hline
+pcgamer.com             & 93,33\%   & 70,0\%  & 20 & 84ms  & 7ms   & 778ms  \\ \hline
+podnikatel.cz           & 16,67\%   & 3,25\%  & 8  & 47ms  & 6ms   & 923ms  \\ \hline
+rockpapershotgun.com    & 69,0\%    & 69,0\%  & 25 & 70ms  & 7ms   & 1034ms \\ \hline
+smartmania.cz           & 100,0\%   & 100,0\% & 22 & 37ms  & 12ms  & 896ms  \\ \hline
+\end{tabular}
+\end{table}
+
+Vykonanie extrakcie na 7 webových dokumentoch priemerne trvalo 8846,4ms, čo nám dáva hodnotu 1769,3ms na jeden dokument. 
+
+Z tejto hodnoty pripadá priemerne 70,43ms na aTime (3,98\%), 8,43ms na eTime (0,48\%) a 1059,71ms na lTime (59,89\%). Zostávajúci čas (35,65\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 78,31\% a priemerná hodnota recall hodnotu 69,61\%. 
+
+\bigskip
+
+Analýza jednotlivých dokumentov ukázala, že znížené hodnoty precision a recall sú v niektorých prípadoch spojené so spojením jednotlivých prvkov do jedného. Stáva sa tak hlavne pri dvojici \uv{author} a \uv{timestamp}, kde sú tieto dve hodnoty často reprezentované v rámci jedného extrahovaného DOM elementu. Aplikácia následne túto hodnotu určí ako jednu z vyhovujúcich na základe toho, ktorý regulárny výraz predstavuje danú hodnotu.
+
+\newpage
+
+Druhá časť testovacej sady obsahuje 3 webové dokumentu, a z výsledkov vieme vytvoriť nasledovnú tabuľku:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady Správy a novinky (druhá časť)}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+google.com              & 66,67\%   & 50,0\%  & 10 & 77ms  & 10ms  & 1016ms \\ \hline
+mndaily.com             & 47,62\%   & 75,0\%  & 18 & 44ms  & 14ms  & 890ms  \\ \hline
+techcrunch.com          & 64,86\%   & 50,0\%  & 24 & 63ms  & 11ms  & 1061ms \\ \hline
+\end{tabular}
+\end{table}
+
+Vykonanie extrakcie na 3 webových dokumentoch priemerne trvalo 	4038,2ms, čo nám dáva hodnotu 1346,07ms na jeden dokument. 
+
+Z tejto hodnoty pripadá priemerne 61,34ms na aTime (4,56\%), 11,67ms na eTime (0,87\%) a 989ms na lTime (73,47\%). Zostávajúci čas (21,1\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 59,72\% a priemerná hodnota recall hodnotu 58,33\%. 
+
+\bigskip
+
+Z analýzy vyplýva rovnaký záver, ako pri prvej časti tejto testovacej sady. 
+
+\bigskip
+
+Priemerná vážená úspešnosť sady Správy a novinky je teda 72,73\% precision a 66,23\% hodnota recall.
+
+\section{Vyhodnotenie výsledkov}
+
+Po vyhodnotení všetkých testovacích sád vieme vytvoriť obraz o celkovej úspešnosti aplikácie. Tá dosiahla z pomedzi všetkých výsledkov nasledovné priemerné vážené hodnoty:
+
+\begin{itemize}
+    \item \textbf{Precision:} 85,51\%
+    \item \textbf{Recall:} 80,28\%
+\end{itemize}
+
+Výsledné časové údaje ukázali, že najväčší časový úsek je vyhradený pre načítanie webového dokumentu. Je to však vec, ktorú nieje možné rozumne ovplyvniť. V tomto prípade záleží na obsahu webového dokumentu a jeho veľkosti.
+
+Z časových údajov nevyplynula žiadna výrazná korelácia, avšak jednotlivé hodnoty \texttt{precision} a \texttt{recall} vykazujú na základe Pearsonovej korelácie silnú pozitívnu korelačnú závislosť \cite{statistics}. Túto vieme vypočítať vzorcom \ref{correlation}:
+
+\begin{eqnarray}
+\label{correlation}
+    r = \frac{{}\sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}
+{\sqrt{\sum_{i=1}^{n} (x_i - \overline{x})^2(y_i - \overline{y})^2}}
+    \end{eqnarray}
+
+Výsledná hodnota r, ktorá reprezentuje pearsonov korelačný koeficient, dosahuje čísla 0,8877. To indikuje, že vysoké hodnoty precision sú sprevádzané vysokými hodnotami recall a nízke hodnoty s nízkymi. 
+
+Z tohto faktu vieme ďalej vytvoriť predpoklad, že zlepšenie presnosti algoritmu aplikácie povedie k získaniu viacerých relevantných výsledkov. Zlepšenie v tomto zmysle nemusí byť viazané na logiku aplikácie, ale môže byť viazané aj na presnosť definovaného regulárneho výrazu.
+
+\chapter{Záver}
+
+Výsledkom tejto bakalárskej práce je aplikácia určená na inteligentnú extrakciu dát z webových dokumentov. Extrakcia prebieha na základe dopredu definovaných pravidiel zložených z regulárnych výrazov a dátových typov. Hlavným cieľom bolo vytvoriť spôsob extrakcie tak, aby nezáležalo na štruktúre kódu akým je webový dokument reprezentovaný, ale na jeho obsahu. Tento cieľ sa podarilo splniť a vytvoriť tak aplikáciu, ktorá dokáže uľahčiť extrakciu pre bežných používateľov. Zároveň túto extrakciu značne automatizuje a výsledky dosahuje v rozumných časových úsekoch.
+
+Použitie a inštalácia aplikácie zostali napriek rôznym dostupným možnostiam jednoduché. Aplikácia podporuje radu parametrov upresňujúcich chovanie a vnútornú logiku pri rozhodovaní o zaradení výsledkov. Tieto parametre majú za úlohu špecifikovať danú extrakčnú úlohu, ak je to nutné. Aplikácia by aj bez zadania dodatočných parametrov mala spoľahlivo extrahovať požadované údaje.
+
+Táto technická správa najskôr rozoberá aktuálne prístupy k problematike a popisuje dostupné technológie. Práve tieto rozbory a technológie udávali smerovanie nasledujúcich návrhov a implementačných detailov. 
+
+Implementácia bola následne rozdelená do viacerých logických častí, kde najskôr bola navrhnutá logika a následne bola táto logika rozvedená na zabezpečenie požadovaných výsledkov. Aplikácia bola následne rozšírená o funkcie, ktoré pomohli docieliť požadovanú kvalitu výsledkov.
+
+Aplikácia bola implementovaná v programovacom jazyku Javascript. Využíva moderné technológie ako napríklad Node.js, Puppeteer a Chromium. Vďaka technológii Node.js a jej modernému spôsobu spracovania modulov je navyše inštalácia závislostí jednoduchá a rýchla. Najdôležitejšou technológiou je však pre výslednú aplikáciu práve Puppeteer. Táto technológia dokáže komunikovať s webovým prehliadačom a webovým dokumentom na vysokej úrovni a určite má veľký potenciál. Stretol som sa s ňou v tejto práci síce prvý krát, ale rýchlo som si osvojil jej vlastnosti a funkcie.
+
+Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. Jedným z takýchto zlepšení by mohlo napríklad byť vytvorenie vzťahu medzi rôznymi webovými dokumentami a extrahovanými údajmi. Tým by sa mohla extrakcia urýchliť a zároveň zlepšiť presnosť výsledkov.
