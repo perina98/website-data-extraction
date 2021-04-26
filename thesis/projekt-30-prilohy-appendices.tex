@@ -50,18 +50,18 @@ Súbor \texttt{Makefile} zároveň podporuje príkazy na zjednodušenie tohto po
 Súbor Makefile podporuje nasledovné príkazy:
 
 \begin{itemize}
-    \item \textbf{tests} - otestuje všetky testovacie sady a vypíše vyhodnotenie výsledkov.
-    \item \textbf{dataset} - otestuje všetky testovacie sady bez vyhodnotenia výsledkov
-    \item \textbf{testall} - vyhodnotí výsledky testovacích sád
-    \item \textbf{football} - spustí test testovacej sady \uv{Futbalové výsledky a program zápasov}
-    \item \textbf{tsbohemia} - spustí test testovacej sady \uv{Eshop www.tsbohemia.cz}
-    \item \textbf{shops} - spustí test testovacej sady \uv{Eshopy}
-    \item \textbf{news} - spustí test testovacej sady \uv{Správy a novinky} (prvá časť)
-    \item \textbf{news3} - spustí test testovacej sady \uv{Správy a novinky} (druhá časť)
-    \item \textbf{windows-install} - inštalácia závislostí a prerekvizít pre systém Windows
-    \item \textbf{linux-install} - inštalácia závislostí a prerekvizít pre systém Linux
-    \item \textbf{clean} - vymaže súbory vytvorené po vyhodnotení výsledkov
-    \item \textbf{pack} - zbalí potrebné súbory do odovzdávaného archívu
+    \item \textbf{tests}: otestuje všetky testovacie sady a vypíše vyhodnotenie výsledkov,
+    \item \textbf{dataset}: otestuje všetky testovacie sady bez vyhodnotenia výsledkov,
+    \item \textbf{testall}: vyhodnotí výsledky testovacích sád,
+    \item \textbf{football}: spustí test testovacej sady \uv{Futbalové výsledky a program zápasov},
+    \item \textbf{tsbohemia}: spustí test testovacej sady \uv{Eshop www.tsbohemia.cz},
+    \item \textbf{shops}: spustí test testovacej sady \uv{Eshopy},
+    \item \textbf{news}: spustí test testovacej sady \uv{Správy a novinky} (prvá časť),
+    \item \textbf{news3}: spustí test testovacej sady \uv{Správy a novinky} (druhá časť),
+    \item \textbf{windows-install}: inštalácia závislostí a prerekvizít pre systém Windows,
+    \item \textbf{linux-install}: inštalácia závislostí a prerekvizít pre systém Linux,
+    \item \textbf{clean}: vymaže súbory vytvorené po vyhodnotení výsledkov,
+    \item \textbf{pack}: zbalí potrebné súbory do odovzdávaného archívu.
 \end{itemize}
 
 \section{Štruktúra konfiguračných súborov}
@@ -115,20 +115,20 @@ Aplikácia podporuje viacero parametrov pri jej spúšťaní. Úlohou týchto pa
 Zoznam dostupných parametrov:
 
 \begin{itemize}
-    \item \textbf{-{}-data} : špecifikácia dátového súboru
-    \item \textbf{-{}-config} : špecifikácia konfiguračného súboru
-    \item \textbf{-{}-offline} : extrakcia z offline súborov
-    \item \textbf{-{}-noundef} : vymazanie nedefinovaných prvkov z výsledného súboru
-    \item \textbf{-{}-dataset} : transformuje relatívne cesty datasetov na absolútne
-    \item \textbf{-o} : špecifikácia výstupného adresáru
-    \item \textbf{-v} : vypisovanie podrobných informácií do konzoly
-    \item \textbf{-h} : zobrazí pomocné info
-    \item \textbf{-d} : pred definovaním prvku skontroluje, či nebol v minulosti definovaný
-    \item \textbf{-g} : určí príslušnosť nedefinovaných prvkov na základe predchádzajúcich výsledkov
-    \item \textbf{-b} : kontrola prvkov na prezenciu v blackliste
-    \item \textbf{-u} : zjednotenie objektov (všetky objekty majú rovnaký počet prvkov)
-    \item \textbf{-m} : striktné kontrolovanie na základe regulárnych výrazov
-    \item \textbf{-p} : priorizácia primárneho prvku pri analýze výsledkov
+    \item \textbf{-{}-data}: špecifikácia dátového súboru,
+    \item \textbf{-{}-config}: špecifikácia konfiguračného súboru,
+    \item \textbf{-{}-offline}: extrakcia z offline súborov,
+    \item \textbf{-{}-noundef}: vymazanie nedefinovaných prvkov z výsledného súboru,
+    \item \textbf{-{}-dataset}: transformuje relatívne cesty datasetov na absolútne,
+    \item \textbf{-o}: špecifikácia výstupného adresáru,
+    \item \textbf{-v}: vypisovanie podrobných informácií do konzoly,
+    \item \textbf{-h}: zobrazí pomocné info,
+    \item \textbf{-d}: pred definovaním prvku skontroluje, či nebol v minulosti definovaný,
+    \item \textbf{-g}: určí príslušnosť nedefinovaných prvkov na základe predchádzajúcich výsledkov,
+    \item \textbf{-b}: kontrola prvkov na prezenciu v blackliste,
+    \item \textbf{-u}: zjednotenie objektov (všetky objekty majú rovnaký počet prvkov),
+    \item \textbf{-m}: striktné kontrolovanie na základe regulárnych výrazov,
+    \item \textbf{-p}: priorizácia primárneho prvku pri analýze výsledkov.
 \end{itemize}
 
 Použitie parametrov pri spúšťaní aplikácie:
@@ -145,14 +145,12 @@ Aplikácia pri každom zlyhaní používateľa informuje o vzniknutej chybe. Ka�
 
 Zoznam návratových kódov a ich popis:
 
-\bigskip
-
 \begin{itemize}
-    \item \textbf{Error 1} : nebolo možné otvoriť jeden z konfiguračných súborov
-    \item \textbf{Error 2} : vyžadovaný parameter nebol zadaný
-    \item \textbf{Error 3} : nebolo možné nastaviť základné parametre programu
-    \item \textbf{Error 4} : parameter bol povolený ale neboli splnené požiadavky
-    \item \textbf{Error 5} : nemožno vytvoriť výstupný súbor alebo zložku
-    \item \textbf{Error 6} : nesprávna štruktúra konfiguračných súborov
-    \item \textbf{Error 7} : interná chyba
+    \item \textbf{Error 1}: nebolo možné otvoriť jeden z konfiguračných súborov,
+    \item \textbf{Error 2}: vyžadovaný parameter nebol zadaný,
+    \item \textbf{Error 3}: nebolo možné nastaviť základné parametre programu,
+    \item \textbf{Error 4}: parameter bol povolený, ale neboli splnené požiadavky,
+    \item \textbf{Error 5}: nemožno vytvoriť výstupný súbor alebo zložku,
+    \item \textbf{Error 6}: nesprávna štruktúra konfiguračných súborov,
+    \item \textbf{Error 7}: interná chyba.
 \end{itemize}
