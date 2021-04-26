@@ -76,6 +76,20 @@ function failCheck() {
     return false;
 }
 
+/*
+    Check if structure of search elements is correct
+*/
+function structureCheck() {
+    let size = searchStructure.length;
+    let formats = Object.keys(format);
+    for(let i = 0; i < size; i++){
+        if(!formats.includes(searchStructure[i])){
+            return true;
+        }
+    }
+    return false;
+}
+
 /* 
     Set program variables
 */
@@ -206,7 +220,11 @@ function argumentsCheck() {
         if (datasetURLfix) {
             urls = fixDatasetUrls(urls);
         }
-        if (failCheck()) {
+        if(isNaN(severity) || (severity < 1 || severity > 100)){
+            console.error("maxFailRatio error. Check structure.");
+            exit(6);
+        }
+        if (failCheck() || structureCheck()) {
             console.error("Config or data file error. Run with -h param to learn more.");
             exit(6);
         }
@@ -526,7 +544,6 @@ async function dataDump(page, currentSelector) {
         final_results = removeDuplicates(final_results);
         final_results = prepareResults(final_results);
     } catch (err) {
-        console.error(err);
         console.error("Exiting...");
         exit(7);
     }
