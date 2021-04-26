@@ -4,13 +4,13 @@ Cieľom tejto bakalárskej práce je návrh architektúry, a následná implemen
 
 Práve pre spomínanú expanziu internetu sa tejto téme venuje čoraz viac spoločností, so snahou uľahčiť prístup k web scrapingu pre každodenných používateľov. Pre neustály vývoj webu je avšak nutné vyvíjať aj aplikácie, ktoré sú na extrakciu určené. 
 
-Pri rozlišovaní takýchto aplikácií sa berie na vedomie hlavne požadovaný vstupný formát a jeho zložitosť, požadovaný výstupný formát a jeho využiteľnosť v praxi, a v neposlednom rade rýchlosť aplikácie z pohľadu extrakcie dát. 
+Pri rozlišovaní takýchto aplikácií sa berie na vedomie hlavne požadovaný vstupný formát a jeho zložitosť, výstupný formát a jeho využiteľnosť v praxi a v neposlednom rade rýchlosť aplikácie z pohľadu extrakcie dát. 
 
-Táto práca je zameraná hlavne na časť týkajúcu sa požadovaného vstupu aplikácie. Hlavným cieľom aplikácie je umožniť vyjadrenie požadovaných vstupných parametrov tak, aby neboli závislé na štruktúre webovej stránky, ale na jej obsahu. Na dosiahnutie tohto cieľa je potrebné vstupné údaje správne definovať, pretože práve na týchto vstupných údajoch bude závislá úspešnosť následnej extrakcie dát. Tento vstup pozostáva z adries webových stránok, dátových typov, rozloženia objektov na web stránke a požadovaných názvov extrahovaných informácií. Aplikácia sa následne pozerá na každú stránku zvlášť a určí výsledné údaje na základe poskytnutých relevantných informácií o štruktúre. Týmto spôsobom je možné definovať jeden vstup raz, a použiť ho na viaceré webové dokumenty bez nutnosti ďalšieho zásahu. Zároveň by malo byť umožnené extrahovať akékoľvek údaje z akejkoľvek stránky, bez nutnosti analýzy danej webovej stránky alebo poznania jej vnútornej štruktúry. Vstupné a výstupné údaje budú taktiež používateľsky prívetivé tak, aby nebol kladený dôraz na skúsenosti s programovaním a programovacími jazykmi.
+Táto práca je zameraná hlavne na časť týkajúcu sa požadovaného vstupu aplikácie. Hlavným cieľom aplikácie je umožniť vyjadrenie požadovaných vstupných parametrov tak, aby neboli závislé na štruktúre webovej stránky, ale na jej obsahu. Na dosiahnutie tohto cieľa je potrebné vstupné údaje správne definovať, pretože práve na týchto vstupných údajoch bude závislá úspešnosť následnej extrakcie dát. Cieľom je teda možnosť definovať vstupné pravidlá jednoducho a v závislosti na požadovanom výstupe. Nebude ďalej potrebné poznať štruktúru webovej stránky. Ideálne vstupné pravidlá by mali pozostávať zo zoznamu adries webových stránok a štruktúre požadovaných údajov. Aplikácia sa následne pozerá na každú stránku zvlášť a určí výsledné údaje na základe poskytnutých relevantných informácií. Týmto spôsobom je možné definovať jeden vstup raz a použiť ho na viaceré webové dokumenty bez nutnosti ďalšieho zásahu. Zároveň by malo byť umožnené extrahovať akékoľvek údaje z akejkoľvek stránky, bez nutnosti analýzy danej webovej stránky alebo poznania jej vnútornej štruktúry. Vstupné a výstupné údaje budú taktiež používateľsky prívetivé tak, aby nebol kladený dôraz na skúsenosti s programovaním a programovacími jazykmi.
 
 \newpage
 
-Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja finálnej aplikácie, od predstavenia aktuálnej problematiky a technológií, ktoré sú v súčastnosti dostupné až po finálne testovanie aplikácie a zhodnotenie výsledkov.
+Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja finálnej aplikácie. Od predstavenia aktuálnej problematiky a technológií, ktoré sú v súčastnosti dostupné až po finálne testovanie aplikácie a zhodnotenie výsledkov.
 
 \bigskip
 
@@ -18,7 +18,7 @@ Prvá časť práce sa v kapitole \ref{aktualny_pristup} zaoberá aktuálnym pr�
 
 V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie, ktoré je treba brať \mbox{v úvahu} pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o technológie, ktoré sa stali základným kameňom navrhnutej aplikácie, a o technológie na ktorých aplikácia stavia.
 
-Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie, požiadavkov aplikácie a popisuje postup návrhu aplikácie.
+Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie, požiadaviek aplikácie a popisuje postup návrhu.
 
 V \ref{implementacia}. kapitole sú popísané jednotlivé detaily implementácie riešenia a hlavná logika aplikácie.
 
@@ -1205,7 +1205,7 @@ Po vyhodnotení všetkých testovacích sád vieme vytvoriť obraz o celkovej ú
     \item \textbf{Recall:} 80,28\%
 \end{itemize}
 
-Výsledné časové údaje ukázali, že najväčší časový úsek je vyhradený pre načítanie webového dokumentu. Je to však vec, ktorú nieje možné rozumne ovplyvniť. V tomto prípade záleží na obsahu webového dokumentu a jeho veľkosti.
+Výsledné časové údaje ukázali, že priemerný časový úsek na spracovanie jedného dokumentu je 1215,38ms. Toto číslo však platí pre súbory offline testovacej sady a v reálnom svete pri extrahovaní z online webových dokumentov bude extrahovanie pomalšie. To ako veľmi pomalšie už závisí od štruktúry webového dokumentu, obsahu, serveru a mnohých ďalších parametrov.
 
 Z časových údajov nevyplynula žiadna výrazná korelácia, avšak jednotlivé hodnoty \texttt{precision} a \texttt{recall} vykazujú na základe Pearsonovej korelácie silnú pozitívnu korelačnú závislosť \cite{statistics}. Túto vieme vypočítať vzorcom \ref{correlation}:
 
@@ -1256,7 +1256,7 @@ Túto hypotézu však v súčasnom stave nemám ako overiť, a preto možnosť p
 
 \chapter{Záver}
 
-Výsledkom tejto bakalárskej práce je aplikácia určená na inteligentnú extrakciu dát z webových dokumentov. Extrakcia prebieha na základe dopredu definovaných pravidiel zložených z regulárnych výrazov a dátových typov. Hlavným cieľom bolo vytvoriť spôsob extrakcie tak, aby nezáležalo na štruktúre kódu akým je webový dokument reprezentovaný, ale na jeho obsahu. Tento cieľ sa podarilo splniť a vytvoriť tak aplikáciu, ktorá dokáže uľahčiť extrakciu pre bežných používateľov. Zároveň túto extrakciu značne automatizuje a výsledky dosahuje v rozumných časových úsekoch.
+Výsledkom tejto bakalárskej práce je aplikácia určená na inteligentnú extrakciu dát z webových dokumentov. Extrakcia prebieha na základe dopredu definovaných pravidiel zložených z regulárnych výrazov a dátových typov. Hlavným cieľom bolo vytvoriť spôsob extrakcie tak, aby nezáležalo na štruktúre kódu na ktorom je webový dokument postavený, ale na obsahu dokumentu. Tento cieľ sa podarilo splniť a vytvoriť tak aplikáciu, ktorá dokáže uľahčiť extrakciu pre bežných používateľov. Zároveň túto extrakciu značne automatizuje a výsledky dosahuje v rozumných časových úsekoch.
 
 Použitie a inštalácia aplikácie zostali napriek rôznym dostupným možnostiam jednoduché. Aplikácia podporuje radu parametrov upresňujúcich chovanie a vnútornú logiku pri rozhodovaní o zaradení výsledkov. Tieto parametre majú za úlohu špecifikovať danú extrakčnú úlohu, ak je to nutné. Aplikácia by aj bez zadania dodatočných parametrov mala spoľahlivo extrahovať požadované údaje.
 
@@ -1264,6 +1264,8 @@ Táto technická správa najskôr rozoberá aktuálne prístupy k problematike a
 
 Implementácia bola následne rozdelená do viacerých logických častí, kde najskôr bola navrhnutá logika a následne bola táto logika rozvedená na zabezpečenie požadovaných výsledkov. Aplikácia bola následne rozšírená o funkcie, ktoré pomohli docieliť požadovanú kvalitu výsledkov.
 
-Aplikácia bola implementovaná v programovacom jazyku Javascript. Využíva moderné technológie ako napríklad Node.js, Puppeteer a Chromium. Vďaka technológii Node.js a jej modernému spôsobu spracovania modulov je navyše inštalácia závislostí jednoduchá a rýchla. Najdôležitejšou technológiou je však pre výslednú aplikáciu práve Puppeteer. Táto technológia dokáže komunikovať s webovým prehliadačom a webovým dokumentom na vysokej úrovni a určite má veľký potenciál. Stretol som sa s ňou v tejto práci síce prvý krát, ale rýchlo som si osvojil jej vlastnosti a funkcie.
+Z testovania aplikácie vyplýva, že priemerná rýchlosť extrakcie sa pohybuje na úrovni 1215 milisekúnd, hodnota udávajúca priemernú presnosť je 85,61\% a priemerná hodnota recall 80,28\%. 
 
-Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. Jedným z takýchto zlepšení by mohlo napríklad byť vytvorenie vzťahu medzi rôznymi webovými dokumentami a extrahovanými údajmi. Tým by sa mohla extrakcia urýchliť a zároveň zlepšiť presnosť výsledkov. 
+Aplikácia využíva moderné technológie ako napríklad Node.js, Puppeteer a Chromium. Vďaka technológii Node.js a jej modernému spôsobu spracovania modulov je navyše inštalácia závislostí jednoduchá a rýchla. Najdôležitejšou technológiou pre výslednú aplikáciu je práve Puppeteer. Táto technológia má podľa mňa veľký potenciál. Stretol som sa s ňou v tejto práci prvý krát, ale rýchlo som si osvojil jej vlastnosti a funkcie. Kvôli jej integrácii a funkcionalitám, ktoré ponúka dúfam, že v budúcnosti bude pokračovať jej vývoj a budem môcť pracovať na podobných projektoch alebo rozvíjať aktuálnu prácu.
+
+Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. To by mohlo pozostávať z vytvárania vzťahov medzi rôznymi webovými dokumentami a extrahovanými údajmi alebo by aplikácia mohla vytvárať pri analýze webového dokumentu pomocné relačné vzťahy.
