@@ -62,7 +62,7 @@ Default output folder is ./output
 }
 
 /* 
-    Check if everything from input json files is correct and set
+    Check if everything from input JSON files is correct and set
 */
 function failCheck() {
     if (!urls ||
@@ -80,7 +80,7 @@ function failCheck() {
     Set program variables
 */
 function programVariables() {
-    offline = false;        // is file offline?
+    offline = false;        // is file saved offline?
     verbose = false;        // verbose output
     noUndefined = false;    // remove undefined values from results
     defCheck = false;       // check if result already defined
@@ -88,7 +88,7 @@ function programVariables() {
     unify = false;          // unify results
     datasetURLfix = false;  // fix dataset urls
     onlyMatch = false;      // strong regexmatching
-    prioritizing = false;
+    prioritizing = false;   // prioritize primary element while defining results
     ancestor = 1;           // default ancestor index
 
     if (argv.offline)
@@ -113,6 +113,8 @@ function programVariables() {
 
 /*
   If running datasets, absolute path is needed. This can cause problems when changing pc/folder/user/system
+  This function fixes relative paths by changing them to absolute.
+  Structure and location of tests needs to be adhered. 
 */
 function fixDatasetUrls(urls) {
     let base = 'file:///' + __dirname + '/../';
@@ -215,8 +217,7 @@ function argumentsCheck() {
 }
 
 /* 
-  Expect array of all classes on website, sort them by most used class
-  Returns : Sorted array of classes used on site
+  Sort array of classes by number of times it appears on website
 */
 function getTopClasses(targets) {
     let classes = {};
@@ -225,6 +226,7 @@ function getTopClasses(targets) {
     if (tLength == 0) {
         return [];
     }
+    // loop through classes and count their appearance on website
     for (let i = 0; i < tLength; i++) {
         let listLength = Object.keys(targets[i].class_list).length;
         for (let j = 0; j < listLength; j++) {
@@ -247,8 +249,7 @@ function getTopClasses(targets) {
 }
 
 /* 
-  check results array for null values and its failratio
-  Returns : true on passed, false on failed.
+  Check results array for null values and calculate fail ratio
 */
 function checkArrBySeverity(results) {
     let size = results.length;
@@ -257,7 +258,7 @@ function checkArrBySeverity(results) {
         return false;
     }
 
-    let bonds = results.filter((obj) => {
+    let bonds = results.filter(obj => {
         return obj == null;
     }).length;
 
@@ -272,6 +273,8 @@ function checkArrBySeverity(results) {
 
 /* 
     Try to guess datatype based on previous results
+    Returns the first value, becouse its sorted and most likely right
+    based on number of appearances it appeared on specified position
 */
 function guessDatatype(currentResults, position, max) {
     let proposed = [];
@@ -344,14 +347,17 @@ function regMatch(type, input) {
 }
 
 /* 
-  Prepare json like results for final file
+  Prepare JSON like results for final file
 */
 function prepareResults(final_results) {
     let resultsLength = final_results.length;
+    let content = {};
+    let def = [];
+    let keysLength;
     for (let i = 0; i < resultsLength; i++) {
-        let content = {};
-        let def = [];
-        let keysLength = Object.keys(final_results[i]).length;
+        content = {};
+        def = [];
+        keysLength = Object.keys(final_results[i]).length;
         for (let j = 0; j < keysLength; j++) {
             let type = defineType(final_results[i][j], final_results, j, i, def);
             if (type == 'blacklisted' && blist) {
@@ -399,6 +405,7 @@ function checkResults(results) {
 
 /* 
     Unify objects, remove possible unnecessary objects containing less than enough info
+    Also serves as check for possible false positives
 */
 function unifyObjects(final_results) {
     let size = {};
@@ -503,7 +510,8 @@ async function getFinalResults(page, currentSelector) {
 }
 
 /* 
-    Remove duplicates from array
+    Remove duplicates from array, just create new set and map accordingly
+    sets aren't allowed to have duplicates
 */
 function removeDuplicates(final_results) {
     return [...new Set(final_results.map(el => JSON.stringify(el)))].map(e => JSON.parse(e));
@@ -523,7 +531,7 @@ async function dataDump(page, currentSelector) {
         exit(7);
     }
 
-    if (unifyObjects(final_results).length <= MIN_RESLEN && ancestor < MAX_ANCESTOR) {
+    if (unifyObjects(final_results).length < MIN_RESLEN && ancestor < MAX_ANCESTOR) {
         ancestor += 1;
         await dataDump(page, currentSelector);
     }
@@ -565,6 +573,8 @@ async function getPrimaryContent(page, currentSelector) {
 
 /* 
     Main process, determine searchclass and call datadump
+    handles browser and page handlers and loops through all websites
+    when finished, dump metadata and close browser
 */
 async function mainProcess() {
     const browser = await puppeteer.launch({ headless: true });
@@ -657,6 +667,10 @@ async function mainProcess() {
     await browser.close();
 }
 
+/* 
+    Main async function, executed immediately
+    Checks arguments and runs mainProcess
+*/
 (async function () {
     console.log('Execution started');
 
