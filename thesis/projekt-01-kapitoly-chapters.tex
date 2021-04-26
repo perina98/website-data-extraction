@@ -955,6 +955,7 @@ Tieto údaje budú používané v rámci tabuliek zobrazujúcich výsledky pre j
 \newpage
 
 \subsubsection{Futbalové výsledky a program zápasov}
+\label{football}
 
 Testovacia sada zameraná na futbalové výsledky je zameraná na webové stránky zobrazujúce informácie o futbalových zápasoch. Táto sada bola zvolená pre fakt, že takéto stránky sa síce na prvý pohľad zdajú podobné, avšak nie vždy je to pravda. 
 
@@ -1218,6 +1219,41 @@ Výsledná hodnota r, ktorá reprezentuje pearsonov korelačný koeficient, dosa
 
 Z tohto faktu vieme ďalej vytvoriť predpoklad, že zlepšenie presnosti algoritmu aplikácie povedie k získaniu viacerých relevantných výsledkov. Zlepšenie v tomto zmysle nemusí byť viazané na logiku aplikácie, ale môže byť viazané aj na presnosť definovaného regulárneho výrazu.
 
+\newpage
+\section{Paralelizácia načítania webstránok}
+
+Z výsledkov vyplýva aj fakt, že najväčší časový úsek zaberá jednotlivé načítavanie webových dokumentov. Načítavanie dokumentov zaberalo približne 77,14\% celkového času potrebného na extrakciu. Nad rámec zadania bakalárskej práce som implementoval paralelizáciu tohto načítavania. Paralelizácia spočíva v súčasnom načítavaní poskytnutých webových stránok, kde v prípade veľkého množstva stránok je možné načítavanie rozdeliť do skupín tak, aby bolo zaťaženie rozložené.
+
+Výsledky sú v rámci testovacích sád jednoznačné. Pre porovnanie uvediem výsledky testovacej sady \uv{Futbalové výsledky a program zápasov} vyhodnotenej v sekcii \ref{football}:
+
+\begin{table}[hbt]
+\caption{Výsledné hodnoty testovacej sady futbalové výsledky s aktívnou paralelizáciou}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Doména          & Precision & Recall  & OC  & aTime & eTime & lTime  \\ \hline
+365scores.com   & 100,0\%   & 100,0\% & 18  & 156ms & 7ms   & 1589ms  \\ \hline
+777score.com    & 100,0\%   & 100,0\% & 154 & 163ms  & 19ms  & 1722ms \\ \hline
+LiveScore.com   & 100,0\%   & 99,07\% & 81  & 138ms  & 8ms   & 2045ms  \\ \hline
+SkySports.com   & 100,0\%   & 100,0\% & 200 & 175ms & 23ms  & 3630ms  \\ \hline
+Soccerstand.com & 100,0\%   & 98,64\% & 110 & 92ms  & 11ms  & 4637ms \\ \hline
+bbc.com         & 100,0\%   & 100,0\% & 47  &  138ms  & 8ms  & 2045ms \\ \hline
+flashscore.com  & 100,0\%   & 98,66\% & 112 & 230ms  & 25ms   & 2061ms \\ \hline
+flashscore.sk   & 100,0\%   & 66,95\% & 79  & 326ms & 23ms   & 3032ms \\ \hline
+scoreboard.com  & 92,84\%   & 47,73\% & 110 & 194ms & 16ms  & 3610ms \\ \hline
+soccer24.com    & 86,14\%   & 53,93\% & 80  & 491ms & 14ms  & 3115ms \\ \hline
+\end{tabular}
+\end{table}
+
+Z uvedených výsledkov je zrejmé, že čas potrebný na vykonanie jednotlivých častí extrakcie sa zvýšil. Priemerný čas analýzy a detekcie stúpol na hodnotu 210,4ms, čo predstavuje nárast o 80,14\% a čas potrebný na načítanie webovej stránky stúpol na hodnotu 2748,6ms, teda nárast o 139\%. Keďže sa ale jednalo o paralelné načítavanie, celkový čas potrebný na extrakciu klesol na priemernú hodnotu 8763,2ms. To predstavuje 35,69\% zníženie časových nárokov na extrakciu. Výsledné hodnoty týkajúce sa hodnoty precision a hodnoty recall však zostali zachované.
+
+Paralelizmus je ale značne náročnejší čo sa týka požiadaviek na hardware. Najlepší výsledok čo sa rýchlosti týka bol prvý, kde aplikácia dokázala danú úlohu vykonať za 6375ms. To by predstavovalo viac ako 53\% ušetreného času. Práve kvôli náročnosti, zaťaženiu a zahriatiu hardware neskôr výsledky klesali na úroveň 9000-1000ms. Dá sa ale predpokladať, že pri dostatočne výkonnom hardware by paralelizácia mohla byť užitočná a výsledky podávané v konštantnej časovej rovine.
+
+Je treba poukázať aj na fakt, že extrakcia z online verzii web stránok je značne pomalšia ako extrakcia z offline súborov. Tu môžu vzniknúť ďalšie problémy týkajúce sa veľkého zaťaženia nielen PC, ale aj sieťového pripojenia. Stále si ale myslím, že sú to len problémy, ktoré by dostatočne výkonný hardware mohol zvládať.
+
+Túto hypotézu však v súčasnom stave nemám ako overiť, a preto možnosť paralelizmu nebola do výslednej aplikácie zaradená.
+
+
 \chapter{Záver}
 
 Výsledkom tejto bakalárskej práce je aplikácia určená na inteligentnú extrakciu dát z webových dokumentov. Extrakcia prebieha na základe dopredu definovaných pravidiel zložených z regulárnych výrazov a dátových typov. Hlavným cieľom bolo vytvoriť spôsob extrakcie tak, aby nezáležalo na štruktúre kódu akým je webový dokument reprezentovaný, ale na jeho obsahu. Tento cieľ sa podarilo splniť a vytvoriť tak aplikáciu, ktorá dokáže uľahčiť extrakciu pre bežných používateľov. Zároveň túto extrakciu značne automatizuje a výsledky dosahuje v rozumných časových úsekoch.
@@ -1230,4 +1266,4 @@ Implementácia bola následne rozdelená do viacerých logických častí, kde n
 
 Aplikácia bola implementovaná v programovacom jazyku Javascript. Využíva moderné technológie ako napríklad Node.js, Puppeteer a Chromium. Vďaka technológii Node.js a jej modernému spôsobu spracovania modulov je navyše inštalácia závislostí jednoduchá a rýchla. Najdôležitejšou technológiou je však pre výslednú aplikáciu práve Puppeteer. Táto technológia dokáže komunikovať s webovým prehliadačom a webovým dokumentom na vysokej úrovni a určite má veľký potenciál. Stretol som sa s ňou v tejto práci síce prvý krát, ale rýchlo som si osvojil jej vlastnosti a funkcie.
 
-Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. Jedným z takýchto zlepšení by mohlo napríklad byť vytvorenie vzťahu medzi rôznymi webovými dokumentami a extrahovanými údajmi. Tým by sa mohla extrakcia urýchliť a zároveň zlepšiť presnosť výsledkov.
+Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. Jedným z takýchto zlepšení by mohlo napríklad byť vytvorenie vzťahu medzi rôznymi webovými dokumentami a extrahovanými údajmi. Tým by sa mohla extrakcia urýchliť a zároveň zlepšiť presnosť výsledkov. 
