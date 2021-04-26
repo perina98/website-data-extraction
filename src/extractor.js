@@ -614,6 +614,7 @@ async function mainProcess() {
                 results = await getPrimaryContent(page, currentSelector);
             } catch (err) {
                 console.error(err);
+                exit(7);
             }
             results = checkResults(results);
 
