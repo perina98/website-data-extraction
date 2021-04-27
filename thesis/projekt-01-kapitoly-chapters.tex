@@ -42,7 +42,7 @@ Automatizované získavanie informácií z webu sa dostalo do vývoja krátko po
 
 \section{Súčasné postupy}
 
-Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe a type analýzy a extrakcie finálnych dát. Hlavným cieľom pri tvorbe aplikácie na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú je prevažne rovnaký, a skladá sa z troch primárnych krokov:\ref{WebScrap_img}
+Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe a type analýzy a extrakcie finálnych dát. Hlavným cieľom pri tvorbe aplikácie na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú je prevažne rovnaký, a skladá sa z troch primárnych krokov \ref{WebScrap_img}:
 \begin{enumerate}
   \item{Odoslanie GET požiadavky na webový server a následné obdržanie odpovedi}
   \item{Analýza HTML kódu na základe stromovej štruktúry}
@@ -730,7 +730,7 @@ Pri analýze sú teda kontrolované jednotlivé okruhy určené triednymi atrib�
 
 Analýza webovej stránky určí výsledný okruh dát, v ktorom sa nachádza primárny prvok. Z jeho definície vyplýva, že je súčasťou alebo je v relatívnej blízkosti potencionálnych výsledkov. Primárny prvok je teda počiatočný bod, z ktorého bude primárne vyhľadávanie výsledných prvkov prebiehať. 
 
-Aplikácia najskôr určí počiatočný bod reprezentovaný uzlom. Pri tomto určovaní je veľmi dôležitá štruktúra webovej stránky reprezentovaná pomocou DOM\ref{DOM}. Dá sa preto predpokladať, že nekvalitný alebo zložito štruktúrovaný kód webovej stránky môže ovplyvniť úspešnosť extrakcie pri danom webovom dokumente. 
+Aplikácia najskôr určí počiatočný bod reprezentovaný uzlom. Pri tomto určovaní je veľmi dôležitá štruktúra webovej stránky reprezentovaná pomocou DOM \ref{DOM}. Dá sa preto predpokladať, že nekvalitný alebo zložito štruktúrovaný kód webovej stránky môže ovplyvniť úspešnosť extrakcie pri danom webovom dokumente. 
 
 Následne prechádzame ku generovaní potencionálnych výsledkov. Tie sú generované nasledovným spôsobom:
 
@@ -826,7 +826,7 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
     Precision \quad = & {\displaystyle\frac{ROR}{ROR + ROI}}
     \end{eqnarray}
    
-    Kde \textit{ROR} predstavuje počet všetkých extrahovaných objektov, ktoré sú pre nás relevantné a \textit{ROI} predstavuje počet irelevantných objektov. Týmto vzťahom vieme získať výslednú presnosť akú aplikácia dosiahla.
+    Kde \textit{ROR} predstavuje počet všetkých extrahovaných objektov, ktoré sú pre nás relevantné a \textit{ROI} predstavuje počet irelevantných objektov. Týmto vzťahom vieme získať výslednú presnosť extrakcie dosiahnutú aplikáciou.
     
     \item \textbf{Recall}, ktorá odpovedá na otázku aká časť relevantných extrahovaných dát predstavuje očakávané dáta. Výsledná hodnota recall je preto daná vzťahom:
     
@@ -840,7 +840,7 @@ V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programo
 
 \bigskip
 
-Pomocou týchto praktík bolo následne testovanie upresnené a výsledné hodnoty určili mieru presnosti extrakcie. Webové stránky sa môžu kedykoľvek zmeniť, a preto pre nutnosť zachovania integrity dát webovej stránky bolo dôležité webovú stránku stiahnuť na lokálny disk a následne ju z neho načítavať. Webovú stránku je ale nutné stiahnuť aj so všetkými závislosťami, a tak zachovať jej vzhľad a štruktúru. Stiahnutie webovej stránky konvenčnými nástrojmi alebo stiahnutie pomocou webového prehliadača nedokázalo dosiahnuť požadované výsledky. Za týmto účelom bol využitý nástroj Save Page WE\footnote{\url{https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof}}. Tento nástroj umožnil stiahnutie webovej stránky so všetkými závislosťami tak, že vzhľad a štruktúra zostali vo väčšine prípadoch zachované. Zároveň neboli pozorované žiadne výrazné anomálie a zmeny. Extrahovanie z live verzie stránky a z offline verzie bolo v konečnej fáze ekvivalentné. 
+Pomocou týchto metrík bolo následne testovanie upresnené a výsledné hodnoty určili mieru presnosti extrakcie. Webové stránky sa môžu kedykoľvek zmeniť, a preto pre nutnosť zachovania integrity dát webovej stránky bolo dôležité webovú stránku stiahnuť na lokálny disk a následne ju z neho načítavať. Webovú stránku je ale nutné stiahnuť aj so všetkými závislosťami, a tak zachovať jej vzhľad a štruktúru. Stiahnutie webovej stránky konvenčnými nástrojmi alebo stiahnutie pomocou webového prehliadača nedokázalo dosiahnuť požadované výsledky. Za týmto účelom bol využitý nástroj \texttt{Save Page WE}\footnote{\url{https://chrome.google.com/webstore/detail/save-page-we/dhhpefjklgkmgeafimnjhojgjamoafof}}. Tento nástroj umožnil stiahnutie webovej stránky so všetkými závislosťami tak, že vzhľad a štruktúra zostali vo väčšine prípadoch zachované. Zároveň neboli pozorované žiadne výrazné anomálie a zmeny. Extrahovanie z live verzie stránky a z offline verzie bolo v konečnej fáze ekvivalentné. 
 
 Testovanie si taktiež vyžiadalo vytvorenie spoľahlivej testovacej sady, ktorá by bola schopná úspešnosť aplikácie overiť vo viacerých prípadoch použitia. 
 
@@ -864,7 +864,7 @@ Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené au
 
 Základom každej testovacej sady je zložka s HTML súbormi, ktoré predstavujú jednotlivé webové dokumenty a ich očakávané extrahované hodnoty v druhej zložke. Očakávané hodnoty sú reprezentované JSON súbormi, kde každý nesie názov webového dokumentu, ktorého dáta predstavuje. 
 
-Zároveň sú súčasťou jednej testovacej sady súbory \textit{config.json} a \textit{data.json}, ktoré sú neoddeliteľnou súčasťou aplikácie a bližšie špecifikujú extrakčnú úlohu pri danej testovacej sade. Extrahované dáta sú následne uložené do zložky \textit{output}
+Zároveň sú súčasťou každej testovacej sady súbory \textit{config.json} a \textit{data.json}, ktoré sú neoddeliteľnou súčasťou aplikácie a bližšie špecifikujú extrakčnú úlohu pri danej testovacej sade. Extrahované dáta sú následne uložené do zložky \textit{output}.
 
 Jedna testovacia sada reprezentovaná práve jednou oblasťou má teda nasledovnú štruktúru, ktorá je zároveň kľúčová pre testovací skript a musí byť dodržaná:
 
@@ -881,7 +881,7 @@ Jedna testovacia sada reprezentovaná práve jednou oblasťou má teda nasledovn
 
 \bigskip
 
-Pri kontrole výsledkov využíva testovací skript zložky expected a output, kde počet súborov v týchto zložkách obsahujú musí byť zhodný.
+Pri kontrole výsledkov využíva testovací skript zložky expected a output, kde počet súborov v týchto zložkách musí byť zhodný.
 
 Po spustení aplikácie za účelom testu takejto sady, sú zároveň vygenerované metadáta do koreňového adresára tejto sady, teda vo výsledku sa budú nachádzať v rovnakom adresári ako config.json a data.json.
 
@@ -894,9 +894,9 @@ Skript berie ako parameter názov testovacej oblasti, čo je zároveň názov ko
 
 V prípade, že dva porovnávané súbory obsahujú rovnaký počet objektov, prebieha porovnávanie na úrovni kľúčov, pretože sa dá postupovať jednoznačným spôsobom a porovnávať jednotlivé kľúče objektov, čo vedie k presnejšiemu vyhodnoteniu. 
 
-Ak ale dva súbory neobsahujú rovnaký počet objektov, je veľmi zložité priradiť jednotlivé kľúče k jednotlivým objektom. V takom prípade skript prechádza k menej presnému porovnávaniu na úrovni objektov. Vtedy je pre úspešnosť porovnania potrebná reprezentácia objektu 1:1, teda extrahovaný objekt sa musí nachádzať v očakávanom súbore.
+Ak ale dva súbory neobsahujú rovnaký počet objektov, je veľmi zložité priradiť jednotlivé kľúče k jednotlivým objektom. V takom prípade skript prechádza k menej presnému porovnávaniu na úrovni objektov. Vtedy je pre úspešnosť porovnania potrebná reprezentácia objektu 1:1, teda extrahovaný objekt sa musí nachádzať v súbore s očakávanými dátami.
 
-Pri každom kľúči alebo objekte je pripočítaná hodnota k počtu irelevantných prvkov. Na záver, potom ako sú obidva súbory skontrolované, skript vygeneruje výsledné hodnoty precision a recall. Zároveň si skript drží internú pamäť týchto čiastkových výsledkov a po skončení testovaní jednej testovacej sady vygeneruje priemernú hodnotu precision a recall.
+Pri každom irelevantnom kľúči alebo objekte je pripočítaná hodnota k počtu irelevantných prvkov. Na záver, potom ako sú obidva súbory skontrolované, skript vygeneruje výsledné hodnoty precision a recall. Zároveň si skript drží internú pamäť týchto čiastkových výsledkov a po skončení testovania jednej testovacej sady vygeneruje priemernú hodnotu precision a recall.
 
 Pri spustení skriptu s parametrom \textit{-o} sú zároveň tieto priemerné hodnoty zapísané do dočasného súboru overall. Po otestovaní viacerých testovacích sád je následne možné spustiť skript \textit{overall.py}, ktorý vypočíta priemernú váženú hodnotu precision a priemernú váženú hodnotu recall.
 
@@ -905,10 +905,10 @@ Pri spustení skriptu s parametrom \textit{-o} sú zároveň tieto priemerné ho
 Skript po spustení otestuje určenú testovaciu sadu a vygeneruje výsledky. Tie sa skladajú z nasledovných údajov:
 
 \begin{itemize}
-    \item \textbf{Status}: Určuje status kontroly daného webového dokumentu
-    \item \textbf{Precision}: Hodnota precision pre daný webový dokument
-    \item \textbf{Recall}: Hodnota recall pre daný webový dokument
-    \item \textbf{Domain}: Názov súboru s očakávanými výsledkami (nesie názov webového dokumentu)
+    \item \textbf{Status}: určuje status kontroly daného webového dokumentu,
+    \item \textbf{Precision}: hodnota precision pre daný webový dokument,
+    \item \textbf{Recall}: hodnota recall pre daný webový dokument,
+    \item \textbf{Domain}: názov súboru s očakávanými výsledkami (nesie názov webového dokumentu).
 \end{itemize}
 
 \bigskip
@@ -917,7 +917,7 @@ Na záver sú zároveň vypísané priemerné výsledky pre testovanú sadu.
 
 \bigskip
 
-Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové zhodnotenie výsledkov, aké aplikácia bola schopná dosiahnuť. Pri takom množstve súborov, aké sa v testovacej sade nachádza, by manuálna kontrola a vyhodnotenie prebiehala len veľmi ťažko.
+Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové zhodnotenie výsledkov. Pri takom množstve súborov, aké sa v testovacej sade nachádza, by manuálna kontrola a vyhodnotenie prebiehalo len veľmi ťažko.
 
 \newpage
 
@@ -925,32 +925,32 @@ Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové zh
 
 Pri vyhodnocovaní výsledkov boli využité metriky spomínané v sekcii \ref{sposobytestu} a testovacie sady zo sekcie \ref{dataset}. Testovacia sada \uv{Správy a novinky} bola pri testovaní z dôvodu lepšieho určenia požiadaviek a regulárnych výrazov rozdelená na dve. Celkové vyhodnotenie výsledkov prináša možnosť overiť kvalitu výslednej aplikácie, a preto je správne vyhodnotenie výsledkov veľmi dôležité. 
 
-Nejedná sa totiž len o jednoduché vyobrazenie výsledných dát a porovnanie dát s dátami očakávanými. Táto metrika nám napovie, kde aplikácia dominuje a kde zlyháva. Stále je však potrebné zvážiť aj koreláciu a kauzalitu týchto výsledkov. 
+Nejedná sa totiž len o jednoduché vyobrazenie výsledných dát a porovnanie ich reprezentácie s očakávanými údajmi. Táto metrika nám napovie, kde aplikácia dominuje a kde zlyháva, stále je však potrebné zvážiť aj koreláciu a kauzalitu týchto výsledkov. 
 
-V úvode tejto kapitoly bola uvedená skutočnosť, že na výsledné hodnoty nemá zmena operačného systému významný zmysel. Pri vyhodnocovaní bol teda použitý operačný systém Windows 10 vo verzii 20H2.
+V úvode tejto kapitoly bola uvedená skutočnosť, že na výsledné hodnoty nemá zmena operačného systému významný vplyv. Pri vyhodnocovaní bol teda použitý operačný systém Windows 10 vo verzii 20H2.
 
 Webové prehliadače vyžadujú pre načítanie webového dokumentu jeho absolútnu cestu. Pre zaručenie prenositeľnosti testovacích sád boli však v  týchto sadách uvádzané cesty relatívne. Pre správne spustenie testov a zaručenie nahradenia relatívnych ciest, je preto vyžadované spustenie aplikácie s parametrom \texttt{-{}-dataset}. Použitie relatívnej cesty predpokladá umiestnenie testovacích sád v zložke \texttt{/tests/dataset/} z pohľadu koreňového adresára aplikácie.
 
-Všetky testy sú zároveň spustiteľné pomocou priloženého súboru \textit{Makefile}. Jeho možnosti a dostupné parametre sú popísané v \textit{README.md} súbore priloženom v koreňovom adresári aplikácie.
+Všetky testy sú zároveň spustiteľné pomocou priloženého súboru \textit{Makefile}. Jeho možnosti a dostupné parametre sú popísané v \textit{README.md} súbore priloženom v koreňovom adresári aplikácie alebo v rámci manuálu dostupného v prílohe \ref{manual}.
 
 \bigskip
 
 Pri vyhodnocovaní výsledkov boli taktiež zohľadnené údaje, ktoré sú generované v rámci extrakcie. Tieto údaje neboli generované výsledným testovacím skriptom a sú viazané na aktivitu aplikácie.
 
-Všetky nasledovné časové údaje predstavujú priemernú hodnotu z 5 pokusov, ich hodnota je zaokrúhlená na celé milisekundy a ďalej:
-
-\bigskip
+Všetky časové údaje pri výsledkoch testovacích sád predstavujú priemernú hodnotu z 5 pokusov, ich hodnota je zaokrúhlená na celé milisekundy a ďalej:
 
 \begin{itemize}
-    \item \textbf{OC}: Počet extrahovaných objektov
-    \item \textbf{aTime}: Čas potrebný na detekciu a analýzu primárneho prvku
-    \item \textbf{eTime}: Čas potrebný na určenie príslušnosti a finálnu extrakciu údajov
-    \item \textbf{lTime}: Čas potrebný na načítanie webového dokumentu
+    \item \textbf{OC}: počet extrahovaných objektov,
+    \item \textbf{aTime}: čas potrebný na detekciu a analýzu primárneho prvku,
+    \item \textbf{eTime}: čas potrebný na určenie príslušnosti a finálnu extrakciu údajov,
+    \item \textbf{lTime}: čas potrebný na načítanie webového dokumentu.
 \end{itemize}
 
 \bigskip
 
 Tieto údaje budú používané v rámci tabuliek zobrazujúcich výsledky pre jednotlivé domény v testovacích sadách. Je treba samozrejme brať v úvahu povahu offline dokumentu z pohľadu doby načítavania. Pri offline dokumentoch bude táto doba jednoznačne nižšia ako pri extrakcii z online dokumentov. 
+
+Po vyhodnotení jednotlivých testovacích sád bude zároveň vyhodnotené testovanie ako také. Priemerné hodnoty zo všetkých 40 dokumentov vytvoria dobrú predstavu o funkčnosti a použiteľnosti aplikácie.
 
 \newpage
 
@@ -959,7 +959,7 @@ Tieto údaje budú používané v rámci tabuliek zobrazujúcich výsledky pre j
 
 Testovacia sada zameraná na futbalové výsledky je zameraná na webové stránky zobrazujúce informácie o futbalových zápasoch. Táto sada bola zvolená pre fakt, že takéto stránky sa síce na prvý pohľad zdajú podobné, avšak nie vždy je to pravda. 
 
-Niektoré obsahujú informácií viac, niektoré menej. Niektoré obsahujú irelevantné dáta. Tie je však nutné odfiltrovať. Iné naopak obsahujú len očakávané dáta.
+Niektoré obsahujú informácií viac, niektoré menej. Niektoré obsahujú veľké množstvo irelevantných dát. Tie je však nutné odfiltrovať. Iné naopak obsahujú len očakávané dáta.
 
 \bigskip
 
@@ -1015,7 +1015,7 @@ Aplikácia združuje elementy na základe ich atribútu triedy. Avšak v niektor
 
 Testovacia sada bola zameraná na extrahovanie údajov z rôznych kategórií produktov eshopu tsbohemia\footnote{\url{www.tsbohemia.cz}}. Sada predstavuje webové dokumenty z jednej domény, avšak aj v rámci jednej domény môžu vzniknúť anomálie medzi jednotlivými dokumentami.
 
-Anomálie môžu predstavovať odlišné zaradenie produktov, rôzne reprezentácie ceny a absenciu niektorých vyhľadávaných prvkov(napríklad absencia zľavy niektorých objektov).
+Anomálie môžu predstavovať odlišné zaradenie produktov, rôzne reprezentácie ceny a absenciu niektorých vyhľadávaných prvkov(napríklad absencia zľavy niektorých objektov). Zároveň však tento fakt predstavuje výhodu, pretože sa vstupné pravidlá dajú vzniknutým anomáliám prispôsobiť lepšie, ako pri extrakcii z viacerích domén.
 
 \bigskip
 
@@ -1061,7 +1061,7 @@ Z tejto hodnoty pripadá priemerne 54,7ms na aTime (5,02\%), 9,4ms na eTime (0,8
 
 \bigskip
 
-Celková úspešnosť 100\% je daná faktom, že pri extrahovaní dát z rovnakej domény je zadefinovanie jednoznačných vstupných pravidiel jednoduchšie. Pri rôznych doménach sa mení nielen štruktúra kódu, ale aj štruktúra dát. Ak však extrakcia prebieha v rámci jednej domény, dá sa predpokladať, že medzi jednotlivými dokumentami budú existovať vzťahy a podobnosti.
+Celková úspešnosť 100\% je daná faktom, že pri extrahovaní dát z rovnakej domény je zadefinovanie jednoznačných vstupných pravidiel jednoduchšie. Pri rôznych doménach sa mení nielen štruktúra kódu, ale aj štruktúra dát. Ak však extrakcia prebieha v rámci jednej domény, dá sa predpokladať, že medzi jednotlivými dokumentami budú existovať vzťahy a podobnosti. Tie môžme následne využiť pri tvorbe pravidiel.
 
 \newpage
 
@@ -1120,8 +1120,9 @@ Po analyzovaní webových dokumentov bolo možné vyvodiť záver a príčiny v�
 \newpage
 
 \subsubsection{Správy a novinky}
+\label{spravy}
 
-V tomto prípade sa jedná o sadu zameranú na správy a novinky. Narozdiel od iných sád je v tejto väčšie množstvo textových elementov, medzi ktorými treba rozlišovať. Zároveň sa líšia v reprezentácií časového údaju. Niektoré reprezentujú čas ako dátum, iné v podobe uplynulého času od zverejnenia. 
+V tomto prípade sa jedná o sadu zameranú na správy a novinky. Narozdiel od iných sád je v tejto väčšie množstvo textových elementov, medzi ktorými treba rozlišovať. Zároveň sa líšia v reprezentácií časového údaju. Niektoré reprezentujú čas ako dátum, iné v podobe času uplynulého od zverejnenia. 
 
 Testovacia sada bola zároveň z dôvodu lepšieho špecifikovania vstupných údajov rozdelená na dve.
 
@@ -1160,17 +1161,17 @@ smartmania.cz           & 100,0\%   & 100,0\% & 22 & 37ms  & 12ms  & 896ms  \\ \
 \end{tabular}
 \end{table}
 
-Vykonanie extrakcie na 7 webových dokumentoch priemerne trvalo 8846,4ms, čo nám dáva hodnotu 1769,3ms na jeden dokument. 
+Vykonanie extrakcie na 7 webových dokumentoch priemerne trvalo 8846,4ms, čo nám dáva hodnotu 1263,77ms na jeden dokument. 
 
-Z tejto hodnoty pripadá priemerne 70,43ms na aTime (3,98\%), 8,43ms na eTime (0,48\%) a 1059,71ms na lTime (59,89\%). Zostávajúci čas (35,65\%) pripadal na réžiu aplikácie. Priemerná úspešnosť predstavovala hodnotu 78,31\% a priemerná hodnota recall hodnotu 69,61\%. 
+Z tejto hodnoty pripadá priemerne 70,43ms na aTime (5,58\%), 8,43ms na eTime (0,67\%) a 1059,71ms na lTime (83,85\%). Zostávajúci čas (9,9\%) pripadal na réžiu aplikácie. Výsledná priemerná úspešnosť predstavovala hodnotu 78,31\% a priemerná hodnota recall hodnotu 69,61\%. 
 
 \bigskip
 
-Analýza jednotlivých dokumentov ukázala, že znížené hodnoty precision a recall sú v niektorých prípadoch spojené so spojením jednotlivých prvkov do jedného. Stáva sa tak hlavne pri dvojici \uv{author} a \uv{timestamp}, kde sú tieto dve hodnoty často reprezentované v rámci jedného extrahovaného DOM elementu. Aplikácia následne túto hodnotu určí ako jednu z vyhovujúcich na základe toho, ktorý regulárny výraz predstavuje danú hodnotu.
+Analýza jednotlivých dokumentov ukázala, že znížené hodnoty precision a recall sú v niektorých prípadoch spojené so spojením jednotlivých prvkov do jedného. Stáva sa tak hlavne pri dvojici \uv{author} a \uv{timestamp}, kde sú tieto dve hodnoty často reprezentované v rámci jedného extrahovaného DOM elementu. Aplikácia následne túto hodnotu určí ako jednu z vyhovujúcich na základe toho, ktorý regulárny výraz splní podmienku daného prvku. Toto je spôsobené väčším množstvom textových elementov. Zadefinovanie jednoznačného regulárneho výrazu pre každý z nich tak, aby sa neprekrývali, je preto zložitejšie.
 
 \newpage
 
-Druhá časť testovacej sady obsahuje 3 webové dokumentu, a z výsledkov vieme vytvoriť nasledovnú tabuľku:
+Druhá časť testovacej sady obsahuje 3 webové dokumenty a z výsledkov vieme vytvoriť nasledovnú tabuľku:
 
 \begin{table}[hbt]
 \caption{Výsledné hodnoty testovacej sady Správy a novinky (druhá časť)}
@@ -1205,9 +1206,9 @@ Po vyhodnotení všetkých testovacích sád vieme vytvoriť obraz o celkovej ú
     \item \textbf{Recall:} 80,28\%
 \end{itemize}
 
-Výsledné časové údaje ukázali, že priemerný časový úsek na spracovanie jedného dokumentu je 1215,38ms. Toto číslo však platí pre súbory offline testovacej sady a v reálnom svete pri extrahovaní z online webových dokumentov bude extrahovanie pomalšie. To ako veľmi pomalšie už závisí od štruktúry webového dokumentu, obsahu, serveru a mnohých ďalších parametrov.
+Výsledné časové údaje ukázali, že priemerný časový úsek na spracovanie jedného dokumentu je 1215,38ms. Toto číslo však platí pre súbory offline testovacej sady a v reálnom svete pri extrahovaní z online webových dokumentov bude extrahovanie pomalšie. To ako veľmi pomalšie už závisí od štruktúry webového dokumentu, obsahu, serveru a mnohých ďalších aspektov.
 
-Z časových údajov nevyplynula žiadna výrazná korelácia, avšak jednotlivé hodnoty \texttt{precision} a \texttt{recall} vykazujú na základe Pearsonovej korelácie silnú pozitívnu korelačnú závislosť \cite{statistics}. Túto vieme vypočítať vzorcom \ref{correlation}:
+Z časových údajov nevyplynula žiadna významná korelácia, avšak jednotlivé hodnoty \texttt{precision} a \texttt{recall} vykazujú na základe Pearsonovho korelačného koeficientu silnú pozitívnu korelačnú závislosť \cite{statistics}. Túto vieme vypočítať vzorcom \ref{correlation}:
 
 \begin{eqnarray}
 \label{correlation}
@@ -1217,12 +1218,12 @@ Z časových údajov nevyplynula žiadna výrazná korelácia, avšak jednotliv�
 
 Výsledná hodnota r, ktorá reprezentuje pearsonov korelačný koeficient, dosahuje čísla 0,8877. To indikuje, že vysoké hodnoty precision sú sprevádzané vysokými hodnotami recall a nízke hodnoty s nízkymi. 
 
-Z tohto faktu vieme ďalej vytvoriť predpoklad, že zlepšenie presnosti algoritmu aplikácie povedie k získaniu viacerých relevantných výsledkov. Zlepšenie v tomto zmysle nemusí byť viazané na logiku aplikácie, ale môže byť viazané aj na presnosť definovaného regulárneho výrazu.
+Z tohto faktu vieme ďalej vytvoriť predpoklad, že zlepšenie presnosti povedie k získaniu viacerých relevantných výsledkov. Zlepšenie v tomto zmysle nemusí byť viazané na logiku aplikácie, ale môže byť viazané aj na presnosť definovaného regulárneho výrazu. Ak bude definovaný regulárny výraz príliš všeobecný, bude presnosť nižšia. To sme mohli pozorovať aj pri testovacej sade \uv{Správy a novinky} \ref{spravy} z dôvodu väčšieho počtu textových elementov.
 
 \newpage
 \section{Paralelizácia načítania webstránok}
 
-Z výsledkov vyplýva aj fakt, že najväčší časový úsek zaberá jednotlivé načítavanie webových dokumentov. Načítavanie dokumentov zaberalo približne 77,14\% celkového času potrebného na extrakciu. Nad rámec zadania bakalárskej práce som implementoval paralelizáciu tohto načítavania. Paralelizácia spočíva v súčasnom načítavaní poskytnutých webových stránok, kde v prípade veľkého množstva stránok je možné načítavanie rozdeliť do skupín tak, aby bolo zaťaženie rozložené.
+Z výsledkov vyplýva aj fakt, že najväčší časový úsek zaberá jednotlivé načítavanie webových dokumentov. Načítavanie dokumentov zaberalo približne 81,93\% celkového času potrebného na extrakciu. Nad rámec zadania bakalárskej práce som implementoval paralelizáciu tohto načítavania. Paralelizácia spočíva v súčasnom načítavaní poskytnutých webových stránok, kde v prípade veľkého množstva stránok je možné načítavanie rozdeliť do skupín tak, aby bolo zaťaženie rozložené.
 
 Výsledky sú v rámci testovacích sád jednoznačné. Pre porovnanie uvediem výsledky testovacej sady \uv{Futbalové výsledky a program zápasov} vyhodnotenej v sekcii \ref{football}:
 
