@@ -55,12 +55,12 @@ If application encounters crash, it exits with one of the following error codes:
 
     Error codes:
         1 - cant open file
-        2 - arg not specified
+        2 - argument not specified
         3 - default not reached
         4 - option allowed but conditions not met
         5 - cant create folder or file
-        6 - bad structure
-        7 - internal err
+        6 - bad input structure
+        7 - internal error
 
 Prerequisities:
 
@@ -75,15 +75,11 @@ Instalation:
 
     Windows (using chocolatey, nodejs can also be installed using Setup Wizard from official webpage):
         cinst nodejs.install
-        npm i puppeteer
-        npm i css.escape
-        npm i minimist
+        npm install
         
     Linux:
         sudo apt install nodejs | sudo snap install node --classic
-        npm i puppeteer
-        npm i css.escape
-        npm i minimist
+        npm install
 
 Datasets:
 Application contains following datasets:
