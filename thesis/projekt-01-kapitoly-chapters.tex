@@ -1,6 +1,6 @@
 \chapter{Úvod}
 
-Cieľom tejto bakalárskej práce je návrh architektúry, a následná implementácia aplikácie určenej na extrakciu dát z webových stránok. V dnešnej dobe je pojem extrakcia dát používaný stále častejšie, a to práve v spojitosti s webovými technológiami a webom samotným. Je to tak pravdepodobne preto, že sa internet ako taký, a hlavne jeho obsah v podobe webových stránok, neustále rozširuje. Objem dát, ktorý sa na webe nachádza, sa zväčšuje neúprosnou rýchlosťou, a preto je zber údajov z rôznych webových stránok stále zložitejší. A to nielen čo sa zložitosti štruktúry webu týka, ale vzhľadom na veľký počet webov sa zvyšuje aj časová náročnosť analýzy a následnej extrakcie dát. Takejto extrakcii sa hovorí web scraping. Web scraping môže prebiehať aj manuálne, kde ho vykonáva určená osoba, avšak v dnešnej dobe je už táto procedúra automatizovaná.
+Cieľom tejto bakalárskej práce je návrh architektúry a následná implementácia aplikácie určenej na extrakciu dát z webových stránok. V dnešnej dobe je pojem extrakcia dát používaný stále častejšie, a to práve v spojitosti s webovými technológiami a webom samotným. Je to tak pravdepodobne preto, že sa internet ako taký, a hlavne jeho obsah v podobe webových stránok, neustále rozširuje. Objem dát, ktorý sa na webe nachádza, sa zväčšuje neúprosnou rýchlosťou, a preto je zber údajov z rôznych webových stránok stále zložitejší. A to nielen čo sa zložitosti štruktúry webu týka, ale vzhľadom na veľký počet webov sa zvyšuje aj časová náročnosť analýzy a následnej extrakcie dát. Takejto extrakcii sa hovorí web scraping. Web scraping môže prebiehať aj manuálne, kde ho vykonáva určená osoba, avšak v dnešnej dobe je už táto procedúra automatizovaná.
 
 Práve pre spomínanú expanziu internetu sa tejto téme venuje čoraz viac spoločností, so snahou uľahčiť prístup k web scrapingu pre každodenných používateľov. Pre neustály vývoj webu je avšak nutné vyvíjať aj aplikácie, ktoré sú na extrakciu určené. 
 
@@ -16,13 +16,13 @@ Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja
 
 Prvá časť práce sa v kapitole \ref{aktualny_pristup} zaoberá aktuálnym prístupom k problematike, ako sa web scraping využíva v súčasnosti, aké sú štandardy a dostupné technológie a porovnanie týchto prístupov z hľadiska využiteľnosti.
 
-V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie, ktoré je treba brať \mbox{v úvahu} pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o technológie, ktoré sa stali základným kameňom navrhnutej aplikácie, a o technológie na ktorých aplikácia stavia.
+V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie, ktoré je treba brať \mbox{v úvahu} pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o technológie, ktoré sa stali základným kameňom navrhnutej aplikácie a na základe ktorých aplikácia stavia.
 
 Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie, požiadaviek aplikácie a popisuje postup návrhu.
 
 V \ref{implementacia}. kapitole sú popísané jednotlivé detaily implementácie riešenia a hlavná logika aplikácie.
 
-\ref{testing}. kapitola sa následne venuje testovaniu aplikácie za pomoci niekoľkých testovacích sád, následnej analýze a vyhodnotení výsledkov ktoré aplikácia dosiahla.
+\ref{testing}. kapitola sa následne venuje testovaniu aplikácie za pomoci niekoľkých testovacích sád, následnej analýze a vyhodnotení výsledkov, ktoré aplikácia dosiahla.
 
 
 \chapter{Aktuálny prístup k problematike Web Scrapingu}
@@ -187,7 +187,7 @@ V prvom rade treba zvážiť aktuálnu situáciu a technológie, ktoré sa na we
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.7\textwidth]{obrazky-figures/modules.png}
-	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Zdroj Moduleco \url{http://www.modulecounts.com/}}
+	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Zdroj Moduleco \url{http://www.modulecounts.com/}, citované 30.3.2021.}
 	\label{Moduleco_img}
 \end{figure}
 
@@ -343,7 +343,7 @@ Spojenie s prehliadačom je nadviazané pomocou protokolu DevTools vyvinutého s
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.6\textwidth]{obrazky-figures/pyramid.png}
-	\caption{Hierarchia výslednej aplikácie pri použití technológie Puppeteer.}
+	\caption{Hierarchia výslednej aplikácie pri použití technológie Puppeteer. Zdroj \cite{pyramid}.}
 	\label{pupepyramid_img}
 \end{figure}
 
@@ -992,7 +992,7 @@ Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Doména          & Precision & Recall  & OC  & aTime & eTime & lTime  \\ \hline
+\textbf{Doména}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 365scores.com   & 100,0\%   & 100,0\% & 18  & 114ms & 5ms   & 995ms  \\ \hline
 777score.com    & 100,0\%   & 100,0\% & 154 & 92ms  & 15ms  & 1158ms \\ \hline
 LiveScore.com   & 100,0\%   & 99,07\% & 81  & 90ms  & 5ms   & 852ms  \\ \hline
@@ -1048,7 +1048,7 @@ Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Dokument        & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+\textbf{Dokument}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 brusky.html     & 100,0\%   & 100,0\% & 24 & 52ms  & 13ms  & 1014ms \\ \hline
 chladice.html   & 100,0\%   & 100,0\% & 24 & 60ms  & 10ms  & 1045ms \\ \hline
 chladnicky.html & 100,0\%   & 100,0\% & 24 & 57ms  & 9ms   & 895ms  \\ \hline
@@ -1102,7 +1102,7 @@ Z vygenerovaných údajov teda vieme vytvoriť nasledovnú tabuľku:
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+\textbf{Doména}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 alza.cz                 & 5,56\%    & 1,16\%  & 6  & 186ms & 7ms   & 1014ms \\ \hline
 czc.cz                  & 66,67\%   & 63,53\% & 27 & 93ms  & 20ms  & 809ms  \\ \hline
 insportline.cz          & 72,88\%   & 57,59\% & 59 & 86ms  & 25ms  & 1211ms \\ \hline
@@ -1157,7 +1157,7 @@ Z prvej časti testovacej sady vieme vytvoriť nasledovnú tabuľku:
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+\textbf{Doména}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 artnews.com             & 72,5\%    & 72,5\%  & 10 & 127ms & 7ms   & 1993ms \\ \hline
 ceskymac.cz             & 100,0\%   & 100,0\% & 20 & 47ms  & 13ms  & 1013ms \\ \hline
 cyclingnews.com         & 96,67\%   & 72,5\%  & 20 & 88ms  & 7ms   & 781ms  \\ \hline
@@ -1185,7 +1185,7 @@ Druhá časť testovacej sady obsahuje 3 webové dokumenty a z výsledkov vieme 
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Doména                  & Precision & Recall  & OC & aTime & eTime & lTime  \\ \hline
+\textbf{Doména}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 google.com              & 66,67\%   & 50,0\%  & 10 & 77ms  & 10ms  & 1016ms \\ \hline
 mndaily.com             & 47,62\%   & 75,0\%  & 18 & 44ms  & 14ms  & 890ms  \\ \hline
 techcrunch.com          & 64,86\%   & 50,0\%  & 24 & 63ms  & 11ms  & 1061ms \\ \hline
@@ -1239,7 +1239,7 @@ Výsledky sú v rámci testovacích sád jednoznačné. Pre porovnanie uvediem v
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-Doména          & Precision & Recall  & OC  & aTime & eTime & lTime  \\ \hline
+\textbf{Doména}          & \textbf{Precision} & \textbf{Recall}  & \textbf{OC}  & \textbf{aTime} & \textbf{eTime} & \textbf{lTime}  \\ \hline
 365scores.com   & 100,0\%   & 100,0\% & 18  & 156ms & 7ms   & 1589ms  \\ \hline
 777score.com    & 100,0\%   & 100,0\% & 154 & 163ms  & 19ms  & 1722ms \\ \hline
 LiveScore.com   & 100,0\%   & 99,07\% & 81  & 138ms  & 8ms   & 2045ms  \\ \hline
