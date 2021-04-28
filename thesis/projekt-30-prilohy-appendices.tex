@@ -23,7 +23,7 @@ Tento manuál obsahuje návod na inštaláciu, popis jednotlivých cieľov súbo
 
 \section{Návod na inštaláciu}
 
-Aplikácia po stiahnutí obsahuje len základné zdrojové kódy a preto je potrebné nainštalovať závislosti. Tie budú v prípade Node.js nainštalované do zložky \texttt{node\_modules} v koreňovom adresári aplikácie.
+Aplikácia po stiahnutí obsahuje len vlastné zdrojové kódy. Závislosti aplikácie je potrebné inštalovať dodatočne. Tie budú v prípade Node.js nainštalované do zložky \texttt{node\_modules} v koreňovom adresári aplikácie.
 
 Medzi hlavné prerekvizity patria:
 
@@ -46,7 +46,7 @@ Pri tejto inštalácii je možné využiť priložený súbor \texttt{package.js
 
 \subsubsection{Makefile}
 
-Súbor \texttt{Makefile} zároveň podporuje príkazy na zjednodušenie tohto postupu. Príkazom \texttt{make windows-install} prebehne inštalácia Node.js a závislostí npm pre operačný systém Windows 10 za pomoci správcu Chocolatey. Príkazom \texttt{make linux-install} prebehne inštalácia pre operačný systém Linux.
+Súbor \texttt{Makefile} zároveň podporuje príkazy na zjednodušenie tohto postupu. Príkazom \texttt{make windows-install} prebehne inštalácia Node.js a závislostí pre operačný systém Windows 10 za pomoci správcu Chocolatey. Príkazom \texttt{make linux-install} prebehne inštalácia pre operačný systém Linux.
 
 Súbor Makefile podporuje nasledovné príkazy:
 
@@ -111,7 +111,7 @@ Príklad dátového súboru \texttt{data.json}:
 
 \section{Dostupné parametre}
 
-Aplikácia podporuje viacero parametrov pri jej spúšťaní. Úlohou týchto parametrov je bližšie špecifikovať danú extrakčnú úlohu. Pre úspešné spustenie aplikácie je však požadovaný len jeden parameter, a to \texttt{-{}-data}. Ten špecifikuje vstupný dátový súbor.
+Aplikácia podporuje viacero parametrov pri jej spúšťaní. Úlohou týchto parametrov je bližšie špecifikovať danú extrakčnú úlohu. Pre úspešné spustenie aplikácie je však požadovaný len parameter \texttt{-{}-data}. Ten špecifikuje vstupný dátový súbor. 
 
 Zoznam dostupných parametrov:
 
@@ -142,7 +142,7 @@ Použitie parametrov pri spúšťaní aplikácie:
 
 \section{Návratové kódy}
 
-Aplikácia pri každom zlyhaní používateľa informuje o vzniknutej chybe. Každý návratový kód definuje typ chyby ktorá nastala.
+Aplikácia pri každom zlyhaní používateľa informuje o vzniknutej chybe. Každý návratový kód definuje typ chyby, ktorá nastala.
 
 Zoznam návratových kódov a ich popis:
 
