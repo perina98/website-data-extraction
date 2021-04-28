@@ -182,7 +182,7 @@ V porovnaní s technológiou Cheerio má Puppeteer svoje výhody. V niektorých 
     \item rýchlosť analýzy a extrakcie.
 \end{itemize}
 
-V prvom rade treba zvážiť aktuálnu situáciu a technológie, ktoré sa na webe vyskytujú. 95\% webových stránok v súčasnosti používa Javascript, takže predpoklad, že moderné weby budú obsahovať dynamický obsah je prevažne jasný, a preto treba s takýmto obsahom počítať. Node.js, ktorý je postavený na Javascripte, je zároveň najrýchlejšie sa rozširujúcou nielen webovou technológiou. V čase písania má Node.js viac ako 1,5 milióna dostupných rozširujúcich balíčkov a jeho náskok je v súčasnej dobe jednoznačný \ref{Moduleco_img}\cite{HowPopular}. 
+V prvom rade treba zvážiť aktuálnu situáciu a technológie, ktoré sa na webe vyskytujú. 95\% webových stránok v súčasnosti používa Javascript, takže predpoklad, že moderné weby budú obsahovať dynamický obsah je prevažne jasný, a preto treba s takýmto obsahom počítať. Node.js, ktorý je postavený na Javascripte, je zároveň najrýchlejšie sa rozširujúcou nielen webovou technológiou. V čase písania má Node.js viac ako 1,5 milióna dostupných rozširujúcich balíčkov a jeho náskok je v súčasnej dobe jednoznačný \ref{Moduleco_img} \cite{HowPopular}. 
 
 \begin{figure}[hbt]
 	\centering
@@ -201,7 +201,7 @@ Cheerio a Puppeteer sú technológie založené na Node.js a patria medzi najpop
 
 Puppeteer je technológia, ktorá je vyvíjaná za účelom automatizácie webového prehliadača, zatiaľčo hlavným určením Cheeria je web scraping samotný. Tým, že Cheerio je určené priamo na požadovanú úlohu, je v tomto ohľade rýchlejšie a výhodnejšie pre web scraping. Cheerio zároveň nieje viazané na prehliadač a funguje samostatne \cite{cheerio}.
 
-Na druhú stranu Puppeteer je viazaný iba na prehliadač Google Chrome vo forme Chromium. Puppeteer má priamu kontrolu nad prehliadačom, takže je možné ovládať prehliadač ako celok. Tento fakt sa dá brať aj ako výhoda, aj ako nevýhoda, keďže je to pravdepodobne jeden z dôvodov prečo je Puppeteer pomalší vo vykonávaní funkcie Web Scrapera. Puppeteer však prináša schopnosť plynulej práce s Javascriptom na webovej stránke. Dokáže pracovať aj s webovými stránkami postavenými na moderných technológiách ako React alebo Angular, ktoré sú v dnešnej dobe na vzostupe pre ich moderné prvky. Z priamej integrácie s prehliadačom vyplýva aj fakt, že Puppeteer dokáže vytvárať snímky obrazovky počas načítavania a pracovania s webovou stránkou. Zároveň podporuje technológiu XML a nerobí mu problém ako čítanie, tak ani parsovanie a priame spúšťanie funkcií Javascriptu \cite{puppeteer}\cite{Differences}. 
+Na druhú stranu Puppeteer je viazaný iba na prehliadač Google Chrome vo forme Chromium. Puppeteer má priamu kontrolu nad prehliadačom, takže je možné ovládať prehliadač ako celok. Tento fakt sa dá brať aj ako výhoda, aj ako nevýhoda, keďže je to pravdepodobne jeden z dôvodov prečo je Puppeteer pomalší vo vykonávaní funkcie Web Scrapera. Puppeteer však prináša schopnosť plynulej práce s Javascriptom na webovej stránke. Dokáže pracovať aj s webovými stránkami postavenými na moderných technológiách ako React alebo Angular, ktoré sú v dnešnej dobe na vzostupe pre ich moderné prvky. Z priamej integrácie s prehliadačom vyplýva aj fakt, že Puppeteer dokáže vytvárať snímky obrazovky počas načítavania a pracovania s webovou stránkou. Zároveň podporuje technológiu XML a nerobí mu problém ako čítanie, tak ani parsovanie a priame spúšťanie funkcií Javascriptu \cite{puppeteer}, \cite{Differences}. 
 
 Práve podpora dodatočných funkcií a možnosť parsovania dynamických stránok s Javascriptom ma presvedčili pre výber technológie Puppeteer. Rozširovaním poznatkov v rámci technológie Puppeteer som si tento pocit presvedčenia len overil. Následne som túto technológiu využil pri návrhu architektúry a implementácii výslednej aplikácie.
 
@@ -219,7 +219,7 @@ Univerzálnosť vstupných pravidiel je v tomto prípade myslená v zmysle využ
 
 Finálna aplikácia bude vyvíjaná pomocou technológie Puppeteer najmä vďaka jeho jednoznačnej integrácií s webovým prehliadačom. To sa na prvý pohľad nemusí zdať dôležité. Jedná sa predsa o aplikáciu na extrakciu dát, nie aplikáciu, ktorá slúži na automatizáciu prehliadača. Údaje z webovej stránky sa dajú získať jednoduchšie, bez využitia webového prehliadača, ktorý celý proces len spomaľuje. 
 
-To je síce pravda, avšak spomínaná podpora dynamických stránok a stránok postavených na moderných technológiách, ako napríklad React a Angular, je značne limitovaná. Načítanie týchto stránok tak, aby ich zobrazenie zodpovedalo realite je prehliadačom Chrome zvládnuté bez akýchkoľvek problémov. Protokol Chrome DevTools dokáže zabezpečiť komunikáciu na vysokej úrovni, ktorá dané dáta prenesie tak, ako bolo zamýšľané. Po naviazaní spojenia má Puppeteer plnú kontrolu nad prehliadačom a extrakcia dát môže začať. 
+To je síce pravda, avšak spomínaná podpora dynamických stránok a stránok postavených na moderných technológiách, ako napríklad React a Angular, je značne limitovaná. Načítanie týchto stránok tak, aby ich zobrazenie zodpovedalo realite je prehliadačom Chrome zvládnuté bez akýchkoľvek problémov. Protokol Chrome DevTools dokáže zabezpečiť komunikáciu na vysokej úrovni, ktorá dané dáta prenesie tak, ako bolo zamýšľané. Po nadviazaní spojenia má Puppeteer plnú kontrolu nad prehliadačom a extrakcia dát môže začať. 
 
 Postup, ktorý bude aplikácia na analyzovanie a detekciu obsahu používať bude popísaný v nasledovných kapitolách. Mal by byť ale efektívny, s dôrazom na presnosť a rýchlosť akou dokáže rozpoznať, že sa jedná o falošné alebo pravé výsledky. To bude jednoznačne určené porovnaním s definovanými vstupnými pravidlami.
 
@@ -235,13 +235,13 @@ Pri návrhu riešenia boli brané v úvahu aktuálne dostupné aplikácie a fram
 \chapter{Technológie}
 \label{Technologie}
 
-Táto kapitola sa zaoberá popisom technológií, modulov a prvkov na základe ktorých bude následne zostavená aplikácia tak, aby bolo čo najefektívnejšie nielen jej využívanie, ale aj údržba. Zároveň treba brať v úvahu aj prívetivosť a jednoduchosť používateľského vstupu, jeho formát, využiteľnosť a prenositeľnosť výstupných dát. 
+Táto kapitola sa zaoberá popisom technológií, modulov a prvkov na základe ktorých bude následne zostavená aplikácia. Ako cieľ je považované dosiahnuť čo najefektívnejšie nielen jej využívanie, ale aj jej údržbu. Zároveň treba brať v úvahu aj prívetivosť a jednoduchosť používateľského vstupu, jeho formát, využiteľnosť a prenositeľnosť výstupných dát. 
 
 K výberu týchto technológií boli využité poznatky z Kapitoly \ref{aktualny_pristup}, ktoré ďalej určovali smer návrhu a vývoja aplikácie.
 
 \section{HTML}
 
-Základným stavebným blokom každej webovej stránky je nepochybne HTML. HTML je skratka pre \textit{Hypertext Markup Language} a už svojím názvom napovedá, akú úlohu vo webových technológiách zohráva. 
+Základným stavebným blokom každej webovej stránky je nepochybne HTML. HTML je skratka pre \textit{HyperText Markup Language} a už svojím názvom napovedá, akú úlohu vo webových technológiách zohráva. 
 
 HTML dokument sa skladá z elementov, ktoré sú predstavené v podobe takzvaných \textit{značiek}. Tieto značky sú reprezentované pomocou znakov \textit{<>}. Tie nám dovoľujú určovať typ a rozsah uvedeného obsahu. Tieto elementy môžu obsahovať zároveň rôzne ďalšie atribúty, ako napríklad trieda elementu alebo identifikátor. Takéto atribúty sú potom využívané v technológiách, ktoré s HTML dokumentami spolupracujú, ako napríklad CSS a Javascript.
 
@@ -250,22 +250,22 @@ Takéto dokumenty sú následne reprezentované vo webovom prehliadači. Ten HTM
 \section{DOM}
 \label{DOM}
 
-Jazyk HTML nieje určený na programovacie účely, a preto je potrebné pri práci s webovými stránkami zvážiť aj technológiu DOM. DOM je skratka reprezentujúca \textit{Document Object Model}. Predstavuje akési prepojenie medzi HTML a programovacím jazykom, ktorý chce s webovou stránkou komunikovať \cite{DOM}. 
+Jazyk HTML nieje určený na programovacie účely, a preto je potrebné pri práci s webovými stránkami zvážiť aj technológiu DOM. DOM je skratka reprezentujúca \textit{Document Object Model}. Predstavuje akési prepojenie medzi HTML a programovacím jazykom, ktorý chce s webovou stránkou komunikovať \cite{DOM}.
 
 Pri komunikácií s programovacím jazykom DOM reprezentuje stránku v dvoch hlavných podobách:
 
 \begin{itemize}
     \item {Uzly}
-    \item {Elementy}
+    \item {Objekty}
 \end{itemize}
 
 Práve tento fakt nám ďalej dovoľuje s webovou stránkou interagovať a meniť jej obsah. Príkladom takéhoto využitia je jazyk Javascript, ktorý bol vyvinutý za účelom vytvorenia dojmu interakcie používateľa s webovou stránkou. 
 
-DOM je zároveň veľmi dôležitý pri web scrapingu, keďže práve komunikácia s webovou stránkou na úrovni programovacieho jazyka je kľúčová pri extrahovaní požadovaných údajov z webových dokumentov. Takáto extrakcia je možná vďaka reprezentácií webovej stránky v objektovo orientovanej podobe.
+DOM je zároveň veľmi dôležitý pri web scrapingu. Práve komunikácia s webovou stránkou na úrovni programovacieho jazyka je kľúčová pri extrahovaní požadovaných údajov z webových dokumentov. Takáto extrakcia je možná vďaka reprezentácií webovej stránky v objektovo orientovanej podobe.
 
 \section{CSS}
 
-CSS predstavuje istý jazyk, ktorý je používaný za účelom popisu štylizácie HTML dokumentov. CSS znamená \textit{Cascading Style Sheets}, kde Cascading predstavuje jedno z hlavných pravidiel tohto jazyka - štylizačné pravidlá majú určenú prioritu, podľa ktorej budú aplikované a zároveň umožňujú na jednej webovej stránke používať viacero CSS súborov. 
+CSS predstavuje istý jazyk, ktorý je používaný za účelom popisu štylizácie HTML dokumentov. CSS znamená \textit{Cascading Style Sheets}, kde Cascading predstavuje jedno z hlavných pravidiel tohto jazyka - štylizačné pravidlá majú určenú prioritu, podľa ktorej budú aplikované. Tieto pravidlá zároveň umožňujú na jednej webovej stránke používať viacero CSS súborov. 
 
 Primárne určenie je už spomínaná štylizácia a definovanie rozloženia elementov na webovej stránke. Zároveň môžu definovať vzhľad v závislosti od zariadenia, ktoré webovú stránku v danom momente navštívilo. Popisuje teda stav elementov pre médium na ktorom je webový dokument zobrazovaný \cite{CSS}. 
 
@@ -279,11 +279,11 @@ Pri vytváraní CSS pravidiel rozlišujeme 3 hlavné miesta, kde sa tieto pravid
     \item {Externé}
 \end{itemize}
 
-Rozlišovanie medzi týmito typmi je dôležité, pretože z názvu \textit{Cascading} vyplýva, že každé miesto môže mať inú prioritu finálneho vykonania daného pravidla.
+Rozlišovanie medzi týmito typmi je dôležité, pretože každé miesto môže mať inú prioritu finálneho vykonania daného pravidla. Výsledná aplikácia využíva fakt, že atribúty triedy sú zväčša používané práve na štylizáciu a tým zaradenie jednotlivých prvkov do jedného logického celku. Tieto celky sa následne dajú využiť na určenie a následnú extrakciu relevantných údajov.
 
 \section{Javascript}
 
-Programovací jazyk Javascript bol vyvinutý za účelom vytvárania dojmu interakcie pri webových stránkach. Javascript je jednou z hlavných súčastí webových stránok a je používaný na viac ako 95\% stránkach celosvetovo \cite{HowPopular}. Dá sa preto predpokladať, že bude jeho integrácia s webovými prehliadačmi a webovými stránkami na vysokej úrovni. 
+Programovací jazyk Javascript bol vyvinutý za účelom vytvárania dojmu interakcie pri webových stránkach a vývojom rôznych aplikácií. Javascript je jednou z hlavných súčastí webových stránok a je používaný na viac ako 95\% stránkach celosvetovo \cite{HowPopular}. Dá sa preto predpokladať, že jeho integrácia s webovými prehliadačmi a webovými stránkami bude na vysokej úrovni. 
 
 \bigskip
 
@@ -301,16 +301,16 @@ Práve kombinácia HTML, CSS a Javascriptu totiž dokáže docieliť výsledky, 
 
 Javascript je založený na programovacom jazyku Java, ktorý bol ďalej modifikovaný a prispôsobený na prácu priamo vo webovom prehliadači. Javascript dokáže nielen reagovať na vstupy od používateľa, ale reagovať aj na niektoré udalosti na pozadí, v prehliadači \cite{Javascript}. 
 
-Táto technológia ďalej stavia aj na asynchrónnosti, teda prístupu za behu. To dovoľuje stránkam načítať Javascript až po načítaní webového obsahu tak, aby nevznikali zbytočné dlhé čakacie doby na načítanie webovej stránky. Zároveň sa dá asynchrónnosť využiť pri odosielaní formulárov, kde nieje nutné po odoslaní znova načítavať stránku. Tým sa zároveň zlepšuje responzívnosť, keďže nieje nutné čakať na vykonanie špecifickej akcie. 
+Táto technológia ďalej stavia aj na asynchrónnosti, teda prístupu za behu. To dovoľuje stránkam načítať Javascript až po načítaní webového obsahu tak, aby nevznikali zbytočne dlhé čakacie doby na načítanie webovej stránky. Zároveň sa dá asynchrónnosť využiť pri odosielaní formulárov, kde nieje nutné po odoslaní znova načítavať stránku. Tým sa zároveň zlepšuje responzívnosť, keďže nieje nutné čakať na vykonanie špecifickej akcie. 
 
 Jednou z najpopulárnejších vlastností tohto programovacieho jazyka je podpora API\footnote{Application Programming Interfaces}. Podpora API umožňuje využitie naprogramovaných rozhraní bez toho, aby si tieto rozhrania používateľ programoval sám. Tento fakt urýchľuje vývoj webových aplikácií a pomáha udržiavať štandard. API pri Javascripte sa primárne rozdeľujú do dvoch kategórií:
 
 \begin{itemize}
-    \item {Prehliadačové API}
+    \item {API prehliadača}
     \item {Externé API}
 \end{itemize}
 
-Kde API prehliadača predstavuje napríklad aj spomínaný DOM. Ten javascriptu poskytuje HTML elementy vo forme objektov, s ktorými javascript dokáže pracovať. Čo sa externých API týka, sem patria najmä API tretích strán, ako napríklad Google Maps alebo Twitter.
+Kde API prehliadača predstavuje napríklad aj spomínaný DOM. Ten Javascriptu poskytuje HTML elementy vo forme objektov, s ktorými Javascript dokáže pracovať. Čo sa externých API týka, sem patria najmä API tretích strán, ako napríklad Google Maps alebo Twitter.
 
 V mnohých prípadoch sú to práve API, ktoré môžu naraziť na väčšie množstvo problémov pri načítavaní webovej stránky. Prispieva k tomu aj asynchrónnosť, kde v prípade, že sa HTML dokument načíta skôr ako súborý Javascriptu, môže nastať problém. Vykonávanie skriptu v takom prípade zlyhá. Asynchrónnosť zároveň súvisí s postupnosťou vykonávania kódu. Ak je využitá asynchrónna funkcia, jej výsledok je reprezentovaný v podobe \textit{Promise}. Výsledok Promise nemusí byť dostupný okamžite, a preto v prípadoch, že sa na túto skutočnosť neberie ohľad, môže vykonávanie funkcie zlyhať \cite{Javascript}.
 
@@ -321,22 +321,22 @@ JSON je skratka pre \textit{JavaScript Object Notation}, kde už z názvu vyplý
 
 \subsection{Node.js}
 
-Node.js ako behové prostredie Javascritu bolo vytvorené hlavne za účelom obsluhovania asynchrónnych aplikácií. Beží na Javascriptovom rozhraní V8, ktoré bolo pôvodne vytvorené pre webový prehliadač Google Chrome. Práve vytvorenie tohto rozhrania viedlo k neskoršiemu vytvoreniu Node.js, pretože toto rozhranie dokázalo urýchliť Javascript kód pomocou priamej interpretácie tohto kódu do jazyku počítača. Node.js predstavoval možnosť spúšťania Javascript kódu mimo webového prehliadača, priamo na fyzickom počítači. To viedlo k vytváraniu aplikácií priamo spustiteľných či už na počítači alebo smartfóne. Neskôr sa pridali rôzne moduly, ako napríklad HTTP. Tie umožňovali ďalšie rozšírenie pôsobenia, a to napríklad aj na servery tak, aby mohol Node.js pôsobiť ako samostatné prostredie na strane servera. Node.js je v dnešnej dobe využívané zároveň pri technológiách ako napríklad React a Angular. Tieto technológie predstavujú frameworky založené a fungujúce práve vďaka Node.js \cite{Node}.
+Node.js ako behové prostredie Javascritu bolo vytvorené hlavne za účelom obsluhovania asynchrónnych aplikácií. Beží na Javascriptovom rozhraní V8, ktoré bolo pôvodne vytvorené pre webový prehliadač Google Chrome. Práve vytvorenie tohto rozhrania viedlo k neskoršiemu vytvoreniu Node.js. Toto rozhranie dokázalo urýchliť Javascript kód pomocou priamej interpretácie kódu do jazyku počítača. Node.js predstavoval možnosť spúšťania Javascript kódu mimo webového prehliadača, priamo na fyzickom počítači. To viedlo k vytváraniu aplikácií priamo spustiteľných či už na počítači alebo smartfóne. Neskôr sa pridali rôzne moduly, ako napríklad HTTP. Tie umožňovali ďalšie rozšírenie pôsobenia, a to napríklad aj na servery tak, aby mohol Node.js pôsobiť ako samostatné prostredie na strane servera. Node.js je v dnešnej dobe využívané zároveň pri technológiách ako napríklad React a Angular. Tieto technológie predstavujú frameworky založené a fungujúce práve vďaka Node.js \cite{Node}.
 
 \bigskip
 
-Node.js ponúka zároveň možnosť využitia rôznych modulov. Moduly boli vyvinuté za účelom rozšírenia vlastností a funkcionality. Aj vďaka týmto modulom a faktu, že s ich príchodom je možné Javascript využívať, ako na backende tak aj na frontende stáva viac a viac populárnym. O tom svedčia aj jeho štatistiky z pohľadu vývoja týchto modulov. Moduly sú ďalej pre používateľov distribuované pomocou NPM.
+Node.js ponúka zároveň možnosť využitia rôznych modulov. Moduly boli vyvinuté za účelom rozšírenia vlastností a funkcionality. Aj vďaka týmto modulom a faktu, že s ich príchodom je možné Javascript využívať ako na backende, tak aj na frontende, sa Javascript stáva viac a viac populárnym. O tom svedčia aj jeho štatistiky z pohľadu vývoja týchto modulov. Moduly sú ďalej pre používateľov distribuované pomocou NPM.
 
 \subsection{NPM}
 
-Jednou z najdôležitejších súčastí Node.js je NPM(Node Package Manager). Jedná sa o najväčšie a najpopulárnejšie úložisko doplnkových modulov a projektov pre Node.js. Jeho popularita stále stúpa a aktuálne sa v ňom nachádza už viac ako 1,5 milióna rôznych projektov \ref{Moduleco_img}\cite{npm}. A práve tu sa nachádza aj knižnica Puppeteer.
+Jednou z najdôležitejších súčastí Node.js je NPM(Node Package Manager). Jedná sa o najväčšie a najpopulárnejšie úložisko doplnkových modulov a projektov pre Node.js. Jeho popularita stále stúpa a aktuálne sa v ňom nachádza už viac ako 1,5 milióna rôznych projektov \ref{Moduleco_img}. Je používaný na zdieľanie nielen open-source projektov, ale aj interných projektov rôznych korporácií. Inštalácia aplikácií a modulov je jednoduchá aj napriek jeho rôznym možnostiam. Zároveň poskytuje jednoduchý spôsob udržiavania aplikácií a ich aktualizácie. Rozšírenosť a jednoduchosť používania poskytuje možnosť rýchlej prenositeľnosti vytvorenej aplikácie \cite{npm}. A práve tu sa nachádza aj knižnica Puppeteer.
 
 \newpage
 \subsection{Puppeteer}
 
 Hlavnou súčasťou výslednej aplikácie je Puppeteer. Je to jedna z mnohých knižníc vytvorených pre Node.js distribuovaná pomocou NPM. V aplikácií zohráva dôležitú úlohu, keďže práve technológia Puppeteer je spôsob akým aplikácia komunikuje a extrahuje údaje z prehliadača \ref{pupepyramid_img}. 
 
-Spojenie s prehliadačom je naviazané pomocou protokolu DevTools vyvinutého spoločnosťou Google a používa prehliadač Google Chrome alebo Chromium v špeciálnom Headless móde, kedy nieje zobrazená vizuálna inštancia prehliadača, avšak všetky ostatné funkcie sú plne dostupné \cite{puppeteer}.  
+Spojenie s prehliadačom je nadviazané pomocou protokolu DevTools vyvinutého spoločnosťou Google a používa prehliadač Google Chrome alebo Chromium v špeciálnom \texttt{headless} móde, kedy nieje zobrazená vizuálna inštancia prehliadača, avšak všetky ostatné funkcie sú plne dostupné \cite{puppeteer}.  
 
 \bigskip
 
@@ -352,24 +352,24 @@ Spojenie s prehliadačom je naviazané pomocou protokolu DevTools vyvinutého sp
 Z uvedenej hierarchie je na prvý pohľad jasné, na ktorých technológiách Puppeteer stavia:
 
 \begin{enumerate}
-  \item \textbf{Headless Chrome} je spôsob spustenia prehliadača Chromium v takzvanom headless prostredí, kedy sa inštancia programu Google Chrome alebo Chromium spustí v režime server, bez používateľského prostredia. Ovládanie prehliača je umožnené za pomoci terminálu. Používa sa na rôzne testovanie a automatizáciu. Režime headless je pri používaní Puppeteeru nastavený ako základný, avšak je možné ho vypnúť a používať Chromium v headfull móde, teda so zobrazeným používateľským prostredím \cite{chromium}.
-  \item \textbf{Chrome DevTools protokol} bol založený za účelom automatizácie prehliadača Google Chrome, Chromium a ostatných webových prehliadačov založených na prostredí Blink. Predstavuje komunikačný prvok medzi programom a webovým prehliadačom. Komunikačné kanály sú rozdelené podľa domén využitia a komunikácia medzi prehliadačom a aplikáciou ďalej prebieha využitím formátu JSON \cite{devtools}.
-  \item \textbf{Puppeteer} ďalej nadväzuje na protokol DevTools v podobe API, ktoré týmto protokolom dokáže komunikovať s inštanciou prehliadača Chrome. 
+  \item \textbf{Headless Chromium} je spôsob spustenia prehliadača Chromium v takzvanom headless prostredí, kedy sa inštancia programu Google Chrome alebo Chromium spustí v režime server, bez používateľského prostredia. Ovládanie prehliača je umožnené za pomoci terminálu. Používa sa na rôzne testovanie a automatizáciu. Režime headless je pri používaní Puppeteeru nastavený ako základný, avšak je možné ho vypnúť a používať Chromium v headfull móde, teda so zobrazeným používateľským prostredím \cite{chromium}.
+  \item \textbf{Chrome DevTools protokol} bol založený za účelom automatizácie prehliadača Google Chrome, Chromium a ostatných webových prehliadačov založených na prostredí Blink. Predstavuje komunikačný prvok medzi programom a webovým prehliadačom. Komunikačné kanály sú rozdelené podľa domén využitia a komunikácia medzi prehliadačom a aplikáciou ďalej prebieha za pomoci formátu JSON \cite{devtools}.
+  \item \textbf{Puppeteer} ďalej nadväzuje na protokol DevTools v podobe API, ktoré týmto protokolom dokáže komunikovať s inštanciou prehliadača Chrome.
   \item \textbf{Web scraper} následne využíva knižnicu Puppeteer. Tá prichádza s radom revolučných riešení umožňujúcich automatizovať takmer čokoľvek.
 \end{enumerate}
 
 \newpage
 
-Puppeteer bol vytvorený za účelom kompletnej automatizácie správania prehliadača Google Chrome. Toto zahrňuje aj zber štatistík o používaní a vykonávaní testov rôznych aplikácií.
-
-Niektoré z ďalších prípadných využití tejto knižnice zahŕňajú aj:\cite{puppeteer}
+Puppeteer bol vytvorený za účelom kompletnej automatizácie prehliadača Chromium. Toto zahrňuje aj zber štatistík o používaní a vykonávaní testov rôznych aplikácií. Niektoré z ďalších prípadných využití tejto knižnice zahŕňajú aj \cite{puppeteer}:
 \begin{itemize}
-    \item {Vytváranie snímky obrazovky z webových stránok}
-    \item {Automatizácia formulárov}
-    \item {vytvorenie testovacieho prostredia pre akúkoľvek aplikáciu}
+    \item vytváranie snímky obrazovky z webových stránok,
+    \item automatizácia formulárov,
+    \item vytvorenie testovacieho prostredia pre akúkoľvek aplikáciu.
 \end{itemize}
 
 \bigskip
+
+Puppeteer vytvára pomocou protokolu Chrome DevTools komunikačné kanály medzi aplikáciou a webovým prehliadačom. To dovoľuje následnú interakciu s DOM a analýzu webovej stránky. Podporuje sledovanie sieťovej aktivity, vďaka čomu nieje nutné vytvárať explicitné čakacie doby. Táto funkcia je dôležitá pre kompletné načítanie webovej stránky, vrátane asynchrónnych prvkov a externých API. Puppeteer zároveň dokáže čakanie špecifikovať na prítomnosť elementu záujmu alebo na čas, keď sieťová aktivita webovej stránky klesne na určitý počet požiadaviek za sekundu.
 
 Online verzia Puppeteeru je zároveň dostupná v sandbox prostredí\footnote{\url{https://try-puppeteer.appspot.com/}} pre jednoduché vyskúšanie jeho možností.
 
@@ -382,26 +382,28 @@ Online verzia Puppeteeru je zároveň dostupná v sandbox prostredí\footnote{\u
 	\label{diagram}
 \end{figure}
 
-Vo výslednej aplikácii je Puppeteer využívaný v rámci hlavného procesu, kde sa ako prvé vytvorí inštancia Puppeteeru za pomoci príkazu \textit{await puppeteer.launch();} a následnom vytvorení inštancie stránky vo webovom prehliadači za pomoci príkazu \textit{await browser.newPage();}. Vzniknutá stránka následne slúži ako prostredie pre načítanie a následnú extrakciu dát z jednotlivých webových stránok. Knižnica Puppeteer obsahuje širokú škálu funkcií. Tie dovoľujú komunikovať s prehliadačom obojsmerne, a teda prijímať aj odosielať dáta prehliadaču. Bezproblémová komunikácia medzi aplikáciou a prehliadačom je základom pre úspešnú interakciu a extrakciu dát. Nasledujúci diagram \ref{diagram} predstavuje vzťah jednotlivých prvkov knižnice Puppeteer a spôsob akým komunikuje.
+Vo výslednej aplikácii je Puppeteer využívaný v rámci hlavného procesu, kde sa ako prvé vytvorí inštancia Puppeteeru za pomoci príkazu \textit{await puppeteer.launch();}. Nasleduje vytvorenie inštancie stránky vo webovom prehliadači za pomoci ďalšieho príkazu \mbox{\textit{await browser.newPage();}}. Vzniknutá stránka slúži ako prostredie pre načítanie a následnú extrakciu dát z jednotlivých webových stránok. Knižnica Puppeteer obsahuje širokú škálu funkcií. Tie dovoľujú komunikovať s prehliadačom obojsmerne, a teda prijímať aj odosielať dáta prehliadaču. Bezproblémová komunikácia medzi aplikáciou a prehliadačom je základom pre úspešnú interakciu a extrakciu dát. Nasledujúci diagram \ref{diagram} predstavuje vzťah jednotlivých prvkov knižnice Puppeteer a spôsob akým komunikuje.
+
+Všetky vlastnosti a výhody Puppeteeru boli zvážené v rámci návrhu architektúry aplikácie.
 
 \chapter{Návrh architektúry aplikácie}
 \label{Navrh}
-Úlohou tejto kapitoly je oboznámenie s návrhom architektúry finálnej aplikácie. Architektúra sa skladá z definovania požiadaviek na vstupné dáta, výstupné dáta a vnútorné chovanie aplikácie. V úvahu je samozrejme braná aj aktuálna situácia a stav dostupných riešení.  S tým je spojená aj analýza, ktorá určovala smer vývoja pri dôležitých otázkach ohľadne vnútornej štruktúry aplikácia.
+Úlohou tejto kapitoly je oboznámenie s návrhom architektúry finálnej aplikácie. Architektúra sa skladá z definovania požiadaviek na vstupné dáta, výstupné dáta a vnútorné chovanie aplikácie. V úvahu je samozrejme braná aj aktuálna situácia a stav dostupných riešení.  S tým je spojená aj analýza, ktorá určovala smer vývoja pri dôležitých otázkach ohľadne vnútornej štruktúry aplikácie.
 
 \section{Špecifikácia požiadaviek}
 
-Ako už názov práce predpovedá, jedná sa o extrakciu dát z webových stránok. Avšak dáta sa z webových stránok dajú extrahovať mnohými spôsobmi. Tie však nie sú ekvivalentné. A to nielen z pohľadu presnosti, ale aj z pohľadu rýchlosti extrakcie, spôsobu extrakcie a ďalších aspektoch viazaných na logike aplikácie aká je vo finálnej fáze zvolená.
+Ako už názov práce predpovedá, jedná sa o extrakciu dát z webových stránok. Avšak dáta sa z webových stránok dajú extrahovať mnohými spôsobmi. Tie však nie sú ekvivalentné. A to nielen z pohľadu presnosti, ale aj z pohľadu rýchlosti extrakcie, spôsobu extrakcie a ďalších aspektoch viazaných na logiku zvolenej aplikácie.
 
-Základom extrakcie je zároveň vedieť o aké dáta máme záujem. Tieto dáta teda musia byť jednou z hlavných častí definovaných na vstupe aplikácie. To v akom formáte a v akej podobe budú tieto dáta reprezentované bude popísané v nasledujúcich častiach tejto kapitoly. Už teraz je však isté, že pre dosiahnutie pomerne vysokej presnosti bude potrebná špecifikácia rôznych pravidiel. Tieto pravidlá potom budú udávať mernú jednotku na porovnávanie nájdených potencionálnych výsledkov s definovanými pravidlami.
+Základom extrakcie je zároveň vedieť o aké dáta máme záujem. Tieto dáta teda musia byť jednou z hlavných častí definovaných na vstupe aplikácie. To v akom formáte, a v akej podobe budú tieto dáta reprezentované, bude popísané v nasledujúcich častiach tejto kapitoly. Už teraz je však isté, že pre dosiahnutie pomerne vysokej presnosti bude potrebná špecifikácia rôznych pravidiel. Tieto pravidlá potom budú udávať mernú jednotku na porovnávanie nájdených potencionálnych výsledkov s definovanými pravidlami.
 
-Úlohou týchto pravidiel bude určenie relevantnosti nájdených dát. Aplikácia bude preto tieto vstupné pravidlá overovať z pohľadu správnosti formátu. Pri definícií týchto pravidiel bude treba zohľadniť diverzitu a premenlivosť výsledného prvku, napríklad premenlivú dĺžku reťazcov. Dá sa teda s určitosťou predpokladať, že správna definícia vstupných pravidiel bude mať jednoznačný vplyv na úspešnosť výsledkov z hľadiska nášho očakávania. Preto je treba tomuto návrhu venovať dostatočne veľký časový priestor.
+Úlohou týchto pravidiel bude určenie relevantnosti nájdených dát. Aplikácia bude preto tieto vstupné pravidlá overovať z pohľadu správnosti formátu. Pri definícií týchto pravidiel bude treba zohľadniť diverzitu a premenlivosť hľadaného objektu, ako napríklad premenlivú dĺžku reťazcov. Dá sa teda s určitosťou predpokladať, že správna definícia vstupných pravidiel bude mať jednoznačný vplyv na úspešnosť výsledkov z hľadiska nášho očakávania. Preto je treba tomuto návrhu venovať dostatočne veľký časový priestor.
 
-Pri návrhu je treba samozrejme zohľadniť fakt, že finálny používateľ bude chcieť špecifikáciou týchto pravidiel stráviť čo najmenej času. To je samozrejmé a je preto dôležité odlíšiť časti pravidiel, ktoré nieje nutné prepisovať tak často od pravidiel, ktoré sa môžu meniť s príchodom nových požiadaviek.
+Pri návrhu je treba samozrejme zohľadniť fakt, že finálny používateľ bude chcieť špecifikáciou týchto pravidiel stráviť čo najmenej času. To je samozrejmé a je preto dôležité odlíšiť časti pravidiel. Niektoré pravidlá nieje nutné prepisovať tak často, iné sa môžu meniť s príchodom nových požiadaviek.
 
 \newpage
 \section{Vstupné pravidlá}
 
-Pojmom vstupné pravidlá rozumieme pravidlá definované ako základné vstupné údaje pri spustení aplikácie. Tieto údaje budú mať za úlohu definovať presne to, čo v danom konkrétnom prípade používateľ aplikácie očakáva ako aplikačný výstup. Sú to zároveň pravidlá pre aplikáciu určujúce objekty vo webovom dokumente ako bod záujmu extrakcie \ref{rules}.
+Pojmom vstupné pravidlá rozumieme pravidlá, ktoré sú definované ako základné vstupné údaje pri spustení aplikácie. Tieto údaje budú mať za úlohu definovať presne to, čo v danom konkrétnom prípade používateľ aplikácie očakáva ako aplikačný výstup. Sú to zároveň pravidlá pre aplikáciu určujúce objekty vo webovom dokumente ako bod záujmu extrakcie pri konkrétnej extrakčnej úlohe \ref{rules}.
 
 Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jednoduchej zrozumiteľnosti ako z pohľadu človeka, tak aj z pohľadu počítača. Súbory vo formáte JSON sú zároveň veľmi jednoducho prenositelné aj medzi viacerými programovacími jazykmi, čo je samozrejme ďalšia výhoda. S týmto formátom mám zároveň osobné skúsenosti, takže to bola pomerne jasná voľba.
 
@@ -409,7 +411,7 @@ Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jed
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.8\textwidth]{obrazky-figures/rules.pdf}
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/rules.pdf}
 	\caption{Spôsob určenia finálneho dátového typu a príslušnosti objektu}
 	\label{rules}
 \end{figure}
@@ -418,57 +420,61 @@ Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jed
 
 \subsection{Hlavné pravidlá}
 
-V prvom rade treba začať prvotným upresnením, a teda z čoho sa vlastne tieto pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidla rozdelené do dvoch konfiguračných súborov, pre ich jednoduchšiu správu. 
+V prvom rade treba začať návrhom toho, z čoho sa vlastne tieto vstupné pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidla rozdelené. Rozdelenie konfiguračných a vstupných pravidiel uľahčí ich nasledovnú správu a zaradenie. Príklad štruktúry je zobrazený aj ako výpis \ref{data_ex}.
 
 Medzi hlavné pravidlá na extrakciu boli vybrané:
 \begin{itemize}
-    \item {Zoznam webových stránok v podobe URL}
-    \item {Štruktúra hľadaných prvkov}
-    \item {Voliteľný atribút blacklist}
+    \item zoznam webových stránok v podobe URL,
+    \item štruktúra hľadaných prvkov,
+    \item voliteľný atribút blacklist.
 \end{itemize}
 
 \bigskip
 
-Kde \textbf{zoznam webových stránok} určuje všetky webové stránky určené na extrakciu. Budú to webové stránky, ktoré výsledná aplikácia bude prechádzať v takom poradí, v akom boli zadané. V prípade, že je niektorá zo stránok nedostupná, aplikácia o tom používateľa informuje a bude pokračovať nasledovnou webovou stránkou. Pokračovanie namiesto ukončenia aplikácie je zvolené z dôvodu neustáleho vývoja webu. Ak jedna z preddefinovaných stránok zmení adresu a táto adresa už nebude dostupná, nemalo by to ovplyvniť vygenerovanie výsledkov ostatných adries.
-
-\newpage
-
-\textbf{Štruktúra hľadaných prvkov} je definovaná ako objekt určujúci požadovaný výsledný názov elementu, teda jeho jednoznačný identifikátor a jeho \uv{pseudo} dátový typ. Kde jeho identifikátor bude použitý zároveň pri finálnom výpise výsledných údajov a dátový typ použitý podľa pravidiel. Tie budú popísané neskôr v tejto kapitole. Štruktúra je vo formáte objektu, a teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak, aby aj pre človeka bolo na prvý pohľad jasné v akom vzťahu tieto údaje sú.
+Kde \textbf{zoznam webových stránok} určuje všetky webové stránky určené na extrakciu. Malo by sa jednať o webové dokumenty, prípadne HTML dokumenty uložené v offline podobe na lokálnom disku. Tento zoznam bude slúžiť ako súbor stránok priradený k danej extrakčnej úlohe a všetky definované pravidlá budú pre tieto stránky rovnaké. 
 
 \bigskip
 
-\textbf{Blacklist} je voliteľný atribút (nemusí byť vo finálnom vstupnom súbore reprezentovaný). Predstavuje pole prvkov vo formáte reťazcov, ktoré používateľ definuje ako také, ktoré by sa vo výslednom súbore nemali nachádzať. Definovanie takýchto reťazcov pomocou Blacklistu bude samozrejme mať za následok ovplyvnenie aplikácie pri rozhodovaní o pozícii a formáte výsledných údajov. 
+\textbf{Štruktúra hľadaných prvkov} je definovaná ako objekt určujúci požadovaný výsledný názov elementu a jeho \uv{pseudo} dátový typ. Názov bude použitý pri zápise objektu do výsledného súboru, a dátový typ bude použitý za účelom klasifikácie daného prvku. Štruktúra je v podobe objektu, a teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak, aby ak pre človeka bolo na prvý pohľad jasné, v akom vzťahu tieto údaje sú.
+
+\bigskip
+
+\textbf{Blacklist} je voliteľný atribút (nemusí byť vo finálnom vstupnom súbore reprezentovaný). Bude sa skladať z reťazcov, ktoré používateľ určí ako nežiaduce. Definovanie Blacklistu bude mať za následok ovplyvnenie aplikácie pri jej rozhodovaní o zaradení jednotlivých prvkov.
 
 
 \subsection{Vedľajšie pravidlá}
 
-Ako vedľajšie pravidlá boli zvolené také pravidlá, ktorých prenositeľnosť aj medzi rôznymi typmi definovaných domén je pravdepodobnejšia, a preto by nemuselo byť vždy nutné tieto pravidlá meniť. Zmena týchto pravidiel sa teda berie ako menej častá udalosť a vo väčšine prípadov môže stačiť definovať hlavné pravidlá. 
+Ako vedľajšie pravidlá boli zvolené také pravidlá, ktorých prenositeľnosť aj medzi rôznymi typmi definovaných domén je pravdepodobnejšia. Preto by nemuselo byť vždy nutné tieto pravidlá meniť. Zmena týchto pravidiel sa teda berie ako menej častá udalosť. Vo väčšine prípadov môže stačiť pri zmene extrakčnej úlohy zmeniť len definíciu hlavných pravidiel. Príklad štruktúry týchto pravidiel je zobrazený aj ako výpis \ref{config_ex}.
 
 Medzi tieto pravidlá boli zaradené:
 \begin{itemize}
-    \item {Maximálny pomer zlyhania}
-    \item {Formát}
-    \item {Primárny prvok}
+    \item maximálny pomer zlyhania,
+    \item formát,
+    \item primárny prvok.
 \end{itemize}
 
 \bigskip
 
-Ako \textbf{maximálny pomer zlyhania} je určený výsledný pomer nesprávnych prvkov ku všetkým nájdeným prvkom z daného testovacieho okruhu. V prípade, že je tento pomer vyšší ako definovaný, je aktuálny testovací okruh vyradený a test prebieha nanovo s novým testovacím okruhom. Testovací okruh je reprezentovaný dátami, ktoré sú porovnávané s definíciou primárneho prvku. Tá určí či aktuálny kontrolovaný prvok spĺňa definovaný regulárny výraz. V prípade, že ho spĺňa je prvok nezmenený. V prípade, že ho nespĺňa je prvok nahradený výrazom \textit{Null} ktorý v následnom výpočte poslúži ako označenie prvkov ktorých kontrola \uv{zlyhala}. 
+Ako \textbf{maximálny pomer zlyhania} bude určený pomer irelevantných prvkov ku všetkým nájdeným prvkom z daného okruhu dát. V prípade že bude tento pomer vyšší ako táto horná hranica, bude výsledný okruh vyradený. Tento okruh sa bude úzko viazať s definíciou primárneho prvku, pretože bude zložený práve z danej skupiny elementov. 
 
-V prípade, že je aktuálny pomer zlyhania menší ako maximálny pomer zlyhania definovaný vo vstupnom súbore, je daný testovací okruh označený ako správny. Následne sa uloží sa identifikátor okruhu a aplikácia pokračuje ďalšími krokmi ako napríklad generovanie výsledkov.
+Ak však príde k splneniu tejto podmienky, bude prvý takýto okruh vybraný ako výsledný. Ten bude následne poslaný na analýzu a definíciu jeho obsahu. 
 
 \bigskip
 
-\textbf{Formát} predstavuje objekt zložený z názvu definovaného dátového typu a jeho korešpondujúcej reprezentácie v podobe jednoznačného regulárneho výrazu. Na dátové typy v tomto objekte naväzuje štruktúra prvkov definovaných v hlavných pravidlách. Štruktúra využíva práve dané regulárne výrazy na overenie správnosti zaradenia výsledného prvku.
+\textbf{Formát} predstavuje objekt zložený z názvu definovaného dátového typu a jeho korešpondujúcej reprezentácie v podobe jednoznačného regulárneho výrazu. Priamo naväzuje na hlavné pravidlá, ktoré ho využívajú ako zdroj pre regulárne výrazy hľadaných prvkov. Dá sa predpokladať, že správne definovaný regulárny výraz bude viesť k presnejším výsledkom. 
 
-Dá sa predpokladať, že správne definovaný regulárny výraz bude mať dramatický vplyv na výsledné dáta. V prípade, že test daného prvku na predpokladaný regulárny výraz neprejde, nieje možné určiť jeho dátový typ, a teda výsledný jednoznačný identifikátor. V takom prípade nieje možné garantovať zaradenie takéhoto prvku do výsledného súboru dát.
+\bigskip
+
+\textbf{Primárny prvok} je taký prvok, ktorý sa v objektoch určených na extrakciu opakuje, a teda je možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
+
+Aplikácia bude tento prvok používať na prvotnú analýzu webovej stránky. Na základe jeho prezencie je následne posúdené, či daný okruh dát je kandidátom na definíciu výsledných objektov.
+
+\bigskip
+\bigskip
+
+Všetky pravidlá, ich finálna reprezentácia a štruktúra budú neskôr objasnené v rámci kapitoly \ref{implementacia}. Tu budú zároveň ukázané príklady ich štruktúry založené na reálnych údajoch.
 
 \newpage
-
-\textbf{Primárny prvok} je prvok, ktorý sa v objektoch určených na extrakciu opakuje, a teda je možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
-
-Jeho reprezentácia je znova v podobe regulárneho výrazu, avšak on samotný sa nemusí nachádzať v definovanej štruktúre ani formáte vstupných údajov. Aplikácia tento prvok využíva na prvotnú analýzu webovej stránky a na základe jeho prezencie v danom testovacom okruhu je posúdené, či daný testovaný okruh je kandidátom na definíciu správnych výsledných objektov.
-
 
 \section{Výstupný formát}
 
@@ -478,7 +484,7 @@ Z toho dôvodu tu bol znovu zvolený formát JSON. Návrh počíta s jedným vý
 
 \bigskip
 
-Štruktúra v akej budú jednotlivé extrahované objekty reprezentované je zhodná so štruktúrou definovanou v používateľskom vstupnom súbore. Táto štruktúra je potom zachovaná pre všetky objekty. Ak však jeden z kľúčov daného objektu nieje dostupný alebo nebol extrahovaný, je tento kľúč vynechaný. V niektorých prípadoch ak sa dátový typ daného prvku nepodarí overiť a konfigurácia aplikácie je spustená bez parametru, ktorý zaručuje odstránenie nedefinovaných prvkov z objektu, sa v objekte môžu nachádzať kľúče so špeciálnym názvom \textit{undefined}. Tento kľúč značí prvok, ktorého dátový typ nebolo možné na základe špecifikovaných vstupných požiadaviek definovať, avšak patrí do vyhľadávanej podskupiny.
+Štruktúra, v akej budú jednotlivé extrahované objekty reprezentované, je zhodná so štruktúrou definovanou v používateľskom vstupnom súbore. Táto štruktúra je potom zachovaná pre všetky objekty. Ak však jeden z kľúčov daného objektu nieje dostupný alebo nebol extrahovaný, je tento kľúč vynechaný. V niektorých prípadoch sa dátový typ daného prvku nemusí podariť definovať. V takom prípade sa vo výslednom objekte môžu objaviť aj kľúče so špeciálnym názvom \textit{undefined}. Konfigurácia aplikácie však dovoľuje spustenie s parametrom, ktorý zaručuje odstránenie nedefinovaných prvkov z objektu. Tento kľúč značí prvok, ktorého dátový typ nebolo možné na základe špecifikovaných vstupných požiadaviek definovať, avšak patrí do vyhľadávanej podskupiny.
 
 Formát JSON ako výstupný formát je striktne dodržaný a riadne formátovaný tak, aby bol jednoducho čitateľný aj pre človeka. Bezproblémové využitie dát z takto štruktúrovaného výstupu je preto garantované.
 
@@ -487,13 +493,13 @@ Formát JSON ako výstupný formát je striktne dodržaný a riadne formátovan�
 Sekundárnym výstupným súborom sú takzvané metadáta. Sú to dáta, ktoré predstavujú rôzne vlastnosti popisujúce priebeh extrakcie pri spustení aplikácie. Metadáta sú znova pre jednoduchú prenositeľnosť vo formáte JSON a jeho objekty obsahujú tieto údaje:
 
 \begin{itemize}
-    \item {Url adresa webového dokumentu}
-    \item {Počet testovaných okruhov}
-    \item {Odkaz na prvý nájdený objekt v podobe \textit{document.querySelectorAll}}
-    \item {Počet výsledných objektov}
-    \item {Čas potrebný na otestovanie okruhov}
-    \item {Čas potrebný na uloženie výsledkov}
-    \item {Čas potrebný na načítanie webového dokumentu}
+    \item url adresa webového dokumentu,
+    \item počet testovaných okruhov,
+    \item odkaz na prvý nájdený objekt v podobe \texttt{document.querySelectorAll},
+    \item počet výsledných objektov,
+    \item čas potrebný na otestovanie okruhov,
+    \item čas potrebný na uloženie výsledkov,
+    \item čas potrebný na načítanie webového dokumentu.
 \end{itemize}
 
 \bigskip
@@ -530,7 +536,7 @@ Hlavný zdrojový kód sa bude nachádzať v jednom súbore, ktorý pre jednozna
 
 Aplikácia bude naväzovať na dva prídavné súbory vo formáte JSON, ktoré budú predstavovať vstupné informácie vo formáte popísanom v predošlej časti tejto kapitoly. 
 
-Hlavný komunikačný kanál aplikácie a webového prehliadača bude zabezpečený pomocou technológie Puppeteer a protokolu Chrome DevTools. Toto spojenie bude nadviazané automaticky po spustení aplikácie. Pred naviazaním tohto spojenia však dôjde ku kontrole vstupných dát zadaných používateľom. V prípade, že je formát vstupných dát poškodený, nieje dodržaná jeho štruktúra, alebo vo vstupných súboroch chýbajú niektoré dôležité položky, je o tom používateľ informovaný a vykonávanie je ukončené.
+Hlavný komunikačný kanál aplikácie a webového prehliadača bude zabezpečený pomocou technológie Puppeteer a protokolu Chrome DevTools. Toto spojenie bude nadviazané automaticky po spustení aplikácie. Pred nadviazaním tohto spojenia však dôjde ku kontrole vstupných dát zadaných používateľom. V prípade, že je formát vstupných dát poškodený, nieje dodržaná jeho štruktúra alebo vo vstupných súboroch chýbajú niektoré dôležité položky, je o tom používateľ informovaný a vykonávanie je ukončené.
 
 \subsection{Hlavný proces}
 
@@ -541,20 +547,19 @@ Aby bolo možné určiť správnosť údajov, je každý údaj porovnávaný zvl
 
 \subsubsection{Analýza výsledkov}
 
-Po určení správneho okruhu bude následne aplikácia pracovať s daným \textit{class} atribútom, ktorý daný okruh dát definuje. Aplikácia berie údaje daného okruhu ako potencionálnu súčasť výsledkov, nemusí to tak ale byť  vždy. Preto aplikácia kontroluje susedné prvky z pohľadu DOM a snaží sa získať čo najviac informácií nielen o susedných, ale aj rodičovských uzloch a detských potomkoch daného prvku.
+Po určení správneho okruhu bude následne aplikácia pracovať s \textit{class} atribútom, ktorý daný okruh dát definuje. Aplikácia berie údaje daného okruhu ako potencionálnu súčasť výsledkov, nemusí to tak ale byť  vždy. Preto aplikácia kontroluje susedné prvky z pohľadu DOM a snaží sa získať čo najviac informácií nielen o susedných, ale aj rodičovských uzloch a detských potomkoch daného prvku.
 
 Po zoskupení týchto informácií a uložení textových reprezentácií týchto prvkov aplikácia prechádza k ďalšiemu kroku, ktorý predstavuje finálnu definíciu \uv{pseudo} dátového typu určeného používateľom.
 
 \bigskip
 
-Určenie tohto typu nieje vždy jednoduché, a preto v prípade, že špecifikácia regulárneho výrazu nieje dostatočne presná alebo je z iného dôvodu časť dát nedefinovateľná, je takýto prvok označený výrazom \textit{undefined}. Nedefinované položky však vo výsledku používateľovi ani inému programu, ktorý by dáta využíval, nemôžu byť užitočné. Práve z toho dôvodu by mal používateľ týmto prípadom predchádzať, a to dvoma spôsobmi. 
+Položky ktoré nieje možné definovať vo výsledku používateľovi, ani inému programu, ktorý by dáta využíval, nemôžu byť užitočné. Práve z toho dôvodu by mal používateľ týmto prípadom predchádzať, a to dvoma spôsobmi. 
 
 Keďže aplikácia analyzuje výsledky ako celok, vie presne určiť aký dátový typ bol na danom indexe definovaný v predošlých prípadoch objektov, ktorých dáta testom na regulárny výraz prešli. Týmto sa dá jednoducho predísť strate dát pri anomáliách. V niektorých prípadoch však ani toto nieje riešenie. V tom prípade má aplikácia možnosť jednoducho takéto nedefinované výsledky vynechať a používateľovi vôbec nezobrazovať.
 
-\newpage
 \subsubsection{Generovanie výsledných údajov}
 
-Po analýze výsledkov a ich zaradení k dátovým typom prichádza na rad generovanie výsledných údajov. Aplikácia v tomto prípade generuje výsledky pre každý webový dokument zvlášť, a to tak, že výsledný súbor nesie názov v podobe URL stránky, z ktorej údaje pochádzajú.
+Po analýze výsledkov a ich zaradení k dátovým typom prichádza na rad generovanie výsledných údajov. Aplikácia v tomto prípade generuje výsledky pre každý webový dokument zvlášť, a to tak, že výsledný súbor nesie názov v podobe domény, z ktorej údaje pochádzajú.
 
 Po vytvorení výsledného súboru sú analyzované údaje transformované do podoby JSON, ktorý je zároveň riadne formátovaný pre jednoduchú čitateľnosť ako človekom, tak aj počítačom. Po vygenerovaní všetkých potrebných dát je súbor uzavretý a výsledky sú pripravené na použitie. Pred samotným ukončením aplikácie však prichádza na rad ešte záverečné generovanie metadát, ktorých úlohou je informovať o celkových výsledkoch extrakcie.
 
@@ -587,7 +592,7 @@ Jeho úlohou je definícia základných pravidiel používaných pri extrakcii d
 \begin{lstlisting}[caption={Príklad konfiguračného súboru},captionpos=b,label={config_ex}]
 {
     "maxFailRatio": 70,
-    "format": {
+    "format":{
         "time": "^(\\d\\d:\\d\\d)$",
         "score": "^(\\d+(\\-|\\:)\\d+)$|^-$|^\\? - \\?$|^\\d\\d$",
         "string": "^[a-zA-Z].*$"
@@ -601,35 +606,33 @@ Jeho úlohou je definícia základných pravidiel používaných pri extrakcii d
 Štruktúra konfiguračného súboru je daná nasledovne:
 
 \begin{itemize}
-  \item \textbf{maxFailRatio} ako hodnota v rozsahu 0-100. Táto hodnota definuje maximálny pomer prvkov, ktoré pri určovaní výsledného okruhu neboli úspešné. Tieto prvky sú vo výslednom okruhu dát reprezentované hodnotou \textit{Null}. Ak je výsledný pomer týchto prvkov väčší ako hodnota udaná v \textit{maxFailRatio}, je takýto okruh vyradený a neberie sa pri ďalšom určovaní v úvahu. Táto hodnota je úzko viazaná s hodnotou \textit{primary}, ktorá bude popísaná neskôr. Zmenu hodnoty na číslo blížiace sa 0 sa zväčší výsledná presnosť definície, avšak v mnohých prípadoch môže výsledný okruh so správnymi hodnotami obsahovať takzvané \textit{anomálie}, a preto je vhodné túto hodnotu udávať v rozsahu 40-60. Pri číslach blížiacich sa 100 je znova možné, že výsledný okruh bude \textit{false positive}, a nebude možné takýto okruh dát brať ako relevantný.
+  \item \textbf{maxFailRatio} ako hodnota v rozsahu 0-100. Táto hodnota definuje maximálny pomer prvkov, ktoré pri určovaní výsledného okruhu neboli úspešné. Tieto prvky sú vo výslednom okruhu dát reprezentované hodnotou \textit{Null}. Ak je výsledný pomer týchto prvkov väčší ako hodnota udaná v \textit{maxFailRatio}, je takýto okruh vyradený a neberie sa pri ďalšom určovaní v úvahu. Táto hodnota je úzko viazaná s hodnotou \textit{primary}, ktorá bude popísaná neskôr. Zmenou hodnoty na číslo blížiace sa 0 sa zväčší výsledná presnosť definície, avšak v mnohých prípadoch môže výsledný okruh so správnymi hodnotami obsahovať takzvané \textit{anomálie}, a preto je vhodné túto hodnotu udávať v rozsahu 30-70. Pri číslach blížiacich sa 100 je znova možné, že výsledný okruh bude \textit{false positive}, a nebude možné takýto okruh dát brať ako relevantný.
   \item \textbf{format} predstavuje súbor formátov na základe ktorých aplikácia definuje dátové typy výsledných prvkov. Tento súbor formátov je definovaný nasledovne:
   
   \textbf{názov\_dátového\_typu : reprezentácia\_regulárneho\_výrazu}
   
   Formáty sú reprezentované ako pravidlá určené regulárnymi výrazmi. Jeden \uv{pseudo} dátový typ je preto definovaný jedným jednoznačným regulárnym výrazom. Tieto výrazy sú používateľovi prístupné a môže ich definíciu kedykoľvek meniť a pridávať vlastné dátové typy definované vlastnými výrazmi. Ich formát je po takomto definovaní v konfiguračnom súbore dostupný v dátovom súbore na následnú špecifikáciu požadovaných vstupných údajov. Z určenia tohto formátu je možné jednoznačne povedať, že správna definícia týchto formátov bude viesť k úspešnejšej extrakcii. 
   
-  \item \textbf{primary} je hodnota regulárneho výrazu, ktorá sa viaže s hodnotou \textit{maxFailRatio} a to takým spôsobom, že práve táto hodnota je používaná na prvotnú detekciu výsledných dátových okruhov. Tieto okruhy sú definované pomocou atribútu \textit{class}. Jedná sa o hodnotu definovanú používateľom ako primárnu v danom vyhľadávanom prípade. Môže sa jednať napríklad o reprezentáciu skóre pri vyhľadávaní športových výsledkov alebo formát času typický pri daný súbor dát. 
+  \item \textbf{primary} je hodnota regulárneho výrazu, ktorá sa viaže s hodnotou \textit{maxFailRatio} a to takým spôsobom, že práve táto hodnota je používaná na prvotnú detekciu výsledných dátových okruhov. Tieto okruhy sú definované pomocou atribútu \textit{class}. Jedná sa o hodnotu definovanú používateľom ako primárnu v danom vyhľadávanom prípade. Môže sa jednať napríklad o reprezentáciu skóre pri vyhľadávaní športových výsledkov alebo formát času typický pri daný súbor dát. Primárny prvok môže a nemusí byť súčasťou výsledných údajov.
 \end{itemize}
 
 \section{Vstupné dáta}
 
-Aplikácia ďalej rozoznáva súbor so vstupnými dátami definovanými používateľom. Tieto dáta sú reprezentované znova vo formáte JSON a dodržanie štruktúry je preto kritické. 
+Aplikácia ďalej potrebuje súbor so vstupnými dátami definovanými používateľom. Tieto dáta sú reprezentované znova vo formáte JSON a dodržanie štruktúry je preto kritické. 
 
 Súbor so vstupnými dátami slúži používateľovi na presnú definíciu danej extrakčnej úlohy. Samostatný súbor je vhodné vytvoriť pre každý súbor domén(skupinu domén, z ktorej budú následne dáta extrahované) zvlášť. Prípadne je možné meniť vlastnosti a obsah daného dátového súboru tak, aby bol v daný moment jeho obsah relevantný. 
 
-Keďže sa jedná o jeden z primárnych súborov aplikácie, je jeho výskyt podmienený. Aplikácia pomocou neho dokáže určiť o aké dáta má v danej chvíli používateľ záujem a tieto dáta budú v rovnakej forme reprezentované vo výstupných súboroch.
+Keďže sa jedná o jeden z primárnych súborov aplikácie, je jeho výskyt podmienený. Aplikácia pomocou neho dokáže určiť, o aké dáta má v danej chvíli používateľ záujem. Tieto dáta budú v rovnakej forme reprezentované vo výstupných súboroch, avšak ich poradie v rámci výstupného súboru nemusí byť rovnaké.
 
 Formát výstupného súboru je preto so súborom obsahujúcim vstupné dáta úzko viazaný, keďže práve vstupné dáta určujú jeho následnú reprezentáciu. Výstupný súbor dát je založený na formáte JSON, a jeho štruktúra odpovedá štruktúre definovanej na vstupe.
 
 \bigskip
 
-\begin{lstlisting}[caption={Príklad dátového súboru},captionpos=b,label={data_ex}]
+\begin{lstlisting}[caption={Príklad súboru so vstupnými dátami},captionpos=b,label={data_ex}]
 {
-    "urls": [
+    "urls":[
         "tests/dataset/football/domains/365scores.com.html",
         "tests/dataset/football/domains/777score.com.html",
-        ...
-        ...
         ...
     ],
     "structure":{
@@ -657,11 +660,11 @@ Vstupné dáta sú formované nasledovne:
   
   \textbf{výsledný\_názov : názov\_dátového\_typu}
   
-  kde výsledný názov je názov, ktorý používateľ požaduje vo výstupnom súbore a názov dátového typu je dátový typ daného prvku. Dátový typ musí byť zhodný s jedným z dátových typov v konfiguračnom súbore, v opačnom prípade vyhodnotenie takéhoto prvku nebude umožnené. Počet prvkov v štruktúre nieje obmedzený, avšak jeho štruktúra je obmedzená iba na jednoduché výrazy. Zároveň treba brať na vedomie fakt, že sa jedná o štruktúru objektu, ktorý nás v danej extrakčnej úlohe zaujíma. To znamená, že nemá zmysel do štruktúry zahrnúť iné prvky, ako sú pri danom objekte očakávané. Budú pravdepodobne zahodené alebo vôbec nebudú detegované.
+  kde výsledný názov je názov, ktorý používateľ požaduje vo výstupnom súbore a názov dátového typu je \uv{pseudo} dátový typ daného prvku. Dátový typ musí byť zhodný s jedným z dátových typov v konfiguračnom súbore, v opačnom prípade vyhodnotenie takéhoto prvku nebude umožnené. Počet prvkov v štruktúre nieje obmedzený, avšak jeho štruktúra je obmedzená iba na jednoduché výrazy. Zároveň treba brať na vedomie fakt, že sa jedná o štruktúru objektu, ktorý nás v danej extrakčnej úlohe zaujíma. To znamená, že nemá zmysel do štruktúry zahrnúť iné prvky, ako sú pri danom objekte očakávané.
   
-  Vo výslednom súbore sa môžu objaviť len prvky, ktoré tu boli zadefinované. Avšak v niektorých prípadoch výsledný súbor môže obsahovať prvok \uv{undefined}. Takýto prvok značí, že sa pri extrakcii dát z daného objektu objavil prvok, ktorý aplikácia nedokázala podľa definovaných pravidiel zaradiť. Tomuto javu sa dá predchádzať spustením aplikácie s parametrom \textit{\texttt{-{}-}noundef}. Pri takomto spustení je každý výsledný objekt kontrolovaný na prítomnosť nedefinovaných prvkov a takéto sú následne z objektu vyradené. Na druhej strane prítomnosť všetkých definovaných prvkov nieje podmienená. Ak niektorý z prvkov pri danom objekte chýba, je jednoducho vynechaný a jeho reprezentácia nieje vo výslednom súbore uvedená ani vo formáte prázdneho reťazca znakov. Takáto situácia môže nastať napríklad pri extrakcii dát z obchodných reťazcov a použitia dátového typu reprezentujúceho \uv{zľavu}. Zľava nemusí byť pri každom produkte určená, a preto aplikácia pri produktoch bez zľavy daný prvok vynechá.
+  Vo výslednom súbore sa môžu objaviť len prvky, ktoré tu boli zadefinované. Avšak v niektorých prípadoch výsledný súbor môže obsahovať prvok \texttt{undefined}. Takýto prvok značí, že sa pri extrakcii dát z daného objektu objavil prvok, ktorý aplikácia nedokázala podľa definovaných pravidiel zaradiť. Tomuto javu sa dá predchádzať spustením aplikácie s parametrom \textit{\texttt{-{}-}noundef}. Pri takomto spustení je každý výsledný objekt kontrolovaný na prítomnosť nedefinovaných prvkov a takéto sú následne z objektu vyradené. Na druhej strane prítomnosť všetkých definovaných prvkov nieje podmienená. Ak niektorý z prvkov pri danom objekte chýba, je jednoducho vynechaný a jeho reprezentácia nieje vo výslednom súbore uvedená ani vo formáte prázdneho reťazca znakov. Takáto situácia môže nastať napríklad pri extrakcii dát z obchodných reťazcov a použitia dátového typu reprezentujúceho \uv{zľavu}. Zľava nemusí byť pri každom produkte určená, a preto aplikácia pri produktoch bez zľavy daný prvok vynechá.
   
-  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré používateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade používateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec vyradený a aplikácia ho určí ako prvok určený na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí používateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale, že ho používateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe poľa reťazcov. Veľkosť poľa nieje obmedzená a môže obsahovať nekonečne veľa výrazov. 
+  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré používateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade používateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží na tom, či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec zachytený a aplikácia ho určí ako prvok určený na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí používateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale, že ho používateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe poľa reťazcov. Veľkosť poľa nieje obmedzená a môže obsahovať nekonečne veľa výrazov. 
  \end{itemize}
  
  \section{Štruktúra aplikácie}
@@ -694,9 +697,11 @@ Vstupné dáta sú formované nasledovne:
  \begin{enumerate}
      \item Analýza triednych atribútov
      \item Zoradenie zoznamu tried na základe výskytu
-     \item Kontrola daného okruhu dát z pohľadu primárneho prvku
+     \item Kontrola daného okruhu dát na prítomnosť primárneho prvku
      \item Overenie pomeru nevyhovujúcich prvkov
  \end{enumerate}
+ 
+ \bigskip
  
  \begin{figure}[hbt]
 	\centering
@@ -711,18 +716,20 @@ Vstupné dáta sú formované nasledovne:
 
 Ako prvý krok pri získavaní relevantných údajov o architektúre webovej stránky prebehne analýza triednych atribútov. Aplikácia analyzuje každý prvok reprezentovaný HTML značkou a uloží zoznam všetkých použitých tried, ktoré daný prvok obsahuje. Týmto spôsobom prejde aplikácia všetky značky a získa tak prehľad o všetkých triednych atribútoch na celej webovej stránke.
 
-Keďže sa dá predpokladať, že pri extrakčnej úlohe sa bude zväčša jednať o údaje, ktoré sa na webovej stránke opakujú, sú všetky triedy zoradené do poľa na základe početnosti. Najpočetnejšie triedy budú na vrchole zoznamu, a tie ktoré sa na webovej stránke vyskytujú najmenej budú na konci zoznamu. Z toho ako fungujú triedne atribúty pri HTML značkách vieme určiť, že pre jednu skupinu prvkov, ktorá je definovaná jednou spoločnou charakteristikou, budú triedne atribúty spoločné. 
+Keďže sa dá predpokladať, že pri extrakčnej úlohe sa bude zväčša jednať o údaje, ktoré sa na webovej stránke opakujú, sú všetky triedy zoradené do poľa na základe početnosti. Najpočetnejšie triedy budú na vrchole zoznamu, a tie ktoré sa na webovej stránke vyskytujú najmenej, budú na konci zoznamu. Z toho ako fungujú triedne atribúty pri HTML značkách vieme určiť, že pre jednu skupinu prvkov, ktorá je definovaná jednou spoločnou charakteristikou, budú triedne atribúty spoločné. 
 
 
 \subsubsection{Zber údajov}
 
-Po zoradení triednych atribútov aplikácia začína so zberom údajov. Postupne od najpočetnejšieho atribútu (toho s najčastejším výskytom) sú dáta v danom okruhu určenom práve triednym atribútom uložené a následne kontrolované z pohľadu výskytu primárneho prvku. V prípade, že niektorý z prvkov danej skupiny nepredstavuje primárny prvok, je hodnota daného prvku zmenená na špeciálnu hodnotu \textit{Null}. Táto kontrola prebieha porovnaním daného prvku s regulárnym výrazom pre primárny prvok. Hodnota Null pri určitom prvku ďalej aplikácií slúži ako záznam o nesplnení testu na regulárny výraz. Počet takýchto nesplnených testov je následne využitý v ďalšej časti analýzy.
+Po zoradení triednych atribútov aplikácia začína so zberom údajov. Postupne od najpočetnejšieho atribútu (toho s najčastejším výskytom) sú dáta v danom okruhu určenom práve triednym atribútom uložené a následne kontrolované z pohľadu výskytu primárneho prvku. V prípade, že niektorý z prvkov danej skupiny nepredstavuje primárny prvok, je hodnota daného prvku zmenená na špeciálnu hodnotu \textit{null}. Táto kontrola prebieha porovnaním daného prvku s regulárnym výrazom pre primárny prvok. Hodnota null pri určitom prvku ďalej aplikácií slúži ako záznam o nesplnení testu na regulárny výraz. Počet takýchto nesplnených testov je následne využitý v ďalšej časti analýzy.
 
 Akonáhle aplikácia analyzuje všetky prvky z daného okruhu a určí, ktoré prvky nevyhovujú, postupuje na vyhodnotenie výsledného pomeru. Ten je následne porovnaný s maximálnym povoleným pomerom a v prípade, že spadá pod hranicu tohto maxima, je daný okruh prvkov určený ako výsledný.
 
 \bigskip
 
-Pri analýze sú teda kontrolované jednotlivé okruhy určené triednymi atribútmi. V prípade, že aplikácia zachytí okruh, ktorý spĺňa podmienky primárneho prvku na dostatočne dobrú hodnotu, kde krajná hodnota je určená používateľom, je daný okruh označený za výsledný a aplikácia pristúpi k extrakcii dát. Ostatné okruhy dát sú zahodené a nie sú kontrolované na prítomnosť žiadnych prvkov. Ak žiadny z okruhov dát nesplní určené požiadavky, je o tom používateľ informovaný a daný webový dokument nebude generovať výsledné údaje. Výsledný súbor ani súbor s metadátami nieje pre daný dokument generovaný. V prípade že sa jedná len o jeden dokument z kolekcie dokumentov, je generovanie výsledných údajov vynechané len pre daný dokument.
+Pri analýze sú teda kontrolované jednotlivé okruhy určené triednymi atribútmi. V prípade, že aplikácia zachytí okruh, ktorý spĺňa podmienky primárneho prvku, je daný okruh označený za výsledný a aplikácia pristúpi k extrakcii dát. Ostatné okruhy dát sú zahodené a nie sú kontrolované na prítomnosť žiadnych prvkov. Ak žiadny z okruhov dát nesplní určené požiadavky, je o tom používateľ informovaný a daný webový dokument nebude generovať výsledné údaje. Výsledný súbor ani súbor s metadátami nieje pre daný dokument generovaný. V prípade že sa jedná len o jeden dokument z kolekcie dokumentov, je generovanie výsledných údajov vynechané len pre daný dokument.
+
+Po zbere údajov môže aplikácia pristúpiť ku generovaní výsledkov. To spočíva z kontroly výsledného okruhu a zaradenia údajov k dátam, ktoré reprezentujú.
 
 \newpage
 
@@ -737,18 +744,18 @@ Následne prechádzame ku generovaní potencionálnych výsledkov. Tie sú gener
 \bigskip
 
 \begin{enumerate}
-    \item Určenie otcovského elementu na základnú výšku 1
-    \item Ak je cieľový otcovský element vyššie v DOM strome, určenie otcovského elementu na danú výšku
-    \item Vytvorenie stromovej štruktúry obsahujúcej všetky detské prvky daného elementu
-    \item Odstránenie duplikátov
-    \item Príprava výsledkov
-    \item Kontrola počtu prvku vo výsledných objektoch, ak je tento počet menší ako cielený počet, zvýšenie indexu cieľového otcovského elementu a vrátenie sa na bod 2.
-    \item Zápis výsledných objektov do odpovedajúcich súborov
+    \item určenie otcovského indexu na základnú výšku 1,
+    \item ak je cieľový otcovský element vyššie v DOM strome, určenie otcovského elementu na danú výšku,
+    \item vytvorenie stromovej štruktúry obsahujúcej všetky priame a nepriame detské prvky daného elementu,
+    \item odstránenie duplikátov,
+    \item príprava výsledkov,
+    \item kontrola počtu objektov, ak je tento počet menší ako cielený počet, zvýšenie indexu cieľového otcovského elementu a vrátenie sa na bod 2.,
+    \item zápis výsledných objektov do odpovedajúceho súboru.
 \end{enumerate}
 
 \bigskip
 
-Z daného postupu je jasné, že pre správne určenie všetkých elementov je potrebné v rámci DOM stromu stúpať do správnej výšky tak, aby bolo možné určiť všetky prvky a zároveň aby stúpanie nebolo príliš vysoké. Preto aplikácia po prvom zaručení minimálneho množstva výsledných prvkov v objekte stúpanie preruší. Následne prebieha odstránenie prípadných duplikátov, ktoré pri práci s triednymi atribútmi môžu vzniknúť.
+Z daného postupu je jasné, že pre správne určenie všetkých elementov je potrebné v rámci DOM stromu stúpať do správnej výšky tak, aby bolo možné určiť všetky prvky a zároveň aby stúpanie nebolo príliš vysoké. Preto aplikácia po prvom zaručení minimálneho množstva výsledných objektov stúpanie preruší. Následne prebieha odstránenie prípadných duplikátov, ktoré pri práci s triednymi atribútmi môžu vzniknúť.
 
 V rámci prípravy výsledkov prebieha hlavne formátovanie výsledkov a určenie ich dátového typu a reprezentácie. Detailnejší postup toho, ako to prebieha bude popísaný v rámci tejto kapitoly. 
 
@@ -758,7 +765,7 @@ Po príprave výsledkov je na rade ich zápis. Ten prebieha ihneď po určení s
 
 Následná vizuálna reprezentácia predstavuje typický prípad pri extrakcii a algoritmus, ktorý aplikácia pri extrakcii využíva. Jedná sa o typický príklad DOM stromu, kde sa vyskytujú aj rodičovské a detské elementy. Elementy vo fialovom rámci predstavujú elementy, ktoré sú predmetom záujmu extrakcie. 
 
-Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri extrakcii teda aplikácia začína červeno označeným elementom \uv{SPAN} a označí otcovský element ako element \uv{P}, ktorý je označený oranžovou farbou. Z daného otcovského elementu prebehne kontrola počtu detských elementov. Ich počet je však menší, ako cielený počet prvkov zadaných pri extrakčnej úlohe. Algoritmus teda zvýši index cieľového otcovského prvku a tým nastaví na cielený otcovský prvok element \uv{DIV} označený zelenou farbou. V tomto prípade je počet priamych a nepriamych detských elementov rovný počtu zadaných prvkov pri extrakčnej úlohe. Aplikácia teda našla cielený otcovský element a elementy záujmu.
+Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri extrakcii teda aplikácia začína červeno označeným elementom \uv{SPAN} a označí otcovský element ako element \uv{P}, ktorý je označený oranžovou farbou. Z daného otcovského elementu prebehne kontrola počtu detských elementov a počtu výsledných objektov. Ich počet je však menší, ako cielený počet. Algoritmus teda zvýši index cieľového otcovského prvku a tým nastaví na cielený otcovský prvok element \uv{DIV} označený zelenou farbou. V tomto prípade je počet priamych a nepriamych detských elementov a objektov ktoré ich reprezentujú zhodný s minimálnym požadovaným množstvom. Aplikácia teda našla cielený otcovský element a elementy záujmu.
 
 \bigskip
 
