@@ -58,5 +58,6 @@ clean:
 	rm -rf ./$(SHOPS)/output ./$(SHOPS)/metadata.json
 	rm -rf ./$(NEWS)/output ./$(NEWS)/metadata.json
 	rm -rf ./$(NEWS3)/output ./$(NEWS3)/metadata.json
+	rm -rf ./output ./metadata.json
 pack: clean
-	zip -r $(ZIP) ./src/* ./tests/* ./Makefile ./README.md ./package.json
+	zip -r $(ZIP) ./src/* ./tests/* ./thesis/* ./Makefile ./README.md ./package.json
