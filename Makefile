@@ -14,12 +14,12 @@ NEWS3 = tests/dataset/news3
 ZIP = xperin11.zip
 
 all:
-	node $(BIN) --data=src/$(DATA) --config=src/$(CONFIG) --noundef -m
+	node $(BIN) --data=src/$(DATA) --config=src/$(CONFIG) -g
 tests: datatest testall
 datatest:
 	node $(BIN) --data=$(FOOTBALL)/$(DATA) --config=$(FOOTBALL)/$(CONFIG) -o=$(FOOTBALL)/output/ --offline -bdg --noundef --dataset
 	node $(BIN) --data=$(TSBOHEMIA)/$(DATA) --config=$(TSBOHEMIA)/$(CONFIG) -o=$(TSBOHEMIA)/output/ --offline --noundef -bdp --dataset
-	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdum --noundef --dataset
+	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdump --noundef --dataset
 	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdum --dataset
 	node $(BIN) --data=$(NEWS3)/$(DATA) --config=$(NEWS3)/$(CONFIG) -o=$(NEWS3)/output/ --offline -dgpm --noundef --dataset
 testall:
@@ -36,7 +36,7 @@ tsbohemia:
 	node $(BIN) --data=$(TSBOHEMIA)/$(DATA) --config=$(TSBOHEMIA)/$(CONFIG) -o=$(TSBOHEMIA)/output/ --offline --noundef -bdp --dataset
 	python $(TEST) tsbohemia
 shops:
-	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdum --noundef --dataset
+	node $(BIN) --data=$(SHOPS)/$(DATA) --config=$(SHOPS)/$(CONFIG) -o=$(SHOPS)/output/ --offline -bdump --noundef --dataset
 	python $(TEST) shops
 news:
 	node $(BIN) --data=$(NEWS)/$(DATA) --config=$(NEWS)/$(CONFIG) -o=$(NEWS)/output/ --offline -bdum --dataset
