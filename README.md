@@ -85,10 +85,11 @@ Datasets:
 Application contains following datasets:
 
     Football
-    Shops
-    
     Tsbohemia
+    
+    Shops
     News
     News3
 
-From which Shops, News and News3 were created by František Maštera.
+From which Shops, News and News3 were created by František Maštera. Complete list of all websites is available in tests/dataset/INFO.md
+List also contains URL to original website and date when the file was downloaded.
