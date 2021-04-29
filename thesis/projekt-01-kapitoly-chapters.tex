@@ -54,7 +54,7 @@ Tieto kroky sú potom pri každej aplikácií mierne prispôsobené určeniu a s
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.7\textwidth]{obrazky-figures/web-scraping-using-python.png}
-	\caption{Všeobecný postup ktorým sa aplikácia typu web scraper riadi. Prevzaté z Javatpoint \cite{WebScrap}}
+	\caption{Všeobecný postup ktorým sa aplikácia typu web scraper riadi. Zdroj: \cite{WebScrap}.}
 	\label{WebScrap_img}
 \end{figure}
 
@@ -187,7 +187,7 @@ V prvom rade treba zvážiť aktuálnu situáciu a technológie, ktoré sa na we
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.7\textwidth]{obrazky-figures/modules.png}
-	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Zdroj Moduleco \url{http://www.modulecounts.com/}, citované 30.3.2021.}
+	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Zdroj: Moduleco \url{http://www.modulecounts.com/}, citované 30.3.2021.}
 	\label{Moduleco_img}
 \end{figure}
 
@@ -293,7 +293,7 @@ Práve kombinácia HTML, CSS a Javascriptu totiž dokáže docieliť výsledky, 
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.8\textwidth]{obrazky-figures/jsexecution.png}
-	\caption{HTML, CSS a JavaScript sú 3 hlavné zložky ktoré spolu vytvárajú web ako ho poznáme dnes. Zdroj \cite{Javascript}}
+	\caption{HTML, CSS a JavaScript sú 3 hlavné zložky ktoré spolu vytvárajú web ako ho poznáme dnes. Zdroj: \cite{Javascript}.}
 	\label{Jsexecution_img}
 \end{figure}
 
@@ -343,7 +343,7 @@ Spojenie s prehliadačom je nadviazané pomocou protokolu DevTools vyvinutého s
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.6\textwidth]{obrazky-figures/pyramid.png}
-	\caption{Hierarchia výslednej aplikácie pri použití technológie Puppeteer. Zdroj \cite{pyramid}.}
+	\caption{Hierarchia výslednej aplikácie pri použití technológie Puppeteer. Zdroj: \cite{pyramid}.}
 	\label{pupepyramid_img}
 \end{figure}
 
@@ -378,7 +378,7 @@ Online verzia Puppeteeru je zároveň dostupná v sandbox prostredí\footnote{\u
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=1\textwidth]{obrazky-figures/diagram.png}
-	\caption{Diagram knižnice Puppeteer zobrazujúci vzťah jednotlivých prvkov API.\\ \mbox{Zdroj: \url{https://github.com/puppeteer/puppeteer/blob/main/docs/api.md}}}
+	\caption{Diagram knižnice Puppeteer zobrazujúci vzťah jednotlivých prvkov API.\\ \mbox{Zdroj: \url{https://github.com/puppeteer/puppeteer/blob/main/docs/api.md}}.}
 	\label{diagram}
 \end{figure}
 
@@ -403,7 +403,9 @@ Pri návrhu je treba samozrejme zohľadniť fakt, že finálny používateľ bud
 \newpage
 \section{Vstupné pravidlá}
 
-Pojmom vstupné pravidlá rozumieme pravidlá, ktoré sú definované ako základné vstupné údaje pri spustení aplikácie. Tieto údaje budú mať za úlohu definovať presne to, čo v danom konkrétnom prípade používateľ aplikácie očakáva ako aplikačný výstup. Sú to zároveň pravidlá pre aplikáciu určujúce objekty vo webovom dokumente ako bod záujmu extrakcie pri konkrétnej extrakčnej úlohe \ref{rules}.
+Pojmom vstupné pravidlá rozumieme pravidlá, ktoré sú definované ako základné vstupné údaje pri spustení aplikácie. Tieto údaje budú mať za úlohu definovať presne to, čo v danom konkrétnom prípade používateľ aplikácie očakáva ako aplikačný výstup. Sú to zároveň pravidlá pre aplikáciu určujúce objekty vo webovom dokumente ako bod záujmu extrakcie pri konkrétnej extrakčnej úlohe. 
+
+Diagram \ref{rules} reprezentuje postup analýzy a zaradenia elementu. Po extrakcii potencionálnych výsledkov je potrebná ich analýza a zaradenie. Výsledky sú na základe ich polohy v rámci DOM zlúčené do kandidátnych skupín. Jedna skupina tak pozostáva z reťazcov znakov jednotlivých DOM elementov. Každý reťazec je analyzovaný zvlášť a pri analýze je overená platnosť definovaných pravidiel. Ak reťazec splní jedno z definovaných pravidiel, toto pravidlo určí jeho finálnu príslušnosť v rámci výsledného objektu. Táto príslušnosť pozostáva zo zaradenia dátového typu a finálneho identifikátora v rámci výsledného objektu. Výsledný objekt reprezentuje objekt, ktorý je zaradený do skupiny objektov určených na zápis do výstupného súboru.
 
 Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jednoduchej zrozumiteľnosti ako z pohľadu človeka, tak aj z pohľadu počítača. Súbory vo formáte JSON sú zároveň veľmi jednoducho prenositelné aj medzi viacerými programovacími jazykmi, čo je samozrejme ďalšia výhoda. S týmto formátom mám zároveň osobné skúsenosti, takže to bola pomerne jasná voľba.
 
@@ -865,7 +867,7 @@ Finálna testovacia sada pozostávala zo 4 oblastí:
     \item Správy a novinky
 \end{itemize}
 
-Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené autorom druhej práce. Každá z týchto sád obsahuje 10 webových dokumentov.
+Kde prvé dve oblasti boli pripravené mnou, a posledné dve boli pripravené autorom druhej práce. Každá z týchto sád obsahuje 10 webových dokumentov. Všetky originálne URL adresy sú zároveň dostupné v rámci súboru \textit{INFO.md} v zložke \textit{dataset}.
 
 \subsection{Štruktúra testovacej sady}
 
