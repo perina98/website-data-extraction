@@ -1,3 +1,10 @@
+Datasety eshop a news sú vytvorené pánom Františkom Mašterom.
+Datasety football a tsbohemia sú vytvorené mnou, Lukášom Perinom.
+
+Datasety dokopy obsahujú 40 webových dokumentov.
+
+Zoznam dátových sád, stránok ktoré reprezentujú a dátum stiahnutia týchto stránok:
+
 | Datová sada  | Stránka                  | Dátum stiahnutia offline verzie |
 | ------------ | ------------------------ | ---------------------------- |
 | `eshop/`     | [alza.cz](https://www.alza.cz/nejprodavanejsi-nejlepsi-procesory/18842843.htm)                  | 2021-03-03                   |
