@@ -398,7 +398,9 @@ Základom extrakcie je zároveň vedieť o aké dáta máme záujem. Tieto dáta
 
 Úlohou týchto pravidiel bude určenie relevantnosti nájdených dát. Aplikácia bude preto tieto vstupné pravidlá overovať z pohľadu správnosti formátu. Pri definícií týchto pravidiel bude treba zohľadniť diverzitu a premenlivosť hľadaného objektu, ako napríklad premenlivú dĺžku reťazcov. Dá sa teda s určitosťou predpokladať, že správna definícia vstupných pravidiel bude mať jednoznačný vplyv na úspešnosť výsledkov z hľadiska nášho očakávania. Preto je treba tomuto návrhu venovať dostatočne veľký časový priestor.
 
-Pri návrhu je treba samozrejme zohľadniť fakt, že finálny používateľ bude chcieť špecifikáciou týchto pravidiel stráviť čo najmenej času. To je samozrejmé a je preto dôležité odlíšiť časti pravidiel. Niektoré pravidlá nieje nutné prepisovať tak často, iné sa môžu meniť s príchodom nových požiadaviek.
+Pri návrhu je treba samozrejme zohľadniť fakt, že finálny používateľ bude chcieť špecifikáciou týchto pravidiel stráviť čo najmenej času. To je samozrejmé a je preto dôležité odlíšiť dva typy pravidiel. Niektoré pravidlá nieje nutné prepisovať tak často, iné sa môžu meniť s príchodom nových požiadaviek.
+
+Po zadefinovaní vstupných pravidiel bude možné odlíšiť irelevantný obsah od toho, ktorý nás zaujíma. Vo výstupnom súbore by sa mali nachádzať iba údaje užitočné pre koncového užívateľa. Tie budú korešpondovať práve so zadefinovanými pravidlami tak, že práve tieto pravidlá budú slúžiť ako nielen možnosť kontroly údajov, ale aj ako štruktúra výstupného súboru. 
 
 \newpage
 \section{Vstupné pravidlá}
@@ -422,7 +424,7 @@ Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jed
 
 \subsection{Hlavné pravidlá}
 
-V prvom rade treba začať návrhom toho, z čoho sa vlastne tieto vstupné pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidla rozdelené. Rozdelenie konfiguračných a vstupných pravidiel uľahčí ich nasledovnú správu a zaradenie. Príklad štruktúry je zobrazený aj ako výpis \ref{data_ex}.
+V prvom rade treba začať návrhom toho, z čoho sa vlastne tieto vstupné pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidla rozdelené. Rozdelenie konfiguračných a vstupných pravidiel uľahčí ich nasledovnú správu a zaradenie. Príklad štruktúry hlavných pravidiel je zobrazený aj ako výpis \ref{data_ex}.
 
 Medzi hlavné pravidlá na extrakciu boli vybrané:
 \begin{itemize}
@@ -437,7 +439,7 @@ Kde \textbf{zoznam webových stránok} určuje všetky webové stránky určené
 
 \bigskip
 
-\textbf{Štruktúra hľadaných prvkov} je definovaná ako objekt určujúci požadovaný výsledný názov elementu a jeho \uv{pseudo} dátový typ. Názov bude použitý pri zápise objektu do výsledného súboru, a dátový typ bude použitý za účelom klasifikácie daného prvku. Štruktúra je v podobe objektu, a teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak, aby ak pre človeka bolo na prvý pohľad jasné, v akom vzťahu tieto údaje sú.
+\textbf{Štruktúra hľadaných prvkov} je definovaná ako objekt určujúci požadovaný výsledný názov elementu a jeho \uv{pseudo} dátový typ. Názov bude použitý pri zápise objektu do výsledného súboru, a dátový typ bude použitý za účelom klasifikácie daného prvku. Štruktúra je v podobe objektu, teda jednotlivé identifikátory a dátové typy sú k sebe priradené tak, aby ak pre človeka bolo na prvý pohľad jasné, v akom vzťahu tieto údaje sú.
 
 \bigskip
 
@@ -467,14 +469,9 @@ Ak však príde k splneniu tejto podmienky, bude prvý takýto okruh vybraný ak
 
 \bigskip
 
-\textbf{Primárny prvok} je taký prvok, ktorý sa v objektoch určených na extrakciu opakuje, a teda je možné sa na jeho prezenciu spoliehať. Tento prvok definuje objekt a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
+\textbf{Primárny prvok} je taký prvok, ktorý sa v objektoch určených na extrakciu opakuje, a teda je možné sa na jeho prezenciu spoliehať. Tento prvok je súčasťou hľadaného objektu a je možné nejakú jeho deriváciu nájsť v každom objekte ktorého obsah chceme extrahovať. 
 
 Aplikácia bude tento prvok používať na prvotnú analýzu webovej stránky. Na základe jeho prezencie je následne posúdené, či daný okruh dát je kandidátom na definíciu výsledných objektov.
-
-\bigskip
-\bigskip
-
-Všetky pravidlá, ich finálna reprezentácia a štruktúra budú neskôr objasnené v rámci kapitoly \ref{implementacia}. Tu budú zároveň ukázané príklady ich štruktúry založené na reálnych údajoch.
 
 \newpage
 
@@ -557,20 +554,20 @@ Po zoskupení týchto informácií a uložení textových reprezentácií týcht
 
 Položky ktoré nieje možné definovať vo výsledku používateľovi, ani inému programu, ktorý by dáta využíval, nemôžu byť užitočné. Práve z toho dôvodu by mal používateľ týmto prípadom predchádzať, a to dvoma spôsobmi. 
 
-Keďže aplikácia analyzuje výsledky ako celok, vie presne určiť aký dátový typ bol na danom indexe definovaný v predošlých prípadoch objektov, ktorých dáta testom na regulárny výraz prešli. Týmto sa dá jednoducho predísť strate dát pri anomáliách. V niektorých prípadoch však ani toto nieje riešenie. V tom prípade má aplikácia možnosť jednoducho takéto nedefinované výsledky vynechať a používateľovi vôbec nezobrazovať.
+Keďže aplikácia analyzuje výsledky ako celok, vie presne určiť aký dátový typ bol na danom indexe definovaný v predošlých prípadoch objektov, ktorých dáta testom na regulárny výraz prešli. Týmto sa dá jednoducho predísť strate dát pri anomáliách. V niektorých prípadoch však ani toto nieje riešenie. V tom prípade má aplikácia možnosť jednoducho takéto nedefinované výsledky ignorovať a používateľovi vôbec nezobrazovať.
 
 \subsubsection{Generovanie výsledných údajov}
 
 Po analýze výsledkov a ich zaradení k dátovým typom prichádza na rad generovanie výsledných údajov. Aplikácia v tomto prípade generuje výsledky pre každý webový dokument zvlášť, a to tak, že výsledný súbor nesie názov v podobe domény, z ktorej údaje pochádzajú.
 
-Po vytvorení výsledného súboru sú analyzované údaje transformované do podoby JSON, ktorý je zároveň riadne formátovaný pre jednoduchú čitateľnosť ako človekom, tak aj počítačom. Po vygenerovaní všetkých potrebných dát je súbor uzavretý a výsledky sú pripravené na použitie. Pred samotným ukončením aplikácie však prichádza na rad ešte záverečné generovanie metadát, ktorých úlohou je informovať o celkových výsledkoch extrakcie.
+Následným Vytvorením výsledného súboru sú analyzované údaje transformované do podoby JSON, ktorý je zároveň riadne formátovaný pre jednoduchú čitateľnosť ako človekom, tak aj počítačom. Akonáhle je generovanie všetkých potrebných dát ukončené, je súbor uzavretý a výsledky sú pripravené na použitie. Pred samotným ukončením aplikácie však prichádza na rad ešte záverečné generovanie metadát, ktorých úlohou je informovať o celkových výsledkoch extrakcie.
 
-Metadáta predstavujú akési dáta o dátach. Ich generovaním dávame používateľovi informácie, ktoré môže pokladať za užitočné. Jasný a jednoduchý prehľad o extrakcii z pohľadu počtu extrahovaných elementov, dĺžky trvania tejto akcie alebo časových údajov o týchto akciách.
+Metadáta predstavujú akési dáta o dátach. Ich generovaním dávame používateľovi informácie, ktoré môže pokladať za užitočné. Jasný a jednoduchý prehľad o extrakcii z pohľadu počtu extrahovaných elementov, dĺžky trvania jednotlivých akcií, priebeh analýzy a odkaz na prvý cielený element.
 
 \chapter{Implementácia riešenia}
 \label{implementacia}
 
-V rámci tejto kapitoly bude popísaný postup implementácie výsledného riešenia. Aplikácia typu web scraper bude implementovaná na operačnom systéme Windows. Jej využiteľnosť je samozrejme multiplatformná a žiadna z jej súčastí nieje na operačný systém Windows viazaná. Aplikácia bola vo finálnej fáze otestovaná aj na operačnom systéme Manjaro, pod ktorým bežala tak, ako bola navrhnutá.
+V rámci tejto kapitoly bude popísaný postup implementácie výsledného riešenia. Aplikácia typu web scraper bude implementovaná na operačnom systéme Windows. Jej využiteľnosť je samozrejme multiplatformná a žiadna z jej súčastí nieje na operačný systém Windows viazaná. Aplikácia bola vo finálnej fáze testovaná aj na operačnom systéme Manjaro, pod ktorým bežala tak, ako bola navrhnutá.
 
 Implementácia bola z pohľadu web scrapingu rozdelená do viacerých častí:
 
@@ -582,7 +579,7 @@ Implementácia bola z pohľadu web scrapingu rozdelená do viacerých častí:
 
 \bigskip
 
-Postup práce pri implementácií bol vďaka vytvoreniu návrhu a konzultáciám s vedúcim práce pánom Radkom Burgetom jednoznačný. Najskôr bola implementovaná aplikačná logika a následne bola táto logika rozvedená. Počas implementácie boli zároveň vyskúšané dva rôzne prístupy k problematike. Tieto prístupy sa týkali hlavne rozlíšenia prístupu k vytváraní dátových okruhov. Po skúmaní som pristúpil k vytváraní týchto okruhov dát na základe atribútu \textit{class}. Bližšie informácie o tom, ako aplikácia dané okruhy vytvára a analyzuje, budú popísané v rámci tejto kapitoly.
+Postup práce pri implementácií bol vďaka vytvoreniu návrhu a konzultáciám s vedúcim práce pánom Ing. Radkom Burgetom Ph.D. jednoznačný. Najskôr bola implementovaná aplikačná logika a následne bola táto logika rozvedená. Počas implementácie boli zároveň vyskúšané dva rôzne prístupy k problematike. Tieto prístupy sa týkali hlavne rozlíšenia prístupu k vytváraní dátových okruhov. Po skúmaní som pristúpil k vytváraní týchto okruhov dát na základe atribútu \textit{class}. Bližšie informácie o tom, ako aplikácia dané okruhy vytvára a analyzuje, budú popísané v rámci tejto kapitoly.
 
 \section{Konfiguračný súbor}
 
@@ -608,7 +605,7 @@ Jeho úlohou je definícia základných pravidiel používaných pri extrakcii d
 Štruktúra konfiguračného súboru je daná nasledovne:
 
 \begin{itemize}
-  \item \textbf{maxFailRatio} ako hodnota v rozsahu 0-100. Táto hodnota definuje maximálny pomer prvkov, ktoré pri určovaní výsledného okruhu neboli úspešné. Tieto prvky sú vo výslednom okruhu dát reprezentované hodnotou \textit{Null}. Ak je výsledný pomer týchto prvkov väčší ako hodnota udaná v \textit{maxFailRatio}, je takýto okruh vyradený a neberie sa pri ďalšom určovaní v úvahu. Táto hodnota je úzko viazaná s hodnotou \textit{primary}, ktorá bude popísaná neskôr. Zmenou hodnoty na číslo blížiace sa 0 sa zväčší výsledná presnosť definície, avšak v mnohých prípadoch môže výsledný okruh so správnymi hodnotami obsahovať takzvané \textit{anomálie}, a preto je vhodné túto hodnotu udávať v rozsahu 30-70. Pri číslach blížiacich sa 100 je znova možné, že výsledný okruh bude \textit{false positive}, a nebude možné takýto okruh dát brať ako relevantný.
+  \item \textbf{maxFailRatio} ako hodnota v rozsahu 0-100. Táto hodnota definuje maximálny pomer prvkov, ktoré pri určovaní výsledného okruhu neboli úspešné. Tieto prvky sú vo výslednom okruhu dát reprezentované hodnotou \textit{null}. Ak je výsledný pomer týchto prvkov väčší ako hodnota udaná v \textit{maxFailRatio}, je takýto okruh vyradený a neberie sa pri ďalšom určovaní v úvahu. Táto hodnota je úzko viazaná s hodnotou \textit{primary}, ktorá bude popísaná neskôr. Zmenou hodnoty na číslo blížiace sa 0 sa zväčší výsledná presnosť definície, avšak v mnohých prípadoch môže výsledný okruh so správnymi hodnotami obsahovať takzvané \textit{anomálie}, a preto je vhodné túto hodnotu udávať v rozsahu 30-70. Pri číslach blížiacich sa 100 je znova možné, že výsledný okruh bude \textit{false positive}, a nebude možné takýto okruh dát brať ako relevantný.
   \item \textbf{format} predstavuje súbor formátov na základe ktorých aplikácia definuje dátové typy výsledných prvkov. Tento súbor formátov je definovaný nasledovne:
   
   \textbf{názov\_dátového\_typu : reprezentácia\_regulárneho\_výrazu}
@@ -656,7 +653,7 @@ Formát výstupného súboru je preto so súborom obsahujúcim vstupné dáta ú
 Vstupné dáta sú formované nasledovne:
 
 \begin{itemize}
-  \item \textbf{urls} predstavuje zoznam URL adries webových dokumentov. Tento zoznam je zložený z adries konkrétnych webových dokumentov, o ktorých extrakciu má používateľ záujem. Jeho poradie je pri spustení aplikácie striktne dodržané. Nemalo by však v žiadnom prípade ovplyvniť žiadnu z vlastností aplikácie, pretože aplikácia sa na každý webový dokument pozerá samostatne. V prípade, že sa jedná o webovú stránku stiahnutú do offline podoby, je potrebné určiť absolútnu cestu k danému dokumentu. V takom prípade je zároveň odporúčané aplikáciu spúšťať s parametrom \textit{\texttt{-{}-}offline}. Aplikácia zároveň kontroluje dostupnosť daného webového dokumentu, a ak daný webový dokument nieje dostupný, je o tom používateľ riadne informovaný. Zároveň však nieje ukončené vykonávanie programu a aplikácia pokračuje nasledovnými URL adresami zo zoznamu. Toto rozhodnutie bolo učinené hlavne z dynamickej povahy internetu, kde URL adresy sa v mnohých prípadoch môžu často meniť a zastavenie vykonávania programu by bolo príliš obmedzujúce. 
+  \item \textbf{urls} predstavuje zoznam URL adries webových dokumentov. Tento zoznam je zložený z adries konkrétnych webových dokumentov, o ktorých extrakciu má používateľ záujem. Jeho poradie je pri spustení aplikácie striktne dodržané. Nemalo by však ovplyvniť žiadnu z vlastností aplikácie, pretože aplikácia sa na každý webový dokument pozerá samostatne. V prípade, že sa jedná o webovú stránku stiahnutú do offline podoby, je potrebné určiť absolútnu cestu k danému dokumentu. V takom prípade je zároveň odporúčané aplikáciu spúšťať s parametrom \textit{\texttt{-{}-}offline}. Aplikácia zároveň kontroluje dostupnosť daného webového dokumentu, a ak daný webový dokument nieje dostupný, je o tom používateľ riadne informovaný. Zároveň však nieje ukončené vykonávanie programu a aplikácia pokračuje nasledovnými URL adresami zo zoznamu. Toto rozhodnutie bolo učinené hlavne z dynamickej povahy internetu, kde URL adresy sa v mnohých prípadoch môžu často meniť a zastavenie vykonávania programu by bolo príliš obmedzujúce. 
   
   \item \textbf{structure} slúži na definíciu štruktúry extrakčnej úlohy a jej objektov záujmu. Štruktúru definuje používateľ tak, aby odpovedala jeho požadovanému výstupu. Jej formát je definovaný nasledovne:
   
@@ -666,7 +663,7 @@ Vstupné dáta sú formované nasledovne:
   
   Vo výslednom súbore sa môžu objaviť len prvky, ktoré tu boli zadefinované. Avšak v niektorých prípadoch výsledný súbor môže obsahovať prvok \texttt{undefined}. Takýto prvok značí, že sa pri extrakcii dát z daného objektu objavil prvok, ktorý aplikácia nedokázala podľa definovaných pravidiel zaradiť. Tomuto javu sa dá predchádzať spustením aplikácie s parametrom \textit{\texttt{-{}-}noundef}. Pri takomto spustení je každý výsledný objekt kontrolovaný na prítomnosť nedefinovaných prvkov a takéto sú následne z objektu vyradené. Na druhej strane prítomnosť všetkých definovaných prvkov nieje podmienená. Ak niektorý z prvkov pri danom objekte chýba, je jednoducho vynechaný a jeho reprezentácia nieje vo výslednom súbore uvedená ani vo formáte prázdneho reťazca znakov. Takáto situácia môže nastať napríklad pri extrakcii dát z obchodných reťazcov a použitia dátového typu reprezentujúceho \uv{zľavu}. Zľava nemusí byť pri každom produkte určená, a preto aplikácia pri produktoch bez zľavy daný prvok vynechá.
   
-  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré používateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade používateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží na tom, či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec zachytený a aplikácia ho určí ako prvok určený na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí používateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale, že ho používateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe poľa reťazcov. Veľkosť poľa nieje obmedzená a môže obsahovať nekonečne veľa výrazov. 
+  \item \textbf{blacklist} ako voliteľný argument predstavuje zoznam reťazcov znakov, ktoré používateľ rozpoznal ako neočakávané alebo nechcené. V takom prípade používateľ daný reťazec zaradí do zoznamu blacklist, ktorý aplikácií slúži ako zoznam nežiaducich reťazcov. Pri spúšťaní aplikácie je zároveň nutné aplikáciu spustiť s parametrom \textit{\texttt{-}b}. V opačnom prípade bude blacklist ignorovaný. Pri použití blacklistu nezáleží na tom, či sa daný reťazec znakov nachádza v inom reťazci, existuje ako samostatný reťazec alebo predstavuje jediný obsah daného elementu. V každom prípade je takýto reťazec zachytený a aplikácia ho určí ako prvok na vyradenie z výsledného objektu. Využitie blacklistu je na rozhodnutí používateľa, a preto nieje jeho existencia v súbore so vstupnými dátami podmienená. V prípade ale, že ho používateľ bude chcieť využiť, je treba zachovať jeho jednoduchú štruktúru v podobe poľa reťazcov. Veľkosť poľa nieje obmedzená a môže obsahovať nekonečne veľa výrazov. 
  \end{itemize}
  
  \section{Štruktúra aplikácie}
@@ -723,7 +720,7 @@ Keďže sa dá predpokladať, že pri extrakčnej úlohe sa bude zväčša jedna
 
 \subsubsection{Zber údajov}
 
-Po zoradení triednych atribútov aplikácia začína so zberom údajov. Postupne od najpočetnejšieho atribútu (toho s najčastejším výskytom) sú dáta v danom okruhu určenom práve triednym atribútom uložené a následne kontrolované z pohľadu výskytu primárneho prvku. V prípade, že niektorý z prvkov danej skupiny nepredstavuje primárny prvok, je hodnota daného prvku zmenená na špeciálnu hodnotu \textit{null}. Táto kontrola prebieha porovnaním daného prvku s regulárnym výrazom pre primárny prvok. Hodnota null pri určitom prvku ďalej aplikácií slúži ako záznam o nesplnení testu na regulárny výraz. Počet takýchto nesplnených testov je následne využitý v ďalšej časti analýzy.
+Po zoradení triednych atribútov aplikácia začína so zberom údajov. Postupne od najpočetnejšieho atribútu (toho s najčastejším výskytom) sú dáta v danom okruhu určenom práve triednym atribútom uložené a následne kontrolované z pohľadu výskytu primárneho prvku. V prípade, že niektorý z prvkov danej skupiny nepredstavuje primárny prvok, je hodnota daného prvku zmenená na špeciálnu hodnotu \textit{null}. Táto kontrola prebieha porovnaním daného prvku s regulárnym výrazom pre primárny prvok. Hodnota \textit{null} pri určitom prvku ďalej aplikácií slúži ako záznam o nesplnení testu na regulárny výraz. Počet takýchto nesplnených testov je následne využitý v ďalšej časti analýzy.
 
 Akonáhle aplikácia analyzuje všetky prvky z daného okruhu a určí, ktoré prvky nevyhovujú, postupuje na vyhodnotenie výsledného pomeru. Ten je následne porovnaný s maximálnym povoleným pomerom a v prípade, že spadá pod hranicu tohto maxima, je daný okruh prvkov určený ako výsledný.
 
@@ -741,7 +738,7 @@ Analýza webovej stránky určí výsledný okruh dát, v ktorom sa nachádza pr
 
 Aplikácia najskôr určí počiatočný bod reprezentovaný uzlom. Pri tomto určovaní je veľmi dôležitá štruktúra webovej stránky reprezentovaná pomocou DOM \ref{DOM}. Dá sa preto predpokladať, že nekvalitný alebo zložito štruktúrovaný kód webovej stránky môže ovplyvniť úspešnosť extrakcie pri danom webovom dokumente. 
 
-Následne prechádzame ku generovaní potencionálnych výsledkov. Tie sú generované nasledovným spôsobom:
+Následne prechádza ku generovaní potencionálnych výsledkov. Tie sú generované nasledovným spôsobom:
 
 \bigskip
 
@@ -765,9 +762,9 @@ Po príprave výsledkov je na rade ich zápis. Ten prebieha ihneď po určení s
 
 \newpage
 
-Následná vizuálna reprezentácia predstavuje typický prípad pri extrakcii a algoritmus, ktorý aplikácia pri extrakcii využíva. Jedná sa o typický príklad DOM stromu, kde sa vyskytujú aj rodičovské a detské elementy. Elementy vo fialovom rámci predstavujú elementy, ktoré sú predmetom záujmu extrakcie. 
+Následná vizuálna reprezentácia \ref{domvisual} predstavuje typický prípad pri extrakcii a algoritmus, ktorý aplikácia pri extrakcii využíva. Jedná sa o typický príklad DOM stromu, kde sa vyskytujú aj rodičovské a detské elementy. Elementy vo fialovom rámci predstavujú elementy, ktoré sú predmetom záujmu extrakcie. 
 
-Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri extrakcii teda aplikácia začína červeno označeným elementom \uv{SPAN} a označí otcovský element ako element \uv{P}, ktorý je označený oranžovou farbou. Z daného otcovského elementu prebehne kontrola počtu detských elementov a počtu výsledných objektov. Ich počet je však menší, ako cielený počet. Algoritmus teda zvýši index cieľového otcovského prvku a tým nastaví na cielený otcovský prvok element \uv{DIV} označený zelenou farbou. V tomto prípade je počet priamych a nepriamych detských elementov a objektov ktoré ich reprezentujú zhodný s minimálnym požadovaným množstvom. Aplikácia teda našla cielený otcovský element a elementy záujmu.
+Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri extrakcii teda aplikácia začína červeno označeným elementom \uv{SPAN} a označí otcovský element ako element \uv{P}, ktorý je označený oranžovou farbou. Z daného otcovského elementu prebehne kontrola počtu detských elementov a počtu výsledných objektov. Ich počet je však menší, ako cielený počet. Algoritmus teda zvýši index cieľového otcovského prvku a tým nastaví na cielený otcovský prvok element \uv{DIV} označený zelenou farbou. V tomto prípade je počet priamych detských elementov, nepriamych detských elementov a objektov ktoré ich reprezentujú zhodný s minimálnym požadovaným množstvom. Aplikácia teda našla cielený otcovský element a elementy záujmu.
 
 \bigskip
 
