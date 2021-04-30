@@ -1,6 +1,6 @@
 #
 # File: overall.py
-# Brief: Calculate and print overall weighter results of tests from temporary overall file and remove that file
+# Brief: Calculate and print overall weighted results of tests from temporary overall file and remove that file
 # Author: Lukáš Perina
 # Year: 2021
 #
@@ -18,10 +18,12 @@ precision = 0.0
 recall = 0.0
 length = 0
 
+# get length(how many websites in datasets)
 for i in range(0,len(arr)):
     current = arr[i].strip().split(' ')
     length += int(current[2])
 
+# calculate weighted results
 for i in range(0,len(arr)):
     current = arr[i].strip().split(' ')
     precision += float(current[0]) * (int(current[2])/length)
