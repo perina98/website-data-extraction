@@ -55,8 +55,9 @@ Default output folder is ./output
         -b        - should blacklist be considered
         -u        - unify results
         -m        - strict regex matching check
+        -p        - prioritizing primary element while analyzing results
 
-  The number of items in "urls" is unlimited, number of items in "structure" must match number of items in "items"
+  The number of items in "urls" is unlimited, values of structure must match keys in format
   `);
     exit(0);
 }
