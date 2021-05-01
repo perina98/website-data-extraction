@@ -16,7 +16,7 @@ Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja
 
 Prvá časť práce sa v kapitole \ref{aktualny_pristup} zaoberá aktuálnym prístupom k problematike, ako sa web scraping využíva v súčasnosti, aké sú štandardy a dostupné technológie a porovnanie týchto prístupov z hľadiska využiteľnosti.
 
-V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie, ktoré je treba brať \mbox{v úvahu} pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o technológie, ktoré sa stali základným kameňom navrhnutej aplikácie a na základe ktorých aplikácia stavia.
+V druhej časti tejto práce sú v kapitole \ref{Technologie} popísané technológie, ktoré je treba brať \mbox{v úvahu} pri návrhu, tvorbe a analýze aplikácie určenej na extrakciu dát. Jedná sa hlavne o~technológie, ktoré sa stali základným kameňom navrhnutej aplikácie a na základe ktorých aplikácia stavia.
 
 Kapitola \ref{Navrh} sa zameriava na analýzu a návrh architektúry aplikácie. Je založená na analýze špecifikácie, požiadaviek aplikácie a popisuje postup návrhu.
 
@@ -28,7 +28,7 @@ V \ref{implementacia}. kapitole sú popísané jednotlivé detaily implementáci
 \chapter{Aktuálny prístup k problematike Web Scrapingu}
 \label{aktualny_pristup}
 
-V tejto kapitole sú uvedené a popísané aktuálne prístupy, ktoré sa používajú na extrakciu dát z webových dokumentov. Takáto extrakcia môže prebiehať online alebo offline, v závislosti na tom aké dáta a za akým cieľom ich chceme extrahovať.
+V tejto kapitole sú uvedené a popísané aktuálne prístupy, ktoré sa používajú na extrakciu dát z webových dokumentov. Takáto extrakcia môže prebiehať online alebo offline, v~závislosti na tom aké dáta a za akým cieľom ich chceme extrahovať.
 
 Web scrapingu sa v súčasnosti venuje stále viac a viac spoločností, a preto nieje prekvapením, že sa rozširujú nielen možnosti web scrapingových aplikácií, ale aj prístup takýchto aplikácií k priamej extrakcii dát.
 
@@ -42,7 +42,7 @@ Automatizované získavanie informácií z webu sa dostalo do vývoja krátko po
 
 \section{Súčasné postupy}
 
-Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe, type analýzy a extrakcie finálnych dát. Jedným z hlavných cieľov pri tvorbe aplikácie na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú je prevažne rovnaký a skladá sa z troch primárnych krokov \ref{WebScrap_img}:
+Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe, type analýzy a extrakcie finálnych dát. Jedným z hlavných cieľov pri tvorbe aplikácie na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú je prevažne rovnaký a~skladá sa z troch primárnych krokov \ref{WebScrap_img}:
 \begin{enumerate}
   \item odoslanie GET požiadavky na webový server a následné obdržanie odpovedi,
   \item analýza HTML kódu na základe stromovej štruktúry,
@@ -64,7 +64,7 @@ Medzi najpopulárnejšie web scrapery patria aplikácie s jednoduchou point-and-
 
 \bigskip
 
-Spomínaný prístup má samozrejme svoje výhody, medzi ktoré sa radí najmä spomínaná používateľská prívetivosť a relatívne nízka cena, avšak v prípade potreby automatizácie takejto činnosti existujú na trhu lepšie riešenia. V prípade, že je potrebná vysoká automatizácia alebo sa jedná o veľké množstvo dát a stránok určených na extrakciu, je výhodnejšie použiť aplikáciu ladenú skôr na tento spôsob. Pri firmách, ktoré sa venujú extrahovaniu údajov z webových stránok na profesionálnej úrovni, sa počet prenesených dát v súčasnosti pohybuje už v petabajtoch. Počet extrahovaných webových stránok sa pohybuje v miliardách mesačne na jednu takúto firmu \cite{JanCurna:online}.
+Spomínaný prístup má samozrejme svoje výhody, medzi ktoré sa radí najmä spomínaná používateľská prívetivosť a relatívne nízka cena, avšak v prípade potreby automatizácie takejto činnosti existujú na trhu lepšie riešenia. V prípade, že je potrebná vysoká automatizácia alebo sa jedná o veľké množstvo dát a stránok určených na extrakciu, je výhodnejšie použiť aplikáciu ladenú skôr na tento spôsob. Pri firmách, ktoré sa venujú extrahovaniu údajov z webových stránok na profesionálnej úrovni, sa počet prenesených dát v súčasnosti pohybuje už v petabajtoch. Počet extrahovaných webových stránok sa pohybuje v~miliardách mesačne na jednu takúto firmu \cite{JanCurna:online}.
 
 Pri takto veľkých číslach narážajú spomínané firmy na rôzne problémy, ktoré rádový používateľ web scrapingovej aplikácie riešiť nemusí. Medzi takéto problémy sa radia v neposlednom rade napríklad:
 \begin{itemize}
@@ -107,7 +107,7 @@ Web scraping má teda jasné výhody čo sa kolekcie dát týka. Patria medzi ne
     \item v porovnaní s manuálnym zberom dát exponenciálne rýchlejšie výsledky.
 \end{itemize}
 
-Každá technológia a jej využitie má však aj svoje nevýhody. Manuálny zber dát môže byť taktiež rozumná možnosť, a to hlavne v prípade, že sa jedná o ojedinelú prípadne unikátnu udalosť. V takomto prípade sa tvorba alebo priame využitie web scrapera neodporúča. A to hlavne pre časovú zložitosť nielen naprogramovania, ale aj samotnej konfigurácie a zoznámenia sa s aplikáciou. Využitie samostatnej aplikácie na takúto činnosť je rozumné až vtedy, keď sa daná akcia musí opakovať v určitých intervaloch \cite{WebScrap}. 
+Každá technológia a jej využitie má však aj svoje nevýhody. Manuálny zber dát môže byť taktiež rozumná možnosť, a to hlavne v prípade, že sa jedná o ojedinelú prípadne unikátnu udalosť. V takomto prípade sa tvorba alebo priame využitie web scrapera neodporúča. A~to hlavne pre časovú zložitosť nielen naprogramovania, ale aj samotnej konfigurácie a~zoznámenia sa s aplikáciou. Využitie samostatnej aplikácie na takúto činnosť je rozumné až vtedy, keď sa daná akcia musí opakovať v určitých intervaloch \cite{WebScrap}. 
 
 V takom prípade je potreba zvážiť aj rôzne aspekty v rámci prevádzky, samotnom vytváraní a následnom používaní web scrapera. Medzi najhlavnejšie nevýhody sa preto radí najmä:
 
@@ -136,7 +136,7 @@ Pripravené aplikácie budú obľúbenejšie najmä pri širokej verejnosti, kto
 V mnohých prípadoch však chceme priniesť aj svoje nápady na vylepšenia. Nastavenie takýchto aplikácií býva často limitované a ich kód nemusí vždy byť verejne dostupný. V takom prípade je lepšie využiť jednu z dostupných knižníc, na ktorých väčšina týchto aplikácií stavia. 
 
 \subsection{Hotové riešenia}
-V prípade, že nás zaujíma len priama extrakcia dát, máme v dnešnej dobe na výber z mnohých aplikácií. Tie sú pripravené na použitie, a tak nieje treba programovať aplikácie od začiatku. Každá má však svoje vlastné postupy pri extrakcii a z toho plynie fakt, že nie každá takáto aplikácia dokáže splniť požadované zadanie. 
+V prípade, že nás zaujíma len priama extrakcia dát, máme v dnešnej dobe na výber z~mnohých aplikácií. Tie sú pripravené na použitie, a tak nieje treba programovať aplikácie od začiatku. Každá má však svoje vlastné postupy pri extrakcii a z toho plynie fakt, že nie každá takáto aplikácia dokáže splniť požadované zadanie. 
 
 \newpage
 Medzi najznámejšie aplikácie v tomto odvetví však patria hlavne \cite{WebScrap}:
@@ -157,7 +157,7 @@ Spomenuté aplikácie sú vo svojom odvetví veľmi populárne, avšak každá z
 
 Pokiaľ však chceme vytvoriť vlastný program alebo aplikáciu typu web scraper, je potrebné rozlišovať na úrovni technológií dostupných pri programovaní. V prvom rade je treba vziať do úvahy programovací jazyk. V takom prípade je na výber rovno z niekoľko voľne dostupných programovacích jazykov. Medzi dva najpopulárnejšie v tomto odvetví však patria hlavne Python a Javascript. Každý má však znova svoje výhody a nevýhody, a preto je treba zvážiť na aké účely bude web scraper používaný. Vo všeobecnosti je využívanejší práve prvý spomínaný Python, vďaka jeho popularite z pohľadu jednoduchosti písania čistého kódu, komunity a podpory, ktorá mu je venovaná. Python ponúka veľké množstvo frameworkov, z ktorých tie najpopulárnejšie zahŕňajú hlavne Selenium\footnote{\url{https://www.selenium.dev/}} a Scrapy\footnote{\url{https://scrapy.org/}} \cite{The5Best}. Tieto som samozrejme zohľadnil pri výbere vhodného frameworku na vytvorenie web scrapera.
 
-Na druhej strane je tu však Javascript, ktorý je vyvíjaný priamo pre prácu s webovými stránkami. Kým Python je lepší čo sa týka podpory a rozšírenosti frameworkov, Javascript má výhodu v lepšej integrácií nielen s webovými stránkami, ale aj s webovými prehliadačmi samotnými. Python v mnohých prípadoch vyžaduje špeciálny ovládač na komunikáciu s prehliadačom a podpora dynamických stránok je znova jednoznačne lepšia pomocou Javascriptu. Je to tak práve kvôli jeho spomínanej lepšej integrácií a faktom, že Javascript je jednou z hlavných súčastí dynamických moderných webových stránok. Javascript je jednou z hlavných prvkov modernej webovej stránky, ktorá sa skladá ešte z HTML a CSS. Jeho úlohou je hlavne vytváranie dynamického obsahu, ktorý vyvoláva dojem, že webová stránka s užívateľom interaguje. Vo väčšine prípadov beží iba na strane klienta, takže dynamickosť samotná nezaťažuje server. Zároveň je v mnohých prípadoch využívaná asynchrónnosť\footnote{Asynchrónnosť znamená v tomto prípade neblokovanie prostriedkov prehliadača a načítavanie obsahu webovej stránky zároveň so skriptami.} tohto programovacieho jazyka na zlepšenie odozvy a interakcie \cite{Javascript}. Práve tento fakt sa stáva rozdielovým faktorom pri extrakcii dát z webových stránok, keďže obsah webovej stránky sa v mnohých prípadoch môže načítavať asynchrónne a nezávisle od ostatných častí webu. Z môjho vlastného rozboru a výskumu som zistil, že dynamickosť a asynchrónnosť stránok je prvok, ktorý je lepšie zvládaný za pomoci Javascriptu.
+Na druhej strane je tu však Javascript, ktorý je vyvíjaný priamo pre prácu s webovými stránkami. Kým Python je lepší čo sa týka podpory a rozšírenosti frameworkov, Javascript má výhodu v lepšej integrácií nielen s webovými stránkami, ale aj s webovými prehliadačmi samotnými. Python v mnohých prípadoch vyžaduje špeciálny ovládač na komunikáciu s~prehliadačom a podpora dynamických stránok je znova jednoznačne lepšia pomocou Javascriptu. Je to tak práve kvôli jeho spomínanej lepšej integrácií a faktom, že Javascript je jednou z hlavných súčastí dynamických moderných webových stránok. Javascript je jednou z hlavných prvkov modernej webovej stránky, ktorá sa skladá ešte z HTML a CSS. Jeho úlohou je hlavne vytváranie dynamického obsahu, ktorý vyvoláva dojem, že webová stránka s užívateľom interaguje. Vo väčšine prípadov beží iba na strane klienta, takže dynamickosť samotná nezaťažuje server. Zároveň je v mnohých prípadoch využívaná asynchrónnosť\footnote{Asynchrónnosť znamená v tomto prípade neblokovanie prostriedkov prehliadača a načítavanie obsahu webovej stránky zároveň so skriptami.} tohto programovacieho jazyka na zlepšenie odozvy a interakcie \cite{Javascript}. Práve tento fakt sa stáva rozdielovým faktorom pri extrakcii dát z webových stránok, keďže obsah webovej stránky sa v mnohých prípadoch môže načítavať asynchrónne a nezávisle od ostatných častí webu. Z môjho vlastného rozboru a výskumu som zistil, že dynamickosť a~asynchrónnosť stránok je prvok, ktorý je lepšie zvládaný za pomoci Javascriptu.
 
 \bigskip
 
@@ -171,7 +171,7 @@ Ako prvý framewrok spomeniem určite Apify SDK, za ktorým stojí česká firma
     \item {Cheerio}
 \end{itemize}
 
-Z pomedzi týchto technológií, ktoré zdieľajú niektoré základné funkcie, bola na zostavenie výslednej aplikácie použitá technológia Puppeteer. Puppeteer je zároveň jedna z technológií využívaných práve spomínanou firmou Apify Technologies. 
+Z pomedzi týchto technológií, ktoré zdieľajú niektoré základné funkcie, bola na zostavenie výslednej aplikácie použitá technológia Puppeteer. Puppeteer je zároveň jedna z~technológií využívaných práve spomínanou firmou Apify Technologies. 
 
 V porovnaní s technológiou Cheerio má Puppeteer svoje výhody. V niektorých faktoroch vyhráva aj Cheerio. Preto je treba zvážiť hlavne nasledovné:
 
@@ -187,7 +187,7 @@ V prvom rade treba zvážiť aktuálnu situáciu a technológie, ktoré sa na we
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.7\textwidth]{obrazky-figures/modules.png}
-	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Prevzaté z Moduleco \url{http://www.modulecounts.com/}, citované 30.3.2021.}
+	\caption{Porovnanie najpopulárnejších technológií a vývoj počtu ich modulov. Prevzaté z~Moduleco \url{http://www.modulecounts.com/}, citované 30.3.2021.}
 	\label{Moduleco_img}
 \end{figure}
 
@@ -201,9 +201,9 @@ Cheerio a Puppeteer sú technológie založené na Node.js a patria medzi najpop
 
 Puppeteer je technológia, ktorá je vyvíjaná za účelom automatizácie webového prehliadača, zatiaľčo hlavným určením Cheeria je web scraping samotný. Cheerio nespolupracuje so žiadnym webovým prehliadačom. Jednoducho vytvorí HTTP požiadavku na webový server a ten odpovie obsahom v podobe HTML. Tým, že Cheerio je určené priamo na požadovanú úlohu, je v tomto ohľade rýchlejšie a výhodnejšie pre web scraping \cite{cheerio}.
 
-Na druhú stranu Puppeteer je viazaný iba na prehliadač Google Chrome vo forme Chromium. Puppeteer má priamu kontrolu nad prehliadačom, takže je možné ovládať prehliadač ako celok. Tento fakt sa dá brať aj ako výhoda, aj ako nevýhoda, keďže je to pravdepodobne jeden z dôvodov prečo je Puppeteer pomalší vo vykonávaní funkcie Web Scrapera. Puppeteer však prináša schopnosť plynulej práce s Javascriptom na webovej stránke. Dokáže pracovať aj s webovými stránkami postavenými na moderných technológiách ako React alebo Angular, ktoré sú v dnešnej dobe na vzostupe pre ich moderné prvky. Z priamej integrácie s prehliadačom vyplýva aj fakt, že Puppeteer dokáže vytvárať snímky obrazovky počas načítavania a pracovania s webovou stránkou. Zároveň podporuje technológiu XML a nerobí mu problém ako čítanie, tak ani parsovanie a priame spúšťanie funkcií Javascriptu \cite{puppeteer}, \cite{cheerio}. 
+Na druhú stranu Puppeteer je viazaný iba na prehliadač Google Chrome vo forme Chromium. Puppeteer má priamu kontrolu nad prehliadačom, takže je možné ovládať prehliadač ako celok. Tento fakt sa dá brať aj ako výhoda, aj ako nevýhoda, keďže je to pravdepodobne jeden z dôvodov prečo je Puppeteer pomalší vo vykonávaní funkcie Web Scrapera. Puppeteer však prináša schopnosť plynulej práce s Javascriptom na webovej stránke. Dokáže pracovať aj s webovými stránkami postavenými na moderných technológiách ako React alebo Angular, ktoré sú v dnešnej dobe na vzostupe pre ich moderné prvky. Z priamej integrácie s prehliadačom vyplýva aj fakt, že Puppeteer dokáže vytvárať snímky obrazovky počas načítavania a pracovania s webovou stránkou. Zároveň podporuje technológiu XML a nerobí mu problém ako čítanie, tak ani parsovanie a priame spúšťanie funkcií Javascriptu~\cite{puppeteer},~\cite{cheerio}. 
 
-Práve podpora dodatočných funkcií a možnosť parsovania dynamických stránok s Javascriptom ma presvedčili pre výber technológie Puppeteer. Rozširovaním poznatkov v rámci technológie Puppeteer som si tento pocit presvedčenia len overil. Následne som túto technológiu využil pri návrhu architektúry a implementácii výslednej aplikácie.
+Práve podpora dodatočných funkcií a možnosť parsovania dynamických stránok s Javascriptom ma presvedčili pre výber technológie Puppeteer. Rozširovaním poznatkov o technológii Puppeteer som si tento pocit presvedčenia len overil. Následne som túto technológiu využil pri návrhu architektúry a implementácii výslednej aplikácie.
 
 \bigskip
 
