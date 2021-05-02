@@ -2,6 +2,7 @@
 # File: ftest.py
 # Brief: Calculate precision and recall of given dataset
 # Author: Lukáš Perina
+# xlogin: xperin11
 # Year: 2021
 #
 
