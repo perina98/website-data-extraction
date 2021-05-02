@@ -49,7 +49,7 @@ windows-install:
 	cinst nodejs.install
 	npm install
 linux-install:
-	sudo apt install nodejs | sudo snap install node --classic
+	sudo snap install node --classic
 	npm install
 clean:
 	rm -rf $(ZIP)
