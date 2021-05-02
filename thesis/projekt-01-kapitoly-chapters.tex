@@ -395,7 +395,7 @@ Všetky vlastnosti a výhody Puppeteeru boli zvážené v rámci návrhu archite
 
 Ako už názov práce predpovedá, jedná sa o extrakciu dát z webových stránok. Avšak dáta sa z webových stránok dajú extrahovať mnohými spôsobmi. Tie však nie sú ekvivalentné. A to nielen z pohľadu presnosti, ale aj z pohľadu rýchlosti extrakcie, spôsobu extrakcie a~ďalších aspektoch viazaných na logiku zvolenej aplikácie.
 
-Základom extrakcie je zároveň vedieť, o aké dáta máme záujem. Tieto dáta teda musia byť jednou z hlavných častí definovaných na vstupe aplikácie. To v akom formáte, a v akej podobe budú tieto dáta reprezentované, bude popísané v nasledujúcich častiach tejto kapitoly. Už teraz je však isté, že pre dosiahnutie pomerne vysokej presnosti bude potrebná špecifikácia rôznych pravidiel. Tieto pravidlá potom budú udávať mernú jednotku na porovnávanie nájdených potencionálnych výsledkov s definovanými pravidlami.
+Základom extrakcie je zároveň vedieť, o aké dáta máme záujem. Tieto dáta teda musia byť jednou z hlavných častí definovaných na vstupe aplikácie. Formát a typ reprezentácie týchto dát bude popísaný v nasledujúcich častiach tejto kapitoly. Už teraz je však isté, že pre dosiahnutie pomerne vysokej presnosti bude potrebná špecifikácia rôznych pravidiel. Tieto pravidlá potom budú udávať mernú jednotku na porovnávanie nájdených potencionálnych výsledkov s definovanými pravidlami.
 
 Úlohou týchto pravidiel bude určenie relevantnosti nájdených dát. Aplikácia bude preto tieto vstupné pravidlá overovať z pohľadu správnosti formátu. Pri definícii týchto pravidiel bude treba zohľadniť diverzitu a premenlivosť hľadaného objektu, ako napríklad premenlivú dĺžku reťazcov. Dá sa teda s určitosťou predpokladať, že správna definícia vstupných pravidiel bude mať jednoznačný vplyv na úspešnosť výsledkov z hľadiska nášho očakávania. Preto je treba tomuto návrhu venovať dostatočne veľký časový priestor.
 
@@ -425,7 +425,7 @@ Ako formát týchto pravidiel bol vybraný už spomínaný JSON, vďaka jeho jed
 
 \subsection{Hlavné pravidlá}
 
-V prvom rade treba začať návrhom toho, z čoho sa vlastne tieto vstupné pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidla rozdelené. Rozdelenie konfiguračných a vstupných pravidiel uľahčí ich nasledovnú správu a zaradenie. Príklad štruktúry hlavných pravidiel je zobrazený aj ako výpis \ref{data_ex}.
+V prvom rade treba začať návrhom toho, z čoho sa vlastne tieto vstupné pravidlá budú skladať. S ohľadom na jednoduchosť definovania týchto pravidiel používateľom, boli hlavné a vedľajšie pravidlá rozdelené. Rozdelenie konfiguračných a vstupných pravidiel uľahčí ich nasledovnú správu a zaradenie. Príklad štruktúry hlavných pravidiel je zobrazený aj ako výpis \ref{data_ex}.
 
 Medzi hlavné pravidlá na extrakciu boli vybrané:
 \begin{itemize}
@@ -580,7 +580,7 @@ Implementácia bola z pohľadu web scrapingu rozdelená do viacerých častí:
 
 \bigskip
 
-Postup práce pri implementácii bol vďaka vytvoreniu návrhu a konzultáciám s vedúcim práce pánom Ing. Radkom Burgetom Ph.D. jednoznačný. Najskôr bola implementovaná aplikačná logika a následne bola táto logika rozvedená. Počas implementácie boli zároveň vyskúšané dva rôzne prístupy k problematike. Tieto prístupy sa týkali hlavne rozlíšenia prístupu k vytváraní dátových okruhov. Po skúmaní som pristúpil k vytváraniu týchto okruhov dát na základe atribútu \textit{class}. Bližšie informácie o tom, ako aplikácia dané okruhy vytvára a analyzuje, budú popísané v rámci tejto kapitoly.
+Postup práce pri implementácii bol vďaka vytvoreniu návrhu a konzultáciám s vedúcim práce pánom Ing. Radkom Burgetom Ph.D. jednoznačný. Najskôr bola implementovaná aplikačná logika a následne bola táto logika rozvedená. Počas implementácie boli zároveň vyskúšané dva rôzne prístupy k problematike. Tieto prístupy sa týkali hlavne rozlíšenia prístupu k vytváraniu dátových okruhov. Po skúmaní som pristúpil k vytváraniu týchto okruhov dát na základe atribútu \textit{class}. Bližšie informácie o tom, ako aplikácia dané okruhy vytvára a analyzuje, budú popísané v rámci tejto kapitoly.
 
 \section{Konfiguračný súbor}
 
@@ -622,7 +622,7 @@ Aplikácia ďalej potrebuje súbor so vstupnými dátami definovanými používa
 
 Súbor so vstupnými dátami slúži používateľovi na presnú definíciu danej extrakčnej úlohy. Samostatný súbor je vhodné vytvoriť pre každý súbor domén (skupinu domén, z~ktorej budú následne dáta extrahované) zvlášť. Prípadne je možné meniť vlastnosti a obsah daného dátového súboru tak, aby bol v daný moment jeho obsah relevantný. 
 
-Keďže sa jedná o jeden z primárnych súborov aplikácie, je jeho výskyt podmienený. Aplikácia pomocou neho dokáže určiť, o aké dáta má v danej chvíli používateľ záujem. Tieto dáta budú v rovnakej forme reprezentované vo výstupných súboroch, avšak ich poradie v~rámci výstupného súboru nemusí byť rovnaké.
+Keďže sa jedná o jeden z primárnych súborov aplikácie, je jeho výskyt podmienený. Aplikácia pomocou neho dokáže určiť, o aké dáta má v danej chvíli používateľ záujem. Tieto dáta budú v rovnakej forme reprezentované vo výstupných súboroch, avšak ich poradie, v~rámci výstupného súboru, nemusí byť rovnaké.
 
 Formát výstupného súboru je preto so súborom obsahujúcim vstupné dáta úzko viazaný, keďže práve vstupné dáta určujú jeho následnú reprezentáciu. Výstupný súbor dát je založený na formáte JSON a jeho štruktúra odpovedá štruktúre definovanej na vstupe.
 
@@ -757,7 +757,7 @@ Následne prechádza ku generovaniu potencionálnych výsledkov. Tie sú generov
 
 Z daného postupu je jasné, že pre správne určenie všetkých elementov je potrebné v~rámci DOM stromu stúpať do správnej výšky tak, aby bolo možné určiť všetky prvky a~zároveň aby stúpanie nebolo príliš vysoké. Preto aplikácia po prvom zaručení minimálneho množstva výsledných objektov stúpanie preruší. Následne prebieha odstránenie prípadných duplikátov, ktoré pri práci s triednymi atribútmi môžu vzniknúť.
 
-V rámci prípravy výsledkov prebieha hlavne formátovanie výsledkov a určenie ich dátového typu a reprezentácie. Detailnejší postup toho ako to prebieha, bude popísaný v rámci tejto kapitoly. 
+V rámci prípravy výsledkov prebieha hlavne formátovanie výsledkov, určenie ich dátového typu a reprezentácie. Detailnejší postup toho ako to prebieha, bude popísaný v rámci tejto kapitoly. 
 
 Po príprave výsledkov je na rade ich zápis. Ten prebieha ihneď po určení správneho setu výsledkov a výsledný súbor je uložený v preddefinovanom priečinku. Pre správne určenie názvu výsledného súboru je dôležité brať v úvahu aj typ extrakcie. Ak sa jedná o extrakciu z offline uložených súborov, nie je možné získať názov domény tradičným spôsobom. Názov je preto definovaný ako názov súboru, z ktorého bola extrakcia vykonávaná. 
 
@@ -780,11 +780,11 @@ Element \uv{SPAN} označený červenou farbou je náš primárny element. Pri ex
 
 \subsection{Príprava výsledkov}
 
-V rámci generovania výsledkov prebieha aj ich finálna príprava pred zápisom. Vygenerované výsledky sú v rámci programu najskôr reprezentované len ako všeobecné prvky, ktorých dátový typ nie je určený a ich zaradenie je ekvivalentné. Následne prebehne odstránenie prípadných vzniknutých duplikátov na úrovni objektov. 
+V rámci generovania výsledkov prebieha aj ich finálna príprava pred zápisom. Vygenerované výsledky sú v rámci programu najskôr reprezentované len ako všeobecné prvky, ktorých dátový typ nie je určený a ich zaradenie je ekvivalentné. Následne prebehne odstránenie vzniknutých duplikátov na úrovni objektov. 
 
 Príprava výsledkov pozostáva z určenia dátového typu a príslušnosti daného prvku. V prípade, že takéto určenie nie je možné, je prvok označený ako \textit{undefined}. Algoritmus analyzuje objekt na úrovni kľúčov a využíva špecifické pravidlá na zaradenie prvku k jeho príslušnej očakávanej reprezentácii. Ako prvé prebehne kontrola na výskyt prvku v zozname \textit{blacklist}. Ak sa kľúč v tomto zozname nachádza, nie je ďalej určovaný jeho dátový typ a je z objektu vyradený. 
 
-V opačnom prípade prebehne kontrola na základe pravidiel definovaných vo vstupných súboroch. Tie sú reprezentované pomocou regulárnych výrazov. Jednotlivé prvky sa teda porovnávajú s regulárnymi výrazmi. V prípade, že prebehne zaradenie prvku splnením testu na regulárny výraz, je určený jeho dátový typ na základe príslušnosti regulárneho výrazu k definovanému dátovému typu. Následne je vytvorený nový objekt s prvkami, ktoré bolo možné zaradiť a tak im určiť príslušnosť. Zoznam všetkých takýchto objektov je potom naformátovaný do podoby JSON, a s \textit{UTF8} kódovaním uložený v rámci výstupnej lokácie. 
+V opačnom prípade prebehne kontrola na základe pravidiel definovaných vo vstupných súboroch. Tie sú reprezentované pomocou regulárnych výrazov. Jednotlivé prvky sa teda porovnávajú s regulárnymi výrazmi. V prípade, že prebehne zaradenie prvku splnením testu na regulárny výraz, je určený jeho dátový typ na základe príslušnosti regulárneho výrazu k definovanému dátovému typu. Následne je vytvorený nový objekt s prvkami, ktoré bolo možné zaradiť a tak im určiť príslušnosť. Zoznam všetkých takýchto objektov je potom naformátovaný do podoby JSON a s \textit{UTF8} kódovaním uložený v rámci výstupnej lokácie. 
 
 \bigskip
 
