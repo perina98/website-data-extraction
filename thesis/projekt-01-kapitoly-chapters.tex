@@ -586,7 +586,7 @@ Postup práce pri implementácii bol vďaka vytvoreniu návrhu a konzultáciám 
 
 Externá konfigurácia dostupná pre používateľa je uložená v konfiguračnom súbore, ktorý môže používateľ voľne upravovať a dokonca zvoliť svoj vlastný. Základný konfiguračný súbor je k výslednej implementácii pripojený a aplikácia ho očakáva implicitne ako súbor \textit{config.json}.
 
-Jeho úlohou je definícia základných pravidiel, používaných pri extrakcii dát z webových stránok. Formát a obsah tohto súboru je preto jednoznačne daný a musí byť dodržaný. V opačnom prípade hrozí, že aplikácia takýto súbor odmietne a nebude možné v extrakcii dát pokračovať. Aplikácia v takomto prípade používateľa zároveň informuje o danej situácii chybovým hlásením zobrazeným v príslušnom termináli. 
+Jeho úlohou je definícia základných pravidiel, používaných pri extrakcii dát z webových stránok. Formát a obsah tohto súboru je preto jednoznačne daný a musí byť dodržaný. V~opačnom prípade hrozí, že aplikácia takýto súbor odmietne a nebude možné v extrakcii dát pokračovať. Aplikácia v takomto prípade používateľa zároveň informuje o danej situácii chybovým hlásením zobrazeným v príslušnom termináli. 
 \newpage
 
 \begin{lstlisting}[caption={Príklad konfiguračného súboru},captionpos=b,label={config_ex}]
@@ -680,9 +680,9 @@ Vstupné dáta sú formované nasledovne:
  Po analýze prebehne extrakcia dát. Tá prebieha v troch krokoch:
  
  \begin{enumerate}
-     \item Evaluácia
-     \item Klasifikácia
-     \item Príprava výsledkov
+     \item evaluácia,
+     \item klasifikácia,
+     \item príprava výsledkov.
  \end{enumerate}
  
  \bigskip
@@ -695,10 +695,10 @@ Vstupné dáta sú formované nasledovne:
  Pre získanie relevantných dát a obsahu z webového dokumentu je potrebné daný dokument analyzovať. Analýza prebieha bezprostredne po načítaní webového dokumentu a je rozdelená do niekoľkých krokov:
  
  \begin{enumerate}
-     \item Analýza triednych atribútov
-     \item Zoradenie zoznamu tried na základe výskytu
-     \item Kontrola daného okruhu dát na prítomnosť primárneho prvku
-     \item Overenie pomeru nevyhovujúcich prvkov
+     \item analýza triednych atribútov,
+     \item zoradenie zoznamu tried na základe výskytu,
+     \item kontrola daného okruhu dát na prítomnosť primárneho prvku,
+     \item overenie pomeru nevyhovujúcich prvkov.
  \end{enumerate}
  
  \bigskip
@@ -801,7 +801,7 @@ Testovanie pomocou týchto testovacích sád zároveň prebehlo na dvoch operač
 
 \section{Testovanie počas vývoja}
 
-K testovaniu bolo pristupované od samotného začiatku vývoja a priebežné výsledky boli konzultované s vedúcim práce. Hlavnou úlohou tohto typu testovania bola detekcia chýb, anomálií a neočakávaných výstupov. Zároveň slúžilo na usmernenie vývoja a tvorbu nových funkcií. To sa z väčšej časti podarilo. K prvotnému návrhu pribudli nové funkcie a vylepšenia. Niektoré z nich sa stali základnou zložkou programu a jeho neoddeliteľnou súčasťou, zatiaľ čo iné ostali zapracované ako voliteľné. V prípade voliteľných sa jednalo zväčša o~funkcie a vlastnosti upresňujúce danú extrakčnú úlohu.
+K testovaniu bolo pristupované od samotného začiatku vývoja a priebežné výsledky boli konzultované s vedúcim práce. Hlavnou úlohou tohto typu testovania bola detekcia chýb, anomálií a neočakávaných výstupov. Zároveň slúžilo na usmernenie vývoja a tvorbu nových funkcií. To sa z väčšej časti podarilo. K prvotnému návrhu pribudli nové funkcie a~vylepšenia. Niektoré z nich sa stali základnou zložkou programu a jeho neoddeliteľnou súčasťou, zatiaľ čo iné ostali zapracované ako voliteľné. V prípade voliteľných sa jednalo zväčša o~funkcie a vlastnosti upresňujúce danú extrakčnú úlohu.
 
 \section{Testovacie prostredie}
 
@@ -826,7 +826,7 @@ Prvotné testovanie bolo uskutočňované manuálne. Po extrakcii údajov z webo
 V neskoršej fáze vývoja bol vyvinutý automatizačný skript pomocou programovacieho jazyka Python. Tento skript mal za úlohu porovnať očakávané údaje a údaje, ktoré aplikácia pri danej extrakčnej úlohe dokázala získať. Pri takomto porovnávaní bolo nutné zaviesť dve hlavné metriky \cite{precrecall}:
 
 \begin{itemize}
-    \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
+    \item \textbf{Precision} a teda presnosť, ktorá má za úlohu odpovedať na otázku, aká časť extrahovaných dát bola extrahovaná správne. Výsledná presnosť je vypočítaná nasledovným vzťahom:
     
     \begin{eqnarray}
     \label{preeq}
@@ -859,10 +859,10 @@ Vytvorenie spoľahlivej a dostatočne diverzifikovanej testovacej sady nie je je
 Finálna testovacia sada pozostávala zo 4 oblastí:
 
 \begin{itemize}
-    \item Futbalové výsledky a program zápasov
-    \item Eshop www.tsbohemia.cz
-    \item Eshopy
-    \item Správy a novinky
+    \item futbalové výsledky a program zápasov,
+    \item eshop www.tsbohemia.cz,
+    \item eshopy,
+    \item správy a novinky.
 \end{itemize}
 
 Kde prvé dve oblasti boli pripravené mnou a posledné dve boli pripravené autorom druhej práce. Každá z týchto sád obsahuje 10 webových dokumentov. Všetky originálne URL adresy sú zároveň dostupné v rámci súboru \textit{INFO.md} v zložke \textit{dataset}.
@@ -1223,7 +1223,7 @@ Z časových údajov nevyplynula žiadna významná korelácia, avšak jednotliv
 {\sqrt{\sum_{i=1}^{n} (x_i - \overline{x})^2(y_i - \overline{y})^2}}
     \end{eqnarray}
 
-Kde $x_i$ reprezentuje hodnoty \textit{x} vo vzorke, $\overline{x}$ reprezentuje priemernú hodnotu \textit{x}, $y_i$ reprezentuje hodnoty \textit{y} vo vzorke a $\overline{y}$ reprezentuje priemernú hodnotu \textit{y}. Za hodnoty \textit{x} boli dosadené hodnoty precision, a za hodnoty \textit{y} boli dosadené hodnoty recall. Výsledná hodnota \textit{r}, ktorá reprezentuje Pearsonov korelačný koeficient, dosahuje čísla 0,8877. To indikuje, že vysoké hodnoty precision sú sprevádzané vysokými hodnotami recall a nízke hodnoty s~nízkymi. 
+Kde $x_i$ reprezentuje hodnoty \textit{x} vo vzorke, $\overline{x}$ reprezentuje priemernú hodnotu \textit{x}, $y_i$ reprezentuje hodnoty \textit{y} vo vzorke a $\overline{y}$ reprezentuje priemernú hodnotu \textit{y}. Za hodnoty \textit{x} boli dosadené hodnoty precision a za hodnoty \textit{y} boli dosadené hodnoty recall. Výsledná hodnota \textit{r}, ktorá reprezentuje Pearsonov korelačný koeficient, dosahuje čísla 0,8877. To indikuje, že vysoké hodnoty precision sú sprevádzané vysokými hodnotami recall a nízke hodnoty s~nízkymi. 
 
 Z tohto faktu vieme ďalej vytvoriť predpoklad, že zlepšenie presnosti povedie k získaniu viacerých relevantných výsledkov. Zlepšenie v tomto zmysle nemusí byť viazané na logiku aplikácie, ale môže byť viazané aj na presnosť definovaného regulárneho výrazu. Ak bude definovaný regulárny výraz príliš všeobecný, bude presnosť nižšia. To sme mohli pozorovať aj pri testovacej sade \uv{Správy a novinky} \ref{spravy} z dôvodu väčšieho počtu textových elementov.
 
