@@ -2,6 +2,7 @@
 # File: overall.py
 # Brief: Calculate and print overall weighted results of tests from temporary overall file and remove that file
 # Author: Lukáš Perina
+# xlogin: xperin11
 # Year: 2021
 #
 
