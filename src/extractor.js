@@ -2,6 +2,7 @@
  * File: extractor.js
  * Brief: Application used to extract data from any website. Print help for more info
  * Author: Lukáš Perina
+ * xlogin: xperin11
  * Year: 2021
 */
 
