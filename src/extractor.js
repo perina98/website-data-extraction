@@ -48,6 +48,7 @@ Default output folder is ./output
         --config  - specify own config file
         --offline - set if scraped urls are saved offline / represented by file
         --noundef - delete undefined parts of object
+        --dataset - fix relative paths of dataset data.json URL objects
         -o        - specify output location for extracted results
         -v        - verbose output to console
         -h        - prints help info
