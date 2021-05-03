@@ -10,7 +10,7 @@ Táto práca je zameraná hlavne na časť týkajúcu sa požadovaného vstupu a
 
 \newpage
 
-Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja finálnej aplikácie. Od predstavenia aktuálnej problematiky a technológií, ktoré sú v súčastnosti dostupné až po finálne testovanie aplikácie a vyhodnotenie výsledkov.
+Práca je rozdelená do 7 kapitol, z ktorých každá predstavuje časť vývoja finálnej aplikácie. Od predstavenia aktuálnej problematiky a technológií, ktoré sú v súčasnosti dostupné, až po finálne testovanie aplikácie a vyhodnotenie výsledkov.
 
 \bigskip
 
@@ -30,7 +30,7 @@ V \ref{implementacia}. kapitole sú popísané jednotlivé detaily implementáci
 
 V tejto kapitole sú uvedené a popísané aktuálne prístupy, ktoré sa používajú na extrakciu dát z webových dokumentov. Takáto extrakcia môže prebiehať online alebo offline, v~závislosti na tom, aké dáta a za akým cieľom ich chceme extrahovať.
 
-Web scrapingu sa v súčasnosti venuje stále viac a viac spoločností, a preto nie je prekvapením, že sa rozširujú nielen možnosti web scrapingových aplikácií, ale aj prístup takýchto aplikácií k priamej extrakcii dát.
+Web scrapingu sa v súčasnosti venuje stále viac a viac spoločností, preto nie je prekvapením, že sa rozširujú nielen možnosti web scrapingových aplikácií, ale aj prístup takýchto aplikácií k priamej extrakcii dát.
 
 Zároveň sa rozširuje pole pôsobnosti a možnosti využitia takto extrahovaných dát. Preto je táto kapitola určená hlavne rozboru týchto metód. Poznatky získané z tohto rozboru zároveň pomôžu určiť smer, ktorým sa návrh a vývoj aplikácie môžu uberať. 
 
@@ -42,7 +42,7 @@ Automatizované získavanie informácií z webu sa dostalo do vývoja krátko po
 
 \section{Súčasné postupy}
 
-Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe, type analýzy a extrakcie finálnych dát. Jedným z hlavných cieľov pri tvorbe aplikácie na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú, je prevažne rovnaký a~skladá sa z troch primárnych krokov \ref{WebScrap_img}:
+Existujú rôzne prístupy k danej problematike, kde rozdiely sú jednoznačné hlavne pri spôsobe, type analýzy a finálnej extrakcie dát. Jedným z hlavných cieľov pri tvorbe aplikácie určenej na takúto extrakciu dát je používateľská prívetivosť a jednoduchosť definovania vstupných požiadaviek. Postup, ktorý aplikácie na extrakciu dát využívajú, je prevažne rovnaký a~skladá sa z troch primárnych krokov \ref{WebScrap_img}:
 \begin{enumerate}
   \item odoslanie GET požiadavky na webový server a následné obdržanie odpovedi,
   \item analýza HTML kódu na základe stromovej štruktúry,
@@ -793,7 +793,7 @@ Po vygenerovaní výsledkov pre každý webový dokument v danej extrakčnej úl
 \chapter{Testovanie a vyhodnotenie výsledkov}
 \label{testing}
 
-Aplikačné testovanie a vyhodnotenie dosiahnutých výsledkov je veľmi dôležitou súčasťou tvorby každého projektu. Preto sa táto kapitola zameriava práve na zhodnotenie výsledkov, ktoré vyvinutá aplikácia dosiahla. 
+Aplikačné testovanie a vyhodnotenie dosiahnutých výsledkov je veľmi dôležitou súčasťou tvorby každého projektu. Preto sa táto kapitola zameriava práve na vyhodnotenie výsledkov, ktoré vyvinutá aplikácia dosiahla. 
 
 Testovanie prebiehalo do určitej časti zároveň s vývojom aplikácie, avšak rozsiahlejšie testy boli uskutočnené až s vytvorením rôznych diverzifikovaných testovacích sád.
 
@@ -924,7 +924,7 @@ Na záver sú vypísané priemerné výsledky pre testovanú sadu.
 
 \bigskip
 
-Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové zhodnotenie výsledkov. Pri takom množstve súborov, aké sa v testovacej sade nachádza, by manuálna kontrola a vyhodnotenie prebiehalo len veľmi ťažko.
+Vytvorenie tohto testovacieho skriptu bolo zároveň kľúčové pre celkové vyhodnotenie výsledkov. Pri takom množstve súborov, aké sa v testovacej sade nachádza, by manuálna kontrola a vyhodnotenie prebiehalo len veľmi ťažko.
 
 \newpage
 
@@ -1269,8 +1269,8 @@ Táto technická správa najskôr rozoberá aktuálne prístupy k problematike a
 
 Implementácia bola rozdelená do viacerých logických častí. Najskôr bola navrhnutá logika a následne bola táto logika rozvedená na zabezpečenie požadovaných výsledkov. Aplikácia bola ďalej rozšírená o funkcie, ktoré pomohli docieliť požadovanú kvalitu výsledkov.
 
-Z testovania aplikácie vyplýva, že priemerná rýchlosť extrakcie sa pohybuje na úrovni 1215 milisekúnd, hodnota udávajúca priemernú presnosť je 85,61\% a priemerná hodnota recall 80,28\%. 
+Z testovania aplikácie vyplýva, že priemerná rýchlosť extrakcie sa pohybuje na úrovni 1215 milisekúnd, hodnota udávajúca priemernú presnosť je 85,51\% a priemerná hodnota recall 80,28\%. 
 
 Aplikácia využíva moderné technológie ako napríklad Node.js, Puppeteer a Chromium. Vďaka technológii Node.js a jej modernému spôsobu spracovania modulov je navyše inštalácia závislostí jednoduchá a rýchla. Najdôležitejšou technológiou pre výslednú aplikáciu je práve Puppeteer. Táto technológia má podľa mňa veľký potenciál. Stretol som sa s ňou v~tejto práci prvýkrát, ale rýchlo som si osvojil jej vlastnosti a funkcie. Kvôli jej integrácii a funkcionalitám, ktoré ponúka dúfam, že v budúcnosti bude pokračovať jej vývoj a budem môcť pracovať na podobných projektoch alebo rozvíjať aktuálnu prácu.
 
-Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. To by mohlo pozostávať z vytvárania vzťahov medzi rôznymi webovými dokumentami a extrahovanými údajmi alebo by aplikácia mohla vytvárať pri analýze webového dokumentu pomocné relačné vzťahy.
+Výsledná aplikácia dosahuje výsledky rýchlo a relatívne kvalitne, avšak vždy je miesto na zlepšenie. To by mohlo pozostávať z vytvárania vzťahov medzi rôznymi webovými dokumentami a extrahovanými údajmi alebo by aplikácia mohla pri analýze webového dokumentu vytvárať pomocné relačné vzťahy.
